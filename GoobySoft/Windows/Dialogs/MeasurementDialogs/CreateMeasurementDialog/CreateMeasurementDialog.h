@@ -1,0 +1,6 @@
+#ifndef CreateMeasurementDialog
+#define CreateMeasurementDialog
+
+void Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasurementDialog(bool* createMeasurement);
+
+#endif // !CreateMeasurementDialog

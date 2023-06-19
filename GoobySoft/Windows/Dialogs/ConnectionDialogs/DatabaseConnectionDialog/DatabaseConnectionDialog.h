@@ -1,0 +1,6 @@
+#ifndef DatabaseConnectionDialog
+#define DatabaseConnectionDialog
+
+void Windows_Dialogs_ConnectionDialogs_DatabaseConnectionDialog_showDatabaseConnectionDialog(bool* selectDatabaseServer);
+
+#endif DatabaseConnectionDialog

@@ -1,0 +1,6 @@
+#ifndef ConfigureMeasurementDialog
+#define ConfigureMeasurementDialog
+
+void Windows_Dialogs_MeasurementDialogs_ConfigureMeasurementDialog_showConfigureMeasurementDialog(bool* configureMeasurement);
+
+#endif // !ConfigureMeasurementDialog

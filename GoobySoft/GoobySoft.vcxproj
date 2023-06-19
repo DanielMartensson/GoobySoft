@@ -102,8 +102,9 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,6 +129,64 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GoobySoft.cpp" />
+    <ClCompile Include="Tools\Communications\Devices\ADL400\ADL400.cpp" />
+    <ClCompile Include="Tools\Gui\CreateDialogs\CreateDialogs.cpp" />
+    <ClCompile Include="Tools\Gui\CreateDialogs\ImGuiFileDialog\ImGuiFileDialog.cpp" />
+    <ClCompile Include="Tools\Gui\CreateItems\CreateItems.cpp" />
+    <ClCompile Include="Tools\Hardware\FileSystem\FileSystem.cpp" />
+    <ClCompile Include="Tools\Hardware\USB\Protocols\CDC\CDC.cpp" />
+    <ClCompile Include="Tools\Hardware\USB\Protocols\Modbus\Modbus.cpp" />
+    <ClCompile Include="Tools\Hardware\USB\USB.cpp" />
+    <ClCompile Include="Tools\Software\Algorithms\Algorithms.cpp" />
+    <ClCompile Include="Tools\Storage\Databases\Databases.cpp" />
+    <ClCompile Include="Tools\Storage\Databases\MySQL\MySQL.cpp" />
+    <ClCompile Include="Tools\Storage\Parameters\Parameters.cpp" />
+    <ClCompile Include="Windows\Dialogs\ConnectionDialogs\DatabaseConnectionDialog\DatabaseConnectionDialog.cpp" />
+    <ClCompile Include="Windows\Dialogs\ConnectionDialogs\USBConnectionDialog\USBConnectionDialog.cpp" />
+    <ClCompile Include="Windows\Dialogs\FileDialogs\LogFilePathDialog\LogFilePathDialog.cpp" />
+    <ClCompile Include="Windows\Dialogs\MeasurementDialogs\ConfigureMeasurementDialog\ConfigureMeasurementDialog.cpp" />
+    <ClCompile Include="Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp" />
+    <ClCompile Include="Windows\Windows.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Tools\Communications\Communications.h" />
+    <ClInclude Include="Tools\Communications\Devices\ADL400\ADL400.h" />
+    <ClInclude Include="Tools\Communications\Devices\Devices.h" />
+    <ClInclude Include="Tools\Gui\CreateDialogs\CreateDialogs.h" />
+    <ClInclude Include="Tools\Gui\CreateDialogs\ImGuiFileDialog\dirent\dirent.h" />
+    <ClInclude Include="Tools\Gui\CreateDialogs\ImGuiFileDialog\ImGuiFileDialog.h" />
+    <ClInclude Include="Tools\Gui\CreateDialogs\ImGuiFileDialog\ImGuiFileDialogConfig.h" />
+    <ClInclude Include="Tools\Gui\CreateDialogs\ImGuiFileDialog\stb\stb_image.h" />
+    <ClInclude Include="Tools\Gui\CreateDialogs\ImGuiFileDialog\stb\stb_image_resize.h" />
+    <ClInclude Include="Tools\Gui\CreateItems\CreateItems.h" />
+    <ClInclude Include="Tools\Gui\Gui.h" />
+    <ClInclude Include="Tools\Hardware\FileSystem\FileSystem.h" />
+    <ClInclude Include="Tools\Hardware\Hardware.h" />
+    <ClInclude Include="Tools\Hardware\USB\Protocols\CDC\CDC.h" />
+    <ClInclude Include="Tools\Hardware\USB\Protocols\Modbus\Modbus.h" />
+    <ClInclude Include="Tools\Hardware\USB\Protocols\Protocols.h" />
+    <ClInclude Include="Tools\Hardware\USB\USB.h" />
+    <ClInclude Include="Tools\Software\Algorithms\Algorithms.h" />
+    <ClInclude Include="Tools\Software\Software.h" />
+    <ClInclude Include="Tools\Storage\Databases\Databases.h" />
+    <ClInclude Include="Tools\Storage\Databases\MySQL\MySQL.h" />
+    <ClInclude Include="Tools\Storage\Parameters\Parameters.h" />
+    <ClInclude Include="Tools\Storage\Storage.h" />
+    <ClInclude Include="Tools\Tools.h" />
+    <ClInclude Include="Windows\Dialogs\ConnectionDialogs\ConnectionDialogs.h" />
+    <ClInclude Include="Windows\Dialogs\ConnectionDialogs\DatabaseConnectionDialog\DatabaseConnectionDialog.h" />
+    <ClInclude Include="Windows\Dialogs\ConnectionDialogs\USBConnectionDialog\USBConnectionDialog.h" />
+    <ClInclude Include="Windows\Dialogs\Dialogs.h" />
+    <ClInclude Include="Windows\Dialogs\FileDialogs\FileDialogs.h" />
+    <ClInclude Include="Windows\Dialogs\FileDialogs\LogFilePathDialog\LogFilePathDialog.h" />
+    <ClInclude Include="Windows\Dialogs\MeasurementDialogs\ConfigureMeasurementDialog\ConfigureMeasurementDialog.h" />
+    <ClInclude Include="Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.h" />
+    <ClInclude Include="Windows\Dialogs\MeasurementDialogs\MeasurementDialogs.h" />
+    <ClInclude Include="Windows\Windows.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgui.ini" />
+    <None Include="parameters.dat" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
