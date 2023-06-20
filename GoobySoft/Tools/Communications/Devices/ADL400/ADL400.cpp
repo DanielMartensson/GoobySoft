@@ -2,10 +2,6 @@
 #include "../../../Tools.h"
 #include <stdint.h>
 
-// Tillfälligt
-#include <random>
-
-
 // Configuration table
 std::vector<std::vector<std::string>> configurationTable = { HEADERS_ADL400 };
 
@@ -49,7 +45,8 @@ size_t Tools_Communications_Devices_ADL400_getConfigurationTableDataSize() {
 }
 
 float Tools_Communications_Devices_ADL400_execute(size_t i) {
-	const char* port = Tools_Communications_Devices_ADL400_getPort(i).c_str();
+	std::string portSTR = Tools_Communications_Devices_ADL400_getPort(i);
+	const char* port = portSTR.c_str();
 	int slaveAddress = std::stoi(Tools_Communications_Devices_ADL400_getSlaveAddress(i));
 	std::string function = Tools_Communications_Devices_ADL400_getFunction(i);
 	int index = Tools_Software_Algorithms_findIndexOf(FUNCTION_NAMES_ADL400, function);
@@ -92,12 +89,5 @@ float Tools_Communications_Devices_ADL400_execute(size_t i) {
 		break;
 	}
 
-	std::random_device rd;
-	std::mt19937 generator(rd());
-
-	// Skapa en fördelning för heltal mellan 1 och 100
-	std::uniform_int_distribution<int> distribution(1, 100);
-
-	value = distribution(generator);
 	return value;
 }

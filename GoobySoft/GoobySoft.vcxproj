@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -149,6 +149,9 @@
     <ClCompile Include="Windows\Windows.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Resources\Images\Gooby.h" />
+    <ClInclude Include="Resources\Images\resource1.h" />
+    <ClInclude Include="Resources\Resources.h" />
     <ClInclude Include="Tools\Communications\Communications.h" />
     <ClInclude Include="Tools\Communications\Devices\ADL400\ADL400.h" />
     <ClInclude Include="Tools\Communications\Devices\Devices.h" />
@@ -187,6 +190,14 @@
   <ItemGroup>
     <None Include="imgui.ini" />
     <None Include="parameters.dat" />
+    <None Include="Resources\Images\data1.bin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\Images\Gooby.ico" />
+    <Image Include="Resources\Images\Gooby.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources\Images\Images.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

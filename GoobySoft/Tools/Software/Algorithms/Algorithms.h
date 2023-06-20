@@ -5,7 +5,6 @@
 
 std::string Tools_Software_Algorithms_getISO8601Time();
 
-
 template <typename T, std::size_t N>
 int Tools_Software_Algorithms_findIndexOf(const T(&arr)[N], const T& value) {
     for (std::size_t i = 0; i < N; i++) {

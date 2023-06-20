@@ -27,12 +27,14 @@
 #endif
 #include <GLFW/glfw3.h> // Will drag system OpenGL HEADERS_ADL400
 
+
 // No console
-//#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
+#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 
 /* My own header fiels */
 #include "Windows/Windows.h"
-#include "Tools/Storage/Parameters/Parameters.h"
+#include "Tools/Tools.h"
+#include "Resources/Resources.h"
 
 // [Win32] Our example includes a copy of glfw3.lib pre-compiled with VS2010 to maximize ease of testing and compatibility with old VS compilers.
 // To link with VS2010-era libraries, VS2015+ requires linking with legacy_stdio_definitions.lib, which we do using this pragma.
@@ -124,6 +126,11 @@ int main(int, char**)
     bool show_demo_window = true;
     bool show_another_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+
+    // Set icon
+    GLFWimage icon = { GOOBY_ICON_WIDTH,GOOBY_ICON_HEIGHT, GOOBY_ICON };
+    glfwSetWindowIcon(window, 1, &icon);
+ 
 
     // Load parameters 
     Tools_Hardware_ParameterStore_loadParameters();

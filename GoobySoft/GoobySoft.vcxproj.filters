@@ -176,9 +176,34 @@
     <ClInclude Include="Windows\Windows.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Resources\Images\resource1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\Images\Gooby.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="parameters.dat" />
     <None Include="imgui.ini" />
+    <None Include="Resources\Images\data1.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\Images\Gooby.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Images\Gooby.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources\Images\Images.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
