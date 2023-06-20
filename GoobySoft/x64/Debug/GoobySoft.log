@@ -1,14 +1,4 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (ModBusReader.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   GoobySoft.cpp
-  ADL400.cpp
-  USB.cpp
-  Algorithms.cpp
-  DatabaseConnectionDialog.cpp
-  USBConnectionDialog.cpp
-  LogFilePathDialog.cpp
-  ConfigureMeasurementDialog.cpp
-  CreateMeasurementDialog.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(64,81): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
      Creating library C:\Users\dmn\GitHub\GoobySoft\x64\Debug\GoobySoft.lib and object C:\Users\dmn\GitHub\GoobySoft\x64\Debug\GoobySoft.exp
   GoobySoft.vcxproj -> C:\Users\dmn\GitHub\GoobySoft\x64\Debug\GoobySoft.exe

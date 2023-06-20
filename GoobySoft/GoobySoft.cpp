@@ -9,7 +9,6 @@
     - opengl:x64-windows
     - boost-asio:x64-windows
     - mysql-connector-cpp:x64-windows
-    - stb:x64-windows
     - boost-filesystem:x64-windows
     - libmodbus:x64-windows
     - implot:x64-windows
@@ -131,7 +130,6 @@ int main(int, char**)
     GLFWimage icon = { GOOBY_ICON_WIDTH,GOOBY_ICON_HEIGHT, GOOBY_ICON };
     glfwSetWindowIcon(window, 1, &icon);
  
-
     // Load parameters 
     Tools_Hardware_ParameterStore_loadParameters();
 

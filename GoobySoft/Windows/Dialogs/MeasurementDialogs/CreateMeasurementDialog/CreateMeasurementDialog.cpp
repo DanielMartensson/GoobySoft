@@ -61,7 +61,7 @@ void clearAndResize(const size_t tableSize, std::vector<std::vector<float>>& xDa
 void plotVectors(const std::string& displayName, const size_t i, std::vector<std::vector<float>>& xData, std::vector<std::vector<float>>& yData) {
 	size_t s = yData.at(i).size();
 	if (s > 0) {
-		ImPlot::PlotLine(displayName.c_str(), xData.at(i).data(), yData.at(i).data(), s);
+		ImPlot::PlotLine(displayName.c_str(), xData.at(i).data(), yData.at(i).data(), (int)s);
 	}
 }
 
