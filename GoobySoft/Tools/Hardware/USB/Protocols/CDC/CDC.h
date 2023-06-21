@@ -8,5 +8,8 @@ bool Tools_Hardware_USB_Protocols_CDC_openConnection(const char port[], const un
 std::vector<std::string> Tools_Hardware_USB_Protocols_CDC_getAllPorts();
 bool Tools_Hardware_USB_Protocols_CDC_isConnected(const char port[]);
 std::vector<std::string> Tools_Hardware_USB_Protocols_CDC_getPortsOfConnectedDevices();
+void Tools_Hardware_USB_Protocols_CDC_writeData(const char port[], const uint8_t data[], const size_t length);
+std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_readData(const char port[], const long long timeOutMicroseconds);
+
 
 #endif // !CDC

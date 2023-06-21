@@ -80,6 +80,7 @@ void Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasur
 
 		// Start button
 		static bool isStarted = false;
+		static int rowCount = 0;
 		if (isStarted) {
 			ImGui::PushStyleColor(ImGuiCol_Button, COLOR_GREEN);
 		}
@@ -108,6 +109,9 @@ void Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasur
 				// New line
 				measurementFile << std::endl;
 
+
+				// Start the count
+				rowCount = 0;
 			}
 		}
 		ImGui::PopStyleColor();
@@ -121,7 +125,7 @@ void Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasur
 		else {
 			ImGui::PushStyleColor(ImGuiCol_Button, COLOR_GREEN);
 		}
-		if (ImGui::Button("Stop")) {
+		if (ImGui::Button("Stop") || rowCount == INT32_MAX) {
 			isStarted = false;
 			measurementFile.close();
 		}
@@ -140,6 +144,11 @@ void Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasur
 			pause = !pause;
 		}
 		ImGui::PopStyleColor();
+
+		// Create row count
+		char text[100];
+		sprintf_s(text, "Row %i of %i", rowCount, INT32_MAX);
+		ImGui::Text(text);
 
 		// This is only for the design
 		ImGui::Separator();
@@ -181,6 +190,9 @@ void Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasur
 				// New line in measurement file
 				if (performMeasurementUpdate) {
 					measurementFile << std::endl;
+
+					// Count row
+					rowCount++;
 				}
 
 				// End plot

@@ -1,12 +1,8 @@
 ﻿  CreateMeasurementDialog.cpp
-  ViewMeasurementDialog.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\ViewMeasurementDialog\ViewMeasurementDialog.cpp(90,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\ViewMeasurementDialog\ViewMeasurementDialog.cpp(90,43): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\ViewMeasurementDialog\ViewMeasurementDialog.cpp(96,89): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
      Creating library C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.lib and object C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exp
   Generating code
-  279 of 4797 functions ( 5.8%) were compiled, the rest were copied from previous compilation.
-    6 functions were new in current compilation
-    50 functions had inline decision re-evaluated but remain unchanged
+  2 of 5011 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   GoobySoft.vcxproj -> C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exe

@@ -53,6 +53,10 @@ bool Tools_Hardware_USB_Protocols_Modbus_closeConnection(const char port[]) {
 		return true;
 	}
 	else {
+		if (modbusDeviceExist(port)) {
+			modbus_free(getDevice(port));
+			devices.erase(port);
+		}
 		return false;
 	}
 }

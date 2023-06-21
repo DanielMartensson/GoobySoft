@@ -87,13 +87,13 @@ void Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasuremen
 						// Cut yData between from and to with step
 						std::vector<float> yData;
 						std::vector<float> xData;
-						for (int j = from - 1; j < to; j += withStep) {
+						for (size_t j = from - 1; j < to; j += withStep) {
 							yData.push_back(column.at(j));
 							xData.push_back(((float)j) + 1.0f);
 						}
 
 						// Plot
-						ImPlot::PlotLine(columnNames.at(i).c_str(), xData.data(), yData.data(), yData.size());
+						ImPlot::PlotLine(columnNames.at(i).c_str(), xData.data(), yData.data(), (int)yData.size());
 
 					}
 				}

@@ -6,7 +6,6 @@
 boost::asio::io_service io;
 std::map<std::string, std::shared_ptr<boost::asio::serial_port>> devices;
 
-
 bool CDCDeviceExist(const char port[]) {
 	return devices.find(port) != devices.end() ? true : false;
 }
@@ -62,6 +61,9 @@ bool Tools_Hardware_USB_Protocols_CDC_closeConnection(const char port[]) {
 		return true;
 	}
 	else {
+		if (CDCDeviceExist(port)) {
+			devices.erase(port);
+		}
 		return false;
 	}
 }
@@ -149,4 +151,34 @@ std::vector<std::string> Tools_Hardware_USB_Protocols_CDC_getPortsOfConnectedDev
 		ports.push_back(port);
 	}
 	return ports;
+}
+
+void Tools_Hardware_USB_Protocols_CDC_writeData(const char port[], const uint8_t data[], const size_t length) {
+	if (CDCDeviceExist(port)) {
+		auto writeHandler = [&](const boost::system::error_code& errorCode, std::size_t bytesTransferred) {};
+		devices.at(port)->async_write_some(boost::asio::buffer(data, length), writeHandler);
+	}
+}
+
+std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_readData(const char port[], const long long timeOutMicroseconds) {
+	std::vector<uint8_t> data;
+	if (CDCDeviceExist(port)) {
+
+		// Create clock
+		boost::asio::steady_timer timer(io, std::chrono::milliseconds(timeOutMicroseconds));
+		
+		// Create read handler
+		auto readHandler = [&](const boost::system::error_code& errorCode, std::size_t bytesTransferred) {};
+
+		// Read
+		devices.at(port)->async_read_some(boost::asio::buffer(data), readHandler);
+		
+		// Start asyncronus timer
+		timer.async_wait([&](const boost::system::error_code& errorCode) {});
+
+		// Run
+		io.run();
+
+	}
+	return data;
 }
