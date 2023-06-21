@@ -16,4 +16,5 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConnectionDialogs\USBCon
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\FileDialogs\LogFilePathDialog\LogFilePathDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\LogFilePathDialog.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\ConfigureMeasurementDialog\ConfigureMeasurementDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\ConfigureMeasurementDialog.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\CreateMeasurementDialog.obj
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\ViewMeasurementDialog\ViewMeasurementDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\ViewMeasurementDialog.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Windows.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\Windows.obj

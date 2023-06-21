@@ -121,7 +121,7 @@ bool Tools_Gui_CreateDialogs_showPopUpComboInputTextMultiDialogOKCancle(const ch
 	return isPressedOK;
 }
 
-void Tools_Gui_CreateDialogs_showFileDialog(bool* isOpen, bool* isPressedOK, const char fileFilter[], std::string& folderPath, std::string& filePathName, ImGuiFileDialogFlags flags) {
+void Tools_Gui_CreateDialogs_showFileDialog(bool* isOpen, bool* isPressedOK, const char fileFilter[], std::string& folderPath, std::string& filePathName, std::string& fileName, ImGuiFileDialogFlags flags) {
 	if (*isOpen) {
 		ImGuiFileDialog::Instance()->OpenDialog("FileDialogKey", "File dialog", fileFilter, filePathName, 1, nullptr, flags); // fileFilter[] = ".cpp,.h,.hpp" 
 
@@ -133,6 +133,7 @@ void Tools_Gui_CreateDialogs_showFileDialog(bool* isOpen, bool* isPressedOK, con
 			{
 				filePathName = ImGuiFileDialog::Instance()->GetFilePathName();
 				folderPath = ImGuiFileDialog::Instance()->GetCurrentPath();
+				fileName = ImGuiFileDialog::Instance()->GetCurrentFileName();
 				// Action
 				*isPressedOK = true;
 			}

@@ -13,6 +13,7 @@
     - libmodbus:x64-windows
     - implot:x64-windows
     - boost-date-time:x64-windows
+    - rapidcsv:x64-windows
 
 */
 

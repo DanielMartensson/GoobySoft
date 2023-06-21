@@ -9,6 +9,7 @@ bool selectUSBPorts = false;
 bool selectDatabaseServer = false;
 bool configureMeasurement = false;
 bool createMeasurement = false;
+bool viewMeasurement = false;
 
 void showMainWindow() {
 	// Show the main window
@@ -42,6 +43,9 @@ void showMainWindow() {
 			if (ImGui::MenuItem("Create measurement", nullptr, nullptr)) {
 				createMeasurement = true;
 			}
+			if (ImGui::MenuItem("View measurement", nullptr, nullptr)) {
+				viewMeasurement = true;
+			}
 
 			ImGui::EndMenu();
 		}
@@ -71,6 +75,10 @@ void showMainWindow() {
 		if (createMeasurement) {
 			ImGui::OpenPopup("Create measurement");
 			Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasurementDialog(&createMeasurement);
+		}
+		if (viewMeasurement) {
+			ImGui::OpenPopup("View measurement");
+			Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasurementDialog(&viewMeasurement);
 		}
 
 		ImGui::EndMainMenuBar();

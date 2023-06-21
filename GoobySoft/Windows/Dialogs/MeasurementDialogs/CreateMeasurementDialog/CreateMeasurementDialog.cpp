@@ -99,7 +99,8 @@ void Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasur
 
 				// ADL400 display names
 				std::vector<std::string> displayNamesADL400 = Tools_Communications_Devices_ADL400_getDisplayNames();
-				for (size_t i = 0; i < displayNamesADL400.size(); i++) {
+				const size_t displayNamesADL400Size = displayNamesADL400.size();
+				for (size_t i = 0; i < displayNamesADL400Size; i++) {
 					measurementFile << displayNamesADL400.at(i) << ",";
 				}
 				// Add more..

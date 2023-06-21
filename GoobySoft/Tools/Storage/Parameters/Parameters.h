@@ -19,6 +19,7 @@ struct ModbusSettings {
 struct FileSettings {
 	char filePathName[1024] = "";
 	char folderPath[1024] = "";
+	char fileName[256] = "";
 };
 
 struct DatabaseSettings {

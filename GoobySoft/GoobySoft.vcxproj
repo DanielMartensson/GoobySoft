@@ -147,6 +147,7 @@
     <ClCompile Include="Windows\Dialogs\FileDialogs\LogFilePathDialog\LogFilePathDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\MeasurementDialogs\ConfigureMeasurementDialog\ConfigureMeasurementDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp" />
+    <ClCompile Include="Windows\Dialogs\MeasurementDialogs\ViewMeasurementDialog\ViewMeasurementDialog.cpp" />
     <ClCompile Include="Windows\Windows.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +187,7 @@
     <ClInclude Include="Windows\Dialogs\MeasurementDialogs\ConfigureMeasurementDialog\ConfigureMeasurementDialog.h" />
     <ClInclude Include="Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.h" />
     <ClInclude Include="Windows\Dialogs\MeasurementDialogs\MeasurementDialogs.h" />
+    <ClInclude Include="Windows\Dialogs\MeasurementDialogs\ViewMeasurementDialog\ViewMeasurementDialog.h" />
     <ClInclude Include="Windows\Windows.h" />
   </ItemGroup>
   <ItemGroup>

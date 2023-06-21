@@ -1,5 +1,5 @@
-#ifndef ADL400_H
-#define ADL400_H
+#ifndef ADL400
+#define ADL400
 #include <string>
 #include <vector>
 
@@ -23,4 +23,4 @@ size_t Tools_Communications_Devices_ADL400_getConfigurationTableDataSize();
 float Tools_Communications_Devices_ADL400_execute(size_t i);
 
 
-#endif // !ADL400_H
+#endif // !ADL400

@@ -72,6 +72,9 @@
     <ClCompile Include="Windows\Windows.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Windows\Dialogs\MeasurementDialogs\ViewMeasurementDialog\ViewMeasurementDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tools\Communications\Devices\ADL400\ADL400.h">
@@ -183,6 +186,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Resources\Images\Gooby.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\Dialogs\MeasurementDialogs\ViewMeasurementDialog\ViewMeasurementDialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
