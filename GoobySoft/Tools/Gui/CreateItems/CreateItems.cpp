@@ -10,7 +10,7 @@ void Tools_Gui_CreateItems_createCombo(const char label[], const std::vector<std
 	else {
 		if (ImGui::BeginCombo(label, selectedItem.c_str())) {
 			for (int i = 0; i < items.size(); i++) {
-				bool isSelected = items.at(i)._Equal(selectedItem.c_str()); // You can store your selection however you want, outside or inside your objects
+				bool isSelected = items.at(i).compare(selectedItem) == 0; // You can store your selection however you want, outside or inside your objects
 				if (ImGui::Selectable(items.at(i).c_str(), isSelected)) {
 					selectedItem = std::string(items.at(i));
 				}
@@ -24,7 +24,7 @@ void Tools_Gui_CreateItems_createListBox(const char label[], const float height,
 	ImVec2 listBoxSize(height, width);
 	if (ImGui::BeginListBox(label, listBoxSize)) {
 		for (int i = 0; i < items.size(); i++) {
-			bool is_selected = items.at(i)._Equal(selectedItem.c_str()); // You can store your selection however you want, outside or inside your objects
+			bool is_selected = items.at(i).compare(selectedItem) == 0; // You can store your selection however you want, outside or inside your objects
 			if (ImGui::Selectable(items.at(i).c_str(), is_selected)) {
 				selectedItem = std::string(items.at(i));
 				*selectedIndex = i;

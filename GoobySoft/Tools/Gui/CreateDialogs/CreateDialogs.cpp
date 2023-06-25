@@ -1,6 +1,7 @@
 #include "CreateDialogs.h"
 #include "ImGuiFileDialog/ImGuiFileDialog.h"
 #include "../CreateItems/CreateItems.h"
+#include <cstring>
 
 bool Tools_Gui_CreateDialogs_showPopUpConfirmDialogOKCancleWithCheckBox(const char popUpId[], const char question[], const char checkBoxConfirm[], void (*confirmCallBack)(void)) {
 	ImVec2 popUpCenterPosition(ImGui::GetWindowPos().x + ImGui::GetWindowSize().x * 0.5f, ImGui::GetWindowPos().y + ImGui::GetWindowSize().y * 0.5f);
@@ -62,7 +63,7 @@ bool Tools_Gui_CreateDialogs_showPopUpInputTextDialogOKCancle(const char popUpId
 			if (inputTextCallBack != nullptr) {
 				inputTextCallBack(fileName);
 			}
-			memset(fileName, 0, sizeof(fileName));
+			std::memset(fileName, 0, sizeof(fileName));
 			isPressedOK = true;
 			ImGui::CloseCurrentPopup();
 		}

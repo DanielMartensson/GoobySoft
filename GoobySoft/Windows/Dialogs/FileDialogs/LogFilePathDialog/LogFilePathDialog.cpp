@@ -1,5 +1,6 @@
 #include "LogFilePathDialog.h"
 #include "../../../../Tools/Tools.h"
+#include <string.h>
 
 bool Windows_Dialogs_FileDialogs_LogFilePathDialog_showSelectFileDialog(bool* selectFile) {
 	std::string folderPath;
