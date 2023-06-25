@@ -195,7 +195,6 @@
   <ItemGroup>
     <None Include="imgui.ini" />
     <None Include="parameters.dat" />
-    <None Include="Resources\Images\data1.bin" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Images\Gooby.ico" />
