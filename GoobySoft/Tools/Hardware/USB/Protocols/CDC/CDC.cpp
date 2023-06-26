@@ -1,7 +1,7 @@
 #include "CDC.h"
 #include <boost/asio.hpp>
 #include <map>
-#include <stdio.h>
+#include <cstdio>
 #include "../../USB.h"
 
 boost::asio::io_service io;
@@ -36,12 +36,12 @@ std::vector<std::string> Tools_Hardware_USB_Protocols_CDC_getAllPorts() {
 	for (int i = 0; i < 127; i++) {
 		try {
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
-			sprintf_s(port, "COM%i", i);
+			std::sprintf(port, "COM%i", i);
 			checkPort(ports, port);
 #else
-			sprintf_s(port, "/dev/ttyAMC%i", i);
+			std::sprintf(port, "/dev/ttyAMC%i", i);
 			checkPort(ports, port);
-			sprintf_s(port, "/dev/ttyUSB%i", i);
+			std::sprintf(port, "/dev/ttyUSB%i", i);
 			checkPort(ports, port);
 #endif
 

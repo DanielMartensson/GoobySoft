@@ -1,6 +1,6 @@
 #include "MySQL.h"
 #include <mysqlx/xdevapi.h>
-#include <stdio.h>
+#include <cstdio>
 
 mysqlx::Session* connection = nullptr;
 MYSQL_STATUS connectedToDatabase = MYSQL_STATUS_DISCONNECTED;
@@ -44,7 +44,7 @@ inline std::vector<std::vector<std::string>> getRowsFrom(mysqlx::RowResult& rows
 				minute = first[5];
 				second = first[6];
 				microsecond = (first[10] << 21) | (first[9] << 14) | (first[8] << 7) | (first[7] & 0x7f);
-				sprintf_s(text, "%i-%i-%i %i:%i:%i.%i", year, month, date, hour, minute, second, microsecond);
+				std::sprintf(text, "%i-%i-%i %i:%i:%i.%i", year, month, date, hour, minute, second, microsecond);
 				dataRow.push_back(text);
 				break;
 			default:

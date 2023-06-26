@@ -1,8 +1,6 @@
 #include "CreateDialogs.h"
 #include "../../Tools.h"
 #include <cstring>
-#define __STDC_WANT_LIB_EXT1__ 1
-#include <string.h>
 
 bool Tools_Gui_CreateDialogs_showPopUpConfirmDialogOKCancleWithCheckBox(const char popUpId[], const char question[], const char checkBoxConfirm[], void (*confirmCallBack)(void)) {
 	ImVec2 popUpCenterPosition(ImGui::GetWindowPos().x + ImGui::GetWindowSize().x * 0.5f, ImGui::GetWindowPos().y + ImGui::GetWindowSize().y * 0.5f);
@@ -103,7 +101,7 @@ bool Tools_Gui_CreateDialogs_showPopUpComboInputTextMultiDialogOKCancle(const ch
 			else {
 				// TextInput
 				char text[200];
-				strcpy_s(text, selectedItems.at(i).c_str());
+				std::strcpy(text, selectedItems.at(i).c_str());
 				ImGui::InputText(labels.at(i).c_str(), text, sizeof(text));
 				selectedItems.at(i) = std::string(text);
 			}
