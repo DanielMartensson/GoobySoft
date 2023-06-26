@@ -47,6 +47,7 @@ std::vector<std::string> Tools_Hardware_USB_Protocols_CDC_getAllPorts() {
 
 		}
 		catch (const boost::system::system_error& ex) {
+			std::printf("error code = %i\n", ex.code().value());
 			if (boost::asio::error::no_permission == ex.code().value()) {
 				ports.push_back(port);
 			}
