@@ -39,6 +39,14 @@ else()
     message(FATAL_ERROR "Boost library not found")
 endif()
 
+# Hitta och länka mot boost-filesystem
+find_package(Boost REQUIRED COMPONENTS filesystem)
+if (Boost_FOUND)
+    target_link_libraries(GoobySoft PRIVATE Boost::filesystem)
+else()
+    message(FATAL_ERROR "Boost Filesystem library not found")
+endif()
+
 # Hitta och länka mot OpenGL
 find_package(OpenGL REQUIRED)
 if (OpenGL_FOUND)
