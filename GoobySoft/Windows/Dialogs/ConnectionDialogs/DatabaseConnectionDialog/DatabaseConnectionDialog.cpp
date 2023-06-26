@@ -1,6 +1,6 @@
 #include "DatabaseConnectionDialog.h"
 #include "../../../../Tools/Tools.h"
-#include <stdio.h>
+#include <cstdio>
 
 // Connection callback
 bool connectionCallbackDatabase() {
@@ -50,7 +50,7 @@ void Windows_Dialogs_ConnectionDialogs_DatabaseConnectionDialog_showDatabaseConn
 			}
 		}
 		char question[100];
-		sprintf_s(question, "Do you want to delete the schema name: %s", Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.schema);
+		std::sprintf(question, "Do you want to delete the schema name: %s", Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.schema);
 		Tools_Gui_CreateDialogs_showPopUpConfirmDialogOKCancleWithCheckBox(popUpId, question, "Yes, I want to delete the schema", deleteCallbackDatabase);
 		ImGui::End();
 	}
