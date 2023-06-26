@@ -18,7 +18,7 @@ Database connection
 
 View measurements
 
-![a](https://github.com/DanielMartensson/GoobySoft/blob/main/Pictures/ViewMeasurements.png?raw=true)
+![a](https://github.com/DanielMartensson/GoobySoft/blob/main/Pictures/ViewMeasurement.png?raw=true)
 
 Measuring process
 
