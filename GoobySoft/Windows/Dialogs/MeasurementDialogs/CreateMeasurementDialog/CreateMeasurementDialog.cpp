@@ -2,7 +2,7 @@
 #include "../../../../Tools/Tools.h"
 #include <chrono>
 #include <fstream>
-#include <stdio.h>
+#include <cstdio>
 
 // File
 std::ofstream measurementFile;
@@ -147,7 +147,7 @@ void Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasur
 
 		// Create row count
 		char text[100];
-		sprintf_s(text, "Row %i of %i", rowCount, INT32_MAX);
+		std::sprintf(text, "Row %i of %i", rowCount, INT32_MAX);
 		ImGui::Text(text);
 
 		// This is only for the design
