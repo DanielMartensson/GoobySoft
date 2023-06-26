@@ -39,7 +39,7 @@ std::vector<std::string> Tools_Hardware_USB_Protocols_CDC_getAllPorts() {
 			std::sprintf(port, "COM%i", i);
 			checkPort(ports, port);
 #else
-			std::sprintf(port, "/dev/ttyAMC%i", i);
+			std::sprintf(port, "/dev/ttyACM%i", i);
 			checkPort(ports, port);
 			std::sprintf(port, "/dev/ttyUSB%i", i);
 			checkPort(ports, port);
@@ -47,7 +47,6 @@ std::vector<std::string> Tools_Hardware_USB_Protocols_CDC_getAllPorts() {
 
 		}
 		catch (const boost::system::system_error& ex) {
-			std::printf("error code = %i, %s\n", ex.code().value(), port);
 			if (boost::asio::error::no_permission == ex.code().value()) {
 				ports.push_back(port);
 			}
