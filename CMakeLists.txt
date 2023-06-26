@@ -15,16 +15,16 @@ include_directories(${INCLUDES})
 
 set(LIB_PATH "/usr/lib/x86_64-linux-gnu")
 
-find_library(LIBMODBUS_LIBRARY NAMES libmodbus PATHS ${LIB_PATH})
+find_library(LIBMODBUS_LIBRARY NAMES modbus PATHS ${LIB_PATH})
 target_link_libraries(GoobySoft ${LIBMODBUS_LIBRARY})
 
-find_library(LIBMYSQLCPPCONN_LIBRARY NAMES libmysqlcppconn PATHS ${LIB_PATH})
+find_library(LIBMYSQLCPPCONN_LIBRARY NAMES mysqlcppconn PATHS ${LIB_PATH})
 target_link_libraries(GoobySoft LIBMYSQLCPPCONN_LIBRARY)
 
-find_library(LIBOPENGL_LIBRARY NAMES libOpenGl PATHS ${LIB_PATH})
+find_library(LIBOPENGL_LIBRARY NAMES OpenGl PATHS ${LIB_PATH})
 target_link_libraries(GoobySoft LIBOPENGL_LIBRARY)
 
-find_library(LIBGLFW3_LIBRARY NAMES libglfw3 PATHS ${LIB_PATH})
+find_library(LIBGLFW3_LIBRARY NAMES glfw3 PATHS ${LIB_PATH})
 target_link_libraries(GoobySoft LIBGLFW3_LIBRARY)
 
 add_executable(GoobySoft ${SOURCES})
