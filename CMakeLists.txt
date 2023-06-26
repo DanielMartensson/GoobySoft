@@ -13,7 +13,7 @@ file(GLOB_RECURSE INCLUDES "GoobySoft/*.h")
 
 include_directories(${INCLUDES})
 
-target_link_libraries(GoobySoft modbus)
+target_link_libraries(GoobySoft libmodbus)
 
 target_link_libraries(GoobySoft mysqlcppconn)
 
