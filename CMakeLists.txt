@@ -24,7 +24,7 @@ else()
 endif()
 
 # Hitta och länka mot MySQL C++ Connector
-find_library(LIBMYSQLCPPCONN_LIBRARY NAMES mysqlcppconn PATHS /usr/lib/x86_64-linux-gnu)
+find_library(LIBMYSQLCPPCONN_LIBRARY NAMES mysqlcppconn8 PATHS /usr/lib/x86_64-linux-gnu)
 if (LIBMYSQLCPPCONN_LIBRARY)
     target_link_libraries(GoobySoft PRIVATE ${LIBMYSQLCPPCONN_LIBRARY})
 else()
