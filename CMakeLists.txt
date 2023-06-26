@@ -15,8 +15,8 @@ include_directories(${INCLUDES})
 
 set(LIB_PATH "/usr/lib/x86_64-linux-gnu")
 
-find_library(LIBMODBUS_LIBRARY NAMES modbus PATHS ${LIB_PATH})
-target_link_libraries(GoobySoft ${LIBMODBUS_LIBRARY})
+find_package(Modbus REQUIRED)
+target_link_libraries(GoobySoft Modbus::Modbus)
 
 find_library(LIBMYSQLCPPCONN_LIBRARY NAMES mysqlcppconn PATHS ${LIB_PATH})
 target_link_libraries(GoobySoft LIBMYSQLCPPCONN_LIBRARY)
