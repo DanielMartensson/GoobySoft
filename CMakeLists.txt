@@ -10,6 +10,8 @@ file(GLOB_RECURSE INCLUDES "GoobySoft/*.h")
 
 include_directories(${INCLUDES})
 
+add_executable(GoobySoft ${SOURCES})
+
 set(LIB_PATH "/usr/lib/x86_64-linux-gnu")
 
 find_library(LIBMODBUS_LIBRARY modbus HINTS ${LIB_PATH})
@@ -46,4 +48,3 @@ else()
     message(FATAL_ERROR "GLFW3 not found")
 endif()
 
-add_executable(GoobySoft ${SOURCES})
