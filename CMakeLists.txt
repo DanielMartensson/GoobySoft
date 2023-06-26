@@ -13,14 +13,18 @@ file(GLOB_RECURSE INCLUDES "GoobySoft/*.h")
 
 include_directories(${INCLUDES})
 
-target_link_libraries(GoobySoft libmodbus)
+set(LIB_PATH "/usr/lib/x86_64-linux-gnu")
 
-target_link_libraries(GoobySoft mysqlcppconn)
+find_library(LIBMODBUS_LIBRARY NAMES libmodbus PATHS ${LIB_PATH})
+target_link_libraries(GoobySoft ${LIBMODBUS_LIBRARY})
 
-target_link_libraries(GoobySoft opengl)
+find_library(LIBMYSQLCPPCONN_LIBRARY NAMES libmysqlcppconn PATHS ${LIB_PATH})
+target_link_libraries(GoobySoft LIBMYSQLCPPCONN_LIBRARY)
 
-target_link_libraries(GoobySoft glfw3)
+find_library(LIBOPENGL_LIBRARY NAMES libOpenGl PATHS ${LIB_PATH})
+target_link_libraries(GoobySoft LIBOPENGL_LIBRARY)
 
-target_link_libraries(GoobySoft mysqlcppconn)
+find_library(LIBGLFW3_LIBRARY NAMES libglfw3 PATHS ${LIB_PATH})
+target_link_libraries(GoobySoft LIBGLFW3_LIBRARY)
 
 add_executable(GoobySoft ${SOURCES})
