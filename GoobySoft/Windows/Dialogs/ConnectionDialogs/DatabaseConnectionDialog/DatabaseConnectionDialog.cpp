@@ -1,5 +1,6 @@
 #include "DatabaseConnectionDialog.h"
 #include "../../../../Tools/Tools.h"
+#include <stdio.h>
 
 // Connection callback
 bool connectionCallbackDatabase() {

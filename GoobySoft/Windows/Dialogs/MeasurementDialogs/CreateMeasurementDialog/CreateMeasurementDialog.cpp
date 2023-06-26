@@ -1,8 +1,8 @@
 #include "CreateMeasurementDialog.h"
 #include "../../../../Tools/Tools.h"
-#include <implot.h>
 #include <chrono>
 #include <fstream>
+#include <stdio.h>
 
 // File
 std::ofstream measurementFile;

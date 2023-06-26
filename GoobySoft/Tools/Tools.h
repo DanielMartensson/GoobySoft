@@ -6,5 +6,6 @@
 #include "Gui/Gui.h"
 #include "Storage/Storage.h"
 #include "Software/Software.h"
+#include "Libraries/Libraries.h"
 
 #endif // !Tools

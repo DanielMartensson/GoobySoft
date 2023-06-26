@@ -5,28 +5,17 @@
 
 /*
     VCPKG dependencies
-    - imgui[core,glfw-binding,opengl3-binding]:x64-windows
+    - glfw3:x64-windows
     - opengl:x64-windows
     - boost-asio:x64-windows
     - mysql-connector-cpp:x64-windows
     - boost-filesystem:x64-windows
     - libmodbus:x64-windows
-    - implot:x64-windows
     - boost-date-time:x64-windows
-    - rapidcsv:x64-windows
-
 */
 
-#include <imgui.h>
-#include <imgui_impl_glfw.h>
-#include <imgui_impl_opengl3.h>
-#include <stdio.h>
-#define GL_SILENCE_DEPRECATION
-#if defined(IMGUI_IMPL_OPENGL_ES2)
-#include <GLES2/gl2.h>
-#endif
-#include <GLFW/glfw3.h> // Will drag system OpenGL HEADERS_ADL400
-
+// Will drag system OpenGL HEADERS_ADL400
+#include <GLFW/glfw3.h> 
 
 // No console
 #pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")

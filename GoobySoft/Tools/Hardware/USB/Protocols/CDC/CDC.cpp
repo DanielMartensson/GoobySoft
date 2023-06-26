@@ -1,6 +1,7 @@
 #include "CDC.h"
 #include <boost/asio.hpp>
 #include <map>
+#include <stdio.h>
 #include "../../USB.h"
 
 boost::asio::io_service io;

@@ -21,7 +21,7 @@
     <ClCompile Include="Tools\Communications\Devices\ADL400\ADL400.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tools\Gui\CreateDialogs\ImGuiFileDialog\ImGuiFileDialog.cpp">
+    <ClCompile Include="Tools\Libraries\ImGuiFileDialog\ImGuiFileDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Tools\Gui\CreateDialogs\CreateDialogs.cpp">
@@ -75,6 +75,33 @@
     <ClCompile Include="Windows\Dialogs\MeasurementDialogs\ViewMeasurementDialog\ViewMeasurementDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Tools\Libraries\ImPlot\implot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Libraries\ImPlot\implot_items.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Libraries\ImGui\backends\imgui_impl_glfw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Libraries\ImGui\backends\imgui_impl_opengl3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Libraries\ImGui\imgui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Libraries\ImGui\imgui_demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Libraries\ImGui\imgui_draw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Libraries\ImGui\imgui_tables.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Libraries\ImGui\imgui_widgets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tools\Communications\Devices\ADL400\ADL400.h">
@@ -86,19 +113,19 @@
     <ClInclude Include="Tools\Communications\Communications.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tools\Gui\CreateDialogs\ImGuiFileDialog\dirent\dirent.h">
+    <ClInclude Include="Tools\Libraries\ImGuiFileDialog\dirent\dirent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tools\Gui\CreateDialogs\ImGuiFileDialog\stb\stb_image.h">
+    <ClInclude Include="Tools\Libraries\ImGuiFileDialog\stb\stb_image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tools\Gui\CreateDialogs\ImGuiFileDialog\stb\stb_image_resize.h">
+    <ClInclude Include="Tools\Libraries\ImGuiFileDialog\stb\stb_image_resize.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tools\Gui\CreateDialogs\ImGuiFileDialog\ImGuiFileDialog.h">
+    <ClInclude Include="Tools\Libraries\ImGuiFileDialog\ImGuiFileDialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tools\Gui\CreateDialogs\ImGuiFileDialog\ImGuiFileDialogConfig.h">
+    <ClInclude Include="Tools\Libraries\ImGuiFileDialog\ImGuiFileDialogConfig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tools\Gui\CreateDialogs\CreateDialogs.h">
@@ -189,6 +216,45 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Windows\Dialogs\MeasurementDialogs\ViewMeasurementDialog\ViewMeasurementDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Libraries\ImPlot\implot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Libraries\ImPlot\implot_internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Libraries\RapidCSV\rapidcsv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Libraries\Libraries.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Libraries\ImGui\backends\imgui_impl_glfw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Libraries\ImGui\backends\imgui_impl_opengl3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Libraries\ImGui\backends\imgui_impl_opengl3_loader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Libraries\ImGui\imconfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Libraries\ImGui\imgui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Libraries\ImGui\imgui_internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Libraries\ImGui\imstb_rectpack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Libraries\ImGui\imstb_textedit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Libraries\ImGui\imstb_truetype.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

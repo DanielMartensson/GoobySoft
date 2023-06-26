@@ -1,5 +1,6 @@
 #include "MySQL.h"
 #include <mysqlx/xdevapi.h>
+#include <stdio.h>
 
 mysqlx::Session* connection = nullptr;
 MYSQL_STATUS connectedToDatabase = MYSQL_STATUS_DISCONNECTED;

@@ -1,6 +1,5 @@
 #include "CreateDialogs.h"
-#include "ImGuiFileDialog/ImGuiFileDialog.h"
-#include "../CreateItems/CreateItems.h"
+#include "../../Tools.h"
 #include <cstring>
 
 bool Tools_Gui_CreateDialogs_showPopUpConfirmDialogOKCancleWithCheckBox(const char popUpId[], const char question[], const char checkBoxConfirm[], void (*confirmCallBack)(void)) {

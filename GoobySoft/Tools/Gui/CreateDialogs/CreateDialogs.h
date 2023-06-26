@@ -1,9 +1,8 @@
 #ifndef CreateDialogs
 #define CreateDialogs
-#include <imgui.h>
 #include <string>
 #include <vector>
-#include "ImGuiFileDialog/ImGuiFileDialog.h"
+#include "../../Libraries/ImGuiFileDialog/ImGuiFileDialog.h"
 
 bool Tools_Gui_CreateDialogs_showPopUpConfirmDialogOKCancleWithCheckBox(const char popUpId[], const char question[], const char checkBoxConfirm[], void (*confirmCallBack)(void));
 bool Tools_Gui_CreateDialogs_showPopUpConfirmDialogOKCancle(const char popUpId[], const char question[], void (*confirmCallBack)(void));

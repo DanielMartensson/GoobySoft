@@ -1,4 +1,4 @@
-#include <imgui.h>
+#include "../Tools/Tools.h"
 #include "Dialogs/Dialogs.h"
 
 // For file dialogs

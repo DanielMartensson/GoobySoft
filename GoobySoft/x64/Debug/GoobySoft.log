@@ -1,6 +1,4 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (ModBusReader.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  CreateDialogs.cpp
-  LogFilePathDialog.cpp
-  Generating Code...
+  GoobySoft.cpp
      Creating library C:\Users\dmn\GitHub\GoobySoft\x64\Debug\GoobySoft.lib and object C:\Users\dmn\GitHub\GoobySoft\x64\Debug\GoobySoft.exp
   GoobySoft.vcxproj -> C:\Users\dmn\GitHub\GoobySoft\x64\Debug\GoobySoft.exe

@@ -1,7 +1,5 @@
 #include "ViewMeasurementDialog.h"
 #include "../../../../Tools/Tools.h"
-#include <implot.h>
-#include <rapidcsv.h>
 
 // Data table
 rapidcsv::Document doc;
