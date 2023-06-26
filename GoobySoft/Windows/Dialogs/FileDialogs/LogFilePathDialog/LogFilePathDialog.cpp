@@ -1,6 +1,6 @@
 #include "LogFilePathDialog.h"
 #include "../../../../Tools/Tools.h"
-#include <string.h>
+#include <cstring>
 
 bool Windows_Dialogs_FileDialogs_LogFilePathDialog_showSelectFileDialog(bool* selectFile) {
 	std::string folderPath;
@@ -9,9 +9,9 @@ bool Windows_Dialogs_FileDialogs_LogFilePathDialog_showSelectFileDialog(bool* se
 	bool isPressedOK = false;
 	Tools_Gui_CreateDialogs_showFileDialog(selectFile, &isPressedOK, ".csv", folderPath, filePathName, fileName, ImGuiFileDialogFlags_Modal | ImGuiFileDialogFlags_ReadOnlyFileNameField);
 	if (isPressedOK) {
-		strcpy_s(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName, filePathName.c_str());
-		strcpy_s(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.folderPath, folderPath.c_str());
-		strcpy_s(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.fileName, fileName.c_str());
+		std::strcpy(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName, filePathName.c_str());
+		std::strcpy(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.folderPath, folderPath.c_str());
+		std::strcpy(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.fileName, fileName.c_str());
 	}
 	return isPressedOK;
 }
@@ -23,9 +23,9 @@ bool Windows_Dialogs_FileDialogs_LogFilePathDialog_showCreateFileDialog(bool* cr
 	bool isPressedOK = false;
 	Tools_Gui_CreateDialogs_showFileDialog(createFile, &isPressedOK, ".csv", folderPath, filePathName, fileName, ImGuiFileDialogFlags_Modal | ImGuiFileDialogFlags_ConfirmOverwrite);
 	if (isPressedOK) {
-		strcpy_s(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName, filePathName.c_str());
-		strcpy_s(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.folderPath, folderPath.c_str());
-		strcpy_s(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.fileName, fileName.c_str());
+		std::strcpy(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName, filePathName.c_str());
+		std::strcpy(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.folderPath, folderPath.c_str());
+		std::strcpy(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.fileName, fileName.c_str());
 		Tools_Hardware_FileSystem_createFile(filePathName);
 	}
 	return isPressedOK;
