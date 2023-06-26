@@ -18,6 +18,7 @@ set(LIB_PATH "/usr/lib/x86_64-linux-gnu")
 find_library(LIBMODBUS_LIBRARY NAMES modbus PATHS /usr/lib/x86_64-linux-gnu)
 
 if (LIBMODBUS_LIBRARY)
+    message(${LIBMODBUS_LIBRARY})
     target_link_libraries(GoobySoft ${LIBMODBUS_LIBRARY})
 else()
     message(FATAL_ERROR "Libmodbus library not found")
