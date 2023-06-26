@@ -1,5 +1,6 @@
 #include "USBConnectionDialog.h"
 #include "../../../../Tools/Tools.h"
+#include <cstring>
 
 size_t portIndex;
 
@@ -40,7 +41,7 @@ void Windows_Dialogs_ConnectionDialogs_USBConnectionDialog_showUSBconnectionDial
 		portIndex = Tools_Hardware_USB_getPortIndex(port.c_str());
 
 		// Remember 
-		strcpy_s(Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].port, port.c_str());
+		std::strcpy(Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].port, port.c_str());
 
 		// USB protocol
 		const std::vector<std::string> protocols = Tools_Software_Algorithms_arrayToVector(USB_PROTOCOL_STRING);
