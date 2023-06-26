@@ -7,7 +7,7 @@
     VCPKG dependencies
     - glfw3:x64-windows // sudo apt-get install libglfw3-dev
     - opengl:x64-windows // sudo apt-get install libopengl-dev
-    - mysql-connector-cpp:x64-windows // sudo apt-get install libmysqlcppconn-dev
+    - mysql-connector-cpp:x64-windows // sudo apt-get install libmysqlcppconn-dev (Need to install Ocracle APT Repository for Ubuntu/Debian before)
     - libmodbus:x64-windows // sudo apt-get install libmodbus-dev
     - boost-asio:x64-windows // sudo apt-get install libbost-all-dev
     - boost-date-time:x64-windows

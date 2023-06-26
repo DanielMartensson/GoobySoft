@@ -2,11 +2,7 @@
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
 #include <mysqlx/xdevapi.h>
 #else
-#include "mysql_connection.h"
-#include <cppconn/driver.h>
-#include <cppconn/exception.h>
-#include <cppconn/resultset.h>
-#include <cppconn/statement.h>
+#include "mysql-cppconn-8/mysqlx/xdevapi.h>
 #endif
 #include <cstdio>
 
