@@ -6,6 +6,12 @@ This software is a long time development project. Here I upload the communicatio
 
 The project is written in C++20 and it's using `ImGui` as graphics library.
 
+# Supported devices
+
+ - ADL400 DIN Rail Energy Meter
+ - Beijer Electronics Performance Inverter P2 (Comming soon)
+ - [STM32-PLC](https://github.com/DanielMartensson/STM32-PLC) (Comming soon)
+
 # Pictures
 
 USB connection

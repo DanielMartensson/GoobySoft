@@ -13,4 +13,14 @@ file(GLOB_RECURSE INCLUDES "GoobySoft/*.h")
 
 include_directories(${INCLUDES})
 
+target_link_libraries(GoobySoft modbus)
+
+target_link_libraries(GoobySoft mysqlcppconn)
+
+target_link_libraries(GoobySoft opengl)
+
+target_link_libraries(GoobySoft glfw3)
+
+target_link_libraries(GoobySoft mysqlcppconn)
+
 add_executable(GoobySoft ${SOURCES})
