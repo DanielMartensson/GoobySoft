@@ -7,14 +7,14 @@
 #include <boost/asio.hpp>
 #include <map>
 
-std::map<std::string, modbus_t*> devices;
+std::map<std::string, modbus_t*> devicesModbus;
 
 bool modbusDeviceExist(const char port[]) {
-	return devices.find(port) != devices.end() ? true : false;
+	return devicesModbus.find(port) != devicesModbus.end() ? true : false;
 }
 
 modbus_t* getDevice(const char port[]) {
-	return devices.at(port);
+	return devicesModbus.at(port);
 }
 
 bool Tools_Hardware_USB_Protocols_Modbus_isConnected(const char port[]) {
@@ -53,13 +53,13 @@ bool Tools_Hardware_USB_Protocols_Modbus_closeConnection(const char port[]) {
 	if (Tools_Hardware_USB_Protocols_Modbus_isConnected(port)) {
 		modbus_close(getDevice(port));
 		modbus_free(getDevice(port));
-		devices.erase(port);
+		devicesModbus.erase(port);
 		return true;
 	}
 	else {
 		if (modbusDeviceExist(port)) {
 			modbus_free(getDevice(port));
-			devices.erase(port);
+			devicesModbus.erase(port);
 		}
 		return false;
 	}
@@ -74,7 +74,7 @@ bool Tools_Hardware_USB_Protocols_Modbus_openConnection(const char port[], const
 		return false;
 	}
 	else {
-		devices[port] = addDevice;
+		devicesModbus[port] = addDevice;
 		return true;
 	}
 }
@@ -89,7 +89,7 @@ bool Tools_Hardware_USB_Protocols_Modbus_setSlaveAddress(const char port[], cons
 
 std::vector<std::string> Tools_Hardware_USB_Protocols_Modbus_getPortsOfConnectedDevices() {
 	std::vector<std::string> ports;
-	for (auto const& [port, addDevice] : devices) {
+	for (auto const& [port, addDevice] : devicesModbus) {
 		ports.push_back(port);
 	}
 	return ports;
