@@ -15,11 +15,11 @@ include_directories(${INCLUDES})
 
 set(LIB_PATH "/usr/lib/x86_64-linux-gnu")
 
-find_library(LIBMODBUS_LIBRARY NAMES modbus PATHS /usr/lib/x86_64-linux-gnu)
+find_library(LIBMODBUS_LIBRARY NAMES modbus PATHS LIB_PATH)
 
 if (LIBMODBUS_LIBRARY)
     message(${LIBMODBUS_LIBRARY})
-    link_directories(/usr/lib/x86_64-linux-gnu)  # Lägg till sökvägen till biblioteket
+    link_directories(${LIB_PATH})  # Lägg till sökvägen till biblioteket
     target_link_libraries(GoobySoft PRIVATE ${LIBMODBUS_LIBRARY})
 else()
     message(FATAL_ERROR "Libmodbus library not found")
