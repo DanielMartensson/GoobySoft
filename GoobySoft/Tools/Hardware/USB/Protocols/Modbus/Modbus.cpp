@@ -1,5 +1,9 @@
 #include "Modbus.h"
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
 #include <modbus.h>
+#else
+#include <modbus/modbus.h>
+#endif
 #include <boost/asio.hpp>
 #include <map>
 
