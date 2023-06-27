@@ -1,11 +1,9 @@
-﻿  CDC.cpp
-  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
-  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
-  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
-  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+﻿  CreateItems.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Gui\CreateItems\CreateItems.cpp(13,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Gui\CreateItems\CreateItems.cpp(27,21): warning C4018: '<': signed/unsigned mismatch
      Creating library C:\Users\dmn\GitHub\GoobySoft\Release\GoobySoft.lib and object C:\Users\dmn\GitHub\GoobySoft\Release\GoobySoft.exp
   Generating code
-  0 of 7220 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  0 of 7219 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
