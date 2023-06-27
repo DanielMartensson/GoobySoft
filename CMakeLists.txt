@@ -31,6 +31,14 @@ else()
     message(FATAL_ERROR "MySQL C++ Connector library not found")
 endif()
 
+# Hitta och länka mot libdl
+find_library(LIBDL_LIBRARY NAMES dl)
+if (LIBDL_LIBRARY)
+    target_link_libraries(GoobySoft PRIVATE ${LIBDL_LIBRARY})
+else()
+    message(FATAL_ERROR "libdl library not found")
+endif()
+
 # Hitta och länka mot Pthreads
 find_package(Threads REQUIRED)
 if(Threads_FOUND)
@@ -70,3 +78,4 @@ if (glfw3_FOUND)
 else()
     message(FATAL_ERROR "GLFW3 library not found")
 endif()
+
