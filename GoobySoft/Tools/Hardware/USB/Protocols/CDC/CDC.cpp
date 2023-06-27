@@ -48,7 +48,7 @@ std::vector<std::string> Tools_Hardware_USB_Protocols_CDC_getAllPorts() {
 		}
 		catch (const boost::system::system_error& ex) {
 			if (boost::asio::error::no_permission == ex.code().value()) {
-				ports.push_back(port);
+				ports.push_back(port); // If we scanned the port and the port is bussy, that means it can be used
 			}
 		}
 	}

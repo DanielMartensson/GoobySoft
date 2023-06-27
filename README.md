@@ -25,7 +25,7 @@ The project is written in C++20 and it's using `ImGui` as graphics library.
 
 ## Ubuntu/Debian
 
- 1. Download and Configure MySQL APT Repository from Oracle
+ 1. Download and Configure [Oracle APT Repository](https://dev.mysql.com/downloads/repo/apt/)
  2. Update APT `sudo apt-get update`
  3. Install software `sudo apt-get install build-essential, cmake, libglfw3-dev, libopengl-dev, libmodbus-dev, libboost-all-dev, libmysqlcppconn-dev`
  4. Download `GoobySoft` repository and extract the `.zip` file.
