@@ -14,6 +14,29 @@ The project is written in C++20 and it's using `ImGui` as graphics library.
 
 # Pictures
 
+# How to install
+
+## Windows
+
+ 1. Install `Visual Studio Community`
+ 2. Install `vcpkg`
+ 3. Configure `vcpkg` with `Visual Studio Community`
+ 4. Install the following packages: `glfw3`, `opengl`, `mysql-connector-cpp`, `libmodbus`, `boost-asio`, `boost-date-time`, `boost-filesystem`
+
+## Ubuntu/Debian
+
+ 1. Install a C++ compiler `sudo apt install build-essential`
+ 2. Install CMake `sudo apt-get install cmake`
+ 3. Install GLFW dev files `sudo apt-get install libglfw3-dev`
+ 4. Install OpenGL dev files `sudo apt-get install libopengl-dev`
+ 5. Install Libmodbus dev files `sudo apt-get install libmodbus-dev`
+ 6. Install Boost dev files `sudo apt-get install libbost-all-dev`
+ 7. Configure MySQL APT Repository 
+ 8. Update APT `sudo apt-get update`
+ 9. Install MySQL C++ Connector dev files `sudo apt-get install libmysqlcppconn-dev`
+ 10. Run CMake `cmake -B build .`
+ 11. Compile `cmake --build build`    
+
 USB connection
 
 ![a](https://github.com/DanielMartensson/GoobySoft/blob/main/Pictures/USB.png?raw=true)

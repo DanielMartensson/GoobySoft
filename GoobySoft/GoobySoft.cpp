@@ -3,17 +3,6 @@
 // If you are new to Dear ImGui, read documentation from the docs/ folder + read the top of imgui.cpp.
 // Read online: https://github.com/ocornut/imgui/tree/master/docs
 
-/*
-    VCPKG dependencies
-    - glfw3:x64-windows // sudo apt-get install libglfw3-dev
-    - opengl:x64-windows // sudo apt-get install libopengl-dev
-    - mysql-connector-cpp:x64-windows // sudo apt-get install libmysqlcppconn-dev (Need to install Ocracle APT Repository for Ubuntu/Debian before)
-    - libmodbus:x64-windows // sudo apt-get install libmodbus-dev
-    - boost-asio:x64-windows // sudo apt-get install libbost-all-dev
-    - boost-date-time:x64-windows
-    - boost-filesystem:x64-windows
-*/
-
 // Will drag system OpenGL HEADERS_ADL400
 #include <GLFW/glfw3.h> 
 
