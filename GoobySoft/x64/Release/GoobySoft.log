@@ -1,8 +1,8 @@
-﻿  CreateItems.cpp
+﻿  ViewMeasurementDialog.cpp
      Creating library C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.lib and object C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exp
   Generating code
-  2 of 7220 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  3 of 7222 functions (<0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    41 functions had inline decision re-evaluated but remain unchanged
+    58 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   GoobySoft.vcxproj -> C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exe

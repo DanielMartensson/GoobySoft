@@ -6,6 +6,30 @@ rapidcsv::Document doc;
 size_t rowCount;
 size_t columnCount;
 
+void addMeasurementPlot(const char titleId[], bool selectedColumns[], std::vector<std::string> columnNames, size_t from, size_t to, size_t withStep) {
+	if (ImPlot::BeginPlot(titleId)) {
+		for (size_t i = 0; i < columnCount; i++) {
+			if (selectedColumns[i]) {
+				// Get column data
+				std::vector<float> column = doc.GetColumn<float>(columnNames.at(i).c_str());
+
+				// Cut yData between from and to with step
+				std::vector<float> yData;
+				std::vector<float> xData;
+				for (size_t j = from - 1; j < to; j += withStep) {
+					yData.push_back(column.at(j));
+					xData.push_back(((float)j) + 1.0f);
+				}
+
+				// Plot
+				ImPlot::PlotLine(columnNames.at(i).c_str(), xData.data(), yData.data(), (int)yData.size());
+
+			}
+		}
+		ImPlot::EndPlot();
+	}
+}
+
 void Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasurementDialog(bool* viewMeasurement) {
 	// Display
 	if (ImGui::BeginPopupModal("View measurement", viewMeasurement)) {
@@ -62,41 +86,44 @@ void Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasuremen
 
 		// Get the column names
 		if (columnCount > 0) {
+			// Get column names
 			std::vector<std::string> columnNames = doc.GetColumnNames();
-			static bool selectedColumns[256] = { false };
-			ImGui::Text("Columns:");
-			ImGui::SameLine();
-			for (size_t i = 0; i < columnCount; i++) {
-				if (columnNames.at(i) != "") {
-					ImGui::Checkbox(columnNames.at(i).c_str(), &selectedColumns[i]);
-					ImGui::SameLine();
+
+			// How many plots
+			static int numberOfPlots = 1;
+			const int maxPlots = 3;
+			if (ImGui::InputInt("Number of plots", &numberOfPlots)) {
+				if (numberOfPlots < 1) {
+					numberOfPlots = 1;
+				}
+				if (numberOfPlots > maxPlots) {
+					numberOfPlots = maxPlots;
 				}
 			}
-			ImGui::Separator();
 
-			// Create plot
-			ImPlot::CreateContext();
-			if (ImPlot::BeginPlot("Measurements")) {
-				for (size_t i = 0; i < columnCount; i++) {
-					if (selectedColumns[i]) {
-						// Get column data
-						std::vector<float> column = doc.GetColumn<float>(columnNames.at(i).c_str());
-
-						// Cut yData between from and to with step
-						std::vector<float> yData;
-						std::vector<float> xData;
-						for (size_t j = from - 1; j < to; j += withStep) {
-							yData.push_back(column.at(j));
-							xData.push_back(((float)j) + 1.0f);
-						}
-
-						// Plot
-						ImPlot::PlotLine(columnNames.at(i).c_str(), xData.data(), yData.data(), (int)yData.size());
-
+			static bool selectedColumnsPlot[maxPlots][256] = { {false} };
+			char text[50];
+			for (int i = 0; i < numberOfPlots; i++) {
+				std::sprintf(text, "Columns for plot %i", i);
+				ImGui::Text(text);
+				ImGui::SameLine();
+				for (size_t j = 0; j < columnCount; j++) {
+					if (columnNames.at(j) != "") {
+						ImGui::Checkbox((columnNames.at(j) + std::to_string(i)).c_str(), &selectedColumnsPlot[i][j]);
+						ImGui::SameLine();
 					}
 				}
-				ImPlot::EndPlot();
+				ImGui::NewLine();
 			}
+			ImGui::Separator();
+			
+			// Create plots
+			ImPlot::CreateContext();
+			for (int i = 0; i < numberOfPlots; i++) {
+				std::sprintf(text, "Plot %i", i);
+				addMeasurementPlot(text, selectedColumnsPlot[i], columnNames, from, to, withStep);
+			}
+
 		}
 		ImGui::EndPopup();
 	}
