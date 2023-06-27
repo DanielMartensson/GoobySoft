@@ -25,9 +25,9 @@ The project is written in C++20 and it's using `ImGui` as graphics library.
 
 ## Ubuntu/Debian
 
- 1. Download and Configure MySQL APT Repository 
+ 1. Download and Configure MySQL APT Repository from Oracle
  2. Update APT `sudo apt-get update`
- 3. Install software `sudo apt install build-essential, cmake, libglfw3-dev, libopengl-dev, libmodbus-dev, libboost-all-dev, libmysqlcppconn-dev`
+ 3. Install software `sudo apt-get install build-essential, cmake, libglfw3-dev, libopengl-dev, libmodbus-dev, libboost-all-dev, libmysqlcppconn-dev`
  4. Run CMake `cmake -B build .`
  5. Compile `cmake --build build`    
 

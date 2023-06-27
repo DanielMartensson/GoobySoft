@@ -31,6 +31,14 @@ else()
     message(FATAL_ERROR "MySQL C++ Connector library not found")
 endif()
 
+# Hitta och länka mot Pthreads
+find_package(Threads REQUIRED)
+if(Threads_FOUND)
+    target_link_libraries(GoobySoft PRIVATE Threads::Threads)
+else()
+    message(FATAL_ERROR "PThread library not found")
+endif()
+
 # Hitta och länka mot boost-asio
 find_package(Boost REQUIRED COMPONENTS system)
 if (Boost_FOUND)
