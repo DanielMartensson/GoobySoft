@@ -28,8 +28,23 @@ The project is written in C++20 and it's using `ImGui` as graphics library.
  1. Download and Configure MySQL APT Repository from Oracle
  2. Update APT `sudo apt-get update`
  3. Install software `sudo apt-get install build-essential, cmake, libglfw3-dev, libopengl-dev, libmodbus-dev, libboost-all-dev, libmysqlcppconn-dev`
- 4. Run CMake `cmake -B build .`
- 5. Compile `cmake --build build`    
+ 4. Download `GoobySoft` repository and extract the `.zip` file.
+ 5. Make sure you are standing inside the `GoobySoft` folder.
+ 5. Run CMake `cmake -B build .`
+ 6. Compile `cmake --build build` 
+ 7. Go to the `build` folder inside `GoobySoft` and run `./GoobySoft`  
+
+## Raspberry Pi
+ 1. Install software `sudo apt-get install build-essential, cmake, libglfw3-dev, libopengl-dev, libmodbus-dev, libboost-all-dev`
+ 2. Download the `Linux - Generic (glibc <version>) (ARM, 64-bit), Compressed TAR Archive` from [Oracle Connectors](https://dev.mysql.com/downloads/connector/cpp/)
+ 3. Extract the tar archive and stand inside the extracted folder. You will now see the folders `include` and `lib`.
+ 4. Run `sudo cp -r include/* /usr/include/mysql-cppconn-8/`
+ 5. Run `sudo cp -r lib/* /lib/aarch64-linux-gnu/`
+. Download `GoobySoft` repository and extract the `.zip` file.
+ 6. Make sure you are standing inside the `GoobySoft` folder.
+ 7. Run CMake `cmake -B build .`
+ 8. Compile `cmake --build build` 
+ 9. Go to the `build` folder inside `GoobySoft` and run `./GoobySoft`  
 
 USB connection
 
