@@ -50,6 +50,8 @@ The folders `x64/Debug` and `x64/Release` contains prebuilt 64-bit Windows binar
  8. Compile `cmake --build build` 
  9. Go to the `build` folder inside `GoobySoft` and run `./GoobySoft`  
 
+# Pictures
+
 USB connection
 
 ![a](https://github.com/DanielMartensson/GoobySoft/blob/main/Pictures/USB.png?raw=true)
