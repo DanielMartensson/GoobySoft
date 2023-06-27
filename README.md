@@ -25,17 +25,11 @@ The project is written in C++20 and it's using `ImGui` as graphics library.
 
 ## Ubuntu/Debian
 
- 1. Install a C++ compiler `sudo apt install build-essential`
- 2. Install CMake `sudo apt-get install cmake`
- 3. Install GLFW dev files `sudo apt-get install libglfw3-dev`
- 4. Install OpenGL dev files `sudo apt-get install libopengl-dev`
- 5. Install Libmodbus dev files `sudo apt-get install libmodbus-dev`
- 6. Install Boost dev files `sudo apt-get install libbost-all-dev`
- 7. Configure MySQL APT Repository 
- 8. Update APT `sudo apt-get update`
- 9. Install MySQL C++ Connector dev files `sudo apt-get install libmysqlcppconn-dev`
- 10. Run CMake `cmake -B build .`
- 11. Compile `cmake --build build`    
+ 1. Configure MySQL APT Repository 
+ 2. Update APT `sudo apt-get update`
+ 3. Install software `sudo apt install build-essential, cmake, libglfw3-dev, libopengl-dev, libmodbus-dev, libbost-all-dev, libmysqlcppconn-dev`
+ 4. Run CMake `cmake -B build .`
+ 5. Compile `cmake --build build`    
 
 USB connection
 
