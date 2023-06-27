@@ -16,14 +16,18 @@ The project is written in C++20 and it's using `ImGui` as graphics library.
 
 # How to install
 
-## Windows
+The folders `Debug` and `Release` contains prebuilt 32-bit Windows binaries for `GoobySoft`.
+The folders `x64/Debug` and `x64/Release` contains prebuilt 64-bit Windows binaries for `GoobySoft`.
+
+## Windows - Compile from source
 
  1. Install `Visual Studio Community`
  2. Install `vcpkg`
  3. Configure `vcpkg` with `Visual Studio Community`
  4. Install the following packages: `glfw3`, `opengl`, `mysql-connector-cpp`, `libmodbus`, `boost-asio`, `boost-date-time`, `boost-filesystem`
+ 5. Run the `GoobySoft.sln` file with `Visual Studio Community` and press the compile button.
 
-## Ubuntu/Debian
+## Ubuntu/Debian - Compile from source
 
  1. Download and Configure [Oracle APT Repository](https://dev.mysql.com/downloads/repo/apt/)
  2. Update APT `sudo apt-get update`
@@ -34,7 +38,7 @@ The project is written in C++20 and it's using `ImGui` as graphics library.
  6. Compile `cmake --build build` 
  7. Go to the `build` folder inside `GoobySoft` and run `./GoobySoft`  
 
-## Raspberry Pi
+## Raspberry Pi - Compile from source
  1. Install software `sudo apt-get install build-essential, cmake, libglfw3-dev, libopengl-dev, libmodbus-dev, libboost-all-dev`
  2. Download the `Linux - Generic (glibc <version>) (ARM, 64-bit), Compressed TAR Archive` from [Oracle Connectors](https://dev.mysql.com/downloads/connector/cpp/)
  3. Extract the tar archive and stand inside the extracted folder. You will now see the folders `include` and `lib`.
