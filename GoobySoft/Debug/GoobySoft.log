@@ -1,29 +1,10 @@
 ﻿  GoobySoft.cpp
-  ADL400.cpp
-  CreateDialogs.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Gui\CreateDialogs\CreateDialogs.cpp(97,10): warning C4018: '<': signed/unsigned mismatch
   CDC.cpp
   Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
   - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
   - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
   Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
   Modbus.cpp
-  USB.cpp
-  imgui_impl_opengl3.cpp
-  DatabaseConnectionDialog.cpp
-  USBConnectionDialog.cpp
-  LogFilePathDialog.cpp
-  ConfigureMeasurementDialog.cpp
-  CreateMeasurementDialog.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(16,8): warning C4018: '>': signed/unsigned mismatch
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(42,20): warning C4244: 'initializing': conversion from '_Rep' to 'size_t', possible loss of data
-          with
-          [
-              _Rep=__int64
-          ]
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(44,17): warning C4018: '<=': signed/unsigned mismatch
-  ViewMeasurementDialog.cpp
-  Windows.cpp
   Generating Code...
      Creating library C:\Users\dmn\GitHub\GoobySoft\Debug\GoobySoft.lib and object C:\Users\dmn\GitHub\GoobySoft\Debug\GoobySoft.exp
   GoobySoft.vcxproj -> C:\Users\dmn\GitHub\GoobySoft\Debug\GoobySoft.exe

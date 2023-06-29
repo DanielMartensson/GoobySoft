@@ -22,7 +22,7 @@ bool Tools_Hardware_USB_Protocols_Modbus_isConnected(const char port[]) {
 }
 
  bool Tools_Hardware_USB_Protocols_Modbus_readRegister(const char port[], const unsigned int registerAddress, const unsigned int numberOfRegisters, uint16_t registers[]) {
-	if (Tools_Hardware_USB_Protocols_Modbus_isConnected(port)) {
+	 if (Tools_Hardware_USB_Protocols_Modbus_isConnected(port)) {
 		if (modbus_read_registers(getDevice(port), registerAddress, numberOfRegisters, registers) == numberOfRegisters) {
 			return true;
 		}

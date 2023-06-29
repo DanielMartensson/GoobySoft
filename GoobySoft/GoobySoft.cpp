@@ -18,7 +18,7 @@
 #include "Resources/Resources.h"
 
 // No console
-#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
+//#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 
 // Main code
 #undef main // SDL_main is defined as main. It's creating some problems

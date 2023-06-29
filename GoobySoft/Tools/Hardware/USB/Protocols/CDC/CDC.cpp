@@ -11,7 +11,7 @@ bool CDCDeviceExist(const char port[]) {
 	return devicesCDC.find(port) != devicesCDC.end() ? true : false;
 }
 
-void checkPort(std::vector<std::string>& ports, char port[]) {
+void checkPort(std::vector<std::string>& ports, const char port[]) {
 	// Check if it already exist 
 	if (CDCDeviceExist(port)) {
 		if (devicesCDC.at(port)->is_open()) {
@@ -29,43 +29,27 @@ void checkPort(std::vector<std::string>& ports, char port[]) {
 	}
 }
 
-std::vector<std::string> Tools_Hardware_USB_Protocols_CDC_getAllPorts() {
-	// Get the names
+void tryPort(std::vector<std::string> ports, const char portTemplate[]) {
 	char port[20];
+	for (int i = 0; i < 127; i++) {
+		try {
+			std::sprintf(port, "%s%i", portTemplate, i);
+			checkPort(ports, port);
+		}
+		catch (const boost::system::system_error& ex) {
+			if (boost::asio::error::no_permission == ex.code().value()) {
+				ports.push_back(port); // If we scanned the port and the port is bussy, that means it can be used
+			}
+		}
+	}
+}
+
+std::vector<std::string> Tools_Hardware_USB_Protocols_CDC_getAllPorts() {
+	// Get the ports
 	std::vector<std::string> ports;
-	for (int i = 0; i < 127; i++) {
-		try {
-			std::sprintf(port, "COM%i", i);
-			checkPort(ports, port);
-		}
-		catch (const boost::system::system_error& ex) {
-			if (boost::asio::error::no_permission == ex.code().value()) {
-				ports.push_back(port); // If we scanned the port and the port is bussy, that means it can be used
-			}
-		}
-	}
-	for (int i = 0; i < 127; i++) {
-		try {
-			std::sprintf(port, "/dev/ttyACM%i", i);
-			checkPort(ports, port);
-		}
-		catch (const boost::system::system_error& ex) {
-			if (boost::asio::error::no_permission == ex.code().value()) {
-				ports.push_back(port); // If we scanned the port and the port is bussy, that means it can be used
-			}
-		}
-	}
-	for (int i = 0; i < 127; i++) {
-		try {
-			std::sprintf(port, "/dev/ttyUSB%i", i);
-			checkPort(ports, port);
-		}
-		catch (const boost::system::system_error& ex) {
-			if (boost::asio::error::no_permission == ex.code().value()) {
-				ports.push_back(port); // If we scanned the port and the port is bussy, that means it can be used
-			}
-		}
-	}
+	tryPort(ports, "COM");
+	tryPort(ports, "/dev/ttyACM");
+	tryPort(ports, "/dev/ttyUSB");
 	return ports;
 }
 
