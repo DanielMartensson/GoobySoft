@@ -43,7 +43,7 @@ else()
 endif()
 
 # Hitta och länka mot SDL2
-find_library(LIBSDL2_LIBRARY NAMES sdl2)
+find_library(LIBSDL2_LIBRARY NAMES SDL2)
 if (LIBSDL2_LIBRARY)
     message("SDL2 library found")
     target_link_libraries(GoobySoft PRIVATE ${LIBSDL2_LIBRARY})
