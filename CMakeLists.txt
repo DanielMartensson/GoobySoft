@@ -42,6 +42,15 @@ else()
     message(FATAL_ERROR "libdl library not found")
 endif()
 
+# Hitta och länka mot SDL2
+find_library(LIBSDL2_LIBRARY NAMES sdl2)
+if (LIBSDL2_LIBRARY)
+    message("SDL2 library found")
+    target_link_libraries(GoobySoft PRIVATE ${LIBSDL2_LIBRARY})
+else()
+    message(FATAL_ERROR "SDL2 library not found")
+endif()
+
 # Hitta och länka mot Pthreads
 find_package(Threads REQUIRED)
 if(Threads_FOUND)
@@ -77,13 +86,3 @@ if (OpenGL_FOUND)
 else()
     message(FATAL_ERROR "OpenGL library not found")
 endif()
-
-# Hitta och länka mot GLFW3
-find_package(glfw3 REQUIRED)
-if (glfw3_FOUND)
-    message("GLFW3 library found")
-    target_link_libraries(GoobySoft PRIVATE glfw)
-else()
-    message(FATAL_ERROR "GLFW3 library not found")
-endif()
-
