@@ -37,8 +37,8 @@ void tryPort(std::vector<std::string> ports, const char portTemplate[]) {
 			checkPort(ports, port);
 		}
 		catch (const boost::system::system_error& ex) {
-			if (boost::asio::error::no_permission == ex.code().value()) {
-				ports.push_back(port); // If we scanned the port and the port is bussy, that means it can be used
+			if (boost::asio::error::no_permission == ex.code().value() || boost::asio::error::access_denied == ex.code().value()) {
+				ports.push_back(port); // The port is bussy, it can be used.
 			}
 		}
 	}

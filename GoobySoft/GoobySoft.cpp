@@ -3,7 +3,7 @@
 // If you are new to Dear ImGui, read documentation from the docs/ folder + read the top of imgui.cpp.
 // Read online: https://github.com/ocornut/imgui/tree/master/docs
 
-// Tools, Windows SDL and OpenGL
+// Tools, Windows, SDL and OpenGL
 #include "Tools/Tools.h"
 #include "Windows/Windows.h"
 #include <stdio.h>
@@ -17,8 +17,8 @@
 // Images and icons
 #include "Resources/Resources.h"
 
-// No console
-//#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
+// For debug mode - Comment this
+#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 
 // Main code
 #undef main // SDL_main is defined as main. It's creating some problems
