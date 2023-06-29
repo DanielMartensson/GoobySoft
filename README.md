@@ -40,7 +40,7 @@ The folders `x64/Debug` and `x64/Release` contains prebuilt 64-bit Windows binar
 
 ## Raspberry Pi - Compile from source
  1. Install software `sudo apt-get install build-essential, cmake, libglfw3-dev, libopengl-dev, libmodbus-dev, libboost-all-dev`
- 2. Download the `Linux - Generic (glibc <version>) (ARM, 64-bit), Compressed TAR Archive` from [Oracle Connectors](https://dev.mysql.com/downloads/connector/cpp/)
+ 2. Download the `Linux - Generic (glibc <version>) (ARM, 32/64-bit), Compressed TAR Archive` from [Oracle Connectors](https://dev.mysql.com/downloads/connector/cpp/)
  3. Extract the tar archive and stand inside the extracted folder. You will now see the folders `include` and `lib`.
  4. Run `sudo cp -r include/* /usr/include/mysql-cppconn-8/`
  5. Run `sudo cp -r lib/* /lib/aarch64-linux-gnu/`
