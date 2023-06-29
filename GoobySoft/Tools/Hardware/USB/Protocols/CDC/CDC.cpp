@@ -35,16 +35,30 @@ std::vector<std::string> Tools_Hardware_USB_Protocols_CDC_getAllPorts() {
 	std::vector<std::string> ports;
 	for (int i = 0; i < 127; i++) {
 		try {
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
 			std::sprintf(port, "COM%i", i);
 			checkPort(ports, port);
-#else
+		}
+		catch (const boost::system::system_error& ex) {
+			if (boost::asio::error::no_permission == ex.code().value()) {
+				ports.push_back(port); // If we scanned the port and the port is bussy, that means it can be used
+			}
+		}
+	}
+	for (int i = 0; i < 127; i++) {
+		try {
 			std::sprintf(port, "/dev/ttyACM%i", i);
 			checkPort(ports, port);
+		}
+		catch (const boost::system::system_error& ex) {
+			if (boost::asio::error::no_permission == ex.code().value()) {
+				ports.push_back(port); // If we scanned the port and the port is bussy, that means it can be used
+			}
+		}
+	}
+	for (int i = 0; i < 127; i++) {
+		try {
 			std::sprintf(port, "/dev/ttyUSB%i", i);
 			checkPort(ports, port);
-#endif
-
 		}
 		catch (const boost::system::system_error& ex) {
 			if (boost::asio::error::no_permission == ex.code().value()) {
