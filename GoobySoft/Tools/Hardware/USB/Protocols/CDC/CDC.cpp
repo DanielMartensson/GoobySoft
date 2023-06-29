@@ -40,7 +40,6 @@ void tryPort(std::vector<std::string> ports, const char portTemplate[]) {
 			if (boost::asio::error::no_permission == ex.code().value() || boost::asio::error::access_denied == ex.code().value()) {
 				ports.push_back(port); // The port is bussy, it can be used.
 			}
-			fprintf(stderr, "no_permission = %i, access_denied = %i, value = %i\n", boost::asio::error::no_permission, boost::asio::error::access_denied, ex.code().value());
 		}
 	}
 }
