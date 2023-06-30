@@ -34,11 +34,17 @@ void tryPort(std::vector<std::string> ports, const char portTemplate[]) {
 	for (int i = 0; i < 127; i++) {
 		try {
 			std::sprintf(port, "%s%i", portTemplate, i);
+			std::fprintf(stderr, "Reading port %s\n", port);
 			checkPort(ports, port);
+			std::fprintf(stderr, "Port %s is available, collecting it\n", port);
 		}
 		catch (const boost::system::system_error& ex) {
 			if (boost::asio::error::no_permission == ex.code().value() || boost::asio::error::access_denied == ex.code().value()) {
+				std::fprintf(stderr, "Port %s is bussy, collecting it\n", port);
 				ports.push_back(port); // The port is bussy, it can be used.
+			}
+			else {
+				std::fprintf(stderr, "Port %s is not available. Error code: %i\n", port, ex.code().value());
 			}
 		}
 	}
