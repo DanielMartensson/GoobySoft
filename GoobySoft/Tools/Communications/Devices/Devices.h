@@ -1,6 +1,6 @@
-#ifndef Devices_H
-#define Devices_H
+#ifndef Devices
+#define Devices
 
 #include "ADL400/ADL400.h"
 
-#endif // Devices_H
+#endif // !Devices

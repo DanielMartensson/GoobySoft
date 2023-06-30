@@ -3,4 +3,4 @@
 
 void Windows_Dialogs_ConnectionDialogs_DatabaseConnectionDialog_showDatabaseConnectionDialog(bool* selectDatabaseServer);
 
-#endif DatabaseConnectionDialog
+#endif // !DatabaseConnectionDialog

@@ -41,4 +41,4 @@ void Tools_Hardware_ParameterStore_loadParameters();
 void Tools_Hardware_ParameterStore_saveParameters();
 ParameterHolder* Tools_Hardware_ParameterStore_getParameterHolder();
 
-#endif !Parameters
+#endif // !Parameters

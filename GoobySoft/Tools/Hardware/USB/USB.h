@@ -49,4 +49,4 @@ USB_STATUS Tools_Hardware_USB_openConnection(const char port[], const unsigned i
 std::vector<std::string> Tools_Hardware_USB_getAllPorts();
 std::vector<std::string> Tools_Hardware_USB_getConnectedPorts(const std::string& protocol);
 std::string Tools_Hardware_USB_getProtocolFromPort(const char port[]);
-#endif
+#endif // !USB

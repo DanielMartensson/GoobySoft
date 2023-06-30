@@ -3,4 +3,4 @@
 
 void showMainWindow();
 
-#endif // !1
+#endif // !Windows

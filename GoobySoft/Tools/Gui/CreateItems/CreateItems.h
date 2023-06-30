@@ -12,4 +12,4 @@ void Tools_Gui_CreateItems_createListBox(const char label[], const float height,
 void Tools_Gui_CreateItems_createTableSelectable(const char strId[], std::vector<std::vector<std::string>> cells, size_t* selectedRow);
 void Tools_Gui_CreateItems_createConnectDisconnectButtons(const bool isConnected, bool allFieldSetForConnection, const char connectButtonText[], const char connectionSuccessMessage[], const char connectionFailMessage[], bool (*connectionCallback)(void), const char disconnectButtonText[], const char disconnectionSuccessMessage[], void (*disconnectionCallback)(void));
 
-#endif
+#endif // !CreateItems

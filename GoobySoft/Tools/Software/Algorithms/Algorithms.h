@@ -1,5 +1,5 @@
-#ifndef Algorithms_H
-#define Algorithms_H
+#ifndef Algorithms
+#define Algorithms
 #include <vector>
 #include <string>
 
@@ -35,4 +35,4 @@ std::vector<T> Tools_Software_Algorithms_arrayToVector(const T(&arr)[N]) {
     return std::vector<T>(arr, arr + N);
 }
 
-#endif // !Algorithms_H
+#endif // !Algorithms

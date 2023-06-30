@@ -1,6 +1,6 @@
-#ifndef Software_H
-#define Software_H
+#ifndef Software
+#define Software
 
 #include "Algorithms/Algorithms.h"
 
-#endif // !Software_H
+#endif // !Software
