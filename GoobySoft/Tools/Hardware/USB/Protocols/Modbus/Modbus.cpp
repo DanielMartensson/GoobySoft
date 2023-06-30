@@ -7,13 +7,13 @@
 #include <boost/asio.hpp>
 #include <map>
 
-std::map<std::string, modbus_t*> devicesModbus;
+static std::map<std::string, modbus_t*> devicesModbus;
 
-bool modbusDeviceExist(const char port[]) {
+static bool modbusDeviceExist(const char port[]) {
 	return devicesModbus.find(port) != devicesModbus.end() ? true : false;
 }
 
-modbus_t* getDevice(const char port[]) {
+static modbus_t* getDevice(const char port[]) {
 	return devicesModbus.at(port);
 }
 
@@ -26,7 +26,9 @@ bool Tools_Hardware_USB_Protocols_Modbus_isConnected(const char port[]) {
 		if (modbus_read_registers(getDevice(port), registerAddress, numberOfRegisters, registers) == numberOfRegisters) {
 			return true;
 		}
+#if(defined(GOOBYBUS_DEBUG))
 		std::printf("Modbus read register failed: %s\n", modbus_strerror(errno));
+#endif
 		return false;
 	}
 	else {
@@ -54,7 +56,9 @@ bool Tools_Hardware_USB_Protocols_Modbus_openConnection(const char port[], const
 	// Connect to modbus
 	modbus_t* addDevice = modbus_new_rtu(port, baudrate, parity, dataBit, stopBits);
 	if (modbus_connect(addDevice) == -1) {
+#if(defined(GOOBYBUS_DEBUG))
 		std::printf("Modbus connection failed: %s\n", modbus_strerror(errno));
+#endif
 		modbus_free(addDevice);
 		return false;
 	}
@@ -69,7 +73,9 @@ bool Tools_Hardware_USB_Protocols_Modbus_setSlaveAddress(const char port[], cons
 		return false;
 	}
 	if (modbus_set_slave(getDevice(port), slaveAddress) == -1) {
+#if(defined(GOOBYBUS_DEBUG))
 		std::printf("Modbus set slave failed: %s\n", modbus_strerror(errno));
+#endif
 		return false;
 	}
 	return true;

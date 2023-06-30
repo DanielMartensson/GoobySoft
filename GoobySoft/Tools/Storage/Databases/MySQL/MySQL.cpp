@@ -6,10 +6,10 @@
 #endif
 #include <cstdio>
 
-mysqlx::Session* connection = nullptr;
-MYSQL_STATUS connectedToDatabase = MYSQL_STATUS_DISCONNECTED;
+static mysqlx::Session* connection = nullptr;
+static MYSQL_STATUS connectedToDatabase = MYSQL_STATUS_DISCONNECTED;
 
-inline std::vector<std::vector<std::string>> getRowsFrom(mysqlx::RowResult& rows, mysqlx::col_count_t columnCount) {
+static std::vector<std::vector<std::string>> getRowsFrom(mysqlx::RowResult& rows, mysqlx::col_count_t columnCount) {
 	std::vector<std::string> dataRow;
 	std::vector<std::vector<std::string>> table;
 	mysqlx::bytes data;

@@ -5,7 +5,7 @@
 #define FILE_NAME "parameters.dat"
 #define SIZE_PARAMETER_HOLDER sizeof(ParameterHolder)
 
-ParameterHolder parameters;
+static ParameterHolder parameters;
 
 void Tools_Hardware_ParameterStore_loadParameters() {
 	// Turn the struct to an array of data

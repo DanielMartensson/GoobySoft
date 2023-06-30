@@ -3,7 +3,7 @@
 #include <stdint.h>
 
 // Configuration table
-std::vector<std::vector<std::string>> configurationTable = { HEADERS_ADL400 };
+static std::vector<std::vector<std::string>> configurationTable = { HEADERS_ADL400 };
 
 int readModbusRegister(const char port[], int registerAddress) {
 	uint16_t modbusRegister = 0;
