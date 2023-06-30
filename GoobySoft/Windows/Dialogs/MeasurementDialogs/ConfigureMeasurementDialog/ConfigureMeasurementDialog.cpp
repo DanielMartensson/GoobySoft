@@ -11,7 +11,7 @@ void addChangeDeleteButtons(const char popUpIdAdd[], const char popUpIdChange[],
 
 void Windows_Dialogs_MeasurementDialogs_ConfigureMeasurementDialog_showConfigureMeasurementDialog(bool* configureMeasurement) {
 	// Display
-	if (ImGui::BeginPopupModal("Configure measurement", configureMeasurement)) {
+	if (ImGui::Begin("Configure measurement", configureMeasurement)) {
 		if (ImGui::CollapsingHeader("CDC")) {
 			// Get the ports TODO: Work on this for STM32-PLC
 			//std::vector<std::string> ports = Tools_Hardware_USB_Protocols_CDC_getPortsOfConnectedDevices();
@@ -61,6 +61,6 @@ void Windows_Dialogs_MeasurementDialogs_ConfigureMeasurementDialog_showConfigure
 		}
 		// Add more...
 
-		ImGui::EndPopup();
+		ImGui::End();
 	}
 }

@@ -6,7 +6,7 @@ rapidcsv::Document doc;
 size_t rowCount;
 size_t columnCount;
 
-void addMeasurementPlot(const char titleId[], bool selectedColumns[], std::vector<std::string> columnNames, size_t from, size_t to, size_t withStep) {
+void addMeasurementPlot(const char titleId[], bool selectedColumns[], std::vector<std::string>& columnNames, size_t from, size_t to, size_t withStep) {
 	if (ImPlot::BeginPlot(titleId)) {
 		for (size_t i = 0; i < columnCount; i++) {
 			if (selectedColumns[i]) {
@@ -17,8 +17,8 @@ void addMeasurementPlot(const char titleId[], bool selectedColumns[], std::vecto
 				std::vector<float> yData;
 				std::vector<float> xData;
 				for (size_t j = from - 1; j < to; j += withStep) {
-					yData.push_back(column.at(j));
-					xData.push_back(((float)j) + 1.0f);
+					yData.emplace_back(column.at(j));
+					xData.emplace_back(((float)j) + 1.0f);
 				}
 
 				// Plot
@@ -32,7 +32,7 @@ void addMeasurementPlot(const char titleId[], bool selectedColumns[], std::vecto
 
 void Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasurementDialog(bool* viewMeasurement) {
 	// Display
-	if (ImGui::BeginPopupModal("View measurement", viewMeasurement)) {
+	if (ImGui::Begin("View measurement", viewMeasurement)) {
 		// File path
 		ImGui::InputText("File path", Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName, sizeof(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName), ImGuiInputTextFlags_ReadOnly);
 
@@ -125,6 +125,6 @@ void Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasuremen
 			}
 
 		}
-		ImGui::EndPopup();
+		ImGui::End();
 	}
 }

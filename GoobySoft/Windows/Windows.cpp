@@ -64,15 +64,12 @@ void showMainWindow(bool* done) {
 			Windows_Dialogs_FileDialogs_LogFilePathDialog_showDeleteFileDialog(&deteteFile);
 		}
 		if (selectUSBPorts) {
-			ImGui::OpenPopup("Select USB ports");
 			Windows_Dialogs_ConnectionDialogs_USBConnectionDialog_showUSBconnectionDialog(&selectUSBPorts);
 		}
 		if (selectDatabaseServer) {
-			ImGui::OpenPopup("Select database server");
 			Windows_Dialogs_ConnectionDialogs_DatabaseConnectionDialog_showDatabaseConnectionDialog(&selectDatabaseServer);
 		}
 		if (configureMeasurement) {
-			ImGui::OpenPopup("Configure measurement");
 			Windows_Dialogs_MeasurementDialogs_ConfigureMeasurementDialog_showConfigureMeasurementDialog(&configureMeasurement);
 		}
 		if (createMeasurement) {
@@ -80,7 +77,6 @@ void showMainWindow(bool* done) {
 			Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasurementDialog(&createMeasurement);
 		}
 		if (viewMeasurement) {
-			ImGui::OpenPopup("View measurement");
 			Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasurementDialog(&viewMeasurement);
 		}
 

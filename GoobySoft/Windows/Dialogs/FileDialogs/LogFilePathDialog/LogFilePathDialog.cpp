@@ -8,7 +8,7 @@ bool Windows_Dialogs_FileDialogs_LogFilePathDialog_showSelectFileDialog(bool* se
 	FileSettings* fileSettings = &Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings;
 	std::string filePathName = std::string(fileSettings->filePathName); // Initial folder path
 	bool isPressedOK = false;
-	Tools_Gui_CreateDialogs_showFileDialog(selectFile, &isPressedOK, ".csv", folderPath, filePathName, fileName, ImGuiFileDialogFlags_Modal | ImGuiFileDialogFlags_ReadOnlyFileNameField);
+	Tools_Gui_CreateDialogs_showFileDialog(selectFile, &isPressedOK, ".csv", folderPath, filePathName, fileName, ImGuiFileDialogFlags_ReadOnlyFileNameField);
 	if (isPressedOK) {
 		std::strcpy(fileSettings->filePathName, filePathName.c_str());
 		std::strcpy(fileSettings->folderPath, folderPath.c_str());
@@ -23,7 +23,7 @@ bool Windows_Dialogs_FileDialogs_LogFilePathDialog_showCreateFileDialog(bool* cr
 	FileSettings* fileSettings = &Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings;
 	std::string filePathName = std::string(fileSettings->filePathName); // Initial folder path
 	bool isPressedOK = false;
-	Tools_Gui_CreateDialogs_showFileDialog(createFile, &isPressedOK, ".csv", folderPath, filePathName, fileName, ImGuiFileDialogFlags_Modal | ImGuiFileDialogFlags_ConfirmOverwrite);
+	Tools_Gui_CreateDialogs_showFileDialog(createFile, &isPressedOK, ".csv", folderPath, filePathName, fileName, ImGuiFileDialogFlags_ConfirmOverwrite);
 	if (isPressedOK) {
 		std::strcpy(fileSettings->filePathName, filePathName.c_str());
 		std::strcpy(fileSettings->folderPath, folderPath.c_str());

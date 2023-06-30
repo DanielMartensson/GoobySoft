@@ -22,7 +22,7 @@ void deleteCallbackDatabase() {
 void Windows_Dialogs_ConnectionDialogs_DatabaseConnectionDialog_showDatabaseConnectionDialog(bool* selectDatabaseServer) {
 	// Display
 	ImGui::SetNextWindowSize(ImVec2(300, 230));
-	if (ImGui::BeginPopupModal("Select database server", selectDatabaseServer, ImGuiWindowFlags_NoResize)) {
+	if (ImGui::Begin("Select database server", selectDatabaseServer, ImGuiWindowFlags_NoResize)) {
 		// Display input fields
 		DatabaseSettings databaseSettings = Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings;
 		ImGui::InputText("Host", databaseSettings.host, sizeof(Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.host), ImGuiInputTextFlags_CharsNoBlank);
