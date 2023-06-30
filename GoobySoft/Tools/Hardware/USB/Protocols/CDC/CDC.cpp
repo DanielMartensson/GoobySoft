@@ -34,22 +34,22 @@ static void tryPort(std::vector<std::string>& ports, const char portTemplate[]) 
 	for (int i = 0; i < 127; i++) {
 		try {
 			std::sprintf(port, "%s%i", portTemplate, i);
-#if(defined(_GOOBYBUS_DEBUG))
+#if(defined(_GOOBYSOFT_DEBUG))
 			std::printf("Reading port %s\n", port);
 #endif
 			checkPort(ports, port);
-#if(defined(_GOOBYBUS_DEBUG))
+#if(defined(_GOOBYSOFT_DEBUG))
 			std::printf("Port %s is available, collecting it\n", port);
 #endif
 		}
 		catch (const boost::system::system_error& ex) {
 			if (boost::asio::error::no_permission == ex.code().value() || boost::asio::error::access_denied == ex.code().value()) {
-#if(defined(_GOOBYBUS_DEBUG))
+#if(defined(_GOOBYSOFT_DEBUG))
 				std::printf("Port %s is bussy, collecting it\n", port);
 #endif
 				ports.push_back(port); // The port is bussy, it can be used.
 			}
-#if(defined(_GOOBYBUS_DEBUG))
+#if(defined(_GOOBYSOFT_DEBUG))
 			else {
 				std::printf("Port %s is not available. Error code: %i\n", port, ex.code().value());
 			}
@@ -64,7 +64,7 @@ std::vector<std::string> Tools_Hardware_USB_Protocols_CDC_getAllPorts() {
 	tryPort(ports, "COM");
 	tryPort(ports, "/dev/ttyACM");
 	tryPort(ports, "/dev/ttyUSB");
-#if(defined(_GOOBYBUS_DEBUG))
+#if(defined(_GOOBYSOFT_DEBUG))
 	std::printf("Total ports found: %i\n", (int)ports.size());
 	for (size_t i = 0; i < ports.size(); i++) {
 		std::printf("Port: %s\n", ports.at(i).c_str());
