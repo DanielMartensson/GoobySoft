@@ -17,8 +17,8 @@ static void addMeasurementPlot(const char titleId[], bool selectedColumns[], std
 				std::vector<float> yData;
 				std::vector<float> xData;
 				for (size_t j = from - 1; j < to; j += withStep) {
-					yData.emplace_back(column.at(j));
-					xData.emplace_back(((float)j) + 1.0f);
+					yData.push_back(column.at(j));
+					xData.push_back(((float)j) + 1.0f);
 				}
 
 				// Plot
