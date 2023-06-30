@@ -29,7 +29,7 @@ void checkPort(std::vector<std::string>& ports, const char port[]) {
 	}
 }
 
-void tryPort(std::vector<std::string> ports, const char portTemplate[]) {
+void tryPort(std::vector<std::string>& ports, const char portTemplate[]) {
 	char port[30];
 	for (int i = 0; i < 127; i++) {
 		try {
