@@ -62,7 +62,7 @@ void Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasuremen
 			if (from < 1) {
 				from = 1;
 			}
-			if (from >= rowCount) {
+			if (from > rowCount) {
 				from = rowCount;
 			}
 		}
@@ -70,7 +70,7 @@ void Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasuremen
 			if (to < 1) {
 				to = 1;
 			}
-			if (to >= rowCount) {
+			if (to > rowCount) {
 				to = rowCount;
 			}
 		}
@@ -78,7 +78,7 @@ void Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasuremen
 			if (withStep < 1) {
 				withStep = 1;
 			}
-			if (withStep >= rowCount) {
+			if (withStep > rowCount) {
 				withStep = rowCount;
 			}
 		}
@@ -118,7 +118,6 @@ void Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasuremen
 			ImGui::Separator();
 			
 			// Create plots
-			ImPlot::CreateContext();
 			for (int i = 0; i < numberOfPlots; i++) {
 				std::sprintf(text, "Plot %i", i);
 				addMeasurementPlot(text, selectedColumnsPlot[i], columnNames, from, to, withStep);
