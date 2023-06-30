@@ -16,13 +16,15 @@ static void addMeasurementPlot(const char titleId[], bool selectedColumns[], std
 				// Cut yData between from and to with step
 				std::vector<float> yData;
 				std::vector<float> xData;
-				for (size_t j = from - 1; j < to; j += withStep) {
+				size_t j;
+				for ( j = from - 1; j < to; j += withStep) {
 					yData.emplace_back(column.at(j));
 					xData.emplace_back(((float)j) + 1.0f);
 				}
 
 				// Plot
-				ImPlot::PlotLine(columnNames.at(i).c_str(), xData.data(), yData.data(), (int)yData.size());
+				int s = yData.size();
+				ImPlot::PlotLine(columnNames.at(i).c_str(), xData.data(), yData.data(), s);
 
 			}
 		}
@@ -118,6 +120,7 @@ void Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasuremen
 			ImGui::Separator();
 			
 			// Create plots
+			ImPlot::CreateContext();
 			for (int i = 0; i < numberOfPlots; i++) {
 				std::sprintf(text, "Plot %i", i);
 				addMeasurementPlot(text, selectedColumnsPlot[i], columnNames, from, to, withStep);
