@@ -3,9 +3,6 @@
 // If you are new to Dear ImGui, read documentation from the docs/ folder + read the top of imgui.cpp.
 // Read online: https://github.com/ocornut/imgui/tree/master/docs
 
-// Debug mode
-#define GOOBYBUS_DEBUG
-
 // Tools, Windows, SDL and OpenGL
 #include "Tools/Tools.h"
 #include "Windows/Windows.h"
@@ -21,7 +18,7 @@
 #include "Resources/Resources.h"
 
 // Remove console
-#if(defined(GOOBYBUS_DEBUG))
+#ifndef _GOOBYBUS_DEBUG
 #pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 #endif
 
