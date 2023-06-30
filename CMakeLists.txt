@@ -7,8 +7,8 @@ set(CMAKE_BUILD_TYPE "Release")
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 
-# Uncomment this if you don't want the debug mode activated
-add_compile_definitions(_GOOBYBUS_DEBUG)
+# Uncomment this if you want the debug mode activated
+#add_compile_definitions(_GOOBYBUS_DEBUG)
 
 file(GLOB_RECURSE SOURCES "GoobySoft/*.cpp")
 
