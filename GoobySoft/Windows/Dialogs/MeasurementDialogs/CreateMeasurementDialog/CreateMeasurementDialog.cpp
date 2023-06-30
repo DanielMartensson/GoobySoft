@@ -5,34 +5,34 @@
 #include <cstdio>
 
 // File
-std::ofstream measurementFile;
+static std::ofstream measurementFile;
 
 // Vectors for measurements 
-std::vector<std::vector<float>> xDataADL400;
-std::vector<std::vector<float>> yDataADL400;
+static std::vector<std::vector<float>> xDataADL400;
+static std::vector<std::vector<float>> yDataADL400;
 
 void updateVectors(const int samples, const float value, const size_t i, std::vector<std::vector<float>>& xData, std::vector<std::vector<float>>& yData) {
 	size_t s = xData.at(i).size();
 	if (s > samples) {
 		// Remove diff elements
 		size_t diff = s - samples;
-		xData.at(i).erase(xData.at(i).begin(), xData.at(i).begin() + diff);
-		yData.at(i).erase(yData.at(i).begin(), yData.at(i).begin() + diff);
+		auto xDataBegin = xData.at(i).begin();
+		auto yDataBegin = yData.at(i).begin();
+		xData.at(i).erase(xDataBegin, xDataBegin + diff);
+		yData.at(i).erase(yDataBegin, yDataBegin + diff);
 
 		// Add
-		xData.at(i).push_back(xData.at(i).back() + 1); 
-		yData.at(i).push_back(value);
+		xData.at(i).emplace_back(xData.at(i).back() + 1); 
+		yData.at(i).emplace_back(value);
 	}
 	else if (s == 0) {
-		xData.at(i).push_back(0.0f);
-		yData.at(i).push_back(value);
+		xData.at(i).emplace_back(0.0f);
+		yData.at(i).emplace_back(value);
 	}
 	else {
-		xData.at(i).push_back(xData.at(i).back() + 1); // Add +1 for each new element
-		yData.at(i).push_back(value);
+		xData.at(i).emplace_back(xData.at(i).back() + 1); // Add +1 for each new element
+		yData.at(i).emplace_back(value);
 	}
-
-
 }
 
 bool checkIfItsTimeForStoreMeasurement(const int sampleTime) {

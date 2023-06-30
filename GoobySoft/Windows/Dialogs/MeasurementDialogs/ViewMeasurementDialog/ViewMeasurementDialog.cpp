@@ -11,7 +11,7 @@ void addMeasurementPlot(const char titleId[], bool selectedColumns[], std::vecto
 		for (size_t i = 0; i < columnCount; i++) {
 			if (selectedColumns[i]) {
 				// Get column data
-				std::vector<float> column = doc.GetColumn<float>(columnNames.at(i).c_str());
+				std::vector<float> column = doc.GetColumn<float>(columnNames.at(i));
 
 				// Cut yData between from and to with step
 				std::vector<float> yData;
@@ -108,7 +108,7 @@ void Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasuremen
 				ImGui::Text(text);
 				ImGui::SameLine();
 				for (size_t j = 0; j < columnCount; j++) {
-					if (columnNames.at(j) != "") {
+					if (!columnNames.at(j).empty()) {
 						ImGui::Checkbox((columnNames.at(j) + std::to_string(i)).c_str(), &selectedColumnsPlot[i][j]);
 						ImGui::SameLine();
 					}

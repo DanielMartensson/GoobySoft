@@ -35,7 +35,7 @@ std::vector<std::string> Tools_Communications_Devices_ADL400_getDisplayNames() {
 	size_t tableDataSize = Tools_Communications_Devices_ADL400_getConfigurationTableDataSize();
 	std::vector<std::string> displayNames;
 	for (size_t i = 0; i < tableDataSize; i++) {
-		displayNames.push_back(Tools_Communications_Devices_ADL400_getDisplayName(i));
+		displayNames.emplace_back(Tools_Communications_Devices_ADL400_getDisplayName(i));
 	}
 	return displayNames;
 }

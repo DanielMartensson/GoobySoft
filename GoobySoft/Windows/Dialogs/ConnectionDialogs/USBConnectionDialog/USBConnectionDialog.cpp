@@ -5,21 +5,16 @@
 size_t portIndex;
 
 bool connectionUSBCallback() {
-	return Tools_Hardware_USB_openConnection(Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].port,
-		Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].baudrate,
-		Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].dataBit,
-		USB_CONTROL_FLOW_STRING[Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].controlFlowIndex],
-		USB_STOP_BITS_STRING[Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].stopBitIndex],
-		USB_PARITY_STRING[Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].parityIndex],
-		USB_PROTOCOL_STRING[Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].protocolIndex]) == USB_STATUS_CONNECTED;
+	USBSettings usbSettings = Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex];
+	return Tools_Hardware_USB_openConnection(usbSettings.port, usbSettings.baudrate, usbSettings.dataBit, USB_CONTROL_FLOW_STRING[usbSettings.controlFlowIndex], USB_STOP_BITS_STRING[usbSettings.stopBitIndex], USB_PARITY_STRING[usbSettings.parityIndex], USB_PROTOCOL_STRING[usbSettings.protocolIndex]) == USB_STATUS_CONNECTED;
 }
 
 void disconnectionUSBCallback() {
-	Tools_Hardware_USB_closeConnection(Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].port,
-		USB_PROTOCOL_STRING[Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].protocolIndex]);
+	USBSettings usbSettings = Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex];
+	Tools_Hardware_USB_closeConnection(usbSettings.port, USB_PROTOCOL_STRING[usbSettings.protocolIndex]);
 }
 
-void Windows_Dialogs_ConnectionDialogs_USBConnectionDialog_showUSBconnectionDialog(bool *selectUSBPorts) {
+void Windows_Dialogs_ConnectionDialogs_USBConnectionDialog_showUSBconnectionDialog(bool* selectUSBPorts) {
 	// Display
 	ImGui::SetNextWindowSize(ImVec2(320, 320));
 	if (ImGui::BeginPopupModal("Select USB ports", selectUSBPorts, ImGuiWindowFlags_NoResize)) {
@@ -41,59 +36,58 @@ void Windows_Dialogs_ConnectionDialogs_USBConnectionDialog_showUSBconnectionDial
 		portIndex = Tools_Hardware_USB_getPortIndex(port.c_str());
 
 		// Remember 
-		std::strcpy(Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].port, port.c_str());
+		USBSettings* usbSettings = &Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex];
+		std::strcpy(usbSettings->port, port.c_str());
 
 		// USB protocol
 		const std::vector<std::string> protocols = Tools_Software_Algorithms_arrayToVector(USB_PROTOCOL_STRING);
-		std::string protocol = USB_PROTOCOL_STRING[Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].protocolIndex];
+		std::string protocol = USB_PROTOCOL_STRING[usbSettings->protocolIndex];
 		Tools_Gui_CreateItems_createCombo("Protocol", protocols, protocol, isConnected);
-		Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].protocolIndex = Tools_Software_Algorithms_findIndexOf(USB_PROTOCOL_STRING, protocol);
+		usbSettings->protocolIndex = Tools_Software_Algorithms_findIndexOf(USB_PROTOCOL_STRING, protocol);
 
 		// Check if it's connected
 		isConnected = Tools_Hardware_USB_isConnected(port.c_str(), protocol) == USB_STATUS_CONNECTED;
 
 		// Baudrate
 		const std::vector<std::string> baudrates = { "110", "150", "300", "600", "1200", "1800", "2400", "4800", "9600", "19200", "38400", "57600", "115200" };
-		unsigned int* baudratePtr = &Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].baudrate;
-		std::string baudrate = std::to_string(*baudratePtr);
+		std::string baudrate = std::to_string(usbSettings->baudrate);
 		Tools_Gui_CreateItems_createCombo("Baudrate", baudrates, baudrate, isConnected);
-		*baudratePtr = (unsigned int)std::stoi(baudrate);
-		if (*baudratePtr < 110) {
-			*baudratePtr = 9600;
+		usbSettings->baudrate = (unsigned int)std::stoi(baudrate);
+		if (usbSettings->baudrate < 110) {
+			usbSettings->baudrate = 9600;
 		}
-		if (*baudratePtr > 115200) {
-			*baudratePtr = 115200;
+		if (usbSettings->baudrate > 115200) {
+			usbSettings->baudrate = 115200;
 		}
 
 		// Parity
 		const std::vector<std::string> paraties = Tools_Software_Algorithms_arrayToVector(USB_PARITY_STRING);
-		std::string parity = USB_PARITY_STRING[Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].parityIndex];
+		std::string parity = USB_PARITY_STRING[usbSettings->parityIndex];
 		Tools_Gui_CreateItems_createCombo("Parity", paraties, parity, isConnected);
-		Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].parityIndex = Tools_Software_Algorithms_findIndexOf(USB_PARITY_STRING, parity);
+		usbSettings->parityIndex = Tools_Software_Algorithms_findIndexOf(USB_PARITY_STRING, parity);
 
 		// Stop bits 
 		const std::vector<std::string> stopBits = Tools_Software_Algorithms_arrayToVector(USB_STOP_BITS_STRING);
-		std::string stopBit = USB_STOP_BITS_STRING[Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].stopBitIndex];
+		std::string stopBit = USB_STOP_BITS_STRING[usbSettings->stopBitIndex];
 		Tools_Gui_CreateItems_createCombo("Stop bits", stopBits, stopBit, isConnected);
-		Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].stopBitIndex = Tools_Software_Algorithms_findIndexOf(USB_STOP_BITS_STRING, stopBit);
+		usbSettings->stopBitIndex = Tools_Software_Algorithms_findIndexOf(USB_STOP_BITS_STRING, stopBit);
 
 		// Control flow
 		const std::vector<std::string> controlFlows = Tools_Software_Algorithms_arrayToVector(USB_CONTROL_FLOW_STRING);
-		std::string controlFlow = USB_CONTROL_FLOW_STRING[Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].controlFlowIndex];
+		std::string controlFlow = USB_CONTROL_FLOW_STRING[usbSettings->controlFlowIndex];
 		Tools_Gui_CreateItems_createCombo("Control flow", controlFlows, controlFlow, isConnected);
-		Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].controlFlowIndex = Tools_Software_Algorithms_findIndexOf(USB_CONTROL_FLOW_STRING, controlFlow);
+		usbSettings->controlFlowIndex = Tools_Software_Algorithms_findIndexOf(USB_CONTROL_FLOW_STRING, controlFlow);
 
 		// Data bits 
 		const std::vector<std::string> dataBits = { "5", "6", "7", "8" };
-		unsigned int* dataBitPtr = &Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex].dataBit;
-		std::string dataBit = std::to_string(*dataBitPtr);
+		std::string dataBit = std::to_string(usbSettings->dataBit);
 		Tools_Gui_CreateItems_createCombo("Data bits", dataBits, dataBit, isConnected);
-		*dataBitPtr = (unsigned int)std::stoi(dataBit);
-		if (*dataBitPtr < 5) {
-			*dataBitPtr = 5;
+		usbSettings->dataBit = (unsigned int)std::stoi(dataBit);
+		if (usbSettings->dataBit < 5) {
+			usbSettings->dataBit = 5;
 		}
-		if (*dataBitPtr > 8) {
-			*dataBitPtr = 8;
+		if (usbSettings->dataBit > 8) {
+			usbSettings->dataBit = 8;
 		}
 
 		// Connect and disconnect buttons

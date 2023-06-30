@@ -11,7 +11,7 @@ bool configureMeasurement = false;
 bool createMeasurement = false;
 bool viewMeasurement = false;
 
-void showMainWindow() {
+void showMainWindow(bool* done) {
 	// Show the main window
 	ImGui::SetNextWindowSize(ImVec2(500.0f, 350.0f));
 	if (ImGui::BeginMainMenuBar()) {
@@ -24,6 +24,9 @@ void showMainWindow() {
 			}
 			if (ImGui::MenuItem("Delete a file", nullptr, nullptr)) {
 				createFile = true;
+			}
+			if (ImGui::MenuItem("Quit", nullptr, nullptr)) {
+				*done = true; // Close the application
 			}
 			ImGui::EndMenu();
 		}

@@ -4,7 +4,8 @@
 
 // Connection callback
 bool connectionCallbackDatabase() {
-	MYSQL_STATUS status = Tools_Storage_Databases_openConnection(Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.host, Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.addDevice, Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.username, Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.password, Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.schema);
+	DatabaseSettings databaseSettings = Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings;
+	MYSQL_STATUS status = Tools_Storage_Databases_openConnection(databaseSettings.host, databaseSettings.addDevice, databaseSettings.username, databaseSettings.password, databaseSettings.schema);
 	return status == MYSQL_STATUS_CONNECTED ? true : false;
 }
 
@@ -23,11 +24,12 @@ void Windows_Dialogs_ConnectionDialogs_DatabaseConnectionDialog_showDatabaseConn
 	ImGui::SetNextWindowSize(ImVec2(300, 230));
 	if (ImGui::BeginPopupModal("Select database server", selectDatabaseServer, ImGuiWindowFlags_NoResize)) {
 		// Display input fields
-		ImGui::InputText("Host", Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.host, sizeof(Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.host), ImGuiInputTextFlags_CharsNoBlank);
-		ImGui::InputText("Schema", Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.schema, sizeof(Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.schema), ImGuiInputTextFlags_CharsNoBlank);
-		ImGui::InputInt("Port", &Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.addDevice);
-		ImGui::InputText("Username", Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.username, sizeof(Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.username), ImGuiInputTextFlags_CharsNoBlank);
-		ImGui::InputText("Password", Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.password, sizeof(Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.password), ImGuiInputTextFlags_Password | ImGuiInputTextFlags_CharsNoBlank);
+		DatabaseSettings databaseSettings = Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings;
+		ImGui::InputText("Host", databaseSettings.host, sizeof(Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.host), ImGuiInputTextFlags_CharsNoBlank);
+		ImGui::InputText("Schema", databaseSettings.schema, sizeof(Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.schema), ImGuiInputTextFlags_CharsNoBlank);
+		ImGui::InputInt("Port", &databaseSettings.addDevice);
+		ImGui::InputText("Username", databaseSettings.username, sizeof(Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.username), ImGuiInputTextFlags_CharsNoBlank);
+		ImGui::InputText("Password", databaseSettings.password, sizeof(Tools_Hardware_ParameterStore_getParameterHolder()->databaseSettings.password), ImGuiInputTextFlags_Password | ImGuiInputTextFlags_CharsNoBlank);
 
 		bool isConnected = Tools_Storage_Databases_MySQL_isConnected() == MYSQL_STATUS_CONNECTED;
 		Tools_Gui_CreateItems_createConnectDisconnectButtons(

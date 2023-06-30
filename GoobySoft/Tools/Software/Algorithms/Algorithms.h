@@ -18,7 +18,7 @@ int Tools_Software_Algorithms_findIndexOf(const T(&arr)[N], const T& value) {
 template <typename T>
 int Tools_Software_Algorithms_findIndexOf(const std::vector<T>& arr, const T& value) {
     for (std::size_t i = 0; i < arr.size(); i++) {
-        if (arr.at(i) == value) {
+        if (arr.at(i).compare(value) == 0) {
             return static_cast<int>(i);
         }
     }

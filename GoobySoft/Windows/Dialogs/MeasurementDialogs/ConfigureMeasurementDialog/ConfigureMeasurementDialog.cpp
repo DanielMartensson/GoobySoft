@@ -13,8 +13,8 @@ void Windows_Dialogs_MeasurementDialogs_ConfigureMeasurementDialog_showConfigure
 	// Display
 	if (ImGui::BeginPopupModal("Configure measurement", configureMeasurement)) {
 		if (ImGui::CollapsingHeader("CDC")) {
-			// Get the ports 
-			std::vector<std::string> ports = Tools_Hardware_USB_Protocols_CDC_getPortsOfConnectedDevices();
+			// Get the ports TODO: Work on this for STM32-PLC
+			//std::vector<std::string> ports = Tools_Hardware_USB_Protocols_CDC_getPortsOfConnectedDevices();
 
 			if (ImGui::CollapsingHeader("STM32PLC")) {
 

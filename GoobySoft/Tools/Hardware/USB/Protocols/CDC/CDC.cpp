@@ -1,6 +1,7 @@
 #include "CDC.h"
 #include <boost/asio.hpp>
 #include <map>
+#include <memory>
 #include <cstdio>
 #include "../../USB.h"
 
@@ -89,7 +90,7 @@ bool Tools_Hardware_USB_Protocols_CDC_closeConnection(const char port[]) {
 
 bool Tools_Hardware_USB_Protocols_CDC_openConnection(const char port[], const unsigned int baudrate, const unsigned int dataBits, const unsigned int flowControl, const unsigned int stopBits, const unsigned int parity) {
 	// Open connection
-	std::shared_ptr<boost::asio::serial_port> addDevice(new boost::asio::serial_port(io, port));
+	std::shared_ptr<boost::asio::serial_port> addDevice = std::make_shared<boost::asio::serial_port>(io, port);
 
 	// Baudrate options
 	addDevice->set_option(boost::asio::serial_port::baud_rate(boost::asio::serial_port_base::baud_rate(baudrate)));
