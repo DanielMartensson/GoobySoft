@@ -3,8 +3,8 @@
 
 // Data table
 rapidcsv::Document doc;
-size_t rowCount;
-size_t columnCount;
+size_t rowCount = 0;
+size_t columnCount = 0;
 
 static void addMeasurementPlot(const char titleId[], bool selectedColumns[], std::vector<std::string>& columnNames, size_t from, size_t to, size_t withStep) {
 	if (ImPlot::BeginPlot(titleId)) {
@@ -17,8 +17,8 @@ static void addMeasurementPlot(const char titleId[], bool selectedColumns[], std
 				std::vector<float> yData;
 				std::vector<float> xData;
 				for (size_t j = from - 1; j < to; j += withStep) {
-					yData.push_back(column.at(j));
-					xData.push_back(((float)j) + 1.0f);
+					yData.emplace_back(column.at(j));
+					xData.emplace_back(((float)j) + 1.0f);
 				}
 
 				// Plot
@@ -47,13 +47,13 @@ void Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasuremen
 			rowCount = doc.GetRowCount();
 
 			// Check
-			if (from >= rowCount) {
+			if (from > rowCount) {
 				from = rowCount;
 			}
-			if (to >= rowCount) {
+			if (to > rowCount) {
 				to = rowCount;
 			}
-			if (withStep >= rowCount) {
+			if (withStep > rowCount) {
 				withStep = rowCount;
 			}
 		}
