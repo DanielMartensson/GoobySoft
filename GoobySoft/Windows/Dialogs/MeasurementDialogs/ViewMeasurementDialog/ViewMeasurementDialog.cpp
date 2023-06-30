@@ -6,7 +6,7 @@ rapidcsv::Document doc;
 size_t rowCount;
 size_t columnCount;
 
-void addMeasurementPlot(const char titleId[], bool selectedColumns[], std::vector<std::string>& columnNames, size_t from, size_t to, size_t withStep) {
+static void addMeasurementPlot(const char titleId[], bool selectedColumns[], std::vector<std::string>& columnNames, size_t from, size_t to, size_t withStep) {
 	if (ImPlot::BeginPlot(titleId)) {
 		for (size_t i = 0; i < columnCount; i++) {
 			if (selectedColumns[i]) {
