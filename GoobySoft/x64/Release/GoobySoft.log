@@ -1,12 +1,8 @@
-﻿  DatabaseConnectionDialog.cpp
-  USBConnectionDialog.cpp
-  LogFilePathDialog.cpp
-  ConfigureMeasurementDialog.cpp
-  Windows.cpp
+﻿  ConfigureMeasurementDialog.cpp
      Creating library C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.lib and object C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exp
   Generating code
-  7 of 7175 functions (<0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    43 functions had inline decision re-evaluated but remain unchanged
+  274 of 7501 functions ( 3.7%) were compiled, the rest were copied from previous compilation.
+    6 functions were new in current compilation
+    96 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   GoobySoft.vcxproj -> C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exe

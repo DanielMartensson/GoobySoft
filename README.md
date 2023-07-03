@@ -43,13 +43,13 @@ The folders `x64/Debug` and `x64/Release` contains prebuilt 64-bit Windows binar
  2. Download the `Linux - Generic (glibc <version>) (ARM, 64-bit), Compressed TAR Archive` from [Oracle Connectors](https://dev.mysql.com/downloads/connector/cpp/)
  3. Extract the tar archive and stand inside the extracted folder. You will now see the folders `include` and `lib64`.
  4. Write `sudo mkdir /usr/include/mysql-cppconn-8/`
- 4. Write `sudo cp -r include/* /usr/include/mysql-cppconn-8/`
- 5. Write `sudo cp -r lib64/* /lib/aarch64-linux-gnu/`
- 6. Download `GoobySoft` repository and extract the `.zip` file.
- 6. Make sure you are standing inside the `GoobySoft` folder.
- 7. Run CMake `cmake -B build .`
- 8. Compile `cmake --build build` 
- 9. Go to the `build` folder inside `GoobySoft` and run `./GoobySoft`  
+ 5. Write `sudo cp -r include/* /usr/include/mysql-cppconn-8/`
+ 6. Write `sudo cp -r lib64/* /lib/aarch64-linux-gnu/`
+ 7. Download `GoobySoft` repository and extract the `.zip` file.
+ 8. Make sure you are standing inside the `GoobySoft` folder.
+ 9. Run CMake `cmake -B build .`
+ 10. Compile `cmake --build build` 
+ 11. Go to the `build` folder inside `GoobySoft` and run `./GoobySoft`  
 
 # Pictures
 

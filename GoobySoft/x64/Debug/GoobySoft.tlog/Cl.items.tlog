@@ -1,5 +1,7 @@
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\GoobySoft.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\GoobySoft.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\ADL400\ADL400.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\ADL400.obj
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\OpenSAEJ1939\OpenSAEJ1939.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\OpenSAEJ1939.obj
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\STM32PLC.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Gui\CreateDialogs\CreateDialogs.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\CreateDialogs.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\ImGuiFileDialog\ImGuiFileDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\ImGuiFileDialog.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Gui\CreateItems\CreateItems.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\CreateItems.obj

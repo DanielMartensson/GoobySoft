@@ -106,7 +106,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;_CRT_SECURE_NO_WARNINGS;_GOOBYSOFT_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -136,6 +136,8 @@
   <ItemGroup>
     <ClCompile Include="GoobySoft.cpp" />
     <ClCompile Include="Tools\Communications\Devices\ADL400\ADL400.cpp" />
+    <ClCompile Include="Tools\Communications\Devices\OpenSAEJ1939\OpenSAEJ1939.cpp" />
+    <ClCompile Include="Tools\Communications\Devices\STM32PLC\STM32PLC.cpp" />
     <ClCompile Include="Tools\Gui\CreateDialogs\CreateDialogs.cpp" />
     <ClCompile Include="Tools\Software\Libraries\ImGuiFileDialog\ImGuiFileDialog.cpp" />
     <ClCompile Include="Tools\Gui\CreateItems\CreateItems.cpp" />
@@ -171,6 +173,8 @@
     <ClInclude Include="Tools\Communications\Communications.h" />
     <ClInclude Include="Tools\Communications\Devices\ADL400\ADL400.h" />
     <ClInclude Include="Tools\Communications\Devices\Devices.h" />
+    <ClInclude Include="Tools\Communications\Devices\OpenSAEJ1939\OpenSAEJ1939.h" />
+    <ClInclude Include="Tools\Communications\Devices\STM32PLC\STM32PLC.h" />
     <ClInclude Include="Tools\Gui\CreateDialogs\CreateDialogs.h" />
     <ClInclude Include="Tools\Software\Libraries\ImGuiFileDialog\dirent\dirent.h" />
     <ClInclude Include="Tools\Software\Libraries\ImGuiFileDialog\ImGuiFileDialog.h" />

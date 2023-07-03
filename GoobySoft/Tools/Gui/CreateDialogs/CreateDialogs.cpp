@@ -87,26 +87,27 @@ void Tools_Gui_CreateDialogs_showPopUpInformationDialogOK(const char popUpId[], 
 	}
 }
 
-bool Tools_Gui_CreateDialogs_showPopUpComboInputTextMultiDialogOKCancle(const char popUpId[], const int amountOfCombos, std::vector<std::string>& labels, std::vector<std::vector<std::string>>& items, std::vector<std::string>& selectedItems) {
+bool Tools_Gui_CreateDialogs_showPopUpComboInputIntInputTextMultiDialogOKCancle(const char popUpId[], const std::vector<std::string>& labelsCombo, const std::vector<std::vector<std::string>>& itemsCombo, std::vector<std::string>& selectedItemsCombo, const std::vector<std::string>& labelsInputInt, std::vector<int>& selectedItemsInputInt, const std::vector<std::string>& labelsInputText, std::vector<std::string>& selectedItemsInputText) {
 	ImVec2 popUpCenterPosition(ImGui::GetWindowPos().x + ImGui::GetWindowSize().x * 0.5f, ImGui::GetWindowPos().y + ImGui::GetWindowSize().y * 0.5f);
 	ImGui::SetNextWindowPos(popUpCenterPosition, ImGuiCond_Appearing, ImVec2(0.5f, 0.5f));
 	bool isPressedOK = false;
 	if (ImGui::BeginPopup(popUpId, ImGuiWindowFlags_Modal)) {
-		// Create labels.size() comboboxes
-		for (size_t i = 0; i < labels.size(); i++) {
-			if (i < amountOfCombos) {
-				// Combobox
-				Tools_Gui_CreateItems_createCombo(labels.at(i).c_str(), items.at(i), selectedItems.at(i), false);
-			}
-			else {
-				// TextInput
-				char text[200];
-				std::strcpy(text, selectedItems.at(i).c_str());
-				ImGui::InputText(labels.at(i).c_str(), text, sizeof(text));
-				selectedItems.at(i) = std::string(text);
-			}
+		// Combo
+		for (size_t i = 0; i < labelsCombo.size(); i++) {
+			Tools_Gui_CreateItems_createCombo(labelsCombo.at(i).c_str(), itemsCombo.at(i), selectedItemsCombo.at(i), false);
 		}
-		
+		// Input int
+		for (size_t i = 0; i < labelsInputInt.size(); i++) {
+			ImGui::InputInt(labelsInputInt.at(i).c_str(), &selectedItemsInputInt.at(i));
+		}
+		// Input text
+		for (size_t i = 0; i < labelsInputText.size(); i++) {
+			char text[200];
+			std::strcpy(text, selectedItemsInputText.at(i).c_str());
+			ImGui::InputText(labelsInputText.at(i).c_str(), text, sizeof(text));
+			selectedItemsInputText.at(i) = std::string(text);
+		}
+
 		// Close
 		if (ImGui::Button("OK")) {
 			isPressedOK = true;

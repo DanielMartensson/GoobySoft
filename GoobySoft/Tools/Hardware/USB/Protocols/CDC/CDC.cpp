@@ -2,10 +2,13 @@
 #include <boost/asio.hpp>
 #include <map>
 #include <memory>
+#include <thread>
+#include <chrono>
+#include <atomic>
 #include <cstdio>
 #include "../../USB.h"
 
-static boost::asio::io_service io;
+static boost::asio::io_context io;
 static std::map<std::string, std::shared_ptr<boost::asio::serial_port>> devicesCDC;
 
 static bool CDCDeviceExist(const char port[]) {
@@ -173,32 +176,54 @@ std::vector<std::string> Tools_Hardware_USB_Protocols_CDC_getPortsOfConnectedDev
 	return ports;
 }
 
-void Tools_Hardware_USB_Protocols_CDC_writeData(const char port[], const uint8_t data[], const size_t length) {
+#include <iostream>
+
+std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_startTransieveProcesss(const char port[], const long long timeOutMilliseconds, uint8_t dataTX[], size_t size) {
+	std::vector<uint8_t> dataRX;
 	if (CDCDeviceExist(port)) {
-		auto writeHandler = [&](const boost::system::error_code& errorCode, std::size_t bytesTransferred) {};
-		devicesCDC.at(port)->async_write_some(boost::asio::buffer(data, length), writeHandler);
+		// Atomic variable for the thread
+		std::atomic<bool> dataReceived(false);
+
+		// Start a read thread
+		std::thread readThread([&]() {
+			constexpr std::size_t buffer_size = 1024;
+			std::array<char, buffer_size> buffer;
+
+			boost::system::error_code error;
+			std::size_t bytes_transferred = 0;
+			try {
+				bytes_transferred = devicesCDC.at(port)->read_some(boost::asio::buffer(buffer), error);
+			}catch(...){}
+
+			if (!error) {
+				dataRX.assign(buffer.begin(), buffer.begin() + bytes_transferred);
+				dataReceived = true;
+			}
+		});
+
+		// Write data
+		devicesCDC.at(port)->write_some(boost::asio::buffer(dataTX, size));
+
+		// Check if data has been received or timeout has occurred
+		bool timeout = false;
+		auto startTime = std::chrono::steady_clock::now();
+		auto timeoutDuration = std::chrono::milliseconds(timeOutMilliseconds);
+		while (!dataReceived && !timeout){
+			auto currentTime = std::chrono::steady_clock::now();
+			auto elapsedTime = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - startTime);
+
+			// Check if timeout has occurred
+			if (elapsedTime >= timeoutDuration){
+				timeout = true;
+				readThread.detach(); // Kill the thread
+			}
+		}
+
+		// End the thread
+		if (readThread.joinable()) {
+			readThread.join();
+		}
+
 	}
-}
-
-std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_readData(const char port[], const long long timeOutMicroseconds) {
-	std::vector<uint8_t> data;
-	if (CDCDeviceExist(port)) {
-
-		// Create clock
-		boost::asio::steady_timer timer(io, std::chrono::milliseconds(timeOutMicroseconds));
-		
-		// Create read handler
-		auto readHandler = [&](const boost::system::error_code& errorCode, std::size_t bytesTransferred) {};
-
-		// Read
-		devicesCDC.at(port)->async_read_some(boost::asio::buffer(data), readHandler);
-		
-		// Start asyncronus timer
-		timer.async_wait([&](const boost::system::error_code& errorCode) {});
-
-		// Run
-		io.run();
-
-	}
-	return data;
+	return dataRX;
 }

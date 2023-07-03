@@ -23,8 +23,7 @@ static void addMeasurementPlot(const char titleId[], bool selectedColumns[], std
 				}
 
 				// Plot
-				int s = yData.size();
-				ImPlot::PlotLine(columnNames.at(i).c_str(), xData.data(), yData.data(), s);
+				ImPlot::PlotLine(columnNames.at(i).c_str(), xData.data(), yData.data(), (int)yData.size());
 
 			}
 		}

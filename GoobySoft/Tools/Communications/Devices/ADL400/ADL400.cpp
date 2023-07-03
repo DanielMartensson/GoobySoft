@@ -5,7 +5,7 @@
 // Configuration table
 static std::vector<std::vector<std::string>> configurationTable = { HEADERS_ADL400 };
 
-int readModbusRegister(const char port[], int registerAddress) {
+static int readModbusRegister(const char port[], int registerAddress) {
 	uint16_t modbusRegister = 0;
 	Tools_Hardware_USB_Protocols_Modbus_readRegister(port, registerAddress, 1, &modbusRegister);
 	return modbusRegister;
@@ -44,7 +44,23 @@ size_t Tools_Communications_Devices_ADL400_getConfigurationTableDataSize() {
 	return Tools_Communications_Devices_ADL400_getConfigurationTable().size() - 1U; // Importat because the functions above are indexed from zero
 }
 
-float Tools_Communications_Devices_ADL400_execute(size_t i) {
+bool Tools_Communications_Devices_ADL400_isInput(size_t i) {
+	(void)i;
+	return true;
+}
+
+int* Tools_Communications_Devices_ADL400_getControlVariable(size_t i) {
+	(void)i;
+	return nullptr;
+}
+
+float Tools_Communications_Devices_ADL400_setControlVariable(int value, size_t i) {
+	(void)value;
+	(void)i;
+	return 0;
+}
+
+float Tools_Communications_Devices_ADL400_getMeasurementVariable(size_t i) {
 	std::string portSTR = Tools_Communications_Devices_ADL400_getPort(i);
 	const char* port = portSTR.c_str();
 	int slaveAddress = std::stoi(Tools_Communications_Devices_ADL400_getSlaveAddress(i));
@@ -86,6 +102,9 @@ float Tools_Communications_Devices_ADL400_execute(size_t i) {
 		break;
 	case 9:
 		value = ((float)readModbusRegister(port, 0x7A)) / 10.0f;
+		break;
+	case 10:
+		value = ((float)readModbusRegister(port, 0x6A)) / 10.0f;
 		break;
 	}
 
