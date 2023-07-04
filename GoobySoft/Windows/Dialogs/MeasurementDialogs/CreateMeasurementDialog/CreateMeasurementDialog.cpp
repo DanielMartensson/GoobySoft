@@ -76,7 +76,7 @@ static void writeHeaderForCSVFile(std::vector<std::string> displayNames) {
 	}
 }
 
-static void writeMeasurement(const size_t tableSize, bool (*isInput)(size_t), float (*getMeasurementVariable)(size_t), int* (*getControlVariable)(size_t), float (*setControlVariable)(int, size_t), std::string(*getDisplayName)(size_t), bool performMeasurementUpdate, int samples, std::vector<std::vector<float>>& xData, std::vector<std::vector<float>>& yData){
+static void writeMeasurement(const size_t tableSize, bool (*isInput)(size_t), float (*getMeasurementVariable)(size_t), float* (*getControlVariable)(size_t, float*, float*), float (*setControlVariable)(float, size_t), std::string(*getDisplayName)(size_t), bool performMeasurementUpdate, int samples, std::vector<std::vector<float>>& xData, std::vector<std::vector<float>>& yData){
 	for (size_t i = 0; i < tableSize; i++) {
 		// Data
 		std::string displayName = getDisplayName(i);
@@ -85,7 +85,8 @@ static void writeMeasurement(const size_t tableSize, bool (*isInput)(size_t), fl
 			value = getMeasurementVariable(i); // Just read the variable
 		}
 		else {
-			value = setControlVariable(*getControlVariable(i), i); // Then read it
+			float minValue, maxValue;
+			value = setControlVariable(*getControlVariable(i, &minValue, &maxValue), i); // Then read it
 		}
 
 		// Update
@@ -103,11 +104,14 @@ static void writeMeasurement(const size_t tableSize, bool (*isInput)(size_t), fl
 	}
 }
 
-void addSlidersForControl(const size_t tableSize, bool (*isInput)(size_t), int* (*getControlVariable)(size_t), std::string(*getDisplayName)(size_t)) {
+void addSlidersForControl(const size_t tableSize, bool (*isInput)(size_t), float* (*getControlVariable)(size_t, float*, float*), std::string(*getDisplayName)(size_t)) {
 	for (size_t i = 0; i < tableSize; i++) {
 		std::string displayName = getDisplayName(i);
 		if (!isInput(i)) {
-			ImGui::SliderInt(displayName.c_str(), getControlVariable(i), -100, 100); // Change the variable by getting access to it
+			float maxValue = 0;
+			float minValue = 0;
+			float* controlVariable = getControlVariable(i, &minValue, &maxValue);
+			ImGui::SliderFloat(displayName.c_str(), controlVariable, minValue, maxValue); // Change the variable by getting access to it
 		}
 	}
 }

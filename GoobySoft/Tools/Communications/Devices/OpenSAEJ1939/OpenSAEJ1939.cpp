@@ -82,15 +82,15 @@ bool Tools_Communications_Devices_OpenSAEJ1939_isInput(size_t i) {
 	return true;
 }
 
-int* Tools_Communications_Devices_OpenSAEJ1939_getControlVariable(size_t i) {
+float* Tools_Communications_Devices_OpenSAEJ1939_getControlVariable(size_t i, float* minValue, float* maxValue) {
 	std::string function = Tools_Communications_Devices_OpenSAEJ1939_getFunction(i);
 	int index = Tools_Software_Algorithms_findIndexOf(FUNCTION_NAMES_OpenSAEJ1939, function);
 	
-	static int PWMs[PWM];
-	return &PWMs[0];
+	static float PWMs[PWM];
+	return &PWMs[0]; // TODO: Not done yet
 }
 
-float Tools_Communications_Devices_OpenSAEJ1939_setControlVariable(int value, size_t i) {
+float Tools_Communications_Devices_OpenSAEJ1939_setControlVariable(float value, size_t i) {
 	return 0;
 }
 

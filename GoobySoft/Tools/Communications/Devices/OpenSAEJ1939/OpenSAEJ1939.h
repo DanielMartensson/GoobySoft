@@ -31,8 +31,8 @@ std::string Tools_Communications_Devices_OpenSAEJ1939_getDisplayName(size_t i);
 std::vector<std::string> Tools_Communications_Devices_OpenSAEJ1939_getDisplayNames();
 size_t Tools_Communications_Devices_OpenSAEJ1939_getConfigurationTableDataSize();
 bool Tools_Communications_Devices_OpenSAEJ1939_isInput(size_t i);
-int* Tools_Communications_Devices_OpenSAEJ1939_getControlVariable(size_t i);
-float Tools_Communications_Devices_OpenSAEJ1939_setControlVariable(int value, size_t i);
+float* Tools_Communications_Devices_OpenSAEJ1939_getControlVariable(size_t i, float* minValue, float* maxValue);
+float Tools_Communications_Devices_OpenSAEJ1939_setControlVariable(float value, size_t i);
 float Tools_Communications_Devices_OpenSAEJ1939_getMeasurementVariable(size_t i);
 
 #endif // !OpenSAEJ1939

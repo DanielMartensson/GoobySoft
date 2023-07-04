@@ -49,12 +49,14 @@ bool Tools_Communications_Devices_ADL400_isInput(size_t i) {
 	return true;
 }
 
-int* Tools_Communications_Devices_ADL400_getControlVariable(size_t i) {
+float* Tools_Communications_Devices_ADL400_getControlVariable(size_t i, float* minValue, float* maxValue) {
 	(void)i;
+	(void)minValue;
+	(void)maxValue;
 	return nullptr;
 }
 
-float Tools_Communications_Devices_ADL400_setControlVariable(int value, size_t i) {
+float Tools_Communications_Devices_ADL400_setControlVariable(float value, size_t i) {
 	(void)value;
 	(void)i;
 	return 0;
@@ -104,7 +106,16 @@ float Tools_Communications_Devices_ADL400_getMeasurementVariable(size_t i) {
 		value = ((float)readModbusRegister(port, 0x7A)) / 10.0f;
 		break;
 	case 10:
-		value = ((float)readModbusRegister(port, 0x6A)) / 10.0f;
+		value = ((float)readModbusRegister(port, 0x6A)) / 1000.0f;
+		break;
+	case 11:
+		value = ((float)readModbusRegister(port, 0x6E)) / 1000.0f;
+		break;
+	case 12:
+		value = ((float)readModbusRegister(port, 0x72)) / 1000.0f;
+		break;
+	case 13:
+		value = ((float)readModbusRegister(port, 0x76)) / 1000.0f;
 		break;
 	}
 

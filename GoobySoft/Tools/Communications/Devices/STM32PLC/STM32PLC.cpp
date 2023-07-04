@@ -104,13 +104,15 @@ bool Tools_Communications_Devices_STM32PLC_isInput(size_t i) {
 	return index < DIGITAL + ANALOG + ANALOG_DIFFERENTIAL + INPUT_CAPTURE + ENCODER ? true : false;
 }
 
-int* Tools_Communications_Devices_STM32PLC_getControlVariable(size_t i) {
+float* Tools_Communications_Devices_STM32PLC_getControlVariable(size_t i, float* minValue, float* maxValue) {
 	std::string function = Tools_Communications_Devices_STM32PLC_getFunction(i);
 	int index = Tools_Software_Algorithms_findIndexOf(FUNCTION_NAMES_STM32PLC, function);
-
+	*minValue = std::stof(Tools_Communications_Devices_STM32PLC_getMinValue(i));
+	*maxValue = std::stof(Tools_Communications_Devices_STM32PLC_getMaxValue(i));
+	
 	// Determine if PWM or DAC
-	static int PWM_values[PWM] = { 0 };
-	static int DAC_values[DAC] = { 0 };
+	static float PWM_values[PWM] = { 0 };
+	static float DAC_values[DAC] = { 0 };
 	if (index >= DIGITAL + ANALOG + ANALOG_DIFFERENTIAL + INPUT_CAPTURE + ENCODER && index < DIGITAL + ANALOG + ANALOG_DIFFERENTIAL + INPUT_CAPTURE + ENCODER + PWM) {
 		return &PWM_values[index - DIGITAL - ANALOG - ANALOG_DIFFERENTIAL - INPUT_CAPTURE - ENCODER];
 	}
@@ -122,44 +124,39 @@ int* Tools_Communications_Devices_STM32PLC_getControlVariable(size_t i) {
 	}
 }
 
-float Tools_Communications_Devices_STM32PLC_setControlVariable(int value, size_t i) {
+float Tools_Communications_Devices_STM32PLC_setControlVariable(float value, size_t i) {
 	std::string portSTR = Tools_Communications_Devices_STM32PLC_getPort(i);
 	const char* port = portSTR.c_str();
 	std::string function = Tools_Communications_Devices_STM32PLC_getFunction(i);
 	int index = Tools_Software_Algorithms_findIndexOf(FUNCTION_NAMES_STM32PLC, function);
 
-	// Variable integer value have the range -100 to 100
+	// Calibration
+	float minValueRaw = std::stof(Tools_Communications_Devices_STM32PLC_getMinValueRaw(i));
+	float maxValueRaw = std::stof(Tools_Communications_Devices_STM32PLC_getMaxValueRaw(i));
+	float minValue = std::stof(Tools_Communications_Devices_STM32PLC_getMinValue(i));
+	float maxValue = std::stof(Tools_Communications_Devices_STM32PLC_getMaxValue(i));
+
 	uint16_t value16Bit = 0;
 	float y = 0;
-
+	
 	// Determine if PWM or DAC
 	if (index >= DIGITAL + ANALOG + ANALOG_DIFFERENTIAL + INPUT_CAPTURE + ENCODER && index < DIGITAL + ANALOG + ANALOG_DIFFERENTIAL + INPUT_CAPTURE + ENCODER + PWM) {
 		// Make value absolute
 		value = std::abs(value);
-		value16Bit = 65535 / 100 * value;
+		value16Bit = 65535.0f / (maxValue - minValue) * value;
 		write16ControlByte(port, WRITE_SET_PWM_SIGNAL_MESSAGE_TYPE, index - DIGITAL - ANALOG - ANALOG_DIFFERENTIAL - INPUT_CAPTURE - ENCODER, value16Bit);
-
-		// For the display only
-		float minValue = std::stof(Tools_Communications_Devices_STM32PLC_getMinValue(i));
-		float maxValue = std::stof(Tools_Communications_Devices_STM32PLC_getMaxValue(i));
-		float k = (maxValue - minValue) / 100;
-		float m = maxValue - k * 100;
-		y = k * value + m;
 	}
 	else if (index >= DIGITAL + ANALOG + ANALOG_DIFFERENTIAL + INPUT_CAPTURE + ENCODER + PWM && index < DIGITAL + ANALOG + ANALOG_DIFFERENTIAL + INPUT_CAPTURE + ENCODER + PWM + DAC) {
 		// Make value absolute
 		value = std::abs(value);
-		value16Bit = 4095 / 100 * value;
+		value16Bit = 4095.0f / (maxValue - minValue) * value;
 		write16ControlByte(port, WRITE_SET_DAC_SIGNAL_MESSAGE_TYPE, index - DIGITAL - ANALOG - ANALOG_DIFFERENTIAL - INPUT_CAPTURE - ENCODER - PWM, value16Bit);
-
-		// For the display only
-		float minValue = std::stof(Tools_Communications_Devices_STM32PLC_getMinValue(i));
-		float maxValue = std::stof(Tools_Communications_Devices_STM32PLC_getMaxValue(i));
-		float k = (maxValue - minValue) / 100;
-		float m = maxValue - k * 100;
-		y = k * value + m;
 	}
 
+	// Slope equation
+	float k = (maxValue - minValue) / (maxValueRaw - minValueRaw);
+	float m = maxValue - k * maxValueRaw;
+	y = k * value + m;
 	return y;
 }
 
@@ -170,7 +167,7 @@ float Tools_Communications_Devices_STM32PLC_getMeasurementVariable(size_t i) {
 	int index = Tools_Software_Algorithms_findIndexOf(FUNCTION_NAMES_STM32PLC, function);
 
 	// Value
-	uint16_t value = 0;
+	float value = 0;
 
 	// Inputs
 	if (index < DIGITAL) {
@@ -189,14 +186,20 @@ float Tools_Communications_Devices_STM32PLC_getMeasurementVariable(size_t i) {
 		value = read16MeasurementByte(port, SEND_BACK_ENCODER_MESSAGE_TYPE, index - DIGITAL - ANALOG - ANALOG_DIFFERENTIAL - INPUT_CAPTURE);
 	}
 
-	// Calibrate
+	// Calibration
 	float minValueRaw = std::stof(Tools_Communications_Devices_STM32PLC_getMinValueRaw(i));
 	float maxValueRaw = std::stof(Tools_Communications_Devices_STM32PLC_getMaxValueRaw(i));
 	float minValue = std::stof(Tools_Communications_Devices_STM32PLC_getMinValue(i));
 	float maxValue = std::stof(Tools_Communications_Devices_STM32PLC_getMaxValue(i));
+
+	// This is a special case for imput capture
+	if (index >= DIGITAL + ANALOG + ANALOG_DIFFERENTIAL && index < DIGITAL + ANALOG + ANALOG_DIFFERENTIAL + INPUT_CAPTURE) {
+		value = 1 / (value * 0.0001f); // 0.1526 Hz to 10kHz
+	}
+
+	// Slope equation
 	float k = (maxValue - minValue) / (maxValueRaw - minValueRaw);
 	float m = maxValue - k * maxValueRaw;
-
-
-	return 1 / (value * 0.0001f); //k * value + m;
+	float y = k * value + m;
+	return y;
 }

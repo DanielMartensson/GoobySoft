@@ -39,8 +39,8 @@ std::string Tools_Communications_Devices_STM32PLC_getDisplayName(size_t i);
 std::vector<std::string> Tools_Communications_Devices_STM32PLC_getDisplayNames();
 size_t Tools_Communications_Devices_STM32PLC_getConfigurationTableDataSize();
 bool Tools_Communications_Devices_STM32PLC_isInput(size_t i);
-int* Tools_Communications_Devices_STM32PLC_getControlVariable(size_t i);
-float Tools_Communications_Devices_STM32PLC_setControlVariable(int value, size_t i);
+float* Tools_Communications_Devices_STM32PLC_getControlVariable(size_t i, float* minValue, float* maxValue);
+float Tools_Communications_Devices_STM32PLC_setControlVariable(float value, size_t i);
 float Tools_Communications_Devices_STM32PLC_getMeasurementVariable(size_t i);
 
 #endif // !STM32PLC

@@ -87,7 +87,7 @@ void Tools_Gui_CreateDialogs_showPopUpInformationDialogOK(const char popUpId[], 
 	}
 }
 
-bool Tools_Gui_CreateDialogs_showPopUpComboInputIntInputTextMultiDialogOKCancle(const char popUpId[], const std::vector<std::string>& labelsCombo, const std::vector<std::vector<std::string>>& itemsCombo, std::vector<std::string>& selectedItemsCombo, const std::vector<std::string>& labelsInputInt, std::vector<int>& selectedItemsInputInt, const std::vector<std::string>& labelsInputText, std::vector<std::string>& selectedItemsInputText) {
+bool Tools_Gui_CreateDialogs_showPopUpComboInputIntInputTextMultiDialogOKCancle(const char popUpId[], const std::vector<std::string>& labelsCombo, const std::vector<std::vector<std::string>>& itemsCombo, std::vector<std::string>& selectedItemsCombo, const std::vector<std::string>& labelsInputFloat, std::vector<float>& selectedItemsInputFloat, const std::vector<std::string>& labelsInputText, std::vector<std::string>& selectedItemsInputText) {
 	ImVec2 popUpCenterPosition(ImGui::GetWindowPos().x + ImGui::GetWindowSize().x * 0.5f, ImGui::GetWindowPos().y + ImGui::GetWindowSize().y * 0.5f);
 	ImGui::SetNextWindowPos(popUpCenterPosition, ImGuiCond_Appearing, ImVec2(0.5f, 0.5f));
 	bool isPressedOK = false;
@@ -96,9 +96,9 @@ bool Tools_Gui_CreateDialogs_showPopUpComboInputIntInputTextMultiDialogOKCancle(
 		for (size_t i = 0; i < labelsCombo.size(); i++) {
 			Tools_Gui_CreateItems_createCombo(labelsCombo.at(i).c_str(), itemsCombo.at(i), selectedItemsCombo.at(i), false);
 		}
-		// Input int
-		for (size_t i = 0; i < labelsInputInt.size(); i++) {
-			ImGui::InputInt(labelsInputInt.at(i).c_str(), &selectedItemsInputInt.at(i));
+		// Input Float
+		for (size_t i = 0; i < labelsInputFloat.size(); i++) {
+			ImGui::InputFloat(labelsInputFloat.at(i).c_str(), &selectedItemsInputFloat.at(i));
 		}
 		// Input text
 		for (size_t i = 0; i < labelsInputText.size(); i++) {
