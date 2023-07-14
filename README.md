@@ -4,7 +4,7 @@ This is a measuring and controlling software. The purpose of this software is to
 
 # Features
 
-* CAN-bus/Modbus RTU/Modbus TCP/USB support
+* Open SAE J1939/Modbus RTU/Modbus TCP/USB support
 * Measure digital/analog inputs
 * Control output actuators
 * Easy to add own `device` by using `callback` functions
