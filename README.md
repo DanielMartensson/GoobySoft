@@ -17,7 +17,7 @@ This is a measuring and controlling software. The purpose of this software is to
 
  - ADL400 DIN Rail Energy Meter
  - Beijer Electronics Performance Inverter P2 (Comming soon)
- - [STM32-PLC](https://github.com/DanielMartensson/STM32-PLC) (Comming soon)
+ - [STM32-PLC](https://github.com/DanielMartensson/STM32-PLC)
 
 # How to add a new `device`
 
