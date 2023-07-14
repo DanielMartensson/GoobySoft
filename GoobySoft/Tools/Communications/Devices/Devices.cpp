@@ -4,7 +4,6 @@
 // Devices
 #include "ADL400/ADL400.h"
 #include "STM32PLC/STM32PLC.h"
-//#include "OpenSAEJ1939/OpenSAEJ1939.h"
 
 void createDeviceTool(struct Device* devices, const char deviceName[], std::string (*functionValues)(void), std::vector<TableColumnID> (*tableColumnIDs)(void), float (*getInput)(const char[], int, int), bool (*setOutput)(const char[], int, int, int), COLUMN_FUNCTION(*getColumnFunction)(int)) {
 	std::strcpy(devices->deviceName, deviceName);															
