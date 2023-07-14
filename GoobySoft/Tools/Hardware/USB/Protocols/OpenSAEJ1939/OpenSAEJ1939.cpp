@@ -8,7 +8,7 @@
 void Tools_Hardware_USB_Protocol_OpenSAEJ1939_callbackFunctionSend(uint32_t ID, uint8_t DLC, uint8_t data[]) {
 	// Load the data. 7 + largest value of DLC = 15 
 	uint8_t dataTX[15] = { 0 };
-	dataTX[0] = WRITE_SET_CAN_BUS_MESSAGE_TYPE;
+	dataTX[0] = STM32PLC_WRITE_SET_CAN_BUS_MESSAGE_TYPE;
 	dataTX[1] = CAN_ID_EXT;
 	dataTX[2] = ID >> 24;
 	dataTX[3] = ID >> 16;
@@ -30,7 +30,7 @@ void Tools_Hardware_USB_Protocol_OpenSAEJ1939_callbackFunctionRead(uint32_t* ID,
 	const char* port = Tools_Communications_Devices_STM32PLC_getPortOpenSAEJ1939();
 	
 	// Ask for CAN message
-	uint8_t dataTX[1] = { SEND_BACK_CAN_MESSAGE_TYPE };
+	uint8_t dataTX[1] = { STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE };
 	std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_startTransieveProcesss(port, 1000, dataTX, sizeof(dataTX));
 	if (dataRX.empty()) {
 		*is_new_data = false;

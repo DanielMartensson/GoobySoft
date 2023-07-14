@@ -304,73 +304,73 @@ float Tools_Communications_Devices_STM32PLC_getInput(const char port[], int func
 	/* These must follow the same linear pattern as getFunctionValues() */
 	switch (functionValueIndex) {
 	case IO_DIGITAL_INPUT_0:
-		return readInputUint8_t(port, SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 0);
+		return readInputUint8_t(port, STM32PLC_SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 0);
 	case IO_DIGITAL_INPUT_1:
-		return readInputUint8_t(port, SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 1);
+		return readInputUint8_t(port, STM32PLC_SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 1);
 	case IO_DIGITAL_INPUT_2:
-		return readInputUint8_t(port, SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 2);
+		return readInputUint8_t(port, STM32PLC_SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 2);
 	case IO_DIGITAL_INPUT_3:
-		return readInputUint8_t(port, SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 3);
+		return readInputUint8_t(port, STM32PLC_SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 3);
 	case IO_DIGITAL_INPUT_4:
-		return readInputUint8_t(port, SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 4);
+		return readInputUint8_t(port, STM32PLC_SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 4);
 	case IO_DIGITAL_INPUT_5:
-		return readInputUint8_t(port, SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 5);
+		return readInputUint8_t(port, STM32PLC_SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 5);
 	case IO_DIGITAL_INPUT_6:
-		return readInputUint8_t(port, SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 6);
+		return readInputUint8_t(port, STM32PLC_SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 6);
 	case IO_DIGITAL_INPUT_7:
-		return readInputUint8_t(port, SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 7);
+		return readInputUint8_t(port, STM32PLC_SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 7);
 	case IO_DIGITAL_INPUT_8:
-		return readInputUint8_t(port, SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 8);
+		return readInputUint8_t(port, STM32PLC_SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 8);
 	case IO_DIGITAL_INPUT_9:
-		return readInputUint8_t(port, SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 9);
+		return readInputUint8_t(port, STM32PLC_SEND_BACK_DIGITAL_IN_MESSAGE_TYPE, 9);
 	case IO_ANALOG_INPUT_0:
-		return readInputUint16_t(port, SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 0);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 0);
 	case IO_ANALOG_INPUT_1:
-		return readInputUint16_t(port, SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 1);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 1);
 	case IO_ANALOG_INPUT_2:
-		return readInputUint16_t(port, SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 2);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 2);
 	case IO_ANALOG_INPUT_3:
-		return readInputUint16_t(port, SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 3);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 3);
 	case IO_ANALOG_INPUT_4:
-		return readInputUint16_t(port, SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 4);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 4);
 	case IO_ANALOG_INPUT_5:
-		return readInputUint16_t(port, SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 5);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 5);
 	case IO_ANALOG_INPUT_6:
-		return readInputUint16_t(port, SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 6);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 6);
 	case IO_ANALOG_INPUT_7:
-		return readInputUint16_t(port, SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 7);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 7);
 	case IO_ANALOG_INPUT_8:
-		return readInputUint16_t(port, SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 8);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 8);
 	case IO_ANALOG_INPUT_9:
-		return readInputUint16_t(port, SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 9);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 9);
 	case IO_ANALOG_INPUT_10:
-		return readInputUint16_t(port, SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 10);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 10);
 	case IO_ANALOG_INPUT_11:
-		return readInputUint16_t(port, SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 11);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ANALOG_IN_MESSAGE_TYPE, 11);
 	case IO_ANALOG_DIFF_0:
-		return readInputUint16_t(port, SEND_BACK_ANALOG_DIFFERENTIAL_IN_MESSAGE_TYPE, 0);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ANALOG_DIFFERENTIAL_IN_MESSAGE_TYPE, 0);
 	case IO_ANALOG_DIFF_1:
-		return readInputUint16_t(port, SEND_BACK_ANALOG_DIFFERENTIAL_IN_MESSAGE_TYPE, 1);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ANALOG_DIFFERENTIAL_IN_MESSAGE_TYPE, 1);
 	case IO_ANALOG_DIFF_2:
-		return readInputUint16_t(port, SEND_BACK_ANALOG_DIFFERENTIAL_IN_MESSAGE_TYPE, 2);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ANALOG_DIFFERENTIAL_IN_MESSAGE_TYPE, 2);
 	case IO_ANALOG_DIFF_3:
-		return readInputUint16_t(port, SEND_BACK_ANALOG_DIFFERENTIAL_IN_MESSAGE_TYPE, 3);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ANALOG_DIFFERENTIAL_IN_MESSAGE_TYPE, 3);
 	case IO_ANALOG_DIFF_4:
-		return readInputUint16_t(port, SEND_BACK_ANALOG_DIFFERENTIAL_IN_MESSAGE_TYPE, 4);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ANALOG_DIFFERENTIAL_IN_MESSAGE_TYPE, 4);
 	case IO_INPUT_CAPTURE_0:
-		return 1.0f/(0.0001f * ((float)readInputUint16_t(port, SEND_BACK_INPUT_CAPUTRE_MESSAGE_TYPE, 0))); // Hz
+		return 1.0f / (0.0001f * ((float)readInputUint16_t(port, STM32PLC_SEND_BACK_INPUT_CAPUTRE_MESSAGE_TYPE, 0))); // Hz
 	case IO_INPUT_CAPTURE_1:
-		return 1.0f / (0.0001f * ((float)readInputUint16_t(port, SEND_BACK_INPUT_CAPUTRE_MESSAGE_TYPE, 1))); // Hz
+		return 1.0f / (0.0001f * ((float)readInputUint16_t(port, STM32PLC_SEND_BACK_INPUT_CAPUTRE_MESSAGE_TYPE, 1))); // Hz
 	case IO_INPUT_CAPTURE_2:
-		return 1.0f / (0.0001f * ((float)readInputUint16_t(port, SEND_BACK_INPUT_CAPUTRE_MESSAGE_TYPE, 2))); // Hz
+		return 1.0f / (0.0001f * ((float)readInputUint16_t(port, STM32PLC_SEND_BACK_INPUT_CAPUTRE_MESSAGE_TYPE, 2))); // Hz
 	case IO_INPUT_CAPTURE_3:
-		return 1.0f / (0.0001f * ((float)readInputUint16_t(port, SEND_BACK_INPUT_CAPUTRE_MESSAGE_TYPE, 3))); // Hz
+		return 1.0f / (0.0001f * ((float)readInputUint16_t(port, STM32PLC_SEND_BACK_INPUT_CAPUTRE_MESSAGE_TYPE, 3))); // Hz
 	case IO_ENCODER_0:
-		return readInputUint16_t(port, SEND_BACK_ENCODER_MESSAGE_TYPE, 0);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ENCODER_MESSAGE_TYPE, 0);
 	case IO_ENCODER_1:
-		return readInputUint16_t(port, SEND_BACK_ENCODER_MESSAGE_TYPE, 1);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ENCODER_MESSAGE_TYPE, 1);
 	case IO_ENCODER_2:
-		return readInputUint16_t(port, SEND_BACK_ENCODER_MESSAGE_TYPE, 2);
+		return readInputUint16_t(port, STM32PLC_SEND_BACK_ENCODER_MESSAGE_TYPE, 2);
 	default:
 		return -1.0f;
 	}
@@ -380,27 +380,27 @@ bool Tools_Communications_Devices_STM32PLC_setOutput(const char port[], int func
 	/* These must follow the same linear pattern as getFunctionValues() */
 	switch (functionValueIndex) {
 	case IO_PWM_0:
-		return writeOutputUint16_t(port, WRITE_SET_PWM_SIGNAL_MESSAGE_TYPE, 0, value);
+		return writeOutputUint16_t(port, STM32PLC_WRITE_SET_PWM_SIGNAL_MESSAGE_TYPE, 0, value);
 	case IO_PWM_1:
-		return writeOutputUint16_t(port, WRITE_SET_PWM_SIGNAL_MESSAGE_TYPE, 1, value);
+		return writeOutputUint16_t(port, STM32PLC_WRITE_SET_PWM_SIGNAL_MESSAGE_TYPE, 1, value);
 	case IO_PWM_2:
-		return writeOutputUint16_t(port, WRITE_SET_PWM_SIGNAL_MESSAGE_TYPE, 2, value);
+		return writeOutputUint16_t(port, STM32PLC_WRITE_SET_PWM_SIGNAL_MESSAGE_TYPE, 2, value);
 	case IO_PWM_3:
-		return writeOutputUint16_t(port, WRITE_SET_PWM_SIGNAL_MESSAGE_TYPE, 3, value);
+		return writeOutputUint16_t(port, STM32PLC_WRITE_SET_PWM_SIGNAL_MESSAGE_TYPE, 3, value);
 	case IO_PWM_4:
-		return writeOutputUint16_t(port, WRITE_SET_PWM_SIGNAL_MESSAGE_TYPE, 4, value);
+		return writeOutputUint16_t(port, STM32PLC_WRITE_SET_PWM_SIGNAL_MESSAGE_TYPE, 4, value);
 	case IO_PWM_5:
-		return writeOutputUint16_t(port, WRITE_SET_PWM_SIGNAL_MESSAGE_TYPE, 5, value);
+		return writeOutputUint16_t(port, STM32PLC_WRITE_SET_PWM_SIGNAL_MESSAGE_TYPE, 5, value);
 	case IO_PWM_6:
-		return writeOutputUint16_t(port, WRITE_SET_PWM_SIGNAL_MESSAGE_TYPE, 6, value);
+		return writeOutputUint16_t(port, STM32PLC_WRITE_SET_PWM_SIGNAL_MESSAGE_TYPE, 6, value);
 	case IO_PWM_7:
-		return writeOutputUint16_t(port, WRITE_SET_PWM_SIGNAL_MESSAGE_TYPE, 7, value);
+		return writeOutputUint16_t(port, STM32PLC_WRITE_SET_PWM_SIGNAL_MESSAGE_TYPE, 7, value);
 	case IO_DAC_0:
-		return writeOutputUint16_t(port, WRITE_SET_DAC_SIGNAL_MESSAGE_TYPE, 0, value);
+		return writeOutputUint16_t(port, STM32PLC_WRITE_SET_DAC_SIGNAL_MESSAGE_TYPE, 0, value);
 	case IO_DAC_1:
-		return writeOutputUint16_t(port, WRITE_SET_DAC_SIGNAL_MESSAGE_TYPE, 1, value);
+		return writeOutputUint16_t(port, STM32PLC_WRITE_SET_DAC_SIGNAL_MESSAGE_TYPE, 1, value);
 	case IO_DAC_2:
-		return writeOutputUint16_t(port, WRITE_SET_DAC_SIGNAL_MESSAGE_TYPE, 2, value);
+		return writeOutputUint16_t(port, STM32PLC_WRITE_SET_DAC_SIGNAL_MESSAGE_TYPE, 2, value);
 	case IO_AUXILIARY_VALVE_0:
 		return writeSAEJ1939AuxiliaryValveCommand(port, 0, value);
 	case IO_AUXILIARY_VALVE_1:
