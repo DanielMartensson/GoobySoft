@@ -237,7 +237,7 @@ void Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasur
 						for (int l = 0; l < tableColumnCount; l++) {
 							if (tableColumns[l].tableColumnID.columnDefinition == COLUMN_DEFINITION_FUNCTION) {								
 								// Is the function an output function
-								if (tableColumns[l].tableColumnID.columnFunction == COLUMN_FUNCTION_OUTPUT_ACTUATOR) {
+								if (tableColumns[l].tableColumnID.columnFunction == COLUMN_FUNCTION_OUTPUT_ACTUATOR || tableColumns[l].tableColumnID.columnFunction == COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS) {
 									// Find important columns for creating a slider
 									COLUMN_TYPE columnType;
 									void* value = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_DISPLAY_NAME, &columnType);
