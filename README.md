@@ -47,7 +47,7 @@ void Tools_Communications_Devices_createDevices() {
 
 2. Create the `getFunctionValues()` callback. This function should return a string of function values with `\0` as null termination e.g `Read Input A\0Read Input B\0Write Output C\0`. The reason for that is that `ImGui::Combo` box want an argument that contains a `const char*` that null terminations
 ```cpp
-std::string Tools_Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_getFunctionValues(){
+std::string Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_getFunctionValues(){
 	std::string functionNames;
 	functionNames += "Read Input A";
 	functionNames += '\0';
