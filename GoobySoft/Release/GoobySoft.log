@@ -7,13 +7,33 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\ST
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(118,56): warning C4838: conversion from 'uint16_t' to 'uint8_t' requires a narrowing conversion
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(118,56): warning C4244: 'initializing': conversion from 'uint16_t' to 'uint8_t', possible loss of data
   CreateDialogs.cpp
+  CreateItems.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Gui\CreateItems\CreateItems.cpp(13,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Gui\CreateItems\CreateItems.cpp(27,21): warning C4018: '<': signed/unsigned mismatch
   Network.cpp
+  ModbusTCP.cpp
   CDC.cpp
   Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
   - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
   - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
   Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+  ModbusRTU.cpp
   USB.cpp
+  Algorithms.cpp
+  ImGuiFileDialog.cpp
+  imgui_impl_opengl3.cpp
+  imgui_impl_sdl2.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  Compiling...
+  implot.cpp
+  implot_items.cpp
+  MySQL.cpp
+C:\vcpkg\installed\x86-windows\include\mysqlx\common.h(38,1): warning C4005: '_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING': macro redefinition
+C:\vcpkg\installed\x86-windows\include\mysqlx\common.h(38,1): message : '_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING' previously declared on the command line
   Parameters.cpp
   DatabaseConnectionDialog.cpp
   NetworkConnectionDialog.cpp
@@ -35,8 +55,8 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\Creat
   Windows.cpp
      Creating library C:\Users\dmn\GitHub\GoobySoft\Release\GoobySoft.lib and object C:\Users\dmn\GitHub\GoobySoft\Release\GoobySoft.exp
   Generating code
-  5 of 7185 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  3 of 7185 functions (<0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    45 functions had inline decision re-evaluated but remain unchanged
+    46 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   GoobySoft.vcxproj -> C:\Users\dmn\GitHub\GoobySoft\Release\GoobySoft.exe
