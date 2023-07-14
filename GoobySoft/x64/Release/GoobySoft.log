@@ -25,6 +25,7 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\ST
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
   USB.cpp
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+  Parameters.cpp
   DatabaseConnectionDialog.cpp
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
   NetworkConnectionDialog.cpp
@@ -53,8 +54,8 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\ST
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
      Creating library C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.lib and object C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exp
   Generating code
-  2 of 7215 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  0 of 7215 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    47 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   GoobySoft.vcxproj -> C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exe
