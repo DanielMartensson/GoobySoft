@@ -105,7 +105,7 @@ typedef enum {
 	IO_READ_INPUT_A,
 	IO_READ_INPUT_B,
 	IO_WRITE_OUTPUT_C
-}
+}IO;
 ```
 
 6. Create the `setOutput()` callback. Four arguments, same as `getInput()` callback, but this one have an integer `value` that `GoobySoft` is sending to the `device` for e.g `PWM control`.
