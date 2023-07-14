@@ -1,14 +1,14 @@
 #ifndef Parameters
 #define Parameters
 
-#define MAX_PROTOCOLS 5
-#define MAX_DEVICES 10
-#define MAX_ROWS 10
-#define MAX_COLUMNS 10
-#define MAX_USB_PORTS 10
-#define MAX_C_STRING_LEN 30
-#define MAX_C_STRING_EXTRA_LEN 1024
-#define MAX_DATA_MEASUREMENT_PLOT 1024
+#define MAX_PROTOCOLS 5					// How many protocols can be used, CDC, Modbus RTU, Modbus TCP etc..
+#define MAX_DEVICES 10					// How many devices per protocol
+#define MAX_ROWS 10						// How many rows per device inside configuration window
+#define MAX_COLUMNS 10					// Max columns for each device inside configuration column
+#define MAX_USB_PORTS 10				// Max USB ports that can be connected at the same time
+#define MAX_C_STRING_LEN 30				// Max char* length for e.g port, device name etc.
+#define MAX_C_STRING_EXTRA_LEN 1024		// Max char* length for function values
+#define MAX_DATA_MEASUREMENT_PLOT 1024	// Max plot length for real time measuring
 
 typedef enum {
 	COLUMN_DEFINITION_PORT,
