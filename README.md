@@ -22,7 +22,7 @@ This is a measuring and controlling software. The purpose of this software is to
 
 Assume that you have for example a `Modbus` or a special USB dongle that can communicate with a `input/output device`, and you want `GoobySoft` to read, write and store measurement data and also have a control connection to that `device`. All you need to do, is to work inside `Devices` folder of this project.
 
-1. Begin first to add your new `protocol` and new `device` here.
+1. Begin first to add your new `protocol` and new `device` here. Notice the name `Tools_Communications_Devices_createDevices()`. The proje ct is structured so each folder name begins with a capital letter and subfolders path are displayed with `_` and functions begins with lower case letters. So to find `Tools_Communications_Devices_createDevices()`, head over to `Tools/Communications/Devices` and open the file `Devices.cpp`. Each folder have the same folder name as the header and source file. So inside folder `Devices`, it exists `Devices.cpp` and `Devices.h`.
 ```cpp
 void Tools_Communications_Devices_createDevices() {
 	// Get the parameter holder
@@ -47,7 +47,7 @@ void Tools_Communications_Devices_createDevices() {
 
 2. Create the `getFunctionValues()` callback. This function should return a string of function values with `\0` as null termination e.g `Read Input A\0Read Input B\0Write Output C\0`. The reason for that is that `ImGui::Combo` box want an argument that contains a `const char*` that null terminations
 ```cpp
-std::string Tools__Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_getFunctionValues(){
+std::string Tools_Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_getFunctionValues(){
 	std::string functionNames;
 	functionNames += "Read Input A";
 	functionNames += '\0';
