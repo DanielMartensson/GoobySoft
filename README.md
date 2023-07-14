@@ -23,7 +23,7 @@ This is a measuring and controlling software. The purpose of this software is to
 
 Assume that you have for example a `Modbus` or a special USB dongle that can communicate with a `input/output device`, and you want `GoobySoft` to read, write and store measurement data and also have a control connection to that `device`. All you need to do, is to work inside `Devices` folder of this project.
 
-1. Begin first to add your new `protocol` and new `device` here. Notice the name `Tools_Communications_Devices_createDevices()`. The proje ct is structured so each folder name begins with a capital letter and subfolders path are displayed with `_` and functions begins with lower case letters. So to find `Tools_Communications_Devices_createDevices()`, head over to `Tools/Communications/Devices` and open the file `Devices.cpp`. Each folder have the same folder name as the header and source file. So inside folder `Devices`, it exists `Devices.cpp` and `Devices.h`.
+1. Begin first to add your new `protocol` and new `device` here. Notice the name `Tools_Communications_Devices_createDevices()`. The project is structured so each folder name begins with a capital letter and subfolders path are displayed with `_` and functions begins with lower case letters. So to find `Tools_Communications_Devices_createDevices()`, head over to `Tools/Communications/Devices` and open the file `Devices.cpp`. Each folder have the same folder name as the header and source file. So inside folder `Devices`, it exists `Devices.cpp` and `Devices.h`.
 ```cpp
 void Tools_Communications_Devices_createDevices() {
 	// Get the parameter holder
@@ -60,9 +60,13 @@ std::string Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_getFunctionValues
 }
 ```
 
-3. Create the `getTableColumnsID()` callback. Here you can determine the name of your column when you are going to configure your e.g measurement `device` or `CAN-bus device`. Here are some fields. You don't need to use them all, but some of them are mandatory. 
+3. Create the `getTableColumnsID()` callback. Here you can determine the name of your column when you are going to configure your e.g measurement `device` or `CAN-bus device`. Here are some examples below. You don't need to use them all, but some of them are mandatory. 
 ```cpp
 std::vector<TableColumnID> Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_getTableColumnIDs() {
+	/* 
+         * This can:
+         * Measure analog/digital inputs, control analog outputs, control analog outputs via e.g CAN-bus field, measure analog/digital inputs via e.g CAN-bus field
+         */
 	// Only one column definition is allowed.
 	std::vector<TableColumnID> tableColumnIDs;
 	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Port", COLUMN_DEFINITION_PORT)); // Mandatory field
@@ -74,10 +78,65 @@ std::vector<TableColumnID> Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_ge
 	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Max value real", COLUMN_DEFINITION_MAX_VALUE_REAL));
 	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Display name", COLUMN_DEFINITION_DISPLAY_NAME)); // Mandatory field
 	return tableColumnIDs;
+
+	/* 
+         * This can:
+         * Measure analog/digital inputs, control analog outputs
+         */
+	// Only one column definition is allowed.
+	std::vector<TableColumnID> tableColumnIDs;
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Port", COLUMN_DEFINITION_PORT)); // Mandatory field
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Function", COLUMN_DEFINITION_FUNCTION)); // Mandatory field
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Min value raw", COLUMN_DEFINITION_MIN_VALUE_RAW));
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Max value raw", COLUMN_DEFINITION_MAX_VALUE_RAW));
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Min value real", COLUMN_DEFINITION_MIN_VALUE_REAL));
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Max value real", COLUMN_DEFINITION_MAX_VALUE_REAL));
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Display name", COLUMN_DEFINITION_DISPLAY_NAME)); // Mandatory field
+	return tableColumnIDs;
+
+	/* 
+         * This can:
+         * Control analog outputs
+         */
+	// Only one column definition is allowed.
+	std::vector<TableColumnID> tableColumnIDs;
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Port", COLUMN_DEFINITION_PORT)); // Mandatory field
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Function", COLUMN_DEFINITION_FUNCTION)); // Mandatory field
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Min value raw", COLUMN_DEFINITION_MIN_VALUE_RAW));
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Max value raw", COLUMN_DEFINITION_MAX_VALUE_RAW));
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Display name", COLUMN_DEFINITION_DISPLAY_NAME)); // Mandatory field
+	return tableColumnIDs;
+
+	/* 
+         * This can:
+         * Measure analog/digital inputs via e.g CAN-bus field
+         */
+	// Only one column definition is allowed.
+	std::vector<TableColumnID> tableColumnIDs;
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Port", COLUMN_DEFINITION_PORT)); // Mandatory field
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Function", COLUMN_DEFINITION_FUNCTION)); // Mandatory field
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("CAN/Modbus address", COLUMN_DEFINITION_ADDRESS));
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Display name", COLUMN_DEFINITION_DISPLAY_NAME)); // Mandatory field
+	return tableColumnIDs;
+
+	/* 
+         * This can:
+         * Control analog outputs via e.g CAN-bus field, measure analog/digital inputs via e.g CAN-bus field
+         */
+	// Only one column definition is allowed.
+	std::vector<TableColumnID> tableColumnIDs;
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Port", COLUMN_DEFINITION_PORT)); // Mandatory field
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Function", COLUMN_DEFINITION_FUNCTION)); // Mandatory field
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("CAN/Modbus address", COLUMN_DEFINITION_ADDRESS));
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Min value raw", COLUMN_DEFINITION_MIN_VALUE_RAW));
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Max value raw", COLUMN_DEFINITION_MAX_VALUE_RAW));
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Display name", COLUMN_DEFINITION_DISPLAY_NAME)); // Mandatory field
+	return tableColumnIDs;
+
 }
 ```
 
-If you have this setup, then your configuration table is going to look like this. Depending on which function you are selecting, some input fields are hidden. The `COLUMN_DEFINITION enum` can be found in `Parameters.h` file
+If you have this setup above, then your configuration table is going to look like this. Depending on which function you are selecting, some input fields are hidden. The `COLUMN_DEFINITION enum` can be found in `Parameters.h` file
 
 ![a](https://github.com/DanielMartensson/GoobySoft/blob/main/Pictures/ConfigureMeasurement.png?raw=true)
 

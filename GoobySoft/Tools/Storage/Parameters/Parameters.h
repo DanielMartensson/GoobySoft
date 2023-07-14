@@ -12,30 +12,30 @@
 #define MAX_DATA_MEASUREMENT_PLOT 1024	// Max plot length for real time measuring
 
 typedef enum {
-	COLUMN_DEFINITION_PORT,
-	COLUMN_DEFINITION_DISPLAY_NAME,
-	COLUMN_DEFINITION_FUNCTION,
-	COLUMN_DEFINITION_MIN_VALUE_REAL,
-	COLUMN_DEFINITION_MIN_VALUE_RAW,
-	COLUMN_DEFINITION_MAX_VALUE_REAL,
-	COLUMN_DEFINITION_MAX_VALUE_RAW,
-	COLUMN_DEFINITION_ADDRESS
+	COLUMN_DEFINITION_PORT,				// Define a column as port	- Mandatory column
+	COLUMN_DEFINITION_DISPLAY_NAME,		// Define a column as display name - Mandatory column
+	COLUMN_DEFINITION_FUNCTION,			// Define a column as function - Mandatory column
+	COLUMN_DEFINITION_MIN_VALUE_REAL,	// For control or measurement calibration
+	COLUMN_DEFINITION_MIN_VALUE_RAW,	// For control or measurement calibration
+	COLUMN_DEFINITION_MAX_VALUE_REAL,	// For measurement calibration
+	COLUMN_DEFINITION_MAX_VALUE_RAW,	// For measurement calibration
+	COLUMN_DEFINITION_ADDRESS			// For e.g CAN-bus or Modbus communication
 }COLUMN_DEFINITION;
 
 typedef enum {
-	COLUMN_TYPE_UNKNOWN,
-	COLUMN_TYPE_COMBO,
-	COLUMN_TYPE_INT,
-	COLUMN_TYPE_FLOAT,
-	COLUMN_TYPE_STRING
+	COLUMN_TYPE_UNKNOWN,				// Unknow column type, this is an error message
+	COLUMN_TYPE_COMBO,					// For the function and port column
+	COLUMN_TYPE_INT,					// For control or measurement calibration
+	COLUMN_TYPE_FLOAT,					// For measurement calibration
+	COLUMN_TYPE_STRING					// For display name column
 }COLUMN_TYPE;
 
 typedef enum {
 	COLUMN_FUNCTION_HOLD_DATA,							// Regular field e.g Device Name column
-	COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS,				// For e.g ADC but it's for CAN-bus/Modbus
-	COLUMN_FUNCTION_INPUT_SENSOR_NO_CALIBRATION,		// For e.g Digital inputs
-	COLUMN_FUNCTION_INPUT_SENSOR_ANALOG,				// For e.g ADC inputs
-	COLUMN_FUNCTION_OUTPUT_ACTUATOR,					// For e.g PWM outputs
+	COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS,				// For e.g pre calibrated analog sensors but it's for CAN-bus/Modbus. 
+	COLUMN_FUNCTION_INPUT_SENSOR_NO_CALIBRATION,		// For e.g digital inputs or analog sensors that don't requrire calibration
+	COLUMN_FUNCTION_INPUT_SENSOR_ANALOG,				// For e.g analog sensors that need calibration
+	COLUMN_FUNCTION_OUTPUT_ACTUATOR,					// For e.g PWM outputs, or outputs with fixed address e.g Auxiliary Valve Command inside SAE J1939
 	COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS				// For e.g PWM but it's for CAN-bus/Modbus
 }COLUMN_FUNCTION;
 
