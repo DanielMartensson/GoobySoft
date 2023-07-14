@@ -2,10 +2,35 @@
 #define STM32PLC
 #include "../../../Tools.h"
 
+/* Message types for STM32 PLC */
+typedef enum {
+	SEND_BACK_CAN_MESSAGE_TYPE,
+	SEND_BACK_DIGITAL_IN_MESSAGE_TYPE,
+	SEND_BACK_ANALOG_IN_MESSAGE_TYPE,
+	SEND_BACK_ANALOG_DIFFERENTIAL_IN_MESSAGE_TYPE,
+	SEND_BACK_INPUT_CAPUTRE_MESSAGE_TYPE,
+	SEND_BACK_ENCODER_MESSAGE_TYPE,
+	SEND_BACK_PWM_PRESCALERS_MESSAGE_TYPE,
+	SEND_BACK_ANALOG_GAINS_MESSAGE_TYPE,
+	SEND_BACK_DATE_TIME_MESSAGE_TYPE,
+	SEND_BACK_ALARM_A_MESSAGE_TYPE,
+	SEND_BACK_ALARM_B_MESSAGE_TYPE,
+	WRITE_SET_CAN_BUS_MESSAGE_TYPE,
+	WRITE_SET_PWM_SIGNAL_MESSAGE_TYPE,
+	WRITE_SET_DAC_SIGNAL_MESSAGE_TYPE,
+	WRITE_SET_ANALOG_INPUT_GAIN_MESSAGE_TYPE,
+	WRITE_SET_PWM_PRESCALER_MESSAGE_TYPE,
+	WRITE_SET_DATE_TIME_MESSAGE_TYPE,
+	WRITE_SET_ALARM_A_MESSAGE_TYPE,
+	WRITE_SET_ALARM_B_MESSAGE_TYPE,
+	ACKNOWLEDGEMENT_MESSAGE_TYPE
+}MESSAGE_TYPES;
+
 std::vector<TableColumnID> Tools_Communications_Devices_STM32PLC_getTableColumnIDs();
 COLUMN_FUNCTION Tools_Communications_Devices_STM32PLC_getColumnFunction(int functionValueIndex);
 std::string Tools_Communications_Devices_STM32PLC_getFunctionValues();
 float Tools_Communications_Devices_STM32PLC_getInput(const char port[], int functionValueIndex, int address);
 bool Tools_Communications_Devices_STM32PLC_setOutput(const char port[], int functionValueIndex, int address, int value);
+const char* Tools_Communications_Devices_STM32PLC_getPortOpenSAEJ1939();
 
 #endif // !STM32PLC

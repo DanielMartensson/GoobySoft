@@ -1,5 +1,7 @@
 #include "STM32PLC.h"
-#include <cstdint>
+
+// Open SAE J1939 port
+static char portOpenSAEJ1939[50] = { 0 };
 
 // Read
 #define DIGITAL 10
@@ -12,30 +14,6 @@
 #define PWM 8
 #define DAC 3
 #define AUXILIARY_VALVE_COMMAND 16
-
-/* Message types for STM32 PLC */
-typedef enum {
-	SEND_BACK_CAN_MESSAGE_TYPE,
-	SEND_BACK_DIGITAL_IN_MESSAGE_TYPE,
-	SEND_BACK_ANALOG_IN_MESSAGE_TYPE,
-	SEND_BACK_ANALOG_DIFFERENTIAL_IN_MESSAGE_TYPE,
-	SEND_BACK_INPUT_CAPUTRE_MESSAGE_TYPE,
-	SEND_BACK_ENCODER_MESSAGE_TYPE,
-	SEND_BACK_PWM_PRESCALERS_MESSAGE_TYPE,
-	SEND_BACK_ANALOG_GAINS_MESSAGE_TYPE,
-	SEND_BACK_DATE_TIME_MESSAGE_TYPE,
-	SEND_BACK_ALARM_A_MESSAGE_TYPE,
-	SEND_BACK_ALARM_B_MESSAGE_TYPE,
-	WRITE_SET_CAN_BUS_MESSAGE_TYPE,
-	WRITE_SET_PWM_SIGNAL_MESSAGE_TYPE,
-	WRITE_SET_DAC_SIGNAL_MESSAGE_TYPE,
-	WRITE_SET_ANALOG_INPUT_GAIN_MESSAGE_TYPE,
-	WRITE_SET_PWM_PRESCALER_MESSAGE_TYPE,
-	WRITE_SET_DATE_TIME_MESSAGE_TYPE,
-	WRITE_SET_ALARM_A_MESSAGE_TYPE,
-	WRITE_SET_ALARM_B_MESSAGE_TYPE,
-	ACKNOWLEDGEMENT_MESSAGE_TYPE
-}MESSAGE_TYPES;
 
 /* These must follow the same linear pattern as getFunctionValues() */
 typedef enum {
@@ -120,9 +98,25 @@ static bool writeOutputUint16_t(const char port[], uint8_t messageType, uint8_t 
 	return !dataRX.empty();
 }
 
-static bool writeAuxiliaryValveCommand(const char port[], uint8_t valve_number, uint8_t standard_flow, uint8_t fail_safe_mode) {
-	// Implements Open SAE J1939 here
-	return true;
+static bool writeSAEJ1939AuxiliaryValveCommand(const char port[], uint8_t valve_number, uint8_t standard_flow) {
+	// Get the J1939 struct
+	J1939* j1939 = Tools_Hardware_ParameterStore_getJ1939Holder();
+
+	// Add the valve states
+	uint8_t valve_state = VALVE_STATE_NEUTRAL;
+	if (standard_flow > 0) {
+		valve_state = VALVE_STATE_EXTEND;
+	}
+	if (standard_flow < 0) {
+		valve_state = VALVE_STATE_RETRACT;
+	}
+
+	// Save the port 
+	std::strcpy(portOpenSAEJ1939, port);
+
+	// Write the command
+	ENUM_J1939_STATUS_CODES status = ISO_11783_Send_Auxiliary_Valve_Command(j1939, valve_number, standard_flow, 0, valve_state);
+	return status == STATUS_SEND_OK;
 }
 
 std::vector<TableColumnID> Tools_Communications_Devices_STM32PLC_getTableColumnIDs() {
@@ -233,37 +227,37 @@ COLUMN_FUNCTION Tools_Communications_Devices_STM32PLC_getColumnFunction(int func
 	case IO_DAC_2:
 		return COLUMN_FUNCTION_OUTPUT_ACTUATOR;
 	case IO_AUXILIARY_VALVE_0:
-		return COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS;
+		return COLUMN_FUNCTION_OUTPUT_ACTUATOR;
 	case IO_AUXILIARY_VALVE_1:
-		return COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS;
+		return COLUMN_FUNCTION_OUTPUT_ACTUATOR;
 	case IO_AUXILIARY_VALVE_2:
-		return COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS;
+		return COLUMN_FUNCTION_OUTPUT_ACTUATOR;
 	case IO_AUXILIARY_VALVE_3:
-		return COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS;
+		return COLUMN_FUNCTION_OUTPUT_ACTUATOR;
 	case IO_AUXILIARY_VALVE_4:
-		return COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS;
+		return COLUMN_FUNCTION_OUTPUT_ACTUATOR;
 	case IO_AUXILIARY_VALVE_5:
-		return COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS;
+		return COLUMN_FUNCTION_OUTPUT_ACTUATOR;
 	case IO_AUXILIARY_VALVE_6:
-		return COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS;
+		return COLUMN_FUNCTION_OUTPUT_ACTUATOR;
 	case IO_AUXILIARY_VALVE_7:
-		return COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS;
+		return COLUMN_FUNCTION_OUTPUT_ACTUATOR;
 	case IO_AUXILIARY_VALVE_8:
-		return COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS;
+		return COLUMN_FUNCTION_OUTPUT_ACTUATOR;
 	case IO_AUXILIARY_VALVE_9:
-		return COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS;
+		return COLUMN_FUNCTION_OUTPUT_ACTUATOR;
 	case IO_AUXILIARY_VALVE_10:
-		return COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS;
+		return COLUMN_FUNCTION_OUTPUT_ACTUATOR;
 	case IO_AUXILIARY_VALVE_11:
-		return COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS;
+		return COLUMN_FUNCTION_OUTPUT_ACTUATOR;
 	case IO_AUXILIARY_VALVE_12:
-		return COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS;
+		return COLUMN_FUNCTION_OUTPUT_ACTUATOR;
 	case IO_AUXILIARY_VALVE_13:
-		return COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS;
+		return COLUMN_FUNCTION_OUTPUT_ACTUATOR;
 	case IO_AUXILIARY_VALVE_14:
-		return COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS;
+		return COLUMN_FUNCTION_OUTPUT_ACTUATOR;
 	case IO_AUXILIARY_VALVE_15:
-		return COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS;
+		return COLUMN_FUNCTION_OUTPUT_ACTUATOR;
 	default:
 		return COLUMN_FUNCTION_HOLD_DATA;
 	}
@@ -408,38 +402,42 @@ bool Tools_Communications_Devices_STM32PLC_setOutput(const char port[], int func
 	case IO_DAC_2:
 		return writeOutputUint16_t(port, WRITE_SET_DAC_SIGNAL_MESSAGE_TYPE, 2, value);
 	case IO_AUXILIARY_VALVE_0:
-		return writeAuxiliaryValveCommand(port, 0, value, 0);
+		return writeSAEJ1939AuxiliaryValveCommand(port, 0, value);
 	case IO_AUXILIARY_VALVE_1:
-		return writeAuxiliaryValveCommand(port, 1, value, 0);
+		return writeSAEJ1939AuxiliaryValveCommand(port, 1, value);
 	case IO_AUXILIARY_VALVE_2:
-		return writeAuxiliaryValveCommand(port, 2, value, 0);
+		return writeSAEJ1939AuxiliaryValveCommand(port, 2, value);
 	case IO_AUXILIARY_VALVE_3:
-		return writeAuxiliaryValveCommand(port, 3, value, 0);
+		return writeSAEJ1939AuxiliaryValveCommand(port, 3, value);
 	case IO_AUXILIARY_VALVE_4:
-		return writeAuxiliaryValveCommand(port, 4, value, 0);
+		return writeSAEJ1939AuxiliaryValveCommand(port, 4, value);
 	case IO_AUXILIARY_VALVE_5:
-		return writeAuxiliaryValveCommand(port, 5, value, 0);
+		return writeSAEJ1939AuxiliaryValveCommand(port, 5, value);
 	case IO_AUXILIARY_VALVE_6:
-		return writeAuxiliaryValveCommand(port, 6, value, 0);
+		return writeSAEJ1939AuxiliaryValveCommand(port, 6, value);
 	case IO_AUXILIARY_VALVE_7:
-		return writeAuxiliaryValveCommand(port, 7, value, 0);
+		return writeSAEJ1939AuxiliaryValveCommand(port, 7, value);
 	case IO_AUXILIARY_VALVE_8:
-		return writeAuxiliaryValveCommand(port, 8, value, 0);
+		return writeSAEJ1939AuxiliaryValveCommand(port, 8, value);
 	case IO_AUXILIARY_VALVE_9:
-		return writeAuxiliaryValveCommand(port, 9, value, 0);
+		return writeSAEJ1939AuxiliaryValveCommand(port, 9, value);
 	case IO_AUXILIARY_VALVE_10:
-		return writeAuxiliaryValveCommand(port, 10, value, 0);
+		return writeSAEJ1939AuxiliaryValveCommand(port, 10, value);
 	case IO_AUXILIARY_VALVE_11:
-		return writeAuxiliaryValveCommand(port, 11, value, 0);
+		return writeSAEJ1939AuxiliaryValveCommand(port, 11, value);
 	case IO_AUXILIARY_VALVE_12:
-		return writeAuxiliaryValveCommand(port, 12, value, 0);
+		return writeSAEJ1939AuxiliaryValveCommand(port, 12, value);
 	case IO_AUXILIARY_VALVE_13:
-		return writeAuxiliaryValveCommand(port, 13, value, 0);
+		return writeSAEJ1939AuxiliaryValveCommand(port, 13, value);
 	case IO_AUXILIARY_VALVE_14:
-		return writeAuxiliaryValveCommand(port, 14, value, 0);
+		return writeSAEJ1939AuxiliaryValveCommand(port, 14, value);
 	case IO_AUXILIARY_VALVE_15:
-		return writeAuxiliaryValveCommand(port, 15, value, 0);
+		return writeSAEJ1939AuxiliaryValveCommand(port, 15, value);
 	default:
 		return false;
 	}
+}
+
+const char* Tools_Communications_Devices_STM32PLC_getPortOpenSAEJ1939() {
+	return portOpenSAEJ1939;
 }

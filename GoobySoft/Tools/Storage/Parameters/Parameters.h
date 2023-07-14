@@ -1,5 +1,6 @@
 #ifndef Parameters
 #define Parameters
+#include "../../Hardware/USB/Protocols/OpenSAEJ1939/OpenSAEJ1939.h"
 
 #define MAX_PROTOCOLS 5					// How many protocols can be used, CDC, Modbus RTU, Modbus TCP etc..
 #define MAX_DEVICES 10					// How many devices per protocol
@@ -136,5 +137,6 @@ void Tools_Hardware_ParameterStore_saveParameters();
 void* Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(TableColumn* tableColumns, int tableColumnCount, COLUMN_DEFINITION columnDefinition, COLUMN_TYPE* columnType);
 COLUMN_FUNCTION Tools_Hardware_ParameterStore_readColumnFunctionAtColumnDefinition(TableColumn* tableColumns, int tableColumnCount, COLUMN_DEFINITION columnDefinition);
 ParameterHolder* Tools_Hardware_ParameterStore_getParameterHolder();
+J1939* Tools_Hardware_ParameterStore_getJ1939Holder();
 
 #endif // !Parameters

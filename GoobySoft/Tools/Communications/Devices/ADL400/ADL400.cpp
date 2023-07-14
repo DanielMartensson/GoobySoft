@@ -1,5 +1,4 @@
 #include "ADL400.h"
-#include <cstdint>
 
 /* These must follow the same linear pattern as getFunctionValues() */
 typedef enum {

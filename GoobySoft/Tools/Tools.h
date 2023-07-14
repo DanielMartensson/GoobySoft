@@ -1,6 +1,7 @@
 #ifndef Tools
 #define Tools
-
+#include <string>
+#include <vector>
 #include "Communications/Communications.h"
 #include "Hardware/Hardware.h"
 #include "Gui/Gui.h"

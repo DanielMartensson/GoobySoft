@@ -112,6 +112,9 @@ int main(int, char**) {
 	SDL_Surface* icon = SDL_CreateRGBSurfaceWithFormatFrom(GOOBY_ICON, GOOBY_ICON_WIDTH, GOOBY_ICON_HEIGHT, 32, GOOBY_ICON_WIDTH * 4, SDL_PIXELFORMAT_RGBA32);
 	SDL_SetWindowIcon(window, icon);
 
+    // Set the call back functions for SAE J1939
+    CAN_Set_Callback_Functions(Tools_Hardware_USB_Protocol_OpenSAEJ1939_callbackFunctionSend, Tools_Hardware_USB_Protocol_OpenSAEJ1939_callbackFunctionRead, Tools_Hardware_USB_Protocol_OpenSAEJ1939_callbackFunctionTraffic);
+
 	// Load parameters 
 	Tools_Hardware_ParameterStore_loadParameters();
 

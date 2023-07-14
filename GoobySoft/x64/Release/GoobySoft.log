@@ -1,12 +1,12 @@
 ﻿  GoobySoft.cpp
   ADL400.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\ADL400\ADL400.cpp(148,2): warning C4065: switch statement contains 'default' but no 'case' labels
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\ADL400\ADL400.cpp(147,2): warning C4065: switch statement contains 'default' but no 'case' labels
   Devices.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\Devices.cpp(18,56): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\Devices.cpp(14,56): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   STM32PLC.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(118,50): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(118,56): warning C4838: conversion from 'uint16_t' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(118,56): warning C4244: 'initializing': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(96,50): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(96,56): warning C4838: conversion from 'uint16_t' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(96,56): warning C4244: 'initializing': conversion from 'uint16_t' to 'uint8_t', possible loss of data
   CreateDialogs.cpp
   Network.cpp
   CDC.cpp
@@ -14,8 +14,8 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\ST
   - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
   - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
   Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+  OpenSAEJ1939.cpp
   USB.cpp
-  Parameters.cpp
   DatabaseConnectionDialog.cpp
   NetworkConnectionDialog.cpp
   USBConnectionDialog.cpp
@@ -37,6 +37,6 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\Creat
      Creating library C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.lib and object C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exp
   Generating code
   Previous IPDB and IOBJ mismatch, fall back to full compilation.
-  All 7186 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 7215 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   GoobySoft.vcxproj -> C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exe
