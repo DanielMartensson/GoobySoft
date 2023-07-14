@@ -671,7 +671,7 @@ namespace ImPlot {
     // - #rows and #cols must be greater than 0.
     // - #size is the size of the entire grid of subplots, not the individual plots
     // - #row_ratios and #col_ratios must have AT LEAST #rows and #cols elements,
-    //   respectively. These are the sizes of the rows and columns expressed in ratios.
+    //   respectively. These are the sizes of the rows and columnsCombo expressed in ratios.
     //   If the user adjusts the dimensions, the arrays are updated with new ratios.
     //
     // Important notes regarding BeginPlot from inside of BeginSubplots:

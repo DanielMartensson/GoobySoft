@@ -1,6 +1,5 @@
 #ifndef USB
 #define USB
-#define MAX_USB_DEVICES 127
 #include <string>
 #include <vector>
 #include "Protocols/Protocols.h"
@@ -15,12 +14,6 @@ typedef enum {
 	USB_STATUS_MISSING_DATA,
 	USB_STATUS_NO_PROTOCOL
 }USB_STATUS;
-
-static const std::string USB_PROTOCOL_STRING[] = { "Modbus", "CDC" };
-typedef enum {
-	USB_PROTOCOL_ENUM_MODBUS,
-	USB_PROTOCOL_ENUM_CDC
-}USB_PROTOCOL_ENUM;
 
 static const std::string USB_PARITY_STRING[] = { "None", "Odd", "Even"};
 typedef enum {
@@ -43,10 +36,10 @@ typedef enum {
 }USB_STOP_BITS_ENUM;
 
 size_t Tools_Hardware_USB_getPortIndex(const char port[]);
-USB_STATUS Tools_Hardware_USB_isConnected(const char port[], const std::string& protocol);
-USB_STATUS Tools_Hardware_USB_closeConnection(const char port[], const std::string& protocol);
-USB_STATUS Tools_Hardware_USB_openConnection(const char port[], const unsigned int baudrate, const unsigned int dataBits, const std::string& flowControl, const std::string& stopBits, const std::string& parity, const std::string& protocol);
+USB_STATUS Tools_Hardware_USB_isConnected(const char port[], const std::string& protocols);
+USB_STATUS Tools_Hardware_USB_closeConnection(const char port[], const std::string& protocols);
+USB_STATUS Tools_Hardware_USB_openConnection(const char port[], const unsigned int baudrate, const unsigned int dataBits, const std::string& flowControl, const std::string& stopBits, const std::string& parity, const std::string& protocols);
 std::vector<std::string> Tools_Hardware_USB_getAllPorts();
-std::vector<std::string> Tools_Hardware_USB_getConnectedPorts(const std::string& protocol);
+std::string Tools_Hardware_USB_getConnectedPorts(const std::string& protocols);
 std::string Tools_Hardware_USB_getProtocolFromPort(const char port[]);
 #endif // !USB

@@ -1,43 +1,15 @@
-﻿  GoobySoft.cpp
-  ADL400.cpp
-  OpenSAEJ1939.cpp
+﻿  ADL400.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\ADL400\ADL400.cpp(148,2): warning C4065: switch statement contains 'default' but no 'case' labels
+  Devices.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\Devices.cpp(19,56): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   STM32PLC.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(51,50): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(51,56): warning C4838: conversion from 'uint16_t' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(51,56): warning C4244: 'initializing': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(146,49): warning C4244: '=': conversion from 'float' to 'uint16_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(152,48): warning C4244: '=': conversion from 'float' to 'uint16_t', possible loss of data
-  CreateDialogs.cpp
-  ImGuiFileDialog.cpp
-  CreateItems.cpp
-  imgui_impl_opengl3.cpp
-  imgui_impl_sdl2.cpp
-  imgui.cpp
-  imgui_demo.cpp
-  imgui_draw.cpp
-  imgui_tables.cpp
-  imgui_widgets.cpp
-  implot.cpp
-  implot_items.cpp
-  CDC.cpp
-  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
-  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
-  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
-  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
-  USB.cpp
-  Parameters.cpp
-  DatabaseConnectionDialog.cpp
-  Compiling...
-  USBConnectionDialog.cpp
-  LogFilePathDialog.cpp
-  ConfigureMeasurementDialog.cpp
-  CreateMeasurementDialog.cpp
-  ViewMeasurementDialog.cpp
-  Windows.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(118,50): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(118,56): warning C4838: conversion from 'uint16_t' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(118,56): warning C4244: 'initializing': conversion from 'uint16_t' to 'uint8_t', possible loss of data
      Creating library C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.lib and object C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exp
   Generating code
-  819 of 7187 functions (11.4%) were compiled, the rest were copied from previous compilation.
-    165 functions were new in current compilation
-    766 functions had inline decision re-evaluated but remain unchanged
+  2 of 7186 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    46 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   GoobySoft.vcxproj -> C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exe

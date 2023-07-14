@@ -6,6 +6,7 @@ bool selectFile = false;
 bool createFile = false;
 bool deteteFile = false;
 bool selectUSBPorts = false;
+bool selectNetworkAddreses = false;
 bool selectDatabaseServer = false;
 bool configureMeasurement = false;
 bool createMeasurement = false;
@@ -37,6 +38,9 @@ void showMainWindow(bool* done) {
 			if (ImGui::MenuItem("Select database server", nullptr, nullptr)) {
 				selectDatabaseServer = true;
 			}
+			if (ImGui::MenuItem("Select network addresses", nullptr, nullptr)) {
+				selectNetworkAddreses = true;
+			}
 			ImGui::EndMenu();
 		}
 		if (ImGui::BeginMenu("Measurement")) {
@@ -64,7 +68,10 @@ void showMainWindow(bool* done) {
 			Windows_Dialogs_FileDialogs_LogFilePathDialog_showDeleteFileDialog(&deteteFile);
 		}
 		if (selectUSBPorts) {
-			Windows_Dialogs_ConnectionDialogs_USBConnectionDialog_showUSBconnectionDialog(&selectUSBPorts);
+			Windows_Dialogs_ConnectionDialogs_USBConnectionDialog_showUSBConnectionDialog(&selectUSBPorts);
+		}
+		if (selectNetworkAddreses) {
+			Windows_Dialogs_ConnectionDialogs_NetworkConnectionDialog_showNetworkConnectionDialog(&selectNetworkAddreses);
 		}
 		if (selectDatabaseServer) {
 			Windows_Dialogs_ConnectionDialogs_DatabaseConnectionDialog_showDatabaseConnectionDialog(&selectDatabaseServer);

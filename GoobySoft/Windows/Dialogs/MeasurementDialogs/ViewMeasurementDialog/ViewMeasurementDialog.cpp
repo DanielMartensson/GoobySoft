@@ -1,31 +1,32 @@
 #include "ViewMeasurementDialog.h"
 #include "../../../../Tools/Tools.h"
 
-// Data table
-rapidcsv::Document doc;
-size_t rowCount = 0;
-size_t columnCount = 0;
-
-static void addMeasurementPlot(const char titleId[], bool selectedColumns[], std::vector<std::string>& columnNames, size_t from, size_t to, size_t withStep) {
-	if (ImPlot::BeginPlot(titleId)) {
-		for (size_t i = 0; i < columnCount; i++) {
-			if (selectedColumns[i]) {
-				// Get column data
-				std::vector<float> column = doc.GetColumn<float>(columnNames.at(i));
-
-				// Cut yData between from and to with step
-				std::vector<float> yData;
-				std::vector<float> xData;
-				size_t j;
-				for ( j = from - 1; j < to; j += withStep) {
-					yData.emplace_back(column.at(j));
-					xData.emplace_back(((float)j) + 1.0f);
-				}
-
-				// Plot
-				ImPlot::PlotLine(columnNames.at(i).c_str(), xData.data(), yData.data(), (int)yData.size());
-
+static void createPlot(const char plotTitle[], rapidcsv::Document& doc, std::vector<std::string>& columnNames, size_t columnCount, size_t from, size_t to, size_t withStep) {
+	// Create plots
+	ImPlot::CreateContext();
+	if (ImPlot::BeginPlot(plotTitle)) {
+		// Avoid the first column at index 0. It's the time column
+		for (size_t i = 1; i < columnCount; i++) {
+			// Get column name
+			const char* columnName = columnNames.at(i).c_str();
+			if (std::strcmp(columnName, "") == 0) {
+				continue;
 			}
+
+			// Get column data
+			std::vector<float> column = doc.GetColumn<float>(columnName);
+
+			// Cut yData between from and to with step
+			std::vector<float> yData;
+			std::vector<float> xData;
+			size_t j;
+			for (j = from - 1; j < to; j += withStep) {
+				yData.emplace_back(column.at(j));
+				xData.emplace_back(((float)j) + 1.0f);
+			}
+
+			// Plot
+			ImPlot::PlotLine(columnName, xData.data(), yData.data(), (int)yData.size());
 		}
 		ImPlot::EndPlot();
 	}
@@ -41,6 +42,10 @@ void Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasuremen
 		static size_t from = 1;
 		static size_t to = 1;
 		static size_t withStep = 1;
+		static size_t rowCount = 0;
+		static size_t columnCount = 0;
+		static rapidcsv::Document doc;
+		ImGui::SameLine();
 		if (ImGui::Button("Load file")) {
 			// Load the CSV file
 			doc.Load(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName);
@@ -67,7 +72,7 @@ void Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasuremen
 				from = rowCount;
 			}
 		}
-		if (ImGui::InputInt("To", (int*)&to)) {
+		if (ImGui::InputInt("To (enter -1 to jump to max row)", (int*)&to)) {
 			if (to < 1) {
 				to = 1;
 			}
@@ -90,40 +95,9 @@ void Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasuremen
 			// Get column names
 			std::vector<std::string> columnNames = doc.GetColumnNames();
 
-			// How many plots
-			static int numberOfPlots = 1;
-			const int maxPlots = 3;
-			if (ImGui::InputInt("Number of plots", &numberOfPlots)) {
-				if (numberOfPlots < 1) {
-					numberOfPlots = 1;
-				}
-				if (numberOfPlots > maxPlots) {
-					numberOfPlots = maxPlots;
-				}
-			}
-
-			static bool selectedColumnsPlot[maxPlots][256] = { {false} };
-			char text[50];
-			for (int i = 0; i < numberOfPlots; i++) {
-				std::sprintf(text, "Columns for plot %i", i);
-				ImGui::Text(text);
-				ImGui::SameLine();
-				for (size_t j = 0; j < columnCount; j++) {
-					if (!columnNames.at(j).empty()) {
-						ImGui::Checkbox((columnNames.at(j) + std::to_string(i)).c_str(), &selectedColumnsPlot[i][j]);
-						ImGui::SameLine();
-					}
-				}
-				ImGui::NewLine();
-			}
-			ImGui::Separator();
-			
-			// Create plots
-			ImPlot::CreateContext();
-			for (int i = 0; i < numberOfPlots; i++) {
-				std::sprintf(text, "Plot %i", i);
-				addMeasurementPlot(text, selectedColumnsPlot[i], columnNames, from, to, withStep);
-			}
+			// Create two plots
+			createPlot("Measurements upper", doc, columnNames, columnCount, from, to, withStep);
+			createPlot("Measurements lower", doc, columnNames, columnCount, from, to, withStep);
 
 		}
 		ImGui::End();

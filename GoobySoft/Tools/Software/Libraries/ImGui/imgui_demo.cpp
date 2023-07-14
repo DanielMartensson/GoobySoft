@@ -3684,7 +3684,7 @@ static void ShowDemoWindowPopups()
 // (pre-C++11 doesn't allow us to instantiate ImVector<MyItem> template if this structure is defined inside the demo function)
 namespace
 {
-// We are passing our own identifier to TableSetupColumn() to facilitate identifying columns in the sorting code.
+// We are passing our own identifier to TableSetupColumn() to facilitate identifying columnsCombo in the sorting code.
 // This identifier will be passed down into ImGuiTableSortSpec::ColumnUserID.
 // But it is possible to omit the user id parameter of TableSetupColumn() and just use the column index instead! (ImGuiTableSortSpec::ColumnIndex)
 // If you don't use sorting, you will generally never care about giving column an ID!
@@ -3719,8 +3719,8 @@ struct MyItem
         const MyItem* b = (const MyItem*)rhs;
         for (int n = 0; n < s_current_sort_specs->SpecsCount; n++)
         {
-            // Here we identify columns using the ColumnUserID value that we ourselves passed to TableSetupColumn()
-            // We could also choose to identify columns based on their index (sort_spec->ColumnIndex), which is simpler!
+            // Here we identify columnsCombo using the ColumnUserID value that we ourselves passed to TableSetupColumn()
+            // We could also choose to identify columnsCombo based on their index (sort_spec->ColumnIndex), which is simpler!
             const ImGuiTableColumnSortSpecs* sort_spec = &s_current_sort_specs->Specs[n];
             int delta = 0;
             switch (sort_spec->ColumnUserID)
@@ -4012,7 +4012,7 @@ static void ShowDemoWindowTables()
     if (ImGui::TreeNode("Resizable, stretch"))
     {
         // By default, if we don't enable ScrollX the sizing policy for each column is "Stretch"
-        // All columns maintain a sizing weight, and they will occupy all available width.
+        // All columnsCombo maintain a sizing weight, and they will occupy all available width.
         static ImGuiTableFlags flags = ImGuiTableFlags_SizingStretchSame | ImGuiTableFlags_Resizable | ImGuiTableFlags_BordersOuter | ImGuiTableFlags_BordersV | ImGuiTableFlags_ContextMenuInBody;
         PushStyleCompact();
         ImGui::CheckboxFlags("ImGuiTableFlags_Resizable", &flags, ImGuiTableFlags_Resizable);
@@ -4042,8 +4042,8 @@ static void ShowDemoWindowTables()
     if (ImGui::TreeNode("Resizable, fixed"))
     {
         // Here we use ImGuiTableFlags_SizingFixedFit (even though _ScrollX is not set)
-        // So columns will adopt the "Fixed" policy and will maintain a fixed width regardless of the whole available width (unless table is small)
-        // If there is not enough available width to fit all columns, they will however be resized down.
+        // So columnsCombo will adopt the "Fixed" policy and will maintain a fixed width regardless of the whole available width (unless table is small)
+        // If there is not enough available width to fit all columnsCombo, they will however be resized down.
         // FIXME-TABLE: Providing a stretch-on-init would make sense especially for tables which don't have saved settings
         HelpMarker(
             "Using _Resizable + _SizingFixedFit flags.\n"
@@ -4139,7 +4139,7 @@ static void ShowDemoWindowTables()
 
         if (ImGui::BeginTable("table1", 3, flags))
         {
-            // Submit columns name with TableSetupColumn() and call TableHeadersRow() to create a row with a header in each column.
+            // Submit columnsCombo name with TableSetupColumn() and call TableHeadersRow() to create a row with a header in each column.
             // (Later we will show how TableSetupColumn() has other uses, optional flags, sizing weight etc.)
             ImGui::TableSetupColumn("One");
             ImGui::TableSetupColumn("Two");
@@ -4306,7 +4306,7 @@ static void ShowDemoWindowTables()
             EditTableSizingFlags(&sizing_policy_flags[table_n]);
 
             // To make it easier to understand the different sizing policy,
-            // For each policy: we display one table where the columns have equal contents width, and one where the columns have different contents width.
+            // For each policy: we display one table where the columnsCombo have equal contents width, and one where the columnsCombo have different contents width.
             if (ImGui::BeginTable("table1", 3, sizing_policy_flags[table_n] | flags1))
             {
                 for (int row = 0; row < 3; row++)
@@ -4479,7 +4479,7 @@ static void ShowDemoWindowTables()
                 {
                     // Both TableNextColumn() and TableSetColumnIndex() return true when a column is visible or performing width measurement.
                     // Because here we know that:
-                    // - A) all our columns are contributing the same to row height
+                    // - A) all our columnsCombo are contributing the same to row height
                     // - B) column 0 is always visible,
                     // We only always submit this one column and can skip others.
                     // More advanced per-column clipping behaviors may benefit from polling the status flags via TableGetColumnFlags().
@@ -4541,7 +4541,7 @@ static void ShowDemoWindowTables()
             {
                 ImGui::TableNextColumn();
                 ImGui::PushID(column);
-                ImGui::AlignTextToFramePadding(); // FIXME-TABLE: Workaround for wrong text baseline propagation across columns
+                ImGui::AlignTextToFramePadding(); // FIXME-TABLE: Workaround for wrong text baseline propagation across columnsCombo
                 ImGui::Text("'%s'", column_names[column]);
                 ImGui::Spacing();
                 ImGui::Text("Input flags:");
@@ -4559,7 +4559,7 @@ static void ShowDemoWindowTables()
 
         // Create the real table we care about for the example!
         // We use a scrolling table to be able to showcase the difference between the _IsEnabled and _IsVisible flags above, otherwise in
-        // a non-scrolling table columns are always visible (unless using ImGuiTableFlags_NoKeepColumnsVisible + resizing the parent window down)
+        // a non-scrolling table columnsCombo are always visible (unless using ImGuiTableFlags_NoKeepColumnsVisible + resizing the parent window down)
         const ImGuiTableFlags flags
             = ImGuiTableFlags_SizingFixedFit | ImGuiTableFlags_ScrollX | ImGuiTableFlags_ScrollY
             | ImGuiTableFlags_RowBg | ImGuiTableFlags_BordersOuter | ImGuiTableFlags_BordersV
@@ -4604,7 +4604,7 @@ static void ShowDemoWindowTables()
         PopStyleCompact();
         if (ImGui::BeginTable("table1", 3, flags1))
         {
-            // We could also set ImGuiTableFlags_SizingFixedFit on the table and all columns will default to ImGuiTableColumnFlags_WidthFixed.
+            // We could also set ImGuiTableFlags_SizingFixedFit on the table and all columnsCombo will default to ImGuiTableColumnFlags_WidthFixed.
             ImGui::TableSetupColumn("one", ImGuiTableColumnFlags_WidthFixed, 100.0f); // Default to 100.0f
             ImGui::TableSetupColumn("two", ImGuiTableColumnFlags_WidthFixed, 200.0f); // Default to 200.0f
             ImGui::TableSetupColumn("three", ImGuiTableColumnFlags_WidthFixed);       // Default to auto
@@ -4634,7 +4634,7 @@ static void ShowDemoWindowTables()
         PopStyleCompact();
         if (ImGui::BeginTable("table2", 4, flags2))
         {
-            // We could also set ImGuiTableFlags_SizingFixedFit on the table and all columns will default to ImGuiTableColumnFlags_WidthFixed.
+            // We could also set ImGuiTableFlags_SizingFixedFit on the table and all columnsCombo will default to ImGuiTableColumnFlags_WidthFixed.
             ImGui::TableSetupColumn("", ImGuiTableColumnFlags_WidthFixed, 100.0f);
             ImGui::TableSetupColumn("", ImGuiTableColumnFlags_WidthFixed, TEXT_BASE_WIDTH * 15.0f);
             ImGui::TableSetupColumn("", ImGuiTableColumnFlags_WidthFixed, TEXT_BASE_WIDTH * 30.0f);
@@ -5011,7 +5011,7 @@ static void ShowDemoWindowTables()
         ImGui::TreePop();
     }
 
-    // Demonstrate creating custom context menus inside columns, while playing it nice with context menus provided by TableHeadersRow()/TableHeader()
+    // Demonstrate creating custom context menus inside columnsCombo, while playing it nice with context menus provided by TableHeadersRow()/TableHeader()
     if (open_action != -1)
         ImGui::SetNextItemOpen(open_action != 0);
     IMGUI_DEMO_MARKER("Tables/Context menus");
@@ -5026,7 +5026,7 @@ static void ShowDemoWindowTables()
 
         // Context Menus: first example
         // [1.1] Right-click on the TableHeadersRow() line to open the default table context menu.
-        // [1.2] Right-click in columns also open the default table context menu (if ImGuiTableFlags_ContextMenuInBody is set)
+        // [1.2] Right-click in columnsCombo also open the default table context menu (if ImGuiTableFlags_ContextMenuInBody is set)
         const int COLUMNS_COUNT = 3;
         if (ImGui::BeginTable("table_context_menu", COLUMNS_COUNT, flags1))
         {
@@ -5053,7 +5053,7 @@ static void ShowDemoWindowTables()
         // Context Menus: second example
         // [2.1] Right-click on the TableHeadersRow() line to open the default table context menu.
         // [2.2] Right-click on the ".." to open a custom popup
-        // [2.3] Right-click in columns to open another custom popup
+        // [2.3] Right-click in columnsCombo to open another custom popup
         HelpMarker("Demonstrate mixing table context menu (over header), item context button (over button) and custom per-colum context menu (over column body).");
         ImGuiTableFlags flags2 = ImGuiTableFlags_Resizable | ImGuiTableFlags_SizingFixedFit | ImGuiTableFlags_Reorderable | ImGuiTableFlags_Hideable | ImGuiTableFlags_Borders;
         if (ImGui::BeginTable("table_context_menu_2", COLUMNS_COUNT, flags2))
@@ -5088,7 +5088,7 @@ static void ShowDemoWindowTables()
                 }
             }
 
-            // [2.3] Right-click anywhere in columns to open another custom popup
+            // [2.3] Right-click anywhere in columnsCombo to open another custom popup
             // (instead of testing for !IsAnyItemHovered() we could also call OpenPopup() with ImGuiPopupFlags_NoOpenOverExistingPopup
             // to manage popup priority as the popups triggers, here "are we hovering a column" are overlapping)
             int hovered_column = -1;
@@ -5194,7 +5194,7 @@ static void ShowDemoWindowTables()
 
         if (ImGui::BeginTable("table_sorting", 4, flags, ImVec2(0.0f, TEXT_BASE_HEIGHT * 15), 0.0f))
         {
-            // Declare columns
+            // Declare columnsCombo
             // We use the "user_id" parameter of TableSetupColumn() to specify a user id that will be stored in the sort specifications.
             // This is so our sort function can identify a column given our own identifier. We could also identify them based on their index!
             // Demonstrate using a mixture of flags among available sort-related flags:
@@ -5412,7 +5412,7 @@ static void ShowDemoWindowTables()
         const float inner_width_to_use = (flags & ImGuiTableFlags_ScrollX) ? inner_width_with_scroll : 0.0f;
         if (ImGui::BeginTable("table_advanced", 6, flags, outer_size_enabled ? outer_size_value : ImVec2(0, 0), inner_width_to_use))
         {
-            // Declare columns
+            // Declare columnsCombo
             // We use the "user_id" parameter of TableSetupColumn() to specify a user id that will be stored in the sort specifications.
             // This is so our sort function can identify a column given our own identifier. We could also identify them based on their index!
             ImGui::TableSetupColumn("ID",           ImGuiTableColumnFlags_DefaultSort | ImGuiTableColumnFlags_WidthFixed | ImGuiTableColumnFlags_NoHide, 0.0f, MyItemColumnID_ID);
@@ -5574,7 +5574,7 @@ static void ShowDemoWindowColumns()
     if (!open)
         return;
 
-    // Basic columns
+    // Basic columnsCombo
     IMGUI_DEMO_MARKER("Columns (legacy API)/Basic");
     if (ImGui::TreeNode("Basic"))
     {
@@ -5623,7 +5623,7 @@ static void ShowDemoWindowColumns()
     IMGUI_DEMO_MARKER("Columns (legacy API)/Borders");
     if (ImGui::TreeNode("Borders"))
     {
-        // NB: Future columns API should allow automatic horizontal borders.
+        // NB: Future columnsCombo API should allow automatic horizontal borders.
         static bool h_borders = true;
         static bool v_borders = true;
         static int columns_count = 4;

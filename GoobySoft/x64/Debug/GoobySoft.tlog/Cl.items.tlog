@@ -1,8 +1,10 @@
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\GoobySoft.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\GoobySoft.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\ADL400\ADL400.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\ADL400.obj
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\OpenSAEJ1939\OpenSAEJ1939.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\OpenSAEJ1939.obj
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\Devices.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\Devices.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\STM32PLC.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Gui\CreateDialogs\CreateDialogs.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\CreateDialogs.obj
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\Network\Network.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\Network.obj
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\Network\Protocols\ModbusTCP\ModbusTCP.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\ModbusTCP.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\ImGuiFileDialog\ImGuiFileDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\ImGuiFileDialog.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Gui\CreateItems\CreateItems.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\CreateItems.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\ImGui\backends\imgui_impl_opengl3.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\imgui_impl_opengl3.obj
@@ -16,13 +18,14 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\ImPlot\implot.c
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\ImPlot\implot_items.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\implot_items.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\FileSystem\FileSystem.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\FileSystem.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\CDC\CDC.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\CDC.obj
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\Modbus\Modbus.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\Modbus.obj
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\ModbusRTU\ModbusRTU.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\ModbusRTU.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\USB.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\USB.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Algorithms\Algorithms.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\Algorithms.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Storage\Databases\Databases.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\Databases.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Storage\Databases\MySQL\MySQL.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\MySQL.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Storage\Parameters\Parameters.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\Parameters.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConnectionDialogs\DatabaseConnectionDialog\DatabaseConnectionDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\DatabaseConnectionDialog.obj
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConnectionDialogs\NetworkConnectionDialog\NetworkConnectionDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\NetworkConnectionDialog.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConnectionDialogs\USBConnectionDialog\USBConnectionDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\USBConnectionDialog.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\FileDialogs\LogFilePathDialog\LogFilePathDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\LogFilePathDialog.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\ConfigureMeasurementDialog\ConfigureMeasurementDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Debug\ConfigureMeasurementDialog.obj

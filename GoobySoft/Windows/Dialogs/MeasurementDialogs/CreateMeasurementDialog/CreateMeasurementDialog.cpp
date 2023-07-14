@@ -7,134 +7,109 @@
 // File
 static std::ofstream measurementFile;
 
-// Vectors for measurements 
-static std::vector<std::vector<float>> xDataADL400;
-static std::vector<std::vector<float>> yDataADL400;
-static std::vector<std::vector<float>> xDataSTM32PLC;
-static std::vector<std::vector<float>> yDataSTM32PLC;
-static std::vector<std::vector<float>> xDataOpenSAEJ1939;
-static std::vector<std::vector<float>> yDataOpenSAEJ1939;
+static void createPlot(const char plotTitle[], Protocol* protocols, bool performMeasurementUpdate, int rowCount, int samplesShown, int showSamples) {
+	// Create plot
+	ImPlot::CreateContext();
+	if (ImPlot::BeginPlot(plotTitle)) {
+		// Iterate the protocols
+		for (int i = 0; i < MAX_PROTOCOLS; i++) {
+			// Check if the protocols is available
+			if (protocols[i].isProtocolUsed) {
+				// Iterate the devices
+				Device* devices = protocols[i].devices;
+				int deviceCount = protocols[i].deviceCount;
+				for (int j = 0; j < deviceCount; j++) {
+					// Iterate the rows
+					TableRow* tableRows = devices[j].tableRows;
+					int tableRowCount = devices[j].tableRowCount;
+					for (int k = 0; k < tableRowCount; k++) {
+						// Iterate the columns to find the measurement
+						TableColumn* tableColumns = tableRows[k].tableColumns;
+						int tableColumnCount = tableRows[k].tableColumnCount;
+						float measurement;
+						COLUMN_TYPE columnType;
+						for (int l = 0; l < tableColumnCount; l++) {
+							// Find the function
+							if (tableColumns[l].tableColumnID.columnDefinition == COLUMN_DEFINITION_FUNCTION) {
+								// Check the function and get the address. If no address is available, then address is NULL
+								char* port = (char*)Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_PORT, &columnType);
+								int address = *(int*)Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_ADDRESS, &columnType);
+								
+								// Do measurement now
+								if (tableColumns[l].tableColumnID.columnFunction == COLUMN_FUNCTION_INPUT_SENSOR_NO_CALIBRATION) {
+									measurement = tableRows[k].getInput(port, tableColumns[l].functionValueIndex, address);
+								}
+								if (tableColumns[l].tableColumnID.columnFunction == COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS) {
+									measurement = tableRows[k].getInput(port, tableColumns[l].functionValueIndex, address);
+								}
+								if (tableColumns[l].tableColumnID.columnFunction == COLUMN_FUNCTION_INPUT_SENSOR_ANALOG) {
+									float valueMin = *(float*)Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MIN_VALUE_REAL, &columnType);
+									float valueMax = *(float*)Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MAX_VALUE_REAL, &columnType);
+									int valueMinRaw = *(int*)Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MIN_VALUE_RAW, &columnType);
+									int valueMaxRaw = *(int*)Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MAX_VALUE_RAW, &columnType);
+									measurement = Tools_Software_Algorithms_calibration(valueMinRaw, valueMaxRaw, valueMin, valueMax, tableRows[k].getInput(port, tableColumns[l].functionValueIndex, address));
+								}
+								if (tableColumns[l].tableColumnID.columnFunction == COLUMN_FUNCTION_OUTPUT_ACTUATOR) {
+									measurement = tableRows[k].sliderValue;
+								}
+								break;
+							}
+						}
 
-static void updateVectors(const int samples, const float value, const size_t i, std::vector<std::vector<float>>& xData, std::vector<std::vector<float>>& yData) {
-	size_t s = xData.at(i).size();
-	if (s > samples) {
-		// Remove diff elements
-		size_t diff = s - samples;
-		auto xDataBegin = xData.at(i).begin();
-		auto yDataBegin = yData.at(i).begin();
-		xData.at(i).erase(xDataBegin, xDataBegin + diff);
-		yData.at(i).erase(yDataBegin, yDataBegin + diff);
+						// Update data vector
+						if (performMeasurementUpdate) {
+							// Shift
+							if (samplesShown > showSamples) {
+								for (int m = 0; m < samplesShown; m++) {
+									tableRows[k].xData[m] = tableRows[k].xData[m + 1];
+									tableRows[k].yData[m] = tableRows[k].yData[m + 1];
+								}
+								// Add at the end
+								tableRows[k].xData[showSamples] = rowCount;
+								tableRows[k].yData[showSamples] = measurement;
+							}
+							else {
+								// Add at the end
+								tableRows[k].xData[samplesShown] = rowCount;
+								tableRows[k].yData[samplesShown] = measurement;
+							}
 
-		// Add
-		xData.at(i).emplace_back(xData.at(i).back() + 1); 
-		yData.at(i).emplace_back(value);
-	}
-	else if (s == 0) {
-		xData.at(i).emplace_back(0.0f);
-		yData.at(i).emplace_back(value);
-	}
-	else {
-		xData.at(i).emplace_back(xData.at(i).back() + 1); // Add +1 for each new element
-		yData.at(i).emplace_back(value);
-	}
-}
+						}
 
-static bool checkIfItsTimeForStoreMeasurement(const int sampleTime) {
-	// Count the time in milliseconds
-	static auto t1 = std::chrono::high_resolution_clock::now();
-	auto t2 = std::chrono::high_resolution_clock::now();
-	size_t difference = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count();
-	bool performVectorUpdate = false;
-	if (sampleTime <= difference) {
-		performVectorUpdate = true;
-		t1 = t2;
-	}
-	return performVectorUpdate;
-}
+						// Plot data vector
+						char* displayName = (char*)Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_DISPLAY_NAME, &columnType);
+						ImPlot::PlotLine(displayName, tableRows[k].xData, tableRows[k].yData, samplesShown);
 
-static void clearAndResize(const size_t tableSize, std::vector<std::vector<float>>& xData, std::vector<std::vector<float>>& yData) {
-	// Clear the vectors
-	xData.clear();
-	yData.clear();
-
-	// Resize the vectors
-	xData.resize(tableSize);
-	yData.resize(tableSize);
-}
-
-static void plotVectors(const std::string& displayName, const size_t i, std::vector<std::vector<float>>& xData, std::vector<std::vector<float>>& yData) {
-	size_t s = yData.at(i).size();
-	if (s > 0) {
-		ImPlot::PlotLine(displayName.c_str(), xData.at(i).data(), yData.at(i).data(), (int)s);
-	}
-}
-
-static void writeHeaderForCSVFile(std::vector<std::string> displayNames) {
-	const size_t displayNamesSize = displayNames.size();
-	for (size_t i = 0; i < displayNamesSize; i++) {
-		measurementFile << displayNames.at(i) << ",";
-	}
-}
-
-static void writeMeasurement(const size_t tableSize, bool (*isInput)(size_t), float (*getMeasurementVariable)(size_t), float* (*getControlVariable)(size_t, float*, float*), float (*setControlVariable)(float, size_t), std::string(*getDisplayName)(size_t), bool performMeasurementUpdate, int samples, std::vector<std::vector<float>>& xData, std::vector<std::vector<float>>& yData){
-	for (size_t i = 0; i < tableSize; i++) {
-		// Data
-		std::string displayName = getDisplayName(i);
-		float value = 0.0f;
-		if (isInput(i)) {
-			value = getMeasurementVariable(i); // Just read the variable
+						// Add ,
+						if (performMeasurementUpdate) {
+							measurementFile << measurement << ",";
+						}
+					}
+				}
+			}
 		}
-		else {
-			float minValue, maxValue;
-			value = setControlVariable(*getControlVariable(i, &minValue, &maxValue), i); // Then read it
-		}
-
-		// Update
-		if (performMeasurementUpdate) {
-			updateVectors(samples, value, i, xData, yData);
-		}
-
-		// Plot
-		plotVectors(displayName, i, xData, yData);
-
-		// Add ,
-		if (performMeasurementUpdate) {
-			measurementFile << value << ",";
-		}
-	}
-}
-
-void addSlidersForControl(const size_t tableSize, bool (*isInput)(size_t), float* (*getControlVariable)(size_t, float*, float*), std::string(*getDisplayName)(size_t)) {
-	for (size_t i = 0; i < tableSize; i++) {
-		std::string displayName = getDisplayName(i);
-		if (!isInput(i)) {
-			float maxValue = 0;
-			float minValue = 0;
-			float* controlVariable = getControlVariable(i, &minValue, &maxValue);
-			ImGui::SliderFloat(displayName.c_str(), controlVariable, minValue, maxValue); // Change the variable by getting access to it
-		}
+		ImPlot::EndPlot();
 	}
 }
 
 void Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasurementDialog(bool* createMeasurement) {
 	// Display
 	if (ImGui::BeginPopupModal("Create measurement", createMeasurement)) {
-		// Get the data sizes of the tables
-		const size_t configurationTableDataSizeADL400 = Tools_Communications_Devices_ADL400_getConfigurationTableDataSize();
-		const size_t configurationTableDataSizeSTM32PLC = Tools_Communications_Devices_STM32PLC_getConfigurationTableDataSize();
-		const size_t configurationTableDataSizeOpenSAEJ1939 = Tools_Communications_Devices_OpenSAEJ1939_getConfigurationTableDataSize();
-		// Add more...
+		// Get the parameter holder
+		Protocol* protocols = Tools_Hardware_ParameterStore_getParameterHolder()->protocols;
 
-		// File path, Samples, Sample time
-		ImGui::InputText("File path", Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName, sizeof(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName), ImGuiInputTextFlags_ReadOnly);
-		static int samples = 1;
-		ImGui::SliderInt("Samples", &samples, 1, 2000);
-		static int sampleTime = 1;
-		ImGui::SliderInt("Sample time [ms]", &sampleTime, 1, 2000);
-
-		// Start button
+		// Static fields
 		static bool isStarted = false;
 		static int rowCount = 0;
+		static int showSamples = 1;
+		static int samplesShown = 0;
+		static int sampleSpeed = 1;
+		// File path, Samples, Sample time
+		ImGui::InputText("File path", Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName, sizeof(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName), ImGuiInputTextFlags_ReadOnly);
+		ImGui::SliderInt("Show samples", &showSamples, 0, MAX_DATA_MEASUREMENT_PLOT - 1);
+		ImGui::SliderInt("Sample speed [ms]", &sampleSpeed, 1, 2000);
+
+		// Start button
 		if (isStarted) {
 			ImGui::PushStyleColor(ImGuiCol_Button, COLOR_GREEN);
 		}
@@ -142,31 +117,52 @@ void Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasur
 			ImGui::PushStyleColor(ImGuiCol_Button, COLOR_RED);
 		}
 		if (ImGui::Button("Start")) {
-			clearAndResize(configurationTableDataSizeADL400, xDataADL400, yDataADL400);
-			clearAndResize(configurationTableDataSizeSTM32PLC, xDataSTM32PLC, yDataSTM32PLC);
-			clearAndResize(configurationTableDataSizeOpenSAEJ1939, xDataOpenSAEJ1939, yDataOpenSAEJ1939);
-			// Add more...
+			// Begin first to clear the data arrays and resize them after amount of rows in the configuration map
+			Tools_Communications_Devices_clear();
 
+			// Open new file
 			measurementFile.open(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName);
 			isStarted = measurementFile.is_open();
-			if (!isStarted) {
-				ImGui::OpenPopup("couldNotStart");
-			}
-			else {
+			if (isStarted) {
 				// Write the header - Begin with time
 				measurementFile << "Time,";
 
-				// Add display names
-				writeHeaderForCSVFile(Tools_Communications_Devices_ADL400_getDisplayNames());
-				writeHeaderForCSVFile(Tools_Communications_Devices_STM32PLC_getDisplayNames());
-				writeHeaderForCSVFile(Tools_Communications_Devices_OpenSAEJ1939_getDisplayNames());
-				// Add more...
+				// Write the header for the CSV file that we are going to store our data into
+				for (int i = 0; i < MAX_PROTOCOLS; i++) {
+					// Check if the protocols is available
+					if (protocols[i].isProtocolUsed) {
+						// Iterate devices
+						Device* devices = protocols[i].devices;
+						int deviceCount = protocols[i].deviceCount;
+						for (int j = 0; j < deviceCount; j++) {
+							// Iterate the rows
+							TableRow* tableRows = devices[j].tableRows;
+							int tableRowCount = devices[j].tableRowCount;
+							for (int k = 0; k < tableRowCount; k++) {
+								// Iterate the columns
+								TableColumn* tableColumns = tableRows[k].tableColumns;
+								int tableColumnCount = tableRows[k].tableColumnCount;
+								for (int l = 0; l < tableColumnCount; l++) {
+									// Check if it's display name column
+									if (tableColumns[l].tableColumnID.columnDefinition == COLUMN_DEFINITION_DISPLAY_NAME) {
+										// Write cell value of column
+										measurementFile << tableColumns[l].cellValueString << ",";
+									}
+								}
+							}
+						}
+					}
+				}
 
 				// New line
 				measurementFile << std::endl;
 
 				// Start the count
 				rowCount = 0;
+				samplesShown = 0;
+			}
+			else {
+				ImGui::OpenPopup("couldNotStart");
 			}
 		}
 		ImGui::PopStyleColor();
@@ -202,51 +198,100 @@ void Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasur
 
 		// Create row count
 		char text[100];
-		std::sprintf(text, "Row %i of %i", rowCount, INT32_MAX);
+		std::sprintf(text, "Row %i of %i.", rowCount, INT32_MAX);
+		ImGui::SameLine();
 		ImGui::Text(text);
+
+		// Check if it's time for store a measurement
+		static auto t1 = std::chrono::high_resolution_clock::now();
+		auto t2 = std::chrono::high_resolution_clock::now();
+		int difference = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count();
+		bool performMeasurementUpdate = false;
+		static char sampleSpeedText[100];
+		if (sampleSpeed <= difference) {
+			performMeasurementUpdate = true && !pause;
+			t1 = t2;
+			std::sprintf(sampleSpeedText, "Actual sample speed[ms]: %i", difference);
+		}
+		ImGui::SameLine();
+		ImGui::Text(sampleSpeedText);
 
 		// This is only for the design
 		ImGui::Separator();
 
-		// Check if it's time for store a measurement
-		bool performMeasurementUpdate = checkIfItsTimeForStoreMeasurement(sampleTime) && !pause;
-
 		// Add the sliders
-		addSlidersForControl(configurationTableDataSizeADL400, Tools_Communications_Devices_ADL400_isInput, Tools_Communications_Devices_ADL400_getControlVariable, Tools_Communications_Devices_ADL400_getDisplayName);
-		addSlidersForControl(configurationTableDataSizeSTM32PLC, Tools_Communications_Devices_STM32PLC_isInput, Tools_Communications_Devices_STM32PLC_getControlVariable, Tools_Communications_Devices_STM32PLC_getDisplayName);
-		addSlidersForControl(configurationTableDataSizeOpenSAEJ1939, Tools_Communications_Devices_OpenSAEJ1939_isInput, Tools_Communications_Devices_OpenSAEJ1939_getControlVariable, Tools_Communications_Devices_OpenSAEJ1939_getDisplayName);
-		// Add more...
+		for (int i = 0; i < MAX_PROTOCOLS; i++) {
+			// Check if the protocols is available
+			if (protocols[i].isProtocolUsed) {
+				// Iterate the devices
+				Device* devices = protocols[i].devices;
+				int deviceCount = protocols[i].deviceCount;
+				for (int j = 0; j < deviceCount; j++) {
+					// Iterate the rows
+					TableRow* tableRows = devices[j].tableRows;
+					int tableRowCount = devices[j].tableRowCount;
+					for (int k = 0; k < tableRowCount; k++) {
+						// Iterate the columns
+						TableColumn* tableColumns = tableRows[k].tableColumns;
+						int tableColumnCount = tableRows[k].tableColumnCount;
+						for (int l = 0; l < tableColumnCount; l++) {
+							if (tableColumns[l].tableColumnID.columnDefinition == COLUMN_DEFINITION_FUNCTION) {								
+								// Is the function an output function
+								if (tableColumns[l].tableColumnID.columnFunction == COLUMN_FUNCTION_OUTPUT_ACTUATOR) {
+									// Find important columns for creating a slider
+									COLUMN_TYPE columnType;
+									void* value = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_DISPLAY_NAME, &columnType);
+									const char* displayName = value == nullptr ? "ERROR" : (const char*)value;
+									value = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_PORT, &columnType);
+									const char* port = value == nullptr ? "ERROR" : (const char*)value;
+									value = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MIN_VALUE_RAW, &columnType);
+									int valueMinRaw = value == nullptr ? -1 : *(int*)value;
+									value = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MAX_VALUE_RAW, &columnType);
+									int valueMaxRaw = value == nullptr ? -1 : *(int*)value;
+									value = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_ADDRESS, &columnType);
+									int address = value == nullptr ? -1 : *(int*)value;
+									int outputIndex = tableColumns[l].functionValueIndex;
 
-		// Start to measure
-		if (isStarted) {
-			// Create plot
-			ImPlot::CreateContext();
-			if (ImPlot::BeginPlot("Measurement")) {
-				// Write time
-				if (performMeasurementUpdate) {
-					measurementFile << Tools_Software_Algorithms_getISO8601Time() << ",";
+									// Add slider
+									ImGui::SliderInt(displayName, &tableRows[k].sliderValue, valueMinRaw, valueMaxRaw);
+
+									// Send
+									bool sendOK = tableRows[k].setOutput(port, outputIndex, address, tableRows[k].sliderValue);
+									if (!sendOK) {
+										tableRows[k].sliderValue = -1;
+									}
+								}
+								break;
+							}
+						}
+					}
 				}
-
-				// Plot the measurements
-				writeMeasurement(configurationTableDataSizeADL400, Tools_Communications_Devices_ADL400_isInput, Tools_Communications_Devices_ADL400_getMeasurementVariable, Tools_Communications_Devices_ADL400_getControlVariable, Tools_Communications_Devices_ADL400_setControlVariable, Tools_Communications_Devices_ADL400_getDisplayName, performMeasurementUpdate, samples, xDataADL400, yDataADL400);
-				writeMeasurement(configurationTableDataSizeSTM32PLC, Tools_Communications_Devices_STM32PLC_isInput, Tools_Communications_Devices_STM32PLC_getMeasurementVariable, Tools_Communications_Devices_STM32PLC_getControlVariable, Tools_Communications_Devices_STM32PLC_setControlVariable, Tools_Communications_Devices_STM32PLC_getDisplayName, performMeasurementUpdate, samples, xDataSTM32PLC, yDataSTM32PLC);
-				writeMeasurement(configurationTableDataSizeOpenSAEJ1939, Tools_Communications_Devices_OpenSAEJ1939_isInput, Tools_Communications_Devices_OpenSAEJ1939_getMeasurementVariable, Tools_Communications_Devices_OpenSAEJ1939_getControlVariable, Tools_Communications_Devices_OpenSAEJ1939_setControlVariable, Tools_Communications_Devices_OpenSAEJ1939_getDisplayName, performMeasurementUpdate, samples, xDataOpenSAEJ1939, yDataOpenSAEJ1939);
-				// Add more...
-
-				// New line in measurement file
-				if (performMeasurementUpdate) {
-					measurementFile << std::endl;
-
-					// Count row
-					rowCount++;
-				}
-
-				// End plot
-				ImPlot::EndPlot();
 			}
 		}
 
-		// End context and window
+		// Start to measure
+		if (isStarted) {
+			// Write time
+			if (performMeasurementUpdate) {
+				measurementFile << Tools_Software_Algorithms_getISO8601Time() << ",";
+			}
+
+			// Create two plots of same type
+			createPlot("Measurements upper", protocols, performMeasurementUpdate, rowCount, samplesShown, showSamples);
+			createPlot("Measurements lower", protocols, performMeasurementUpdate, rowCount, samplesShown, showSamples);
+
+			// New line in measurement file
+			if (performMeasurementUpdate) {
+				measurementFile << std::endl;
+				rowCount++;
+
+				// Threshold
+				if (samplesShown > showSamples) {
+					samplesShown = showSamples;
+				}
+				samplesShown++; // Important to have this after the threshold, due to the shift
+			}
+		}
 		ImGui::EndPopup();
 	}
 }

@@ -115,6 +115,9 @@ int main(int, char**) {
 	// Load parameters 
 	Tools_Hardware_ParameterStore_loadParameters();
 
+    // Create the protocolDevices
+    Tools_Communications_Devices_createDevices();
+
     // Main loop
     bool done = false;
 #ifdef __EMSCRIPTEN__

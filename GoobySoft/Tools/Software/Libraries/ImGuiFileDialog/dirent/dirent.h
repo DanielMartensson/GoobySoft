@@ -179,7 +179,7 @@
 #define DTTOIF(type) (type)
 
 /*
- * File type macros.  Note that block devices, sockets and links cannot be
+ * File type macros.  Note that block protocolDevices, sockets and links cannot be
  * distinguished on Windows and the macros S_ISBLK, S_ISSOCK and S_ISLNK are
  * only defined for compatibility.  These macros should always return false
  * on Windows.

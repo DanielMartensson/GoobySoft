@@ -319,7 +319,7 @@ namespace rapidcsv
          *                                to all rows as document data. Default: 0
          * @param   pRowNameIdx           specifies the zero-based column index of the row labels, setting
          *                                it to -1 prevents row lookup by label name, and gives access
-         *                                to all columns as document data. Default: -1
+         *                                to all columnsCombo as document data. Default: -1
          */
         explicit LabelParams(const int pColumnNameIdx = 0, const int pRowNameIdx = -1)
             : mColumnNameIdx(pColumnNameIdx)
@@ -854,7 +854,7 @@ namespace rapidcsv
         }
 
         /**
-         * @brief   Get number of data columns (excluding label columns).
+         * @brief   Get number of data columnsCombo (excluding label columnsCombo).
          * @returns column count.
          */
         size_t GetColumnCount() const

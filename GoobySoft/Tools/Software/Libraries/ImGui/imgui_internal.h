@@ -139,7 +139,7 @@ struct ImGuiMetricsConfig;          // Storage for ShowMetricsWindow() and Debug
 struct ImGuiNextWindowData;         // Storage for SetNextWindow** functions
 struct ImGuiNextItemData;           // Storage for SetNextItem** functions
 struct ImGuiOldColumnData;          // Storage data for a single column for legacy Columns() api
-struct ImGuiOldColumns;             // Storage data for a columns set for legacy Columns() api
+struct ImGuiOldColumns;             // Storage data for a columnsCombo set for legacy Columns() api
 struct ImGuiPopupData;              // Storage for current popup stack
 struct ImGuiSettingsHandler;        // Storage for one type registered in the .ini file
 struct ImGuiStackSizes;             // Storage of stack sizes for debugging/asserting
@@ -157,7 +157,7 @@ struct ImGuiWindowTempData;         // Temporary storage for one window (that's 
 struct ImGuiWindowSettings;         // Storage for a window .ini settings (we keep one of those even if the actual window wasn't instanced during this session)
 
 // Enumerations
-// Use your programming IDE "Go to definition" facility on the names of the center columns to find the actual flags/enum lists.
+// Use your programming IDE "Go to definition" facility on the names of the center columnsCombo to find the actual flags/enum lists.
 enum ImGuiLocKey : int;                 // -> enum ImGuiLocKey              // Enum: a localization entry for translation.
 typedef int ImGuiLayoutType;            // -> enum ImGuiLayoutType_         // Enum: Horizontal or vertical
 
@@ -914,7 +914,7 @@ enum ImGuiSeparatorFlags_
     ImGuiSeparatorFlags_None                    = 0,
     ImGuiSeparatorFlags_Horizontal              = 1 << 0,   // Axis default to current layout type, so generally Horizontal unless e.g. in a menu bar
     ImGuiSeparatorFlags_Vertical                = 1 << 1,
-    ImGuiSeparatorFlags_SpanAllColumns          = 1 << 2,   // Make separator cover all columns of a legacy Columns() set.
+    ImGuiSeparatorFlags_SpanAllColumns          = 1 << 2,   // Make separator cover all columnsCombo of a legacy Columns() set.
 };
 
 // Flags for FocusWindow(). This is not called ImGuiFocusFlags to avoid confusion with public-facing ImGuiFocusedFlags.
@@ -1528,10 +1528,10 @@ enum ImGuiOldColumnFlags_
 {
     ImGuiOldColumnFlags_None                    = 0,
     ImGuiOldColumnFlags_NoBorder                = 1 << 0,   // Disable column dividers
-    ImGuiOldColumnFlags_NoResize                = 1 << 1,   // Disable resizing columns when clicking on the dividers
-    ImGuiOldColumnFlags_NoPreserveWidths        = 1 << 2,   // Disable column width preservation when adjusting columns
-    ImGuiOldColumnFlags_NoForceWithinWindow     = 1 << 3,   // Disable forcing columns to fit within window
-    ImGuiOldColumnFlags_GrowParentContentsSize  = 1 << 4,   // (WIP) Restore pre-1.51 behavior of extending the parent window contents size but _without affecting the columns width at all_. Will eventually remove.
+    ImGuiOldColumnFlags_NoResize                = 1 << 1,   // Disable resizing columnsCombo when clicking on the dividers
+    ImGuiOldColumnFlags_NoPreserveWidths        = 1 << 2,   // Disable column width preservation when adjusting columnsCombo
+    ImGuiOldColumnFlags_NoForceWithinWindow     = 1 << 3,   // Disable forcing columnsCombo to fit within window
+    ImGuiOldColumnFlags_GrowParentContentsSize  = 1 << 4,   // (WIP) Restore pre-1.51 behavior of extending the parent window contents size but _without affecting the columnsCombo width at all_. Will eventually remove.
 
     // Obsolete names (will be removed)
 #ifndef IMGUI_DISABLE_OBSOLETE_FUNCTIONS
@@ -2256,7 +2256,7 @@ struct IMGUI_API ImGuiWindowTempData
     bool                    IsSameLine;
     bool                    IsSetPos;
     ImVec1                  Indent;                 // Indentation / start position from left of window (increased by TreePush/TreePop, etc.)
-    ImVec1                  ColumnsOffset;          // Offset to the current column (if ColumnsCurrent > 0). FIXME: This and the above should be a stack to allow use cases like Tree->Column->Tree. Need revamp columns API.
+    ImVec1                  ColumnsOffset;          // Offset to the current column (if ColumnsCurrent > 0). FIXME: This and the above should be a stack to allow use cases like Tree->Column->Tree. Need revamp columnsCombo API.
     ImVec1                  GroupOffset;
     ImVec2                  CursorStartPosLossyness;// Record the loss of precision of CursorStartPos due to really large scrolling amount. This is used by clipper to compensate and fix the most common use case of large scroll area.
 
@@ -2271,12 +2271,12 @@ struct IMGUI_API ImGuiWindowTempData
     // Miscellaneous
     bool                    MenuBarAppending;       // FIXME: Remove this
     ImVec2                  MenuBarOffset;          // MenuBarOffset.x is sort of equivalent of a per-layer CursorPos.x, saved/restored as we switch to the menu bar. The only situation when MenuBarOffset.y is > 0 if when (SafeAreaPadding.y > FramePadding.y), often used on TVs.
-    ImGuiMenuColumns        MenuColumns;            // Simplified columns storage for menu items measurement
+    ImGuiMenuColumns        MenuColumns;            // Simplified columnsCombo storage for menu items measurement
     int                     TreeDepth;              // Current tree depth.
     ImU32                   TreeJumpToParentOnPopMask; // Store a copy of !g.NavIdIsAlive for TreeDepth 0..31.. Could be turned into a ImU64 if necessary.
     ImVector<ImGuiWindow*>  ChildWindows;
     ImGuiStorage*           StateStorage;           // Current persistent per-window storage (store e.g. tree node open/close state)
-    ImGuiOldColumns*        CurrentColumns;         // Current columns set
+    ImGuiOldColumns*        CurrentColumns;         // Current columnsCombo set
     int                     CurrentTableIdx;        // Current table index (into g.Tables)
     ImGuiLayoutType         LayoutType;
     ImGuiLayoutType         ParentLayoutType;       // Layout type of parent window at the time of Begin()
@@ -2308,7 +2308,7 @@ struct IMGUI_API ImGuiWindow
     float                   WindowBorderSize;                   // Window border size at the time of Begin().
     float                   DecoOuterSizeX1, DecoOuterSizeY1;   // Left/Up offsets. Sum of non-scrolling outer decorations (X1 generally == 0.0f. Y1 generally = TitleBarHeight + MenuBarHeight). Locked during Begin().
     float                   DecoOuterSizeX2, DecoOuterSizeY2;   // Right/Down offsets (X2 generally == ScrollbarSize.x, Y2 == ScrollbarSizes.y).
-    float                   DecoInnerSizeX1, DecoInnerSizeY1;   // Applied AFTER/OVER InnerRect. Specialized for Tables as they use specialized form of clipping and frozen rows/columns are inside InnerRect (and not part of regular decoration sizes).
+    float                   DecoInnerSizeX1, DecoInnerSizeY1;   // Applied AFTER/OVER InnerRect. Specialized for Tables as they use specialized form of clipping and frozen rows/columnsCombo are inside InnerRect (and not part of regular decoration sizes).
     int                     NameBufLen;                         // Size of buffer storing Name. May be larger than strlen(Name)!
     ImGuiID                 MoveId;                             // == window->GetID("#MOVE")
     ImGuiID                 ChildId;                            // ID of corresponding item in parent window (for navigation to return from child window to parent window)
@@ -2359,8 +2359,8 @@ struct IMGUI_API ImGuiWindow
     ImRect                  OuterRectClipped;                   // == Window->Rect() just after setup in Begin(). == window->Rect() for root window.
     ImRect                  InnerRect;                          // Inner rectangle (omit title bar, menu bar, scroll bar)
     ImRect                  InnerClipRect;                      // == InnerRect shrunk by WindowPadding*0.5f on each side, clipped within viewport or parent clip rect.
-    ImRect                  WorkRect;                           // Initially covers the whole scrolling region. Reduced by containers e.g columns/tables when active. Shrunk by WindowPadding*1.0f on each side. This is meant to replace ContentRegionRect over time (from 1.71+ onward).
-    ImRect                  ParentWorkRect;                     // Backup of WorkRect before entering a container such as columns/tables. Used by e.g. SpanAllColumns functions to easily access. Stacked containers are responsible for maintaining this. // FIXME-WORKRECT: Could be a stack?
+    ImRect                  WorkRect;                           // Initially covers the whole scrolling region. Reduced by containers e.g columnsCombo/tables when active. Shrunk by WindowPadding*1.0f on each side. This is meant to replace ContentRegionRect over time (from 1.71+ onward).
+    ImRect                  ParentWorkRect;                     // Backup of WorkRect before entering a container such as columnsCombo/tables. Used by e.g. SpanAllColumns functions to easily access. Stacked containers are responsible for maintaining this. // FIXME-WORKRECT: Could be a stack?
     ImRect                  ClipRect;                           // Current clipping/scissoring rectangle, evolve as we are using PushClipRect(), etc. == DrawList->clip_rect_stack.back().
     ImRect                  ContentRegionRect;                  // FIXME: This is currently confusing/misleading. It is essentially WorkRect but not handling of scrolling. We currently rely on it as right/bottom aligned sizing operation need some size to rely on.
     ImVec2ih                HitTestHoleSize;                    // Define an optional rectangular hole where mouse will pass-through the window.
@@ -2506,7 +2506,7 @@ typedef ImU16 ImGuiTableDrawChannelIdx;
 struct ImGuiTableColumn
 {
     ImGuiTableColumnFlags   Flags;                          // Flags after some patching (not directly same as provided by user). See ImGuiTableColumnFlags_
-    float                   WidthGiven;                     // Final/actual width visible == (MaxX - MinX), locked in TableUpdateLayout(). May be > WidthRequest to honor minimum width, may be < WidthRequest to honor shrinking columns down in tight space.
+    float                   WidthGiven;                     // Final/actual width visible == (MaxX - MinX), locked in TableUpdateLayout(). May be > WidthRequest to honor minimum width, may be < WidthRequest to honor shrinking columnsCombo down in tight space.
     float                   MinX;                           // Absolute positions
     float                   MaxX;
     float                   WidthRequest;                   // Master width absolute value when !(Flags & _WidthStretch). When Stretch this is derived every frame from StretchWeight in TableUpdateLayout()
@@ -2588,7 +2588,7 @@ struct IMGUI_API ImGuiTable
     void*                       RawData;                    // Single allocation to hold Columns[], DisplayOrderToIndex[] and RowCellData[]
     ImGuiTableTempData*         TempData;                   // Transient data while table is active. Point within g.CurrentTableStack[]
     ImSpan<ImGuiTableColumn>    Columns;                    // Point within RawData[]
-    ImSpan<ImGuiTableColumnIdx> DisplayOrderToIndex;        // Point within RawData[]. Store display order of columns (when not reordered, the values are 0...Count-1)
+    ImSpan<ImGuiTableColumnIdx> DisplayOrderToIndex;        // Point within RawData[]. Store display order of columnsCombo (when not reordered, the values are 0...Count-1)
     ImSpan<ImGuiTableCellData>  RowCellData;                // Point within RawData[]. Store cells background requests for current row.
     ImBitArrayPtr               EnabledMaskByDisplayOrder;  // Column DisplayOrder -> IsEnabled map
     ImBitArrayPtr               EnabledMaskByIndex;         // Column Index -> IsEnabled map (== not hidden by user/api) in a format adequate for iterating column without touching cold data
@@ -2596,7 +2596,7 @@ struct IMGUI_API ImGuiTable
     ImGuiTableFlags             SettingsLoadedFlags;        // Which data were loaded from the .ini file (e.g. when order is not altered we won't save order)
     int                         SettingsOffset;             // Offset in g.SettingsTables
     int                         LastFrameActive;
-    int                         ColumnsCount;               // Number of columns declared in BeginTable()
+    int                         ColumnsCount;               // Number of columnsCombo declared in BeginTable()
     int                         CurrentRow;
     int                         CurrentColumn;
     ImS16                       InstanceCurrent;            // Count of BeginTable() calls with same ID in the same frame (generally 0). This is a little bit similar to BeginCount for a window, but multiple table with same ID look are multiple tables, they are just synched.
@@ -2624,10 +2624,10 @@ struct IMGUI_API ImGuiTable
     float                       InnerWidth;                 // User value passed to BeginTable(), see comments at the top of BeginTable() for details.
     float                       ColumnsGivenWidth;          // Sum of current column width
     float                       ColumnsAutoFitWidth;        // Sum of ideal column width in order nothing to be clipped, used for auto-fitting and content width submission in outer window
-    float                       ColumnsStretchSumWeights;   // Sum of weight of all enabled stretching columns
+    float                       ColumnsStretchSumWeights;   // Sum of weight of all enabled stretching columnsCombo
     float                       ResizedColumnNextWidth;
     float                       ResizeLockMinContentsX2;    // Lock minimum contents width while resizing down in order to not create feedback loops. But we allow growing the table.
-    float                       RefScale;                   // Reference scale to be able to rescale columns on font/dpi changes.
+    float                       RefScale;                   // Reference scale to be able to rescale columnsCombo on font/dpi changes.
     ImRect                      OuterRect;                  // Note: for non-scrolling table, OuterRect.Max.y is often FLT_MAX until EndTable(), unless a height has been specified in BeginTable().
     ImRect                      InnerRect;                  // InnerRect but without decoration. As with OuterRect, for non-scrolling tables, InnerRect.Max.y is
     ImRect                      WorkRect;
@@ -2635,20 +2635,20 @@ struct IMGUI_API ImGuiTable
     ImRect                      BgClipRect;                 // We use this to cpu-clip cell background color fill, evolve during the frame as we cross frozen rows boundaries
     ImRect                      Bg0ClipRectForDrawCmd;      // Actual ImDrawCmd clip rect for BG0/1 channel. This tends to be == OuterWindow->ClipRect at BeginTable() because output in BG0/BG1 is cpu-clipped
     ImRect                      Bg2ClipRectForDrawCmd;      // Actual ImDrawCmd clip rect for BG2 channel. This tends to be a correct, tight-fit, because output to BG2 are done by widgets relying on regular ClipRect.
-    ImRect                      HostClipRect;               // This is used to check if we can eventually merge our columns draw calls into the current draw call of the current window.
+    ImRect                      HostClipRect;               // This is used to check if we can eventually merge our columnsCombo draw calls into the current draw call of the current window.
     ImRect                      HostBackupInnerClipRect;    // Backup of InnerWindow->ClipRect during PushTableBackground()/PopTableBackground()
     ImGuiWindow*                OuterWindow;                // Parent window for the table
     ImGuiWindow*                InnerWindow;                // Window holding the table data (== OuterWindow or a child window)
-    ImGuiTextBuffer             ColumnsNames;               // Contiguous buffer holding columns names
-    ImDrawListSplitter*         DrawSplitter;               // Shortcut to TempData->DrawSplitter while in table. Isolate draw commands per columns to avoid switching clip rect constantly
+    ImGuiTextBuffer             ColumnsNames;               // Contiguous buffer holding columnsCombo names
+    ImDrawListSplitter*         DrawSplitter;               // Shortcut to TempData->DrawSplitter while in table. Isolate draw commands per columnsCombo to avoid switching clip rect constantly
     ImGuiTableInstanceData      InstanceDataFirst;
     ImVector<ImGuiTableInstanceData>    InstanceDataExtra;  // FIXME-OPT: Using a small-vector pattern would be good.
     ImGuiTableColumnSortSpecs   SortSpecsSingle;
     ImVector<ImGuiTableColumnSortSpecs> SortSpecsMulti;     // FIXME-OPT: Using a small-vector pattern would be good.
     ImGuiTableSortSpecs         SortSpecs;                  // Public facing sorts specs, this is what we return in TableGetSortSpecs()
     ImGuiTableColumnIdx         SortSpecsCount;
-    ImGuiTableColumnIdx         ColumnsEnabledCount;        // Number of enabled columns (<= ColumnsCount)
-    ImGuiTableColumnIdx         ColumnsEnabledFixedCount;   // Number of enabled columns (<= ColumnsCount)
+    ImGuiTableColumnIdx         ColumnsEnabledCount;        // Number of enabled columnsCombo (<= ColumnsCount)
+    ImGuiTableColumnIdx         ColumnsEnabledFixedCount;   // Number of enabled columnsCombo (<= ColumnsCount)
     ImGuiTableColumnIdx         DeclColumnsCount;           // Count calls to TableSetupColumn()
     ImGuiTableColumnIdx         HoveredColumnBody;          // Index of column whose visible region is being hovered. Important: == ColumnsCount when hovering empty region after the right-most column!
     ImGuiTableColumnIdx         HoveredColumnBorder;        // Index of column whose right-border is being hovered (for resizing).
@@ -2665,11 +2665,11 @@ struct IMGUI_API ImGuiTable
     ImGuiTableColumnIdx         ContextPopupColumn;         // Column right-clicked on, of -1 if opening context menu from a neutral/empty spot
     ImGuiTableColumnIdx         FreezeRowsRequest;          // Requested frozen rows count
     ImGuiTableColumnIdx         FreezeRowsCount;            // Actual frozen row count (== FreezeRowsRequest, or == 0 when no scrolling offset)
-    ImGuiTableColumnIdx         FreezeColumnsRequest;       // Requested frozen columns count
-    ImGuiTableColumnIdx         FreezeColumnsCount;         // Actual frozen columns count (== FreezeColumnsRequest, or == 0 when no scrolling offset)
+    ImGuiTableColumnIdx         FreezeColumnsRequest;       // Requested frozen columnsCombo count
+    ImGuiTableColumnIdx         FreezeColumnsCount;         // Actual frozen columnsCombo count (== FreezeColumnsRequest, or == 0 when no scrolling offset)
     ImGuiTableColumnIdx         RowCellDataCurrent;         // Index of current RowCellData[] entry in current row
-    ImGuiTableDrawChannelIdx    DummyDrawChannel;           // Redirect non-visible columns here.
-    ImGuiTableDrawChannelIdx    Bg2DrawChannelCurrent;      // For Selectable() and other widgets drawing across columns after the freezing line. Index within DrawSplitter.Channels[]
+    ImGuiTableDrawChannelIdx    DummyDrawChannel;           // Redirect non-visible columnsCombo here.
+    ImGuiTableDrawChannelIdx    Bg2DrawChannelCurrent;      // For Selectable() and other widgets drawing across columnsCombo after the freezing line. Index within DrawSplitter.Channels[]
     ImGuiTableDrawChannelIdx    Bg2DrawChannelUnfrozen;
     bool                        IsLayoutLocked;             // Set by TableUpdateLayout() which is called when beginning the first row.
     bool                        IsInsideRow;                // Set when inside TableBeginRow()/TableEndRow().
@@ -2746,9 +2746,9 @@ struct ImGuiTableSettings
 {
     ImGuiID                     ID;                     // Set to 0 to invalidate/delete the setting
     ImGuiTableFlags             SaveFlags;              // Indicate data we want to save using the Resizable/Reorderable/Sortable/Hideable flags (could be using its own flags..)
-    float                       RefScale;               // Reference scale to be able to rescale columns on font/dpi changes.
+    float                       RefScale;               // Reference scale to be able to rescale columnsCombo on font/dpi changes.
     ImGuiTableColumnIdx         ColumnsCount;
-    ImGuiTableColumnIdx         ColumnsCountMax;        // Maximum number of columns this settings instance can store, we can recycle a settings instance with lower number of columns but not higher
+    ImGuiTableColumnIdx         ColumnsCountMax;        // Maximum number of columnsCombo this settings instance can store, we can recycle a settings instance with lower number of columnsCombo but not higher
     bool                        WantApply;              // Set when loaded from .ini data (to enable merging/loading .ini data into an already running context)
 
     ImGuiTableSettings()        { memset(this, 0, sizeof(*this)); }
@@ -3043,21 +3043,21 @@ namespace ImGui
 
     // Internal Columns API (this is not exposed because we will encourage transitioning to the Tables API)
     IMGUI_API void          SetWindowClipRectBeforeSetChannel(ImGuiWindow* window, const ImRect& clip_rect);
-    IMGUI_API void          BeginColumns(const char* str_id, int count, ImGuiOldColumnFlags flags = 0); // setup number of columns. use an identifier to distinguish multiple column sets. close with EndColumns().
-    IMGUI_API void          EndColumns();                                                               // close columns
+    IMGUI_API void          BeginColumns(const char* str_id, int count, ImGuiOldColumnFlags flags = 0); // setup number of columnsCombo. use an identifier to distinguish multiple column sets. close with EndColumns().
+    IMGUI_API void          EndColumns();                                                               // close columnsCombo
     IMGUI_API void          PushColumnClipRect(int column_index);
     IMGUI_API void          PushColumnsBackground();
     IMGUI_API void          PopColumnsBackground();
     IMGUI_API ImGuiID       GetColumnsID(const char* str_id, int count);
     IMGUI_API ImGuiOldColumns* FindOrCreateColumns(ImGuiWindow* window, ImGuiID id);
-    IMGUI_API float         GetColumnOffsetFromNorm(const ImGuiOldColumns* columns, float offset_norm);
-    IMGUI_API float         GetColumnNormFromOffset(const ImGuiOldColumns* columns, float offset);
+    IMGUI_API float         GetColumnOffsetFromNorm(const ImGuiOldColumns* columnsCombo, float offset_norm);
+    IMGUI_API float         GetColumnNormFromOffset(const ImGuiOldColumns* columnsCombo, float offset);
 
     // Tables: Candidates for public API
     IMGUI_API void          TableOpenContextMenu(int column_n = -1);
     IMGUI_API void          TableSetColumnWidth(int column_n, float width);
     IMGUI_API void          TableSetColumnSortDirection(int column_n, ImGuiSortDirection sort_direction, bool append_to_sort_specs);
-    IMGUI_API int           TableGetHoveredColumn(); // May use (TableGetColumnFlags() & ImGuiTableColumnFlags_IsHovered) instead. Return hovered column. return -1 when table is not hovered. return columns_count if the unused space at the right of visible columns is hovered.
+    IMGUI_API int           TableGetHoveredColumn(); // May use (TableGetColumnFlags() & ImGuiTableColumnFlags_IsHovered) instead. Return hovered column. return -1 when table is not hovered. return columns_count if the unused space at the right of visible columnsCombo is hovered.
     IMGUI_API float         TableGetHeaderRowHeight();
     IMGUI_API void          TablePushBackgroundChannel();
     IMGUI_API void          TablePopBackgroundChannel();
@@ -3238,7 +3238,7 @@ namespace ImGui
     inline void             DebugStartItemPicker()                                  { ImGuiContext& g = *GImGui; g.DebugItemPickerActive = true; }
     IMGUI_API void          ShowFontAtlas(ImFontAtlas* atlas);
     IMGUI_API void          DebugHookIdInfo(ImGuiID id, ImGuiDataType data_type, const void* data_id, const void* data_id_end);
-    IMGUI_API void          DebugNodeColumns(ImGuiOldColumns* columns);
+    IMGUI_API void          DebugNodeColumns(ImGuiOldColumns* columnsCombo);
     IMGUI_API void          DebugNodeDrawList(ImGuiWindow* window, const ImDrawList* draw_list, const char* label);
     IMGUI_API void          DebugNodeDrawCmdShowMeshAndBoundingBox(ImDrawList* out_draw_list, const ImDrawList* draw_list, const ImDrawCmd* draw_cmd, bool show_mesh, bool show_aabb);
     IMGUI_API void          DebugNodeFont(ImFont* font);

@@ -234,7 +234,7 @@ RECENT REVISION HISTORY:
 //
 // On x86, SSE2 will automatically be used when available based on a run-time
 // test; if not, the generic C versions are used as a fall-back. On ARM targets,
-// the typical path is to have separate builds for NEON and non-NEON devices
+// the typical path is to have separate builds for NEON and non-NEON protocolDevices
 // (at least this is true for iOS and Android). Therefore, the NEON support is
 // toggled by a build flag: define STBI_NEON to get NEON loops.
 //
@@ -2396,7 +2396,7 @@ static void stbi__idct_block(stbi_uc *out, int out_stride, short data[64])
    stbi_uc *o;
    short *d = data;
 
-   // columns
+   // columnsCombo
    for (i=0; i < 8; ++i,++d, ++v) {
       // if all zeroes, shortcut -- this avoids dequantizing 0s and IDCTing
       if (d[ 8]==0 && d[16]==0 && d[24]==0 && d[32]==0
@@ -5968,7 +5968,7 @@ static void *stbi__psd_load(stbi__context *s, int *x, int *y, int *comp, int req
    if (channelCount < 0 || channelCount > 16)
       return stbi__errpuc("wrong channel count", "Unsupported number of channels in PSD image");
 
-   // Read the rows and columns of the image.
+   // Read the rows and columnsCombo of the image.
    h = stbi__get32be(s);
    w = stbi__get32be(s);
 

@@ -1,0 +1,6 @@
+#ifndef NetworkConnectionDialog
+#define NetworkConnectionDialog
+
+void Windows_Dialogs_ConnectionDialogs_NetworkConnectionDialog_showNetworkConnectionDialog(bool* selectNetworkAddresses);
+
+#endif // !USBConnectionDialog

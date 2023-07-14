@@ -6,7 +6,7 @@
 #include <chrono>
 #include <atomic>
 #include <cstdio>
-#include "../../USB.h"
+#include "../../../../Tools.h"
 
 static boost::asio::io_context io;
 static std::map<std::string, std::shared_ptr<boost::asio::serial_port>> devicesCDC;
@@ -34,7 +34,7 @@ static void checkPort(std::vector<std::string>& ports, const char port[]) {
 }
 
 static void tryPort(std::vector<std::string>& ports, const char portTemplate[]) {
-	char port[30];
+	char port[MAX_C_STRING_LEN];
 	for (int i = 0; i < 127; i++) {
 		try {
 			std::sprintf(port, "%s%i", portTemplate, i);
@@ -168,10 +168,16 @@ bool Tools_Hardware_USB_Protocols_CDC_isConnected(const char port[]) {
 	return isOpen;
 }
 
-std::vector<std::string> Tools_Hardware_USB_Protocols_CDC_getPortsOfConnectedDevices() {
-	std::vector<std::string> ports;
-	for (auto const& [port, addDevice] : devicesCDC) {
-		ports.push_back(port);
+std::string Tools_Hardware_USB_Protocols_CDC_getPortsOfConnectedDevices() {
+	std::string ports;
+	size_t maxDevicesCDC = devicesCDC.size();
+	size_t count = 0;
+	for (auto const& [port, devices] : devicesCDC) {
+		ports += port.c_str();
+		if (count < maxDevicesCDC - 1) {
+			ports += '\0';
+		}
+		count++;
 	}
 	return ports;
 }
@@ -193,13 +199,14 @@ std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_startTransieveProcesss(con
 			std::size_t bytes_transferred = 0;
 			try {
 				bytes_transferred = devicesCDC.at(port)->read_some(boost::asio::buffer(buffer), error);
-			}catch(...){}
+			}
+			catch (...) {}
 
 			if (!error) {
 				dataRX.assign(buffer.begin(), buffer.begin() + bytes_transferred);
 				dataReceived = true;
 			}
-		});
+			});
 
 		// Write data
 		devicesCDC.at(port)->write_some(boost::asio::buffer(dataTX, size));
@@ -208,12 +215,12 @@ std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_startTransieveProcesss(con
 		bool timeout = false;
 		auto startTime = std::chrono::steady_clock::now();
 		auto timeoutDuration = std::chrono::milliseconds(timeOutMilliseconds);
-		while (!dataReceived && !timeout){
+		while (!dataReceived && !timeout) {
 			auto currentTime = std::chrono::steady_clock::now();
 			auto elapsedTime = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - startTime);
 
 			// Check if timeout has occurred
-			if (elapsedTime >= timeoutDuration){
+			if (elapsedTime >= timeoutDuration) {
 				timeout = true;
 				readThread.detach(); // Kill the thread
 			}

@@ -729,7 +729,7 @@ namespace ImGui
     // The typical call flow is:
     // - 1. Call BeginTable(), early out if returning false.
     // - 2. Optionally call TableSetupColumn() to submit column name/flags/defaults.
-    // - 3. Optionally call TableSetupScrollFreeze() to request scroll freezing of columns/rows.
+    // - 3. Optionally call TableSetupScrollFreeze() to request scroll freezing of columnsCombo/rows.
     // - 4. Optionally call TableHeadersRow() to submit a header row. Names are pulled from TableSetupColumn() data.
     // - 5. Populate contents:
     //    - In most situations you can use TableNextRow() + TableSetColumnIndex(N) to start appending into a column.
@@ -755,12 +755,12 @@ namespace ImGui
     // - Use TableSetupColumn() to specify label, resizing policy, default width/weight, id, various other flags etc.
     // - Use TableHeadersRow() to create a header row and automatically submit a TableHeader() for each column.
     //   Headers are required to perform: reordering, sorting, and opening the context menu.
-    //   The context menu can also be made available in columns body using ImGuiTableFlags_ContextMenuInBody.
+    //   The context menu can also be made available in columnsCombo body using ImGuiTableFlags_ContextMenuInBody.
     // - You may manually submit headers using TableNextRow() + TableHeader() calls, but this is only useful in
     //   some advanced use cases (e.g. adding custom widgets in header row).
-    // - Use TableSetupScrollFreeze() to lock columns/rows so they stay visible when scrolled.
+    // - Use TableSetupScrollFreeze() to lock columnsCombo/rows so they stay visible when scrolled.
     IMGUI_API void          TableSetupColumn(const char* label, ImGuiTableColumnFlags flags = 0, float init_width_or_weight = 0.0f, ImGuiID user_id = 0);
-    IMGUI_API void          TableSetupScrollFreeze(int cols, int rows);         // lock columns/rows so they stay visible when scrolled.
+    IMGUI_API void          TableSetupScrollFreeze(int cols, int rows);         // lock columnsCombo/rows so they stay visible when scrolled.
     IMGUI_API void          TableHeadersRow();                                  // submit all headers cells based on data provided to TableSetupColumn() + submit context menu
     IMGUI_API void          TableHeader(const char* label);                     // submit one header cell manually (rarely used)
 
@@ -771,16 +771,16 @@ namespace ImGui
     //   else you may wastefully sort your data every frame!
     // - Functions args 'int column_n' treat the default value of -1 as the same as passing the current column index.
     IMGUI_API ImGuiTableSortSpecs*  TableGetSortSpecs();                        // get latest sort specs for the table (NULL if not sorting).  Lifetime: don't hold on this pointer over multiple frames or past any subsequent call to BeginTable().
-    IMGUI_API int                   TableGetColumnCount();                      // return number of columns (value passed to BeginTable)
+    IMGUI_API int                   TableGetColumnCount();                      // return number of columnsCombo (value passed to BeginTable)
     IMGUI_API int                   TableGetColumnIndex();                      // return current column index.
     IMGUI_API int                   TableGetRowIndex();                         // return current row index.
     IMGUI_API const char*           TableGetColumnName(int column_n = -1);      // return "" if column didn't have a name declared by TableSetupColumn(). Pass -1 to use current column.
     IMGUI_API ImGuiTableColumnFlags TableGetColumnFlags(int column_n = -1);     // return column flags so you can query their Enabled/Visible/Sorted/Hovered status flags. Pass -1 to use current column.
-    IMGUI_API void                  TableSetColumnEnabled(int column_n, bool v);// change user accessible enabled/disabled state of a column. Set to false to hide the column. User can use the context menu to change this themselves (right-click in headers, or right-click in columns body with ImGuiTableFlags_ContextMenuInBody)
+    IMGUI_API void                  TableSetColumnEnabled(int column_n, bool v);// change user accessible enabled/disabled state of a column. Set to false to hide the column. User can use the context menu to change this themselves (right-click in headers, or right-click in columnsCombo body with ImGuiTableFlags_ContextMenuInBody)
     IMGUI_API void                  TableSetBgColor(ImGuiTableBgTarget target, ImU32 color, int column_n = -1);  // change the color of a cell, row, or column. See ImGuiTableBgTarget_ flags for details.
 
     // Legacy Columns API (prefer using Tables!)
-    // - You can also use SameLine(pos_x) to mimic simplified columns.
+    // - You can also use SameLine(pos_x) to mimic simplified columnsCombo.
     IMGUI_API void          Columns(int count = 1, const char* id = NULL, bool border = true);
     IMGUI_API void          NextColumn();                                                       // next column, defaults to current row or next row if the current row is finished
     IMGUI_API int           GetColumnIndex();                                                   // get current column index
@@ -1077,7 +1077,7 @@ enum ImGuiSelectableFlags_
 {
     ImGuiSelectableFlags_None               = 0,
     ImGuiSelectableFlags_DontClosePopups    = 1 << 0,   // Clicking this doesn't close parent popup window
-    ImGuiSelectableFlags_SpanAllColumns     = 1 << 1,   // Selectable frame can span all columns (text will still fit in current column)
+    ImGuiSelectableFlags_SpanAllColumns     = 1 << 1,   // Selectable frame can span all columnsCombo (text will still fit in current column)
     ImGuiSelectableFlags_AllowDoubleClick   = 1 << 2,   // Generate press events on double clicks too
     ImGuiSelectableFlags_Disabled           = 1 << 3,   // Cannot be selected, display grayed out text
     ImGuiSelectableFlags_AllowItemOverlap   = 1 << 4,   // (WIP) Hit testing to allow subsequent widgets to overlap this one
@@ -1138,56 +1138,56 @@ enum ImGuiTabItemFlags_
 //    - Columns sizing policy allowed: Stretch (default), Fixed/Auto.
 //    - Fixed Columns (if any) will generally obtain their requested width (unless the table cannot fit them all).
 //    - Stretch Columns will share the remaining width according to their respective weight.
-//    - Mixed Fixed/Stretch columns is possible but has various side-effects on resizing behaviors.
-//      The typical use of mixing sizing policies is: any number of LEADING Fixed columns, followed by one or two TRAILING Stretch columns.
-//      (this is because the visible order of columns have subtle but necessary effects on how they react to manual resizing).
+//    - Mixed Fixed/Stretch columnsCombo is possible but has various side-effects on resizing behaviors.
+//      The typical use of mixing sizing policies is: any number of LEADING Fixed columnsCombo, followed by one or two TRAILING Stretch columnsCombo.
+//      (this is because the visible order of columnsCombo have subtle but necessary effects on how they react to manual resizing).
 // - When ScrollX is on:
 //    - Table defaults to ImGuiTableFlags_SizingFixedFit -> all Columns defaults to ImGuiTableColumnFlags_WidthFixed
 //    - Columns sizing policy allowed: Fixed/Auto mostly.
 //    - Fixed Columns can be enlarged as needed. Table will show a horizontal scrollbar if needed.
-//    - When using auto-resizing (non-resizable) fixed columns, querying the content width to use item right-alignment e.g. SetNextItemWidth(-FLT_MIN) doesn't make sense, would create a feedback loop.
-//    - Using Stretch columns OFTEN DOES NOT MAKE SENSE if ScrollX is on, UNLESS you have specified a value for 'inner_width' in BeginTable().
-//      If you specify a value for 'inner_width' then effectively the scrolling space is known and Stretch or mixed Fixed/Stretch columns become meaningful again.
+//    - When using auto-resizing (non-resizable) fixed columnsCombo, querying the content width to use item right-alignment e.g. SetNextItemWidth(-FLT_MIN) doesn't make sense, would create a feedback loop.
+//    - Using Stretch columnsCombo OFTEN DOES NOT MAKE SENSE if ScrollX is on, UNLESS you have specified a value for 'inner_width' in BeginTable().
+//      If you specify a value for 'inner_width' then effectively the scrolling space is known and Stretch or mixed Fixed/Stretch columnsCombo become meaningful again.
 // - Read on documentation at the top of imgui_tables.cpp for details.
 enum ImGuiTableFlags_
 {
     // Features
     ImGuiTableFlags_None                       = 0,
-    ImGuiTableFlags_Resizable                  = 1 << 0,   // Enable resizing columns.
-    ImGuiTableFlags_Reorderable                = 1 << 1,   // Enable reordering columns in header row (need calling TableSetupColumn() + TableHeadersRow() to display headers)
-    ImGuiTableFlags_Hideable                   = 1 << 2,   // Enable hiding/disabling columns in context menu.
+    ImGuiTableFlags_Resizable                  = 1 << 0,   // Enable resizing columnsCombo.
+    ImGuiTableFlags_Reorderable                = 1 << 1,   // Enable reordering columnsCombo in header row (need calling TableSetupColumn() + TableHeadersRow() to display headers)
+    ImGuiTableFlags_Hideable                   = 1 << 2,   // Enable hiding/disabling columnsCombo in context menu.
     ImGuiTableFlags_Sortable                   = 1 << 3,   // Enable sorting. Call TableGetSortSpecs() to obtain sort specs. Also see ImGuiTableFlags_SortMulti and ImGuiTableFlags_SortTristate.
-    ImGuiTableFlags_NoSavedSettings            = 1 << 4,   // Disable persisting columns order, width and sort settings in the .ini file.
-    ImGuiTableFlags_ContextMenuInBody          = 1 << 5,   // Right-click on columns body/contents will display table context menu. By default it is available in TableHeadersRow().
+    ImGuiTableFlags_NoSavedSettings            = 1 << 4,   // Disable persisting columnsCombo order, width and sort settings in the .ini file.
+    ImGuiTableFlags_ContextMenuInBody          = 1 << 5,   // Right-click on columnsCombo body/contents will display table context menu. By default it is available in TableHeadersRow().
     // Decorations
     ImGuiTableFlags_RowBg                      = 1 << 6,   // Set each RowBg color with ImGuiCol_TableRowBg or ImGuiCol_TableRowBgAlt (equivalent of calling TableSetBgColor with ImGuiTableBgFlags_RowBg0 on each row manually)
     ImGuiTableFlags_BordersInnerH              = 1 << 7,   // Draw horizontal borders between rows.
     ImGuiTableFlags_BordersOuterH              = 1 << 8,   // Draw horizontal borders at the top and bottom.
-    ImGuiTableFlags_BordersInnerV              = 1 << 9,   // Draw vertical borders between columns.
+    ImGuiTableFlags_BordersInnerV              = 1 << 9,   // Draw vertical borders between columnsCombo.
     ImGuiTableFlags_BordersOuterV              = 1 << 10,  // Draw vertical borders on the left and right sides.
     ImGuiTableFlags_BordersH                   = ImGuiTableFlags_BordersInnerH | ImGuiTableFlags_BordersOuterH, // Draw horizontal borders.
     ImGuiTableFlags_BordersV                   = ImGuiTableFlags_BordersInnerV | ImGuiTableFlags_BordersOuterV, // Draw vertical borders.
     ImGuiTableFlags_BordersInner               = ImGuiTableFlags_BordersInnerV | ImGuiTableFlags_BordersInnerH, // Draw inner borders.
     ImGuiTableFlags_BordersOuter               = ImGuiTableFlags_BordersOuterV | ImGuiTableFlags_BordersOuterH, // Draw outer borders.
     ImGuiTableFlags_Borders                    = ImGuiTableFlags_BordersInner | ImGuiTableFlags_BordersOuter,   // Draw all borders.
-    ImGuiTableFlags_NoBordersInBody            = 1 << 11,  // [ALPHA] Disable vertical borders in columns Body (borders will always appear in Headers). -> May move to style
-    ImGuiTableFlags_NoBordersInBodyUntilResize = 1 << 12,  // [ALPHA] Disable vertical borders in columns Body until hovered for resize (borders will always appear in Headers). -> May move to style
+    ImGuiTableFlags_NoBordersInBody            = 1 << 11,  // [ALPHA] Disable vertical borders in columnsCombo Body (borders will always appear in Headers). -> May move to style
+    ImGuiTableFlags_NoBordersInBodyUntilResize = 1 << 12,  // [ALPHA] Disable vertical borders in columnsCombo Body until hovered for resize (borders will always appear in Headers). -> May move to style
     // Sizing Policy (read above for defaults)
     ImGuiTableFlags_SizingFixedFit             = 1 << 13,  // Columns default to _WidthFixed or _WidthAuto (if resizable or not resizable), matching contents width.
-    ImGuiTableFlags_SizingFixedSame            = 2 << 13,  // Columns default to _WidthFixed or _WidthAuto (if resizable or not resizable), matching the maximum contents width of all columns. Implicitly enable ImGuiTableFlags_NoKeepColumnsVisible.
-    ImGuiTableFlags_SizingStretchProp          = 3 << 13,  // Columns default to _WidthStretch with default weights proportional to each columns contents widths.
+    ImGuiTableFlags_SizingFixedSame            = 2 << 13,  // Columns default to _WidthFixed or _WidthAuto (if resizable or not resizable), matching the maximum contents width of all columnsCombo. Implicitly enable ImGuiTableFlags_NoKeepColumnsVisible.
+    ImGuiTableFlags_SizingStretchProp          = 3 << 13,  // Columns default to _WidthStretch with default weights proportional to each columnsCombo contents widths.
     ImGuiTableFlags_SizingStretchSame          = 4 << 13,  // Columns default to _WidthStretch with default weights all equal, unless overridden by TableSetupColumn().
     // Sizing Extra Options
-    ImGuiTableFlags_NoHostExtendX              = 1 << 16,  // Make outer width auto-fit to columns, overriding outer_size.x value. Only available when ScrollX/ScrollY are disabled and Stretch columns are not used.
+    ImGuiTableFlags_NoHostExtendX              = 1 << 16,  // Make outer width auto-fit to columnsCombo, overriding outer_size.x value. Only available when ScrollX/ScrollY are disabled and Stretch columnsCombo are not used.
     ImGuiTableFlags_NoHostExtendY              = 1 << 17,  // Make outer height stop exactly at outer_size.y (prevent auto-extending table past the limit). Only available when ScrollX/ScrollY are disabled. Data below the limit will be clipped and not visible.
-    ImGuiTableFlags_NoKeepColumnsVisible       = 1 << 18,  // Disable keeping column always minimally visible when ScrollX is off and table gets too small. Not recommended if columns are resizable.
-    ImGuiTableFlags_PreciseWidths              = 1 << 19,  // Disable distributing remainder width to stretched columns (width allocation on a 100-wide table with 3 columns: Without this flag: 33,33,34. With this flag: 33,33,33). With larger number of columns, resizing will appear to be less smooth.
+    ImGuiTableFlags_NoKeepColumnsVisible       = 1 << 18,  // Disable keeping column always minimally visible when ScrollX is off and table gets too small. Not recommended if columnsCombo are resizable.
+    ImGuiTableFlags_PreciseWidths              = 1 << 19,  // Disable distributing remainder width to stretched columnsCombo (width allocation on a 100-wide table with 3 columnsCombo: Without this flag: 33,33,34. With this flag: 33,33,33). With larger number of columnsCombo, resizing will appear to be less smooth.
     // Clipping
-    ImGuiTableFlags_NoClip                     = 1 << 20,  // Disable clipping rectangle for every individual columns (reduce draw command count, items will be able to overflow into other columns). Generally incompatible with TableSetupScrollFreeze().
+    ImGuiTableFlags_NoClip                     = 1 << 20,  // Disable clipping rectangle for every individual columnsCombo (reduce draw command count, items will be able to overflow into other columnsCombo). Generally incompatible with TableSetupScrollFreeze().
     // Padding
     ImGuiTableFlags_PadOuterX                  = 1 << 21,  // Default if BordersOuterV is on. Enable outermost padding. Generally desirable if you have headers.
     ImGuiTableFlags_NoPadOuterX                = 1 << 22,  // Default if BordersOuterV is off. Disable outermost padding.
-    ImGuiTableFlags_NoPadInnerX                = 1 << 23,  // Disable inner padding between columns (double inner padding if BordersOuterV is on, single inner padding if BordersOuterV is off).
+    ImGuiTableFlags_NoPadInnerX                = 1 << 23,  // Disable inner padding between columnsCombo (double inner padding if BordersOuterV is on, single inner padding if BordersOuterV is off).
     // Scrolling
     ImGuiTableFlags_ScrollX                    = 1 << 24,  // Enable horizontal scrolling. Require 'outer_size' parameter of BeginTable() to specify the container size. Changes default sizing policy. Because this creates a child window, ScrollY is currently generally recommended when using ScrollX.
     ImGuiTableFlags_ScrollY                    = 1 << 25,  // Enable vertical scrolling. Require 'outer_size' parameter of BeginTable() to specify the container size.
@@ -1210,18 +1210,18 @@ enum ImGuiTableColumnFlags_
     ImGuiTableColumnFlags_WidthStretch          = 1 << 3,   // Column will stretch. Preferable with horizontal scrolling disabled (default if table sizing policy is _SizingStretchSame or _SizingStretchProp).
     ImGuiTableColumnFlags_WidthFixed            = 1 << 4,   // Column will not stretch. Preferable with horizontal scrolling enabled (default if table sizing policy is _SizingFixedFit and table is resizable).
     ImGuiTableColumnFlags_NoResize              = 1 << 5,   // Disable manual resizing.
-    ImGuiTableColumnFlags_NoReorder             = 1 << 6,   // Disable manual reordering this column, this will also prevent other columns from crossing over this column.
+    ImGuiTableColumnFlags_NoReorder             = 1 << 6,   // Disable manual reordering this column, this will also prevent other columnsCombo from crossing over this column.
     ImGuiTableColumnFlags_NoHide                = 1 << 7,   // Disable ability to hide/disable this column.
-    ImGuiTableColumnFlags_NoClip                = 1 << 8,   // Disable clipping for this column (all NoClip columns will render in a same draw command).
+    ImGuiTableColumnFlags_NoClip                = 1 << 8,   // Disable clipping for this column (all NoClip columnsCombo will render in a same draw command).
     ImGuiTableColumnFlags_NoSort                = 1 << 9,   // Disable ability to sort on this field (even if ImGuiTableFlags_Sortable is set on the table).
     ImGuiTableColumnFlags_NoSortAscending       = 1 << 10,  // Disable ability to sort in the ascending direction.
     ImGuiTableColumnFlags_NoSortDescending      = 1 << 11,  // Disable ability to sort in the descending direction.
-    ImGuiTableColumnFlags_NoHeaderLabel         = 1 << 12,  // TableHeadersRow() will not submit label for this column. Convenient for some small columns. Name will still appear in context menu.
+    ImGuiTableColumnFlags_NoHeaderLabel         = 1 << 12,  // TableHeadersRow() will not submit label for this column. Convenient for some small columnsCombo. Name will still appear in context menu.
     ImGuiTableColumnFlags_NoHeaderWidth         = 1 << 13,  // Disable header text width contribution to automatic column width.
     ImGuiTableColumnFlags_PreferSortAscending   = 1 << 14,  // Make the initial sort direction Ascending when first sorting on this column (default).
     ImGuiTableColumnFlags_PreferSortDescending  = 1 << 15,  // Make the initial sort direction Descending when first sorting on this column.
     ImGuiTableColumnFlags_IndentEnable          = 1 << 16,  // Use current Indent value when entering cell (default for column 0).
-    ImGuiTableColumnFlags_IndentDisable         = 1 << 17,  // Ignore current Indent value when entering cell (default for columns > 0). Indentation changes _within_ the cell will still be honored.
+    ImGuiTableColumnFlags_IndentDisable         = 1 << 17,  // Ignore current Indent value when entering cell (default for columnsCombo > 0). Indentation changes _within_ the cell will still be honored.
 
     // Output status flags, read-only via TableGetColumnFlags()
     ImGuiTableColumnFlags_IsEnabled             = 1 << 24,  // Status: is enabled == not hidden by user/api (referred to as "Hide" in _DefaultHide and _NoHide) flags.
@@ -1248,7 +1248,7 @@ enum ImGuiTableRowFlags_
 //  - Layer 0: draw with RowBg0 color if set, otherwise draw with ColumnBg0 if set.
 //  - Layer 1: draw with RowBg1 color if set, otherwise draw with ColumnBg1 if set.
 //  - Layer 2: draw with CellBg color if set.
-// The purpose of the two row/columns layers is to let you decide if a background color change should override or blend with the existing color.
+// The purpose of the two row/columnsCombo layers is to let you decide if a background color change should override or blend with the existing color.
 // When using ImGuiTableFlags_RowBg on the table, each row has the RowBg0 color automatically set for odd/even rows.
 // If you set the color of RowBg0 target, your color will override the existing RowBg0 color.
 // If you set the color of RowBg1 or ColumnBg1 target, your color will blend over the RowBg0 color.
@@ -1884,7 +1884,7 @@ struct ImGuiStyle
     ImVec2      CellPadding;                // Padding within a table cell
     ImVec2      TouchExtraPadding;          // Expand reactive bounding box for touch-based system where touch position is not accurate enough. Unfortunately we don't sort widgets so priority on overlap will always be given to the first widget. So don't grow this too much!
     float       IndentSpacing;              // Horizontal indentation when e.g. entering a tree node. Generally == (FontSize + FramePadding.x*2).
-    float       ColumnsMinSpacing;          // Minimum horizontal spacing between two columns. Preferably > (FramePadding.x + 1).
+    float       ColumnsMinSpacing;          // Minimum horizontal spacing between two columnsCombo. Preferably > (FramePadding.x + 1).
     float       ScrollbarSize;              // Width of the vertical scrollbar, Height of the horizontal scrollbar.
     float       ScrollbarRounding;          // Radius of grab corners for scrollbar.
     float       GrabMinSize;                // Minimum width/height of a grab box for slider/scrollbar.
@@ -1964,7 +1964,7 @@ struct ImGuiIO
     bool        ConfigInputTrickleEventQueue;   // = true           // Enable input queue trickling: some types of events submitted during the same frame (e.g. button down + up) will be spread over multiple frames, improving interactions with low framerates.
     bool        ConfigInputTextCursorBlink;     // = true           // Enable blinking cursor (optional as some users consider it to be distracting).
     bool        ConfigInputTextEnterKeepActive; // = false          // [BETA] Pressing Enter will keep item active and select contents (single-line only).
-    bool        ConfigDragClickToInputText;     // = false          // [BETA] Enable turning DragXXX widgets into text input with a simple mouse click-release (without moving). Not desirable on devices without a keyboard.
+    bool        ConfigDragClickToInputText;     // = false          // [BETA] Enable turning DragXXX widgets into text input with a simple mouse click-release (without moving). Not desirable on protocolDevices without a keyboard.
     bool        ConfigWindowsResizeFromEdges;   // = true           // Enable resizing of windows from their edges and from the lower-left corner. This requires (io.BackendFlags & ImGuiBackendFlags_HasMouseCursors) because it needs mouse cursor feedback. (This used to be a per-window ImGuiWindowFlags_ResizeFromAnySide flag)
     bool        ConfigWindowsMoveFromTitleBarOnly; // = false       // Enable allowing to move windows only when clicking on their title bar. Does not apply to windows without a title bar.
     float       ConfigMemoryCompactTimer;       // = 60.0f          // Timer (in seconds) to free transient windows/tables memory buffers when unused. Set to -1.0f to disable.

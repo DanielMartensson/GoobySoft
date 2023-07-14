@@ -113,6 +113,10 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <StackCommitSize>
+      </StackCommitSize>
+      <StackReserveSize>
+      </StackReserveSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -136,9 +140,11 @@
   <ItemGroup>
     <ClCompile Include="GoobySoft.cpp" />
     <ClCompile Include="Tools\Communications\Devices\ADL400\ADL400.cpp" />
-    <ClCompile Include="Tools\Communications\Devices\OpenSAEJ1939\OpenSAEJ1939.cpp" />
+    <ClCompile Include="Tools\Communications\Devices\Devices.cpp" />
     <ClCompile Include="Tools\Communications\Devices\STM32PLC\STM32PLC.cpp" />
     <ClCompile Include="Tools\Gui\CreateDialogs\CreateDialogs.cpp" />
+    <ClCompile Include="Tools\Hardware\Network\Network.cpp" />
+    <ClCompile Include="Tools\Hardware\Network\Protocols\ModbusTCP\ModbusTCP.cpp" />
     <ClCompile Include="Tools\Software\Libraries\ImGuiFileDialog\ImGuiFileDialog.cpp" />
     <ClCompile Include="Tools\Gui\CreateItems\CreateItems.cpp" />
     <ClCompile Include="Tools\Software\Libraries\ImGui\backends\imgui_impl_opengl3.cpp" />
@@ -152,13 +158,14 @@
     <ClCompile Include="Tools\Software\Libraries\ImPlot\implot_items.cpp" />
     <ClCompile Include="Tools\Hardware\FileSystem\FileSystem.cpp" />
     <ClCompile Include="Tools\Hardware\USB\Protocols\CDC\CDC.cpp" />
-    <ClCompile Include="Tools\Hardware\USB\Protocols\Modbus\Modbus.cpp" />
+    <ClCompile Include="Tools\Hardware\USB\Protocols\ModbusRTU\ModbusRTU.cpp" />
     <ClCompile Include="Tools\Hardware\USB\USB.cpp" />
     <ClCompile Include="Tools\Software\Algorithms\Algorithms.cpp" />
     <ClCompile Include="Tools\Storage\Databases\Databases.cpp" />
     <ClCompile Include="Tools\Storage\Databases\MySQL\MySQL.cpp" />
     <ClCompile Include="Tools\Storage\Parameters\Parameters.cpp" />
     <ClCompile Include="Windows\Dialogs\ConnectionDialogs\DatabaseConnectionDialog\DatabaseConnectionDialog.cpp" />
+    <ClCompile Include="Windows\Dialogs\ConnectionDialogs\NetworkConnectionDialog\NetworkConnectionDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\ConnectionDialogs\USBConnectionDialog\USBConnectionDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\FileDialogs\LogFilePathDialog\LogFilePathDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\MeasurementDialogs\ConfigureMeasurementDialog\ConfigureMeasurementDialog.cpp" />
@@ -173,9 +180,11 @@
     <ClInclude Include="Tools\Communications\Communications.h" />
     <ClInclude Include="Tools\Communications\Devices\ADL400\ADL400.h" />
     <ClInclude Include="Tools\Communications\Devices\Devices.h" />
-    <ClInclude Include="Tools\Communications\Devices\OpenSAEJ1939\OpenSAEJ1939.h" />
     <ClInclude Include="Tools\Communications\Devices\STM32PLC\STM32PLC.h" />
     <ClInclude Include="Tools\Gui\CreateDialogs\CreateDialogs.h" />
+    <ClInclude Include="Tools\Hardware\Network\Protocols\ModbusTCP\ModbusTCP.h" />
+    <ClInclude Include="Tools\Hardware\Network\Network.h" />
+    <ClInclude Include="Tools\Hardware\Network\Protocols\Protocols.h" />
     <ClInclude Include="Tools\Software\Libraries\ImGuiFileDialog\dirent\dirent.h" />
     <ClInclude Include="Tools\Software\Libraries\ImGuiFileDialog\ImGuiFileDialog.h" />
     <ClInclude Include="Tools\Software\Libraries\ImGuiFileDialog\ImGuiFileDialogConfig.h" />
@@ -197,7 +206,7 @@
     <ClInclude Include="Tools\Hardware\FileSystem\FileSystem.h" />
     <ClInclude Include="Tools\Hardware\Hardware.h" />
     <ClInclude Include="Tools\Hardware\USB\Protocols\CDC\CDC.h" />
-    <ClInclude Include="Tools\Hardware\USB\Protocols\Modbus\Modbus.h" />
+    <ClInclude Include="Tools\Hardware\USB\Protocols\ModbusRTU\ModbusRTU.h" />
     <ClInclude Include="Tools\Hardware\USB\Protocols\Protocols.h" />
     <ClInclude Include="Tools\Hardware\USB\USB.h" />
     <ClInclude Include="Tools\Software\Libraries\Libraries.h" />
@@ -211,6 +220,7 @@
     <ClInclude Include="Tools\Tools.h" />
     <ClInclude Include="Windows\Dialogs\ConnectionDialogs\ConnectionDialogs.h" />
     <ClInclude Include="Windows\Dialogs\ConnectionDialogs\DatabaseConnectionDialog\DatabaseConnectionDialog.h" />
+    <ClInclude Include="Windows\Dialogs\ConnectionDialogs\NetworkConnectionDialog\NetworkConnectionDialog.h" />
     <ClInclude Include="Windows\Dialogs\ConnectionDialogs\USBConnectionDialog\USBConnectionDialog.h" />
     <ClInclude Include="Windows\Dialogs\Dialogs.h" />
     <ClInclude Include="Windows\Dialogs\FileDialogs\FileDialogs.h" />

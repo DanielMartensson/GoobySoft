@@ -1,6 +1,99 @@
 #ifndef Parameters
 #define Parameters
-#include "../../Hardware/USB/USB.h"
+
+#define MAX_PROTOCOLS 5
+#define MAX_DEVICES 10
+#define MAX_ROWS 10
+#define MAX_COLUMNS 10
+#define MAX_USB_PORTS 10
+#define MAX_C_STRING_LEN 30
+#define MAX_C_STRING_EXTRA_LEN 1024
+#define MAX_DATA_MEASUREMENT_PLOT 1024
+
+typedef enum {
+	COLUMN_DEFINITION_PORT,
+	COLUMN_DEFINITION_DISPLAY_NAME,
+	COLUMN_DEFINITION_FUNCTION,
+	COLUMN_DEFINITION_MIN_VALUE_REAL,
+	COLUMN_DEFINITION_MIN_VALUE_RAW,
+	COLUMN_DEFINITION_MAX_VALUE_REAL,
+	COLUMN_DEFINITION_MAX_VALUE_RAW,
+	COLUMN_DEFINITION_ADDRESS
+}COLUMN_DEFINITION;
+
+typedef enum {
+	COLUMN_TYPE_UNKNOWN,
+	COLUMN_TYPE_COMBO,
+	COLUMN_TYPE_INT,
+	COLUMN_TYPE_FLOAT,
+	COLUMN_TYPE_STRING
+}COLUMN_TYPE;
+
+typedef enum {
+	COLUMN_FUNCTION_HOLD_DATA,							// Regular field e.g Device Name column
+	COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS,				// For e.g ADC but it's for CAN-bus/Modbus
+	COLUMN_FUNCTION_INPUT_SENSOR_NO_CALIBRATION,		// For e.g Digital inputs
+	COLUMN_FUNCTION_INPUT_SENSOR_ANALOG,				// For e.g ADC inputs
+	COLUMN_FUNCTION_OUTPUT_ACTUATOR,					// For e.g PWM outputs
+	COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS				// For e.g PWM but it's for CAN-bus/Modbus
+}COLUMN_FUNCTION;
+
+struct TableColumnID {
+	char columnName[MAX_C_STRING_LEN] = "";							// What is the name of the column
+	COLUMN_DEFINITION columnDefinition = COLUMN_DEFINITION_PORT;	// What is the definition of the column
+	COLUMN_TYPE columnType = COLUMN_TYPE_INT;						// What is the data type of the cell value
+	COLUMN_FUNCTION columnFunction = COLUMN_FUNCTION_HOLD_DATA;		// What the column should do
+};
+
+struct TableColumn {
+	// Contains the definition, type and function
+	TableColumnID tableColumnID;
+
+	// Values of the cell, depending on COLUMN_TYPE
+	char cellValueString[MAX_C_STRING_LEN] = "";
+	int cellValueInt = 0;
+	float cellValueFloat = 0;
+
+	// For storing combo stuffs, depending on COLUMN_DEFINITION
+	char functionValues[MAX_C_STRING_EXTRA_LEN] = "";
+	int functionValueIndex = 0;
+};
+
+struct TableRow {
+	// Columns of row
+	TableColumn tableColumns[MAX_COLUMNS];
+	bool isHeader = false;
+	int tableColumnCount = 0;
+
+	// Measurement data
+	float xData[MAX_DATA_MEASUREMENT_PLOT] = { 0.0f };
+	float yData[MAX_DATA_MEASUREMENT_PLOT] = { 0.0f };
+
+	// For slider
+	int sliderValue = 0;
+
+	// IO
+	float (*getInput)(const char[], int, int);
+	bool (*setOutput)(const char[], int, int, int);
+
+	// For the function
+	COLUMN_FUNCTION (*getColumnFunction)(int);
+};
+
+struct Device {
+	TableRow tableRows[MAX_ROWS];
+	TableRow tableRowSelected;
+	int selectedRowIndex = 0;
+	int tableRowCount = 0;
+	char deviceName[MAX_C_STRING_LEN] = "";
+};
+
+struct Protocol {
+	Device devices[MAX_DEVICES];
+	int deviceCount = 0;
+	bool isProtocolUsed = false;
+	char protocolName[MAX_C_STRING_LEN] = "";
+};
 
 struct USBSettings {
 	unsigned int baudrate = 9600;
@@ -9,7 +102,7 @@ struct USBSettings {
 	int stopBitIndex = 0;
 	int controlFlowIndex = 0;
 	int protocolIndex = 0;
-	char port[256] = { 0 };
+	char port[MAX_C_STRING_LEN] = "";
 };
 
 struct ModbusSettings {
@@ -17,28 +110,31 @@ struct ModbusSettings {
 };
 
 struct FileSettings {
-	char filePathName[1024] = "";
-	char folderPath[1024] = "";
-	char fileName[256] = "";
+	char filePathName[MAX_C_STRING_EXTRA_LEN] = "";
+	char folderPath[MAX_C_STRING_EXTRA_LEN] = "";
+	char fileName[MAX_C_STRING_LEN] = "";
 };
 
 struct DatabaseSettings {
-	char host[50] = "127.0.0.1";
-	char schema[50] = "schema";
+	char host[MAX_C_STRING_LEN] = "127.0.0.1";
+	char schema[MAX_C_STRING_LEN] = "schema";
 	int addDevice = 33060;
-	char username[50] = "myUser";
-	char password[50] = "myPassword";
+	char username[MAX_C_STRING_LEN] = "myUser";
+	char password[MAX_C_STRING_LEN] = "myPassword";
 };
 
 typedef struct {
-	USBSettings usbSettings[MAX_USB_DEVICES];
-	ModbusSettings modbusSettings[MAX_USB_DEVICES];
+	USBSettings usbSettings[MAX_USB_PORTS];
+	ModbusSettings modbusSettings[MAX_USB_PORTS];
 	DatabaseSettings databaseSettings;
 	FileSettings fileSettings;
+	Protocol protocols[MAX_PROTOCOLS];
 }ParameterHolder;
 
 void Tools_Hardware_ParameterStore_loadParameters();
 void Tools_Hardware_ParameterStore_saveParameters();
+void* Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(TableColumn* tableColumns, int tableColumnCount, COLUMN_DEFINITION columnDefinition, COLUMN_TYPE* columnType);
+COLUMN_FUNCTION Tools_Hardware_ParameterStore_readColumnFunctionAtColumnDefinition(TableColumn* tableColumns, int tableColumnCount, COLUMN_DEFINITION columnDefinition);
 ParameterHolder* Tools_Hardware_ParameterStore_getParameterHolder();
 
 #endif // !Parameters

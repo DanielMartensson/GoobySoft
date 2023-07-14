@@ -1437,10 +1437,10 @@ void ImGui::SeparatorEx(ImGuiSeparatorFlags flags, float thickness)
             x2 = table->Columns[table->CurrentColumn].MaxX;
         }
 
-        // Before Tables API happened, we relied on Separator() to span all columns of a Columns() set.
+        // Before Tables API happened, we relied on Separator() to span all columnsCombo of a Columns() set.
         // We currently don't need to provide the same feature for tables because tables naturally have border features.
-        ImGuiOldColumns* columns = (flags & ImGuiSeparatorFlags_SpanAllColumns) ? window->DC.CurrentColumns : NULL;
-        if (columns)
+        ImGuiOldColumns* columnsCombo = (flags & ImGuiSeparatorFlags_SpanAllColumns) ? window->DC.CurrentColumns : NULL;
+        if (columnsCombo)
             PushColumnsBackground();
 
         // We don't provide our width to the layout so that it doesn't get feed back into AutoFit
@@ -1457,10 +1457,10 @@ void ImGui::SeparatorEx(ImGuiSeparatorFlags flags, float thickness)
                 LogRenderedText(&bb.Min, "--------------------------------\n");
 
         }
-        if (columns)
+        if (columnsCombo)
         {
             PopColumnsBackground();
-            columns->LineMinY = window->DC.CursorPos.y;
+            columnsCombo->LineMinY = window->DC.CursorPos.y;
         }
     }
 }

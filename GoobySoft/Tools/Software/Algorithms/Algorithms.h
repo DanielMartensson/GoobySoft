@@ -4,6 +4,8 @@
 #include <string>
 
 std::string Tools_Software_Algorithms_getISO8601Time();
+void Tools_Software_Algorithms_extractElementFromCharArray(const char arraySeparatedByZeros[], int indexNumber, char extracted[]);
+float Tools_Software_Algorithms_calibration(float x1, float x2, float y1, float y2, float x);
 
 template <typename T, std::size_t N>
 int Tools_Software_Algorithms_findIndexOf(const T(&arr)[N], const T& value) {
@@ -33,6 +35,27 @@ constexpr std::size_t Tools_Software_Algorithms_getArraySize(const T(&)[N]) {
 template <typename T, std::size_t N>
 std::vector<T> Tools_Software_Algorithms_arrayToVector(const T(&arr)[N]) {
     return std::vector<T>(arr, arr + N);
+}
+
+template <typename T, int Size>
+void Tools_Software_Algorithms_rotateOneStepBack(T(&arr)[Size], int numElementsToRotate) {
+    T temp = arr[0];
+    for (int i = 0; i <= numElementsToRotate - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+    arr[numElementsToRotate - 1] = temp;
+}
+
+template<typename T, int Size>
+void Tools_Software_Algorithms_shiftArrayElements(T(&arr)[Size], int beginIndex) {
+    if (beginIndex < 0 || beginIndex >= Size) {
+        return;
+    }
+    T elementToMove = arr[beginIndex];
+    for (int i = beginIndex; i < Size - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+    arr[Size - 1] = elementToMove;
 }
 
 #endif // !Algorithms

@@ -14,11 +14,11 @@ void disconnectionUSBCallback() {
 	Tools_Hardware_USB_closeConnection(usbSettings.port, USB_PROTOCOL_STRING[usbSettings.protocolIndex]);
 }
 
-void Windows_Dialogs_ConnectionDialogs_USBConnectionDialog_showUSBconnectionDialog(bool* selectUSBPorts) {
+void Windows_Dialogs_ConnectionDialogs_USBConnectionDialog_showUSBConnectionDialog(bool* selectUSBPorts) {
 	// Display
 	ImGui::SetNextWindowSize(ImVec2(320, 320));
 	if (ImGui::Begin("Select USB ports", selectUSBPorts, ImGuiWindowFlags_NoResize)) {
-		// Scan protocol names
+		// Scan protocols names
 		static std::vector<std::string> ports;
 		if (ImGui::Button("Scan USB ports")) {
 			ports.clear();
@@ -39,14 +39,14 @@ void Windows_Dialogs_ConnectionDialogs_USBConnectionDialog_showUSBconnectionDial
 		USBSettings* usbSettings = &Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex];
 		std::strcpy(usbSettings->port, port.c_str());
 
-		// USB protocol
-		const std::vector<std::string> protocols = Tools_Software_Algorithms_arrayToVector(USB_PROTOCOL_STRING);
-		std::string protocol = USB_PROTOCOL_STRING[usbSettings->protocolIndex];
-		Tools_Gui_CreateItems_createCombo("Protocol", protocols, protocol, isConnected);
-		usbSettings->protocolIndex = Tools_Software_Algorithms_findIndexOf(USB_PROTOCOL_STRING, protocol);
+		// USB protocols
+		const std::vector<std::string> protocolDevices = Tools_Software_Algorithms_arrayToVector(USB_PROTOCOL_STRING);
+		std::string protocols = USB_PROTOCOL_STRING[usbSettings->protocolIndex];
+		Tools_Gui_CreateItems_createCombo("Protocol", protocolDevices, protocols, isConnected);
+		usbSettings->protocolIndex = Tools_Software_Algorithms_findIndexOf(USB_PROTOCOL_STRING, protocols);
 
 		// Check if it's connected
-		isConnected = Tools_Hardware_USB_isConnected(port.c_str(), protocol) == USB_STATUS_CONNECTED;
+		isConnected = Tools_Hardware_USB_isConnected(port.c_str(), protocols) == USB_STATUS_CONNECTED;
 
 		// Baudrate
 		const std::vector<std::string> baudrates = { "110", "150", "300", "600", "1200", "1800", "2400", "4800", "9600", "19200", "38400", "57600", "115200" };
@@ -102,6 +102,9 @@ void Windows_Dialogs_ConnectionDialogs_USBConnectionDialog_showUSBconnectionDial
 			"You are disconnected from USB",
 			disconnectionUSBCallback
 		);
+
+		// Update the ports for the protocolDevices
+		Tools_Communications_Devices_updatePorts();
 
 		ImGui::End();
 	}

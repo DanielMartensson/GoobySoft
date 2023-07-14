@@ -1,34 +1,36 @@
 ﻿  GoobySoft.cpp
   ADL400.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\ADL400\ADL400.cpp(148,2): warning C4065: switch statement contains 'default' but no 'case' labels
+  Devices.cpp
+  STM32PLC.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(118,50): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(118,56): warning C4838: conversion from 'uint16_t' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(118,56): warning C4244: 'initializing': conversion from 'uint16_t' to 'uint8_t', possible loss of data
   CreateDialogs.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Gui\CreateDialogs\CreateDialogs.cpp(97,10): warning C4018: '<': signed/unsigned mismatch
-  CreateItems.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Gui\CreateItems\CreateItems.cpp(13,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Gui\CreateItems\CreateItems.cpp(27,21): warning C4018: '<': signed/unsigned mismatch
+  Network.cpp
   CDC.cpp
   Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
   - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
   - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
   Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
-  Modbus.cpp
   USB.cpp
-  Algorithms.cpp
-  MySQL.cpp
-C:\vcpkg\installed\x86-windows\include\mysqlx\common.h(38,1): warning C4005: '_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING': macro redefinition
-C:\vcpkg\installed\x86-windows\include\mysqlx\common.h(38,1): message : '_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING' previously declared on the command line
   Parameters.cpp
   DatabaseConnectionDialog.cpp
+  NetworkConnectionDialog.cpp
   USBConnectionDialog.cpp
   LogFilePathDialog.cpp
   ConfigureMeasurementDialog.cpp
   CreateMeasurementDialog.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(16,8): warning C4018: '>': signed/unsigned mismatch
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(42,20): warning C4244: 'initializing': conversion from '_Rep' to 'size_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(50,75): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(50,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(53,36): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(68,43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(73,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(208,18): warning C4244: 'initializing': conversion from '_Rep' to 'int', possible loss of data
           with
           [
               _Rep=__int64
           ]
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(44,17): warning C4018: '<=': signed/unsigned mismatch
   ViewMeasurementDialog.cpp
   Windows.cpp
   Generating Code...

@@ -18,9 +18,6 @@
     <ClCompile Include="GoobySoft.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tools\Communications\Devices\ADL400\ADL400.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Tools\Software\Libraries\ImGuiFileDialog\ImGuiFileDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -36,7 +33,7 @@
     <ClCompile Include="Tools\Hardware\USB\Protocols\CDC\CDC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tools\Hardware\USB\Protocols\Modbus\Modbus.cpp">
+    <ClCompile Include="Tools\Hardware\USB\Protocols\ModbusRTU\ModbusRTU.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Tools\Hardware\USB\USB.cpp">
@@ -102,17 +99,26 @@
     <ClCompile Include="Tools\Software\Libraries\ImGui\backends\imgui_impl_opengl3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Tools\Communications\Devices\Devices.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Hardware\Network\Protocols\ModbusTCP\ModbusTCP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Windows\Dialogs\ConnectionDialogs\NetworkConnectionDialog\NetworkConnectionDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Hardware\Network\Network.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Tools\Communications\Devices\STM32PLC\STM32PLC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tools\Communications\Devices\OpenSAEJ1939\OpenSAEJ1939.cpp">
+    <ClCompile Include="Tools\Communications\Devices\ADL400\ADL400.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Tools\Communications\Devices\ADL400\ADL400.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Tools\Communications\Devices\Devices.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -149,7 +155,7 @@
     <ClInclude Include="Tools\Hardware\USB\Protocols\CDC\CDC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tools\Hardware\USB\Protocols\Modbus\Modbus.h">
+    <ClInclude Include="Tools\Hardware\USB\Protocols\ModbusRTU\ModbusRTU.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tools\Hardware\USB\Protocols\Protocols.h">
@@ -263,10 +269,22 @@
     <ClInclude Include="Tools\Software\Libraries\ImGui\backends\imgui_impl_opengl3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Tools\Hardware\Network\Network.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Hardware\Network\Protocols\ModbusTCP\ModbusTCP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Hardware\Network\Protocols\Protocols.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\Dialogs\ConnectionDialogs\NetworkConnectionDialog\NetworkConnectionDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Tools\Communications\Devices\STM32PLC\STM32PLC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tools\Communications\Devices\OpenSAEJ1939\OpenSAEJ1939.h">
+    <ClInclude Include="Tools\Communications\Devices\ADL400\ADL400.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

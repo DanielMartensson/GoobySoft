@@ -565,7 +565,7 @@ CODE
  - 2020/06/15 (1.77) - removed CalcItemRectClosestPoint() entry point which was made obsolete and asserting in December 2017.
  - 2020/04/23 (1.77) - removed unnecessary ID (first arg) of ImFontAtlas::AddCustomRectRegular().
  - 2020/01/22 (1.75) - ImDrawList::AddCircle()/AddCircleFilled() functions don't accept negative radius any more.
- - 2019/12/17 (1.75) - [undid this change in 1.76] made Columns() limited to 64 columns by asserting above that limit. While the current code technically supports it, future code may not so we're putting the restriction ahead.
+ - 2019/12/17 (1.75) - [undid this change in 1.76] made Columns() limited to 64 columnsCombo by asserting above that limit. While the current code technically supports it, future code may not so we're putting the restriction ahead.
  - 2019/12/13 (1.75) - [imgui_internal.h] changed ImRect() default constructor initializes all fields to 0.0f instead of (FLT_MAX,FLT_MAX,-FLT_MAX,-FLT_MAX). If you used ImRect::Add() to create bounding boxes by adding multiple points into it, you may need to fix your initial value.
  - 2019/12/08 (1.75) - removed redirecting functions/enums that were marked obsolete in 1.53 (December 2017):
                        - ShowTestWindow()                    -> use ShowDemoWindow()
@@ -1139,7 +1139,7 @@ ImGuiStyle::ImGuiStyle()
     CellPadding             = ImVec2(4,2);      // Padding within a table cell
     TouchExtraPadding       = ImVec2(0,0);      // Expand reactive bounding box for touch-based system where touch position is not accurate enough. Unfortunately we don't sort widgets so priority on overlap will always be given to the first widget. So don't grow this too much!
     IndentSpacing           = 21.0f;            // Horizontal spacing when e.g. entering a tree node. Generally == (FontSize + FramePadding.x*2).
-    ColumnsMinSpacing       = 6.0f;             // Minimum horizontal spacing between two columns. Preferably > (FramePadding.x + 1).
+    ColumnsMinSpacing       = 6.0f;             // Minimum horizontal spacing between two columnsCombo. Preferably > (FramePadding.x + 1).
     ScrollbarSize           = 14.0f;            // Width of the vertical scrollbar, Height of the horizontal scrollbar
     ScrollbarRounding       = 9.0f;             // Radius of grab corners rounding for scrollbar
     GrabMinSize             = 12.0f;            // Minimum width/height of a grab box for slider/scrollbar
@@ -2735,8 +2735,8 @@ static void ImGuiListClipper_SeekCursorAndSetupPrevLine(float pos_y, float line_
     window->DC.CursorMaxPos.y = ImMax(window->DC.CursorMaxPos.y, pos_y - g.Style.ItemSpacing.y);
     window->DC.CursorPosPrevLine.y = window->DC.CursorPos.y - line_height;  // Setting those fields so that SetScrollHereY() can properly function after the end of our clipper usage.
     window->DC.PrevLineSize.y = (line_height - g.Style.ItemSpacing.y);      // If we end up needing more accurate data (to e.g. use SameLine) we may as well make the clipper have a fourth step to let user process and display the last item in their list.
-    if (ImGuiOldColumns* columns = window->DC.CurrentColumns)
-        columns->LineMinY = window->DC.CursorPos.y;                         // Setting this so that cell Y position are set properly
+    if (ImGuiOldColumns* columnsCombo = window->DC.CurrentColumns)
+        columnsCombo->LineMinY = window->DC.CursorPos.y;                         // Setting this so that cell Y position are set properly
     if (ImGuiTable* table = g.CurrentTable)
     {
         if (table->IsInsideRow)
@@ -9376,7 +9376,7 @@ void ImGuiStackSizes::CompareWithContextState(ImGuiContext* ctx)
 // - GetWindowContentRegionMin(), GetWindowContentRegionMax()
 // - BeginGroup()
 // - EndGroup()
-// Also see in imgui_widgets: tab bars, and in imgui_tables: tables, columns.
+// Also see in imgui_widgets: tab bars, and in imgui_tables: tables, columnsCombo.
 //-----------------------------------------------------------------------------
 
 // Advance cursor given item size for layout.
@@ -11517,7 +11517,7 @@ static void NavBiasScoringRect(ImRect& r, ImVec2& preferred_pos_rel, ImGuiDir mo
     const ImVec2 rel_to_abs_offset = g.NavWindow->DC.CursorStartPos;
 
     // Initialize bias on departure if we don't have any. So mouse-click + arrow will record bias.
-    // - We default to L/U bias, so moving down from a large source item into several columns will land on left-most column.
+    // - We default to L/U bias, so moving down from a large source item into several columnsCombo will land on left-most column.
     // - But each successful move sets new bias on one axis, only cleared when using mouse.
     if ((move_flags & ImGuiNavMoveFlags_Forwarded) == 0)
     {
@@ -14138,13 +14138,13 @@ void ImGui::ShowMetricsWindow(bool* p_open)
 }
 
 // [DEBUG] Display contents of Columns
-void ImGui::DebugNodeColumns(ImGuiOldColumns* columns)
+void ImGui::DebugNodeColumns(ImGuiOldColumns* columnsCombo)
 {
-    if (!TreeNode((void*)(uintptr_t)columns->ID, "Columns Id: 0x%08X, Count: %d, Flags: 0x%04X", columns->ID, columns->Count, columns->Flags))
+    if (!TreeNode((void*)(uintptr_t)columnsCombo->ID, "Columns Id: 0x%08X, Count: %d, Flags: 0x%04X", columnsCombo->ID, columnsCombo->Count, columnsCombo->Flags))
         return;
-    BulletText("Width: %.1f (MinX: %.1f, MaxX: %.1f)", columns->OffMaxX - columns->OffMinX, columns->OffMinX, columns->OffMaxX);
-    for (int column_n = 0; column_n < columns->Columns.Size; column_n++)
-        BulletText("Column %02d: OffsetNorm %.3f (= %.1f px)", column_n, columns->Columns[column_n].OffsetNorm, GetColumnOffsetFromNorm(columns, columns->Columns[column_n].OffsetNorm));
+    BulletText("Width: %.1f (MinX: %.1f, MaxX: %.1f)", columnsCombo->OffMaxX - columnsCombo->OffMinX, columnsCombo->OffMinX, columnsCombo->OffMaxX);
+    for (int column_n = 0; column_n < columnsCombo->Columns.Size; column_n++)
+        BulletText("Column %02d: OffsetNorm %.3f (= %.1f px)", column_n, columnsCombo->Columns[column_n].OffsetNorm, GetColumnOffsetFromNorm(columnsCombo, columnsCombo->Columns[column_n].OffsetNorm));
     TreePop();
 }
 

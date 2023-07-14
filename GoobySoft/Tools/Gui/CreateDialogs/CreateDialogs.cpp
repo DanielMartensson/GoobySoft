@@ -87,25 +87,66 @@ void Tools_Gui_CreateDialogs_showPopUpInformationDialogOK(const char popUpId[], 
 	}
 }
 
-bool Tools_Gui_CreateDialogs_showPopUpComboInputIntInputTextMultiDialogOKCancle(const char popUpId[], const std::vector<std::string>& labelsCombo, const std::vector<std::vector<std::string>>& itemsCombo, std::vector<std::string>& selectedItemsCombo, const std::vector<std::string>& labelsInputFloat, std::vector<float>& selectedItemsInputFloat, const std::vector<std::string>& labelsInputText, std::vector<std::string>& selectedItemsInputText) {
+bool Tools_Gui_CreateDialogs_showPopUpComboInputIntInputFloatInputTextDialogOKCancle(const char popUpId[], TableRow* tableRow) {
 	ImVec2 popUpCenterPosition(ImGui::GetWindowPos().x + ImGui::GetWindowSize().x * 0.5f, ImGui::GetWindowPos().y + ImGui::GetWindowSize().y * 0.5f);
 	ImGui::SetNextWindowPos(popUpCenterPosition, ImGuiCond_Appearing, ImVec2(0.5f, 0.5f));
 	bool isPressedOK = false;
 	if (ImGui::BeginPopup(popUpId, ImGuiWindowFlags_Modal)) {
-		// Combo
-		for (size_t i = 0; i < labelsCombo.size(); i++) {
-			Tools_Gui_CreateItems_createCombo(labelsCombo.at(i).c_str(), itemsCombo.at(i), selectedItemsCombo.at(i), false);
-		}
-		// Input Float
-		for (size_t i = 0; i < labelsInputFloat.size(); i++) {
-			ImGui::InputFloat(labelsInputFloat.at(i).c_str(), &selectedItemsInputFloat.at(i));
-		}
-		// Input text
-		for (size_t i = 0; i < labelsInputText.size(); i++) {
-			char text[200];
-			std::strcpy(text, selectedItemsInputText.at(i).c_str());
-			ImGui::InputText(labelsInputText.at(i).c_str(), text, sizeof(text));
-			selectedItemsInputText.at(i) = std::string(text);
+		for (int i = 0; i < tableRow->tableColumnCount; i++) {
+			// Iterate the columns
+			TableColumn* tableColumn = &tableRow->tableColumns[i];
+			switch (tableColumn->tableColumnID.columnType) {
+			case COLUMN_TYPE_COMBO:
+				ImGui::Combo(tableColumn->tableColumnID.columnName, &tableColumn->functionValueIndex, tableColumn->functionValues);
+				Tools_Software_Algorithms_extractElementFromCharArray(tableColumn->functionValues, tableColumn->functionValueIndex, tableColumn->cellValueString);
+				// Important to update the column function, dependning on index of function
+				if (tableColumn->tableColumnID.columnDefinition == COLUMN_DEFINITION_FUNCTION) {
+					tableColumn->tableColumnID.columnFunction = tableRow->getColumnFunction(tableColumn->functionValueIndex);
+				}
+				break;
+			case COLUMN_TYPE_INT: {
+				COLUMN_FUNCTION columnFunction = Tools_Hardware_ParameterStore_readColumnFunctionAtColumnDefinition(tableRow->tableColumns, tableRow->tableColumnCount, COLUMN_DEFINITION_FUNCTION);
+				switch (columnFunction) {
+				case COLUMN_FUNCTION_INPUT_SENSOR_ANALOG:
+					// Analog sensor should not have an address input
+					if (tableColumn->tableColumnID.columnDefinition == COLUMN_DEFINITION_ADDRESS) {
+						break;
+					}
+					ImGui::InputInt(tableColumn->tableColumnID.columnName, &tableColumn->cellValueInt);
+					break;
+				case COLUMN_FUNCTION_OUTPUT_ACTUATOR:
+					// Output actuator should not have an address input
+					if (tableColumn->tableColumnID.columnDefinition == COLUMN_DEFINITION_ADDRESS) {
+						break;
+					}
+					ImGui::InputInt(tableColumn->tableColumnID.columnName, &tableColumn->cellValueInt);
+					break;
+				case COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS:
+					ImGui::InputInt(tableColumn->tableColumnID.columnName, &tableColumn->cellValueInt);
+					break;
+				case COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS:
+					ImGui::InputInt(tableColumn->tableColumnID.columnName, &tableColumn->cellValueInt);
+					break;
+				}
+				break;
+			}
+			case COLUMN_TYPE_FLOAT: {
+				COLUMN_FUNCTION columnFunction = Tools_Hardware_ParameterStore_readColumnFunctionAtColumnDefinition(tableRow->tableColumns, tableRow->tableColumnCount, COLUMN_DEFINITION_FUNCTION);
+				switch (columnFunction) {
+				case COLUMN_FUNCTION_INPUT_SENSOR_ANALOG:
+					// Analog sensor should not have an address input
+					if (tableColumn->tableColumnID.columnDefinition == COLUMN_DEFINITION_ADDRESS) {
+						break;
+					}
+					ImGui::InputFloat(tableColumn->tableColumnID.columnName, &tableColumn->cellValueFloat);
+					break;
+				}
+				break;
+			}
+			case COLUMN_TYPE_STRING:
+				ImGui::InputText(tableColumn->tableColumnID.columnName, tableColumn->cellValueString, sizeof(tableColumn->cellValueString));
+				break;
+			}
 		}
 
 		// Close

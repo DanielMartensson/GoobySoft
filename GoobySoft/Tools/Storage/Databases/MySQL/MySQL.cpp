@@ -119,8 +119,8 @@ void Tools_Storage_Databases_MySQL_dropSchema(const char schemaName[]) {
 std::vector<std::string> Tools_Storage_Databases_MySQL_getColumnNames(const char tableName[]) {
 	std::vector< std::string> columNames;
 	if (Tools_Storage_Databases_MySQL_isConnected() == MYSQL_STATUS_CONNECTED) {
-		const mysqlx::Columns& columns = connection->getDefaultSchema().getTable(tableName).select("*").limit(1).execute().getColumns();
-		for (auto& column : columns) {
+		const mysqlx::Columns& columnsCombo = connection->getDefaultSchema().getTable(tableName).select("*").limit(1).execute().getColumns();
+		for (auto& column : columnsCombo) {
 			columNames.push_back(column.getColumnName());
 		}
 	}

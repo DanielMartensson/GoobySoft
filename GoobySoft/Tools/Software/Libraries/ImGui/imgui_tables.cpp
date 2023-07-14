@@ -1,5 +1,5 @@
 // dear imgui, v1.89.7 WIP
-// (tables and columns code)
+// (tables and columnsCombo code)
 
 /*
 
@@ -41,13 +41,13 @@ Index of this file:
 //    | TableLoadSettings()                     - on settings load
 //    | TableBeginApplyRequests()               - apply queued resizing/reordering/hiding requests
 //    | - TableSetColumnWidth()                 - apply resizing width (for mouse resize, often requested by previous frame)
-//    |    - TableUpdateColumnsWeightFromWidth()- recompute columns weights (of stretch columns) from their respective width
-// - TableSetupColumn()                         user submit columns details (optional)
+//    |    - TableUpdateColumnsWeightFromWidth()- recompute columnsCombo weights (of stretch columnsCombo) from their respective width
+// - TableSetupColumn()                         user submit columnsCombo details (optional)
 // - TableSetupScrollFreeze()                   user submit scroll freeze information (optional)
 //-----------------------------------------------------------------------------
-// - TableUpdateLayout() [Internal]             followup to BeginTable(): setup everything: widths, columns positions, clipping rectangles. Automatically called by the FIRST call to TableNextRow() or TableHeadersRow().
+// - TableUpdateLayout() [Internal]             followup to BeginTable(): setup everything: widths, columnsCombo positions, clipping rectangles. Automatically called by the FIRST call to TableNextRow() or TableHeadersRow().
 //    | TableSetupDrawChannels()                - setup ImDrawList channels
-//    | TableUpdateBorders()                    - detect hovering columns for resize, ahead of contents submission
+//    | TableUpdateBorders()                    - detect hovering columnsCombo for resize, ahead of contents submission
 //    | TableDrawContextMenu()                  - draw right-click context menu
 //-----------------------------------------------------------------------------
 // - TableHeadersRow() or TableHeader()         user submit a headers row (optional)
@@ -90,7 +90,7 @@ Index of this file:
 //-----------------------------------------------------------------------------
 // Outer size is also affected by the NoHostExtendX/NoHostExtendY flags.
 // Important to note how the two flags have slightly different behaviors!
-//   - ImGuiTableFlags_NoHostExtendX -> Make outer width auto-fit to columns (overriding outer_size.x value). Only available when ScrollX/ScrollY are disabled and Stretch columns are not used.
+//   - ImGuiTableFlags_NoHostExtendX -> Make outer width auto-fit to columnsCombo (overriding outer_size.x value). Only available when ScrollX/ScrollY are disabled and Stretch columnsCombo are not used.
 //   - ImGuiTableFlags_NoHostExtendY -> Make outer height stop exactly at outer_size.y (prevent auto-extending table past the limit). Only available when ScrollX/ScrollY is disabled. Data below the limit will be clipped and not visible.
 // In theory ImGuiTableFlags_NoHostExtendY could be the default and any non-scrolling tables with outer_size.y != 0.0f would use exact height.
 // This would be consistent but perhaps less useful and more confusing (as vertically clipped items are not useful and not easily noticeable).
@@ -100,11 +100,11 @@ Index of this file:
 //   - inner_width          ->  *ignored*
 //   With ScrollX enabled:
 //   - inner_width  < 0.0f  ->  *illegal* fit in known width (right align from outer_size.x) <-- weird
-//   - inner_width  = 0.0f  ->  fit in outer_width: Fixed size columns will take space they need (if avail, otherwise shrink down), Stretch columns becomes Fixed columns.
-//   - inner_width  > 0.0f  ->  override scrolling width, generally to be larger than outer_size.x. Fixed column take space they need (if avail, otherwise shrink down), Stretch columns share remaining space!
+//   - inner_width  = 0.0f  ->  fit in outer_width: Fixed size columnsCombo will take space they need (if avail, otherwise shrink down), Stretch columnsCombo becomes Fixed columnsCombo.
+//   - inner_width  > 0.0f  ->  override scrolling width, generally to be larger than outer_size.x. Fixed column take space they need (if avail, otherwise shrink down), Stretch columnsCombo share remaining space!
 //-----------------------------------------------------------------------------
 // Details:
-// - If you want to use Stretch columns with ScrollX, you generally need to specify 'inner_width' otherwise the concept
+// - If you want to use Stretch columnsCombo with ScrollX, you generally need to specify 'inner_width' otherwise the concept
 //   of "available space" doesn't make sense.
 // - Even if not really useful, we allow 'inner_width < outer_size.x' for consistency and to facilitate understanding
 //   of what the value does.
@@ -130,12 +130,12 @@ Index of this file:
 //   - with Table policy ImGuiTableFlags_SizingStretchWeight --> default Column policy is ImGuiTableColumnFlags_WidthStretch, default Weight is proportional to contents
 // Default Width and default Weight can be overridden when calling TableSetupColumn().
 //-----------------------------------------------------------------------------
-// About mixing Fixed/Auto and Stretch columns together:
-//   - the typical use of mixing sizing policies is: any number of LEADING Fixed columns, followed by one or two TRAILING Stretch columns.
-//   - using mixed policies with ScrollX does not make much sense, as using Stretch columns with ScrollX does not make much sense in the first place!
-//     that is, unless 'inner_width' is passed to BeginTable() to explicitly provide a total width to layout columns in.
-//   - when using ImGuiTableFlags_SizingFixedSame with mixed columns, only the Fixed/Auto columns will match their widths to the width of the maximum contents.
-//   - when using ImGuiTableFlags_SizingStretchSame with mixed columns, only the Stretch columns will match their weights/widths.
+// About mixing Fixed/Auto and Stretch columnsCombo together:
+//   - the typical use of mixing sizing policies is: any number of LEADING Fixed columnsCombo, followed by one or two TRAILING Stretch columnsCombo.
+//   - using mixed policies with ScrollX does not make much sense, as using Stretch columnsCombo with ScrollX does not make much sense in the first place!
+//     that is, unless 'inner_width' is passed to BeginTable() to explicitly provide a total width to layout columnsCombo in.
+//   - when using ImGuiTableFlags_SizingFixedSame with mixed columnsCombo, only the Fixed/Auto columnsCombo will match their widths to the width of the maximum contents.
+//   - when using ImGuiTableFlags_SizingStretchSame with mixed columnsCombo, only the Stretch columnsCombo will match their weights/widths.
 //-----------------------------------------------------------------------------
 // About using column width:
 // If a column is manually resizable or has a width specified with TableSetupColumn():
@@ -143,7 +143,7 @@ Index of this file:
 //   - right-side alignment features such as SetNextItemWidth(-x) or PushItemWidth(-x) will rely on this width.
 // If the column is not resizable and has no width specified with TableSetupColumn():
 //   - its width will be automatic and be set to the max of items submitted.
-//   - therefore you generally cannot have ALL items of the columns use e.g. SetNextItemWidth(-FLT_MIN).
+//   - therefore you generally cannot have ALL items of the columnsCombo use e.g. SetNextItemWidth(-FLT_MIN).
 //   - but if the column has one or more items of known/fixed size, this will become the reference width used by SetNextItemWidth(-FLT_MIN).
 //-----------------------------------------------------------------------------
 
@@ -155,9 +155,9 @@ Index of this file:
 // - For large numbers of rows, it is recommended you use ImGuiListClipper to submit only visible rows.
 //   ImGuiListClipper is reliant on the fact that rows are of equal height.
 //   See 'Demo->Tables->Vertical Scrolling' or 'Demo->Tables->Advanced' for a demo of using the clipper.
-// - Note that auto-resizing columns don't play well with using the clipper.
+// - Note that auto-resizing columnsCombo don't play well with using the clipper.
 //   By default a table with _ScrollX but without _Resizable will have column auto-resize.
-//   So, if you want to use the clipper, make sure to either enable _Resizable, either setup columns width explicitly with _WidthFixed.
+//   So, if you want to use the clipper, make sure to either enable _Resizable, either setup columnsCombo width explicitly with _WidthFixed.
 //-----------------------------------------------------------------------------
 // About clipping/culling of Columns in Tables:
 // - Both TableSetColumnIndex() and TableNextColumn() return true when the column is visible or performing
@@ -174,8 +174,8 @@ Index of this file:
 //           ClipRect:    normal      zero-width   zero-width  -> [internal] when ClipRect is zero, ItemAdd() will return false and most widgets will early out mid-way.
 //  ImDrawList output:    normal      dummy        dummy       -> [internal] when using the dummy channel, ImDrawList submissions (if any) will be wasted (because cliprect is zero-width anyway).
 //
-// - We need to distinguish those cases because non-hidden columns that are clipped outside of scrolling bounds should still contribute their height to the row.
-//   However, in the majority of cases, the contribution to row height is the same for all columns, or the tallest cells are known by the programmer.
+// - We need to distinguish those cases because non-hidden columnsCombo that are clipped outside of scrolling bounds should still contribute their height to the row.
+//   However, in the majority of cases, the contribution to row height is the same for all columnsCombo, or the tallest cells are known by the programmer.
 //-----------------------------------------------------------------------------
 // About clipping/culling of whole Tables:
 // - Scrolling tables with a known outer size can be clipped earlier as BeginTable() will return false.
@@ -259,7 +259,7 @@ static const int TABLE_DRAW_CHANNEL_BG2_FROZEN = 1;
 static const int TABLE_DRAW_CHANNEL_NOCLIP = 2;                     // When using ImGuiTableFlags_NoClip (this becomes the last visible channel)
 static const float TABLE_BORDER_SIZE                     = 1.0f;    // FIXME-TABLE: Currently hard-coded because of clipping assumptions with outer borders rendering.
 static const float TABLE_RESIZE_SEPARATOR_HALF_THICKNESS = 4.0f;    // Extend outside inner borders.
-static const float TABLE_RESIZE_SEPARATOR_FEEDBACK_TIMER = 0.06f;   // Delay/timer before making the hover feedback (color+cursor) visible because tables/columns tends to be more cramped.
+static const float TABLE_RESIZE_SEPARATOR_FEEDBACK_TIMER = 0.06f;   // Delay/timer before making the hover feedback (color+cursor) visible because tables/columnsCombo tends to be more cramped.
 
 // Helper
 inline ImGuiTableFlags TableFixFlags(ImGuiTableFlags flags, ImGuiWindow* outer_window)
@@ -385,7 +385,7 @@ bool    ImGui::BeginTableEx(const char* name, ImGuiID id, int columns_count, ImG
         if ((flags & ImGuiTableFlags_ScrollX) && !(flags & ImGuiTableFlags_ScrollY))
             override_content_size.y = FLT_MIN;
 
-        // Ensure specified width (when not specified, Stretched columns will act as if the width == OuterWidth and
+        // Ensure specified width (when not specified, Stretched columnsCombo will act as if the width == OuterWidth and
         // never lead to any scrolling). We don't handle inner_width < 0.0f, we could potentially use it to right-align
         // based on the right side of the child window work rect, which would require knowing ahead if we are going to
         // have decoration taking horizontal spaces (typically a vertical scrollbar).
@@ -408,7 +408,7 @@ bool    ImGui::BeginTableEx(const char* name, ImGuiID id, int columns_count, ImG
         table->InnerRect = table->InnerWindow->InnerRect;
         IM_ASSERT(table->InnerWindow->WindowPadding.x == 0.0f && table->InnerWindow->WindowPadding.y == 0.0f && table->InnerWindow->WindowBorderSize == 0.0f);
 
-        // When using multiple instances, ensure they have the same amount of horizontal decorations (aka vertical scrollbar) so stretched columns can be aligned)
+        // When using multiple instances, ensure they have the same amount of horizontal decorations (aka vertical scrollbar) so stretched columnsCombo can be aligned)
         if (instance_no == 0)
         {
             table->HasScrollbarYPrev = table->HasScrollbarYCurr;
@@ -499,7 +499,7 @@ bool    ImGui::BeginTableEx(const char* name, ImGuiID id, int columns_count, ImG
     temp_data->LastTimeActive = (float)g.Time;
     table->MemoryCompacted = false;
 
-    // Setup memory buffer (clear data if columns count changed)
+    // Setup memory buffer (clear data if columnsCombo count changed)
     ImGuiTableColumn* old_columns_to_preserve = NULL;
     void* old_columns_raw_data = NULL;
     const int old_columns_count = table->Columns.size();
@@ -557,7 +557,7 @@ bool    ImGui::BeginTableEx(const char* name, ImGuiID id, int columns_count, ImG
     // This is designed to facilitate DPI changes with the assumption that e.g. style.CellPadding has been scaled as well.
     // It will also react to changing fonts with mixed results. It doesn't need to be perfect but merely provide a decent transition.
     // FIXME-DPI: Provide consistent standards for reference size. Perhaps using g.CurrentDpiScale would be more self explanatory.
-    // This is will lead us to non-rounded WidthRequest in columns, which should work but is a poorly tested path.
+    // This is will lead us to non-rounded WidthRequest in columnsCombo, which should work but is a poorly tested path.
     const float new_ref_scale_unit = g.FontSize; // g.Font->GetCharAdvance('A') ?
     if (table->RefScale != 0.0f && table->RefScale != new_ref_scale_unit)
     {
@@ -619,7 +619,7 @@ void ImGui::TableBeginApplyRequests(ImGuiTable* table)
 {
     // Handle resizing request
     // (We process this in the TableBegin() of the first instance of each table)
-    // FIXME-TABLE: Contains columns if our work area doesn't allow for scrolling?
+    // FIXME-TABLE: Contains columnsCombo if our work area doesn't allow for scrolling?
     if (table->InstanceCurrent == 0)
     {
         if (table->ResizedColumn != -1 && table->ResizedColumnNextWidth != FLT_MAX)
@@ -628,7 +628,7 @@ void ImGui::TableBeginApplyRequests(ImGuiTable* table)
         table->ResizedColumnNextWidth = FLT_MAX;
         table->ResizedColumn = -1;
 
-        // Process auto-fit for single column, which is a special case for stretch columns and fixed columns with FixedSame policy.
+        // Process auto-fit for single column, which is a special case for stretch columnsCombo and fixed columnsCombo with FixedSame policy.
         // FIXME-TABLE: Would be nice to redistribute available stretch space accordingly to other weights, instead of giving it all to siblings.
         if (table->AutoFitSingleColumn != -1)
         {
@@ -646,7 +646,7 @@ void ImGui::TableBeginApplyRequests(ImGuiTable* table)
         table->HeldHeaderColumn = -1;
         if (table->ReorderColumn != -1 && table->ReorderColumnDir != 0)
         {
-            // We need to handle reordering across hidden columns.
+            // We need to handle reordering across hidden columnsCombo.
             // In the configuration below, moving C to the right of E will lead to:
             //    ... C [D] E  --->  ... [D] E  C   (Column name/index)
             //    ... 2  3  4        ...  2  3  4   (Display order)
@@ -663,7 +663,7 @@ void ImGui::TableBeginApplyRequests(ImGuiTable* table)
                 table->Columns[table->DisplayOrderToIndex[order_n]].DisplayOrder -= (ImGuiTableColumnIdx)reorder_dir;
             IM_ASSERT(dst_column->DisplayOrder == dst_order - reorder_dir);
 
-            // Display order is stored in both columns->IndexDisplayOrder and table->DisplayOrder[]. Rebuild later from the former.
+            // Display order is stored in both columnsCombo->IndexDisplayOrder and table->DisplayOrder[]. Rebuild later from the former.
             for (int column_n = 0; column_n < table->ColumnsCount; column_n++)
                 table->DisplayOrderToIndex[table->Columns[column_n].DisplayOrder] = (ImGuiTableColumnIdx)column_n;
             table->ReorderColumnDir = 0;
@@ -681,7 +681,7 @@ void ImGui::TableBeginApplyRequests(ImGuiTable* table)
     }
 }
 
-// Adjust flags: default width mode + stretch columns are not allowed when auto extending
+// Adjust flags: default width mode + stretch columnsCombo are not allowed when auto extending
 static void TableSetupColumnFlags(ImGuiTable* table, ImGuiTableColumn* column, ImGuiTableColumnFlags flags_in)
 {
     ImGuiTableColumnFlags flags = flags_in;
@@ -737,10 +737,10 @@ static void TableSetupColumnFlags(ImGuiTable* table, ImGuiTableColumn* column, I
     }
 }
 
-// Layout columns for the frame. This is in essence the followup to BeginTable() and this is our largest function.
+// Layout columnsCombo for the frame. This is in essence the followup to BeginTable() and this is our largest function.
 // Runs on the first call to TableNextRow(), to give a chance for TableSetupColumn() and other TableSetupXXXXX() functions to be called first.
-// FIXME-TABLE: Our width (and therefore our WorkRect) will be minimal in the first frame for _WidthAuto columns.
-// Increase feedback side-effect with widgets relying on WorkRect.Max.x... Maybe provide a default distribution for _WidthAuto columns?
+// FIXME-TABLE: Our width (and therefore our WorkRect) will be minimal in the first frame for _WidthAuto columnsCombo.
+// Increase feedback side-effect with widgets relying on WorkRect.Max.x... Maybe provide a default distribution for _WidthAuto columnsCombo?
 void ImGui::TableUpdateLayout(ImGuiTable* table)
 {
     ImGuiContext& g = *GImGui;
@@ -754,10 +754,10 @@ void ImGui::TableUpdateLayout(ImGuiTable* table)
     table->LeftMostEnabledColumn = -1;
     table->MinColumnWidth = ImMax(1.0f, g.Style.FramePadding.x * 1.0f); // g.Style.ColumnsMinSpacing; // FIXME-TABLE
 
-    // [Part 1] Apply/lock Enabled and Order states. Calculate auto/ideal width for columns. Count fixed/stretch columns.
-    // Process columns in their visible orders as we are building the Prev/Next indices.
-    int count_fixed = 0;                // Number of columns that have fixed sizing policies
-    int count_stretch = 0;              // Number of columns that have stretch sizing policies
+    // [Part 1] Apply/lock Enabled and Order states. Calculate auto/ideal width for columnsCombo. Count fixed/stretch columnsCombo.
+    // Process columnsCombo in their visible orders as we are building the Prev/Next indices.
+    int count_fixed = 0;                // Number of columnsCombo that have fixed sizing policies
+    int count_stretch = 0;              // Number of columnsCombo that have stretch sizing policies
     int prev_visible_column_idx = -1;
     bool has_auto_fit_request = false;
     bool has_resizable = false;
@@ -796,7 +796,7 @@ void ImGui::TableUpdateLayout(ImGuiTable* table)
         if (column->SortOrder > 0 && !(table->Flags & ImGuiTableFlags_SortMulti))
             table->IsSortSpecsDirty = true;
 
-        // Auto-fit unsized columns
+        // Auto-fit unsized columnsCombo
         const bool start_auto_fit = (column->Flags & ImGuiTableColumnFlags_WidthFixed) ? (column->WidthRequest < 0.0f) : (column->StretchWeight < 0.0f);
         if (start_auto_fit)
             column->AutoFitQueue = column->CannotSkipItemsQueue = (1 << 3) - 1; // Fit for three frames
@@ -825,7 +825,7 @@ void ImGui::TableUpdateLayout(ImGuiTable* table)
         if (!column->IsPreserveWidthAuto)
             column->WidthAuto = TableGetColumnWidthAuto(table, column);
 
-        // Non-resizable columns keep their requested width (apply user value regardless of IsPreserveWidthAuto)
+        // Non-resizable columnsCombo keep their requested width (apply user value regardless of IsPreserveWidthAuto)
         const bool column_is_resizable = (column->Flags & ImGuiTableColumnFlags_NoResize) == 0;
         if (column_is_resizable)
             has_resizable = true;
@@ -850,17 +850,17 @@ void ImGui::TableUpdateLayout(ImGuiTable* table)
     table->RightMostEnabledColumn = (ImGuiTableColumnIdx)prev_visible_column_idx;
     IM_ASSERT(table->LeftMostEnabledColumn >= 0 && table->RightMostEnabledColumn >= 0);
 
-    // [Part 2] Disable child window clipping while fitting columns. This is not strictly necessary but makes it possible
+    // [Part 2] Disable child window clipping while fitting columnsCombo. This is not strictly necessary but makes it possible
     // to avoid the column fitting having to wait until the first visible frame of the child container (may or not be a good thing).
-    // FIXME-TABLE: for always auto-resizing columns may not want to do that all the time.
+    // FIXME-TABLE: for always auto-resizing columnsCombo may not want to do that all the time.
     if (has_auto_fit_request && table->OuterWindow != table->InnerWindow)
         table->InnerWindow->SkipItems = false;
     if (has_auto_fit_request)
         table->IsSettingsDirty = true;
 
     // [Part 3] Fix column flags and record a few extra information.
-    float sum_width_requests = 0.0f;    // Sum of all width for fixed and auto-resize columns, excluding width contributed by Stretch columns but including spacing/padding.
-    float stretch_sum_weights = 0.0f;   // Sum of all weights for stretch columns.
+    float sum_width_requests = 0.0f;    // Sum of all width for fixed and auto-resize columnsCombo, excluding width contributed by Stretch columnsCombo but including spacing/padding.
+    float stretch_sum_weights = 0.0f;   // Sum of all weights for stretch columnsCombo.
     table->LeftMostStretchedColumn = table->RightMostStretchedColumn = -1;
     for (int column_n = 0; column_n < table->ColumnsCount; column_n++)
     {
@@ -877,7 +877,7 @@ void ImGui::TableUpdateLayout(ImGuiTable* table)
                 width_auto = fixed_max_width_auto;
 
             // Apply automatic width
-            // Latch initial size for fixed columns and update it constantly for auto-resizing column (unless clipped!)
+            // Latch initial size for fixed columnsCombo and update it constantly for auto-resizing column (unless clipped!)
             if (column->AutoFitQueue != 0x00)
                 column->WidthRequest = width_auto;
             else if ((column->Flags & ImGuiTableColumnFlags_WidthFixed) && !column_is_resizable && column->IsRequestOutput)
@@ -932,7 +932,7 @@ void ImGui::TableUpdateLayout(ImGuiTable* table)
             continue;
         ImGuiTableColumn* column = &table->Columns[column_n];
 
-        // Allocate width for stretched/weighted columns (StretchWeight gets converted into WidthRequest)
+        // Allocate width for stretched/weighted columnsCombo (StretchWeight gets converted into WidthRequest)
         if (column->Flags & ImGuiTableColumnFlags_WidthStretch)
         {
             float weight_ratio = column->StretchWeight / stretch_sum_weights;
@@ -965,11 +965,11 @@ void ImGui::TableUpdateLayout(ImGuiTable* table)
             width_remaining_for_stretched_columns -= 1.0f;
         }
 
-    // Determine if table is hovered which will be used to flag columns as hovered.
+    // Determine if table is hovered which will be used to flag columnsCombo as hovered.
     // - In principle we'd like to use the equivalent of IsItemHovered(ImGuiHoveredFlags_AllowWhenBlockedByActiveItem),
     //   but because our item is partially submitted at this point we use ItemHoverable() and a workaround (temporarily
     //   clear ActiveId, which is equivalent to the change provided by _AllowWhenBLockedByActiveItem).
-    // - This allows columns to be marked as hovered when e.g. clicking a button inside the column, or using drag and drop.
+    // - This allows columnsCombo to be marked as hovered when e.g. clicking a button inside the column, or using drag and drop.
     ImGuiTableInstanceData* table_instance = TableGetInstanceData(table, table->InstanceCurrent);
     table->HoveredColumnBody = -1;
     table->HoveredColumnBorder = -1;
@@ -980,7 +980,7 @@ void ImGui::TableUpdateLayout(ImGuiTable* table)
     g.ActiveId = backup_active_id;
 
     // [Part 6] Setup final position, offset, skip/clip states and clipping rectangles, detect hovered column
-    // Process columns in their visible orders as we are comparing the visible order and adjusting host_clip_rect while looping.
+    // Process columnsCombo in their visible orders as we are comparing the visible order and adjusting host_clip_rect while looping.
     int visible_n = 0;
     bool offset_x_frozen = (table->FreezeColumnsCount > 0);
     float offset_x = ((table->FreezeColumnsCount > 0) ? table->OuterRect.Min.x : work_rect.Min.x) + table->OuterPaddingX - table->CellSpacingX1;
@@ -1035,7 +1035,7 @@ void ImGui::TableUpdateLayout(ImGuiTable* table)
         // - ClipRect.Min.x: Because merging draw commands doesn't compare min boundaries, we make ClipRect.Min.x match left bounds to be consistent regardless of merging.
         // - ClipRect.Max.x: using WorkMaxX instead of MaxX (aka including padding) makes things more consistent when resizing down, tho slightly detrimental to visibility in very-small column.
         // - ClipRect.Max.x: using MaxX makes it easier for header to receive hover highlight with no discontinuity and display sorting arrow.
-        // - FIXME-TABLE: We want equal width columns to have equal (ClipRect.Max.x - WorkMinX) width, which means ClipRect.max.x cannot stray off host_clip_rect.Max.x else right-most column may appear shorter.
+        // - FIXME-TABLE: We want equal width columnsCombo to have equal (ClipRect.Max.x - WorkMinX) width, which means ClipRect.max.x cannot stray off host_clip_rect.Max.x else right-most column may appear shorter.
         column->WorkMinX = column->MinX + table->CellPaddingX + table->CellSpacingX1;
         column->WorkMaxX = column->MaxX - table->CellPaddingX - table->CellSpacingX2; // Expected max
         column->ItemWidth = ImFloor(column->WidthGiven * 0.65f);
@@ -1047,7 +1047,7 @@ void ImGui::TableUpdateLayout(ImGuiTable* table)
 
         // Mark column as Clipped (not in sight)
         // Note that scrolling tables (where inner_window != outer_window) handle Y clipped earlier in BeginTable() so IsVisibleY really only applies to non-scrolling tables.
-        // FIXME-TABLE: Because InnerClipRect.Max.y is conservatively ==outer_window->ClipRect.Max.y, we never can mark columns _Above_ the scroll line as not IsVisibleY.
+        // FIXME-TABLE: Because InnerClipRect.Max.y is conservatively ==outer_window->ClipRect.Max.y, we never can mark columnsCombo _Above_ the scroll line as not IsVisibleY.
         // Taking advantage of LastOuterHeight would yield good results there...
         // FIXME-TABLE: Y clipping is disabled because it effectively means not submitting will reduce contents width which is fed to outer_window->DC.CursorMaxPos.x,
         // and this may be used (e.g. typically by outer_window using AlwaysAutoResize or outer_window's horizontal scrollbar, but could be something else).
@@ -1115,7 +1115,7 @@ void ImGui::TableUpdateLayout(ImGuiTable* table)
         table->Flags &= ~ImGuiTableFlags_Resizable;
 
     // [Part 8] Lock actual OuterRect/WorkRect right-most position.
-    // This is done late to handle the case of fixed-columns tables not claiming more widths that they need.
+    // This is done late to handle the case of fixed-columnsCombo tables not claiming more widths that they need.
     // Because of this we are careful with uses of WorkRect and InnerClipRect before this point.
     if (table->RightMostStretchedColumn != -1)
         table->Flags &= ~ImGuiTableFlags_NoHostExtendX;
@@ -1150,7 +1150,7 @@ void ImGui::TableUpdateLayout(ImGuiTable* table)
     if (table->IsSortSpecsDirty && (table->Flags & ImGuiTableFlags_Sortable))
         TableSortSpecsBuild(table);
 
-    // [Part 13] Setup inner window decoration size (for scrolling / nav tracking to properly take account of frozen rows/columns)
+    // [Part 13] Setup inner window decoration size (for scrolling / nav tracking to properly take account of frozen rows/columnsCombo)
     if (table->FreezeColumnsRequest > 0)
         table->InnerWindow->DecoInnerSizeX1 = table->Columns[table->DisplayOrderToIndex[table->FreezeColumnsRequest - 1]].MaxX - table->OuterRect.Min.x;
     if (table->FreezeRowsRequest > 0)
@@ -1175,9 +1175,9 @@ void ImGui::TableUpdateBorders(ImGuiTable* table)
     IM_ASSERT(table->Flags & ImGuiTableFlags_Resizable);
 
     // At this point OuterRect height may be zero or under actual final height, so we rely on temporal coherency and
-    // use the final height from last frame. Because this is only affecting _interaction_ with columns, it is not
+    // use the final height from last frame. Because this is only affecting _interaction_ with columnsCombo, it is not
     // really problematic (whereas the actual visual will be displayed in EndTable() and using the current frame height).
-    // Actual columns highlight/render will be performed in EndTable() and not be affected.
+    // Actual columnsCombo highlight/render will be performed in EndTable() and not be affected.
     ImGuiTableInstanceData* table_instance = TableGetInstanceData(table, table->InstanceCurrent);
     const float hit_half_width = TABLE_RESIZE_SEPARATOR_HALF_THICKNESS;
     const float hit_y1 = table->OuterRect.Min.y;
@@ -1255,7 +1255,7 @@ void    ImGui::EndTable()
     if (table->IsInsideRow)
         TableEndRow(table);
 
-    // Context menu in columns body
+    // Context menu in columnsCombo body
     if (flags & ImGuiTableFlags_ContextMenuInBody)
         if (table->HoveredColumnBody != -1 && !IsAnyItemHovered() && IsMouseReleased(ImGuiMouseButton_Right))
             TableOpenContextMenu((int)table->HoveredColumnBody);
@@ -1495,7 +1495,7 @@ void ImGui::TableSetupColumn(const char* label, ImGuiTableColumnFlags flags, flo
             column->IsUserEnabled = column->IsUserEnabledNextFrame = false;
         if (flags & ImGuiTableColumnFlags_DefaultSort && (table->SettingsLoadedFlags & ImGuiTableFlags_Sortable) == 0)
         {
-            column->SortOrder = 0; // Multiple columns using _DefaultSort will be reassigned unique SortOrder values when building the sort specs.
+            column->SortOrder = 0; // Multiple columnsCombo using _DefaultSort will be reassigned unique SortOrder values when building the sort specs.
             column->SortDirection = (column->Flags & ImGuiTableColumnFlags_PreferSortDescending) ? (ImS8)ImGuiSortDirection_Descending : (ImU8)(ImGuiSortDirection_Ascending);
         }
     }
@@ -1510,22 +1510,22 @@ void ImGui::TableSetupColumn(const char* label, ImGuiTableColumnFlags flags, flo
 }
 
 // [Public]
-void ImGui::TableSetupScrollFreeze(int columns, int rows)
+void ImGui::TableSetupScrollFreeze(int columnsCombo, int rows)
 {
     ImGuiContext& g = *GImGui;
     ImGuiTable* table = g.CurrentTable;
     IM_ASSERT(table != NULL && "Need to call TableSetupColumn() after BeginTable()!");
     IM_ASSERT(table->IsLayoutLocked == false && "Need to call TableSetupColumn() before first row!");
-    IM_ASSERT(columns >= 0 && columns < IMGUI_TABLE_MAX_COLUMNS);
+    IM_ASSERT(columnsCombo >= 0 && columnsCombo < IMGUI_TABLE_MAX_COLUMNS);
     IM_ASSERT(rows >= 0 && rows < 128); // Arbitrary limit
 
-    table->FreezeColumnsRequest = (table->Flags & ImGuiTableFlags_ScrollX) ? (ImGuiTableColumnIdx)ImMin(columns, table->ColumnsCount) : 0;
+    table->FreezeColumnsRequest = (table->Flags & ImGuiTableFlags_ScrollX) ? (ImGuiTableColumnIdx)ImMin(columnsCombo, table->ColumnsCount) : 0;
     table->FreezeColumnsCount = (table->InnerWindow->Scroll.x != 0.0f) ? table->FreezeColumnsRequest : 0;
     table->FreezeRowsRequest = (table->Flags & ImGuiTableFlags_ScrollY) ? (ImGuiTableColumnIdx)rows : 0;
     table->FreezeRowsCount = (table->InnerWindow->Scroll.y != 0.0f) ? table->FreezeRowsRequest : 0;
     table->IsUnfrozenRows = (table->FreezeRowsCount == 0); // Make sure this is set before TableUpdateLayout() so ImGuiListClipper can benefit from it.b
 
-    // Ensure frozen columns are ordered in their section. We still allow multiple frozen columns to be reordered.
+    // Ensure frozen columnsCombo are ordered in their section. We still allow multiple frozen columnsCombo to be reordered.
     // FIXME-TABLE: This work for preserving 2143 into 21|43. How about 4321 turning into 21|43? (preserve relative order in each section)
     for (int column_n = 0; column_n < table->FreezeColumnsRequest; column_n++)
     {
@@ -1581,7 +1581,7 @@ const char* ImGui::TableGetColumnName(const ImGuiTable* table, int column_n)
 }
 
 // Change user accessible enabled/disabled state of a column (often perceived as "showing/hiding" from users point of view)
-// Note that end-user can use the context menu to change this themselves (right-click in headers, or right-click in columns body with ImGuiTableFlags_ContextMenuInBody)
+// Note that end-user can use the context menu to change this themselves (right-click in headers, or right-click in columnsCombo body with ImGuiTableFlags_ContextMenuInBody)
 // - Require table to have the ImGuiTableFlags_Hideable flag because we are manipulating user accessible state.
 // - Request will be applied during next layout, which happens on the first call to TableNextRow() after BeginTable().
 // - For the getter you can test (TableGetColumnFlags() & ImGuiTableColumnFlags_IsEnabled) != 0.
@@ -1619,7 +1619,7 @@ ImGuiTableColumnFlags ImGui::TableGetColumnFlags(int column_n)
 // - Important: we generally don't know our row height until the end of the row, so Max.y will be incorrect in many situations.
 //   The only case where this is correct is if we provided a min_row_height to TableNextRow() and don't go below it, or in TableEndRow() when we locked that height.
 // - Important: if ImGuiTableFlags_PadOuterX is set but ImGuiTableFlags_PadInnerX is not set, the outer-most left and right
-//   columns report a small offset so their CellBgRect can extend up to the outer border.
+//   columnsCombo report a small offset so their CellBgRect can extend up to the outer border.
 //   FIXME: But the rendering code in TableEndRow() nullifies that with clamping required for scrolling.
 ImRect ImGui::TableGetCellBgRect(const ImGuiTable* table, int column_n)
 {
@@ -1945,7 +1945,7 @@ bool ImGui::TableSetColumnIndex(int column_n)
     }
 
     // Return whether the column is visible. User may choose to skip submitting items based on this return value,
-    // however they shouldn't skip submitting for columns that may have the tallest contribution to row height.
+    // however they shouldn't skip submitting for columnsCombo that may have the tallest contribution to row height.
     return table->Columns[column_n].IsRequestOutput;
 }
 
@@ -1970,14 +1970,14 @@ bool ImGui::TableNextColumn()
     }
 
     // Return whether the column is visible. User may choose to skip submitting items based on this return value,
-    // however they shouldn't skip submitting for columns that may have the tallest contribution to row height.
+    // however they shouldn't skip submitting for columnsCombo that may have the tallest contribution to row height.
     return table->Columns[table->CurrentColumn].IsRequestOutput;
 }
 
 
 // [Internal] Called by TableSetColumnIndex()/TableNextColumn()
 // This is called very frequently, so we need to be mindful of unnecessary overhead.
-// FIXME-TABLE FIXME-OPT: Could probably shortcut some things for non-active or clipped columns.
+// FIXME-TABLE FIXME-OPT: Could probably shortcut some things for non-active or clipped columnsCombo.
 void ImGui::TableBeginCell(ImGuiTable* table, int column_n)
 {
     ImGuiContext& g = *GImGui;
@@ -2074,7 +2074,7 @@ float ImGui::TableGetMaxColumnWidth(const ImGuiTable* table, int column_n)
     const float min_column_distance = table->MinColumnWidth + table->CellPaddingX * 2.0f + table->CellSpacingX1 + table->CellSpacingX2;
     if (table->Flags & ImGuiTableFlags_ScrollX)
     {
-        // Frozen columns can't reach beyond visible width else scrolling will naturally break.
+        // Frozen columnsCombo can't reach beyond visible width else scrolling will naturally break.
         // (we use DisplayOrder as within a set of multiple frozen column reordering is possible)
         if (column->DisplayOrder < table->FreezeColumnsRequest)
         {
@@ -2084,8 +2084,8 @@ float ImGui::TableGetMaxColumnWidth(const ImGuiTable* table, int column_n)
     }
     else if ((table->Flags & ImGuiTableFlags_NoKeepColumnsVisible) == 0)
     {
-        // If horizontal scrolling if disabled, we apply a final lossless shrinking of columns in order to make
-        // sure they are all visible. Because of this we also know that all of the columns will always fit in
+        // If horizontal scrolling if disabled, we apply a final lossless shrinking of columnsCombo in order to make
+        // sure they are all visible. Because of this we also know that all of the columnsCombo will always fit in
         // table->WorkRect and therefore in table->InnerRect (because ScrollX is off)
         // FIXME-TABLE: This is solved incorrectly but also quite a difficult problem to fix as we also want ClipRect width to match.
         // See "table_width_distrib" and "table_width_keep_visible" tests
@@ -2107,7 +2107,7 @@ float ImGui::TableGetColumnWidthAuto(ImGuiTable* table, ImGuiTableColumn* column
     if (!(column->Flags & ImGuiTableColumnFlags_NoHeaderWidth))
         width_auto = ImMax(width_auto, content_width_headers);
 
-    // Non-resizable fixed columns preserve their requested width
+    // Non-resizable fixed columnsCombo preserve their requested width
     if ((column->Flags & ImGuiTableColumnFlags_WidthFixed) && column->InitStretchWeightOrWidth > 0.0f)
         if (!(table->Flags & ImGuiTableFlags_Resizable) || (column->Flags & ImGuiTableColumnFlags_NoResize))
             width_auto = column->InitStretchWeightOrWidth;
@@ -2137,7 +2137,7 @@ void ImGui::TableSetColumnWidth(int column_n, float width)
     //IMGUI_DEBUG_PRINT("TableSetColumnWidth(%d, %.1f->%.1f)\n", column_0_idx, column_0->WidthGiven, column_0_width);
     ImGuiTableColumn* column_1 = (column_0->NextEnabledColumn != -1) ? &table->Columns[column_0->NextEnabledColumn] : NULL;
 
-    // In this surprisingly not simple because of how we support mixing Fixed and multiple Stretch columns.
+    // In this surprisingly not simple because of how we support mixing Fixed and multiple Stretch columnsCombo.
     // - All fixed: easy.
     // - All stretch: easy.
     // - One or more fixed + one stretch: easy.
@@ -2147,7 +2147,7 @@ void ImGui::TableSetColumnWidth(int column_n, float width)
     // When forwarding resize from Wn| to Fn+1| we need to be considerate of the _NoResize flag on Fn+1.
     // FIXME-TABLE: Find a way to rewrite all of this so interactions feel more consistent for the user.
     // Scenarios:
-    // - F1 F2 F3  resize from F1| or F2|   --> ok: alter ->WidthRequested of Fixed column. Subsequent columns will be offset.
+    // - F1 F2 F3  resize from F1| or F2|   --> ok: alter ->WidthRequested of Fixed column. Subsequent columnsCombo will be offset.
     // - F1 F2 F3  resize from F3|          --> ok: alter ->WidthRequested of Fixed column. If active, ScrollX extent can be altered.
     // - F1 F2 W3  resize from F1| or F2|   --> ok: alter ->WidthRequested of Fixed column. If active, ScrollX extent can be altered, but it doesn't make much sense as the Stretch column will always be minimal size.
     // - F1 F2 W3  resize from W3|          --> ok: no-op (disabled by Resize Rule 1)
@@ -2161,15 +2161,15 @@ void ImGui::TableSetColumnWidth(int column_n, float width)
     // - F1 W3 F2  resize from W3|          --> ok
     // - W1 F2 F3  resize from W1|          --> ok: equivalent to resizing |F2. F3 will not move.
     // - W1 F2 F3  resize from F2|          --> ok
-    // All resizes from a Wx columns are locking other columns.
+    // All resizes from a Wx columnsCombo are locking other columnsCombo.
 
     // Possible improvements:
-    // - W1 W2 W3  resize W1|               --> to not be stuck, both W2 and W3 would stretch down. Seems possible to fix. Would be most beneficial to simplify resize of all-weighted columns.
+    // - W1 W2 W3  resize W1|               --> to not be stuck, both W2 and W3 would stretch down. Seems possible to fix. Would be most beneficial to simplify resize of all-weighted columnsCombo.
     // - W3 F1 F2  resize W3|               --> to not be stuck past F1|, both F1 and F2 would need to stretch down, which would be lossy or ambiguous. Seems hard to fix.
 
     // [Resize Rule 1] Can't resize from right of right-most visible column if there is any Stretch column. Implemented in TableUpdateLayout().
 
-    // If we have all Fixed columns OR resizing a Fixed column that doesn't come after a Stretch one, we can do an offsetting resize.
+    // If we have all Fixed columnsCombo OR resizing a Fixed column that doesn't come after a Stretch one, we can do an offsetting resize.
     // This is the preferred resize path
     if (column_0->Flags & ImGuiTableColumnFlags_WidthFixed)
         if (!column_1 || table->LeftMostStretchedColumn == -1 || table->Columns[table->LeftMostStretchedColumn].DisplayOrder >= column_0->DisplayOrder)
@@ -2198,7 +2198,7 @@ void ImGui::TableSetColumnWidth(int column_n, float width)
 }
 
 // Disable clipping then auto-fit, will take 2 frames
-// (we don't take a shortcut for unclipped columns to reduce inconsistencies when e.g. resizing multiple columns)
+// (we don't take a shortcut for unclipped columnsCombo to reduce inconsistencies when e.g. resizing multiple columnsCombo)
 void ImGui::TableSetColumnWidthAutoSingle(ImGuiTable* table, int column_n)
 {
     // Single auto width uses auto-fit
@@ -2287,11 +2287,11 @@ void ImGui::TablePopBackgroundChannel()
 }
 
 // Allocate draw channels. Called by TableUpdateLayout()
-// - We allocate them following storage order instead of display order so reordering columns won't needlessly
+// - We allocate them following storage order instead of display order so reordering columnsCombo won't needlessly
 //   increase overall dormant memory cost.
 // - We isolate headers draw commands in their own channels instead of just altering clip rects.
 //   This is in order to facilitate merging of draw commands.
-// - After crossing FreezeRowsCount, all columns see their current draw channel changed to a second set of channels.
+// - After crossing FreezeRowsCount, all columnsCombo see their current draw channel changed to a second set of channels.
 // - We only use the dummy draw channel so we can push a null clipping rectangle into it without affecting other
 //   channels, while simplifying per-row/per-cell overhead. It will be empty and discarded when merged.
 // - We allocate 1 or 2 background draw channels. This is because we know TablePushBackgroundChannel() is only used for
@@ -2356,7 +2356,7 @@ void ImGui::TableSetupDrawChannels(ImGuiTable* table)
 //
 // Each column itself can use 1 channel (row freeze disabled) or 2 channels (row freeze enabled).
 // When the contents of a column didn't stray off its limit, we move its channels into the corresponding group
-// based on its position (within frozen rows/columns groups or not).
+// based on its position (within frozen rows/columnsCombo groups or not).
 // At the end of the operation our 1-4 groups will each have a ImDrawCmd using the same ClipRect.
 // This function assume that each column are pointing to a distinct draw channel,
 // otherwise merge_group->ChannelsCount will not match set bit count of merge_group->ChannelsMask.
@@ -2486,9 +2486,9 @@ void ImGui::TableMergeDrawChannels(ImGuiTable* table)
                 ImRect merge_clip_rect = merge_group->ClipRect;
 
                 // Extend outer-most clip limits to match those of host, so draw calls can be merged even if
-                // outer-most columns have some outer padding offsetting them from their parent ClipRect.
+                // outer-most columnsCombo have some outer padding offsetting them from their parent ClipRect.
                 // The principal cases this is dealing with are:
-                // - On a same-window table (not scrolling = single group), all fitting columns ClipRect -> will extend and match host ClipRect -> will merge
+                // - On a same-window table (not scrolling = single group), all fitting columnsCombo ClipRect -> will extend and match host ClipRect -> will merge
                 // - Columns can use padding and have left-most ClipRect.Min.x and right-most ClipRect.Max.x != from host ClipRect -> will extend and match host ClipRect -> will merge
                 // FIXME-TABLE FIXME-WORKRECT: We are wasting a merge opportunity on tables without scrolling if column doesn't fit
                 // within host clip rect, solely because of the half-padding difference between window->WorkRect and window->InnerClipRect.
@@ -2903,7 +2903,7 @@ void ImGui::TableHeadersRow()
 }
 
 // Emit a column header (text + optional sort order)
-// We cpu-clip text here so that all columns headers can be merged into a same draw call.
+// We cpu-clip text here so that all columnsCombo headers can be merged into a same draw call.
 // Note that because of how we cpu-clip and display sorting indicators, you _cannot_ use SameLine() after a TableHeader()
 void ImGui::TableHeader(const char* label)
 {
@@ -2983,7 +2983,7 @@ void ImGui::TableHeader(const char* label)
         table->HeldHeaderColumn = (ImGuiTableColumnIdx)column_n;
     window->DC.CursorPos.y -= g.Style.ItemSpacing.y * 0.5f;
 
-    // Drag and drop to re-order columns.
+    // Drag and drop to re-order columnsCombo.
     // FIXME-TABLE: Scroll request while reordering a column and it lands out of the scrolling zone.
     if (held && (table->Flags & ImGuiTableFlags_Reorderable) && IsMouseDragging(0) && !g.DragDropActive)
     {
@@ -3329,7 +3329,7 @@ void ImGui::TableLoadSettings(ImGuiTable* table)
         settings = TableSettingsFindByID(table->ID);
         if (settings == NULL)
             return;
-        if (settings->ColumnsCount != table->ColumnsCount) // Allow settings if columns count changed. We could otherwise decide to return...
+        if (settings->ColumnsCount != table->ColumnsCount) // Allow settings if columnsCombo count changed. We could otherwise decide to return...
             table->IsSettingsDirty = true;
         table->SettingsOffset = g.SettingsTables.offset_from_ptr(settings);
     }
@@ -3670,7 +3670,7 @@ void ImGui::DebugNodeTableSettings(ImGuiTableSettings*) {}
 // [SECTION] Columns, BeginColumns, EndColumns, etc.
 // (This is a legacy API, prefer using BeginTable/EndTable!)
 //-------------------------------------------------------------------------
-// FIXME: sizing is lossy when columns width is very small (default width may turn negative etc.)
+// FIXME: sizing is lossy when columnsCombo width is very small (default width may turn negative etc.)
 //-------------------------------------------------------------------------
 // - SetWindowClipRectBeforeSetChannel() [Internal]
 // - GetColumnIndex()
@@ -3714,30 +3714,30 @@ int ImGui::GetColumnsCount()
     return window->DC.CurrentColumns ? window->DC.CurrentColumns->Count : 1;
 }
 
-float ImGui::GetColumnOffsetFromNorm(const ImGuiOldColumns* columns, float offset_norm)
+float ImGui::GetColumnOffsetFromNorm(const ImGuiOldColumns* columnsCombo, float offset_norm)
 {
-    return offset_norm * (columns->OffMaxX - columns->OffMinX);
+    return offset_norm * (columnsCombo->OffMaxX - columnsCombo->OffMinX);
 }
 
-float ImGui::GetColumnNormFromOffset(const ImGuiOldColumns* columns, float offset)
+float ImGui::GetColumnNormFromOffset(const ImGuiOldColumns* columnsCombo, float offset)
 {
-    return offset / (columns->OffMaxX - columns->OffMinX);
+    return offset / (columnsCombo->OffMaxX - columnsCombo->OffMinX);
 }
 
 static const float COLUMNS_HIT_RECT_HALF_WIDTH = 4.0f;
 
-static float GetDraggedColumnOffset(ImGuiOldColumns* columns, int column_index)
+static float GetDraggedColumnOffset(ImGuiOldColumns* columnsCombo, int column_index)
 {
     // Active (dragged) column always follow mouse. The reason we need this is that dragging a column to the right edge of an auto-resizing
     // window creates a feedback loop because we store normalized positions. So while dragging we enforce absolute positioning.
     ImGuiContext& g = *GImGui;
     ImGuiWindow* window = g.CurrentWindow;
     IM_ASSERT(column_index > 0); // We are not supposed to drag column 0.
-    IM_ASSERT(g.ActiveId == columns->ID + ImGuiID(column_index));
+    IM_ASSERT(g.ActiveId == columnsCombo->ID + ImGuiID(column_index));
 
     float x = g.IO.MousePos.x - g.ActiveIdClickOffset.x + COLUMNS_HIT_RECT_HALF_WIDTH - window->Pos.x;
     x = ImMax(x, ImGui::GetColumnOffset(column_index - 1) + g.Style.ColumnsMinSpacing);
-    if ((columns->Flags & ImGuiOldColumnFlags_NoPreserveWidths))
+    if ((columnsCombo->Flags & ImGuiOldColumnFlags_NoPreserveWidths))
         x = ImMin(x, ImGui::GetColumnOffset(column_index + 1) - g.Style.ColumnsMinSpacing);
 
     return x;
@@ -3746,62 +3746,62 @@ static float GetDraggedColumnOffset(ImGuiOldColumns* columns, int column_index)
 float ImGui::GetColumnOffset(int column_index)
 {
     ImGuiWindow* window = GetCurrentWindowRead();
-    ImGuiOldColumns* columns = window->DC.CurrentColumns;
-    if (columns == NULL)
+    ImGuiOldColumns* columnsCombo = window->DC.CurrentColumns;
+    if (columnsCombo == NULL)
         return 0.0f;
 
     if (column_index < 0)
-        column_index = columns->Current;
-    IM_ASSERT(column_index < columns->Columns.Size);
+        column_index = columnsCombo->Current;
+    IM_ASSERT(column_index < columnsCombo->Columns.Size);
 
-    const float t = columns->Columns[column_index].OffsetNorm;
-    const float x_offset = ImLerp(columns->OffMinX, columns->OffMaxX, t);
+    const float t = columnsCombo->Columns[column_index].OffsetNorm;
+    const float x_offset = ImLerp(columnsCombo->OffMinX, columnsCombo->OffMaxX, t);
     return x_offset;
 }
 
-static float GetColumnWidthEx(ImGuiOldColumns* columns, int column_index, bool before_resize = false)
+static float GetColumnWidthEx(ImGuiOldColumns* columnsCombo, int column_index, bool before_resize = false)
 {
     if (column_index < 0)
-        column_index = columns->Current;
+        column_index = columnsCombo->Current;
 
     float offset_norm;
     if (before_resize)
-        offset_norm = columns->Columns[column_index + 1].OffsetNormBeforeResize - columns->Columns[column_index].OffsetNormBeforeResize;
+        offset_norm = columnsCombo->Columns[column_index + 1].OffsetNormBeforeResize - columnsCombo->Columns[column_index].OffsetNormBeforeResize;
     else
-        offset_norm = columns->Columns[column_index + 1].OffsetNorm - columns->Columns[column_index].OffsetNorm;
-    return ImGui::GetColumnOffsetFromNorm(columns, offset_norm);
+        offset_norm = columnsCombo->Columns[column_index + 1].OffsetNorm - columnsCombo->Columns[column_index].OffsetNorm;
+    return ImGui::GetColumnOffsetFromNorm(columnsCombo, offset_norm);
 }
 
 float ImGui::GetColumnWidth(int column_index)
 {
     ImGuiContext& g = *GImGui;
     ImGuiWindow* window = g.CurrentWindow;
-    ImGuiOldColumns* columns = window->DC.CurrentColumns;
-    if (columns == NULL)
+    ImGuiOldColumns* columnsCombo = window->DC.CurrentColumns;
+    if (columnsCombo == NULL)
         return GetContentRegionAvail().x;
 
     if (column_index < 0)
-        column_index = columns->Current;
-    return GetColumnOffsetFromNorm(columns, columns->Columns[column_index + 1].OffsetNorm - columns->Columns[column_index].OffsetNorm);
+        column_index = columnsCombo->Current;
+    return GetColumnOffsetFromNorm(columnsCombo, columnsCombo->Columns[column_index + 1].OffsetNorm - columnsCombo->Columns[column_index].OffsetNorm);
 }
 
 void ImGui::SetColumnOffset(int column_index, float offset)
 {
     ImGuiContext& g = *GImGui;
     ImGuiWindow* window = g.CurrentWindow;
-    ImGuiOldColumns* columns = window->DC.CurrentColumns;
-    IM_ASSERT(columns != NULL);
+    ImGuiOldColumns* columnsCombo = window->DC.CurrentColumns;
+    IM_ASSERT(columnsCombo != NULL);
 
     if (column_index < 0)
-        column_index = columns->Current;
-    IM_ASSERT(column_index < columns->Columns.Size);
+        column_index = columnsCombo->Current;
+    IM_ASSERT(column_index < columnsCombo->Columns.Size);
 
-    const bool preserve_width = !(columns->Flags & ImGuiOldColumnFlags_NoPreserveWidths) && (column_index < columns->Count - 1);
-    const float width = preserve_width ? GetColumnWidthEx(columns, column_index, columns->IsBeingResized) : 0.0f;
+    const bool preserve_width = !(columnsCombo->Flags & ImGuiOldColumnFlags_NoPreserveWidths) && (column_index < columnsCombo->Count - 1);
+    const float width = preserve_width ? GetColumnWidthEx(columnsCombo, column_index, columnsCombo->IsBeingResized) : 0.0f;
 
-    if (!(columns->Flags & ImGuiOldColumnFlags_NoForceWithinWindow))
-        offset = ImMin(offset, columns->OffMaxX - g.Style.ColumnsMinSpacing * (columns->Count - column_index));
-    columns->Columns[column_index].OffsetNorm = GetColumnNormFromOffset(columns, offset - columns->OffMinX);
+    if (!(columnsCombo->Flags & ImGuiOldColumnFlags_NoForceWithinWindow))
+        offset = ImMin(offset, columnsCombo->OffMaxX - g.Style.ColumnsMinSpacing * (columnsCombo->Count - column_index));
+    columnsCombo->Columns[column_index].OffsetNorm = GetColumnNormFromOffset(columnsCombo, offset - columnsCombo->OffMinX);
 
     if (preserve_width)
         SetColumnOffset(column_index + 1, offset + ImMax(g.Style.ColumnsMinSpacing, width));
@@ -3810,70 +3810,70 @@ void ImGui::SetColumnOffset(int column_index, float offset)
 void ImGui::SetColumnWidth(int column_index, float width)
 {
     ImGuiWindow* window = GetCurrentWindowRead();
-    ImGuiOldColumns* columns = window->DC.CurrentColumns;
-    IM_ASSERT(columns != NULL);
+    ImGuiOldColumns* columnsCombo = window->DC.CurrentColumns;
+    IM_ASSERT(columnsCombo != NULL);
 
     if (column_index < 0)
-        column_index = columns->Current;
+        column_index = columnsCombo->Current;
     SetColumnOffset(column_index + 1, GetColumnOffset(column_index) + width);
 }
 
 void ImGui::PushColumnClipRect(int column_index)
 {
     ImGuiWindow* window = GetCurrentWindowRead();
-    ImGuiOldColumns* columns = window->DC.CurrentColumns;
+    ImGuiOldColumns* columnsCombo = window->DC.CurrentColumns;
     if (column_index < 0)
-        column_index = columns->Current;
+        column_index = columnsCombo->Current;
 
-    ImGuiOldColumnData* column = &columns->Columns[column_index];
+    ImGuiOldColumnData* column = &columnsCombo->Columns[column_index];
     PushClipRect(column->ClipRect.Min, column->ClipRect.Max, false);
 }
 
-// Get into the columns background draw command (which is generally the same draw command as before we called BeginColumns)
+// Get into the columnsCombo background draw command (which is generally the same draw command as before we called BeginColumns)
 void ImGui::PushColumnsBackground()
 {
     ImGuiWindow* window = GetCurrentWindowRead();
-    ImGuiOldColumns* columns = window->DC.CurrentColumns;
-    if (columns->Count == 1)
+    ImGuiOldColumns* columnsCombo = window->DC.CurrentColumns;
+    if (columnsCombo->Count == 1)
         return;
 
     // Optimization: avoid SetCurrentChannel() + PushClipRect()
-    columns->HostBackupClipRect = window->ClipRect;
-    SetWindowClipRectBeforeSetChannel(window, columns->HostInitialClipRect);
-    columns->Splitter.SetCurrentChannel(window->DrawList, 0);
+    columnsCombo->HostBackupClipRect = window->ClipRect;
+    SetWindowClipRectBeforeSetChannel(window, columnsCombo->HostInitialClipRect);
+    columnsCombo->Splitter.SetCurrentChannel(window->DrawList, 0);
 }
 
 void ImGui::PopColumnsBackground()
 {
     ImGuiWindow* window = GetCurrentWindowRead();
-    ImGuiOldColumns* columns = window->DC.CurrentColumns;
-    if (columns->Count == 1)
+    ImGuiOldColumns* columnsCombo = window->DC.CurrentColumns;
+    if (columnsCombo->Count == 1)
         return;
 
     // Optimization: avoid PopClipRect() + SetCurrentChannel()
-    SetWindowClipRectBeforeSetChannel(window, columns->HostBackupClipRect);
-    columns->Splitter.SetCurrentChannel(window->DrawList, columns->Current + 1);
+    SetWindowClipRectBeforeSetChannel(window, columnsCombo->HostBackupClipRect);
+    columnsCombo->Splitter.SetCurrentChannel(window->DrawList, columnsCombo->Current + 1);
 }
 
 ImGuiOldColumns* ImGui::FindOrCreateColumns(ImGuiWindow* window, ImGuiID id)
 {
-    // We have few columns per window so for now we don't need bother much with turning this into a faster lookup.
+    // We have few columnsCombo per window so for now we don't need bother much with turning this into a faster lookup.
     for (int n = 0; n < window->ColumnsStorage.Size; n++)
         if (window->ColumnsStorage[n].ID == id)
             return &window->ColumnsStorage[n];
 
     window->ColumnsStorage.push_back(ImGuiOldColumns());
-    ImGuiOldColumns* columns = &window->ColumnsStorage.back();
-    columns->ID = id;
-    return columns;
+    ImGuiOldColumns* columnsCombo = &window->ColumnsStorage.back();
+    columnsCombo->ID = id;
+    return columnsCombo;
 }
 
 ImGuiID ImGui::GetColumnsID(const char* str_id, int columns_count)
 {
     ImGuiWindow* window = GetCurrentWindow();
 
-    // Differentiate column ID with an arbitrary prefix for cases where users name their columns set the same as another widget.
-    // In addition, when an identifier isn't explicitly provided we include the number of columns in the hash to make it uniquer.
+    // Differentiate column ID with an arbitrary prefix for cases where users name their columnsCombo set the same as another widget.
+    // In addition, when an identifier isn't explicitly provided we include the number of columnsCombo in the hash to make it uniquer.
     PushID(0x11223347 + (str_id ? 0 : columns_count));
     ImGuiID id = window->GetID(str_id ? str_id : "columns");
     PopID();
@@ -3887,22 +3887,22 @@ void ImGui::BeginColumns(const char* str_id, int columns_count, ImGuiOldColumnFl
     ImGuiWindow* window = GetCurrentWindow();
 
     IM_ASSERT(columns_count >= 1);
-    IM_ASSERT(window->DC.CurrentColumns == NULL);   // Nested columns are currently not supported
+    IM_ASSERT(window->DC.CurrentColumns == NULL);   // Nested columnsCombo are currently not supported
 
-    // Acquire storage for the columns set
+    // Acquire storage for the columnsCombo set
     ImGuiID id = GetColumnsID(str_id, columns_count);
-    ImGuiOldColumns* columns = FindOrCreateColumns(window, id);
-    IM_ASSERT(columns->ID == id);
-    columns->Current = 0;
-    columns->Count = columns_count;
-    columns->Flags = flags;
-    window->DC.CurrentColumns = columns;
+    ImGuiOldColumns* columnsCombo = FindOrCreateColumns(window, id);
+    IM_ASSERT(columnsCombo->ID == id);
+    columnsCombo->Current = 0;
+    columnsCombo->Count = columns_count;
+    columnsCombo->Flags = flags;
+    window->DC.CurrentColumns = columnsCombo;
     window->DC.NavIsScrollPushableX = false; // Shortcut for NavUpdateCurrentWindowIsScrollPushableX();
 
-    columns->HostCursorPosY = window->DC.CursorPos.y;
-    columns->HostCursorMaxPosX = window->DC.CursorMaxPos.x;
-    columns->HostInitialClipRect = window->ClipRect;
-    columns->HostBackupParentWorkRect = window->ParentWorkRect;
+    columnsCombo->HostCursorPosY = window->DC.CursorPos.y;
+    columnsCombo->HostCursorMaxPosX = window->DC.CursorMaxPos.x;
+    columnsCombo->HostInitialClipRect = window->ClipRect;
+    columnsCombo->HostBackupParentWorkRect = window->ParentWorkRect;
     window->ParentWorkRect = window->WorkRect;
 
     // Set state for first column
@@ -3911,47 +3911,47 @@ void ImGui::BeginColumns(const char* str_id, int columns_count, ImGuiOldColumnFl
     const float half_clip_extend_x = ImFloor(ImMax(window->WindowPadding.x * 0.5f, window->WindowBorderSize));
     const float max_1 = window->WorkRect.Max.x + column_padding - ImMax(column_padding - window->WindowPadding.x, 0.0f);
     const float max_2 = window->WorkRect.Max.x + half_clip_extend_x;
-    columns->OffMinX = window->DC.Indent.x - column_padding + ImMax(column_padding - window->WindowPadding.x, 0.0f);
-    columns->OffMaxX = ImMax(ImMin(max_1, max_2) - window->Pos.x, columns->OffMinX + 1.0f);
-    columns->LineMinY = columns->LineMaxY = window->DC.CursorPos.y;
+    columnsCombo->OffMinX = window->DC.Indent.x - column_padding + ImMax(column_padding - window->WindowPadding.x, 0.0f);
+    columnsCombo->OffMaxX = ImMax(ImMin(max_1, max_2) - window->Pos.x, columnsCombo->OffMinX + 1.0f);
+    columnsCombo->LineMinY = columnsCombo->LineMaxY = window->DC.CursorPos.y;
 
-    // Clear data if columns count changed
-    if (columns->Columns.Size != 0 && columns->Columns.Size != columns_count + 1)
-        columns->Columns.resize(0);
+    // Clear data if columnsCombo count changed
+    if (columnsCombo->Columns.Size != 0 && columnsCombo->Columns.Size != columns_count + 1)
+        columnsCombo->Columns.resize(0);
 
     // Initialize default widths
-    columns->IsFirstFrame = (columns->Columns.Size == 0);
-    if (columns->Columns.Size == 0)
+    columnsCombo->IsFirstFrame = (columnsCombo->Columns.Size == 0);
+    if (columnsCombo->Columns.Size == 0)
     {
-        columns->Columns.reserve(columns_count + 1);
+        columnsCombo->Columns.reserve(columns_count + 1);
         for (int n = 0; n < columns_count + 1; n++)
         {
             ImGuiOldColumnData column;
             column.OffsetNorm = n / (float)columns_count;
-            columns->Columns.push_back(column);
+            columnsCombo->Columns.push_back(column);
         }
     }
 
     for (int n = 0; n < columns_count; n++)
     {
         // Compute clipping rectangle
-        ImGuiOldColumnData* column = &columns->Columns[n];
+        ImGuiOldColumnData* column = &columnsCombo->Columns[n];
         float clip_x1 = IM_ROUND(window->Pos.x + GetColumnOffset(n));
         float clip_x2 = IM_ROUND(window->Pos.x + GetColumnOffset(n + 1) - 1.0f);
         column->ClipRect = ImRect(clip_x1, -FLT_MAX, clip_x2, +FLT_MAX);
         column->ClipRect.ClipWithFull(window->ClipRect);
     }
 
-    if (columns->Count > 1)
+    if (columnsCombo->Count > 1)
     {
-        columns->Splitter.Split(window->DrawList, 1 + columns->Count);
-        columns->Splitter.SetCurrentChannel(window->DrawList, 1);
+        columnsCombo->Splitter.Split(window->DrawList, 1 + columnsCombo->Count);
+        columnsCombo->Splitter.SetCurrentChannel(window->DrawList, 1);
         PushColumnClipRect(0);
     }
 
     // We don't generally store Indent.x inside ColumnsOffset because it may be manipulated by the user.
-    float offset_0 = GetColumnOffset(columns->Current);
-    float offset_1 = GetColumnOffset(columns->Current + 1);
+    float offset_0 = GetColumnOffset(columnsCombo->Current);
+    float offset_1 = GetColumnOffset(columnsCombo->Current + 1);
     float width = offset_1 - offset_0;
     PushItemWidth(width * 0.65f);
     window->DC.ColumnsOffset.x = ImMax(column_padding - window->WindowPadding.x, 0.0f);
@@ -3966,50 +3966,50 @@ void ImGui::NextColumn()
         return;
 
     ImGuiContext& g = *GImGui;
-    ImGuiOldColumns* columns = window->DC.CurrentColumns;
+    ImGuiOldColumns* columnsCombo = window->DC.CurrentColumns;
 
-    if (columns->Count == 1)
+    if (columnsCombo->Count == 1)
     {
         window->DC.CursorPos.x = IM_FLOOR(window->Pos.x + window->DC.Indent.x + window->DC.ColumnsOffset.x);
-        IM_ASSERT(columns->Current == 0);
+        IM_ASSERT(columnsCombo->Current == 0);
         return;
     }
 
     // Next column
-    if (++columns->Current == columns->Count)
-        columns->Current = 0;
+    if (++columnsCombo->Current == columnsCombo->Count)
+        columnsCombo->Current = 0;
 
     PopItemWidth();
 
     // Optimization: avoid PopClipRect() + SetCurrentChannel() + PushClipRect()
     // (which would needlessly attempt to update commands in the wrong channel, then pop or overwrite them),
-    ImGuiOldColumnData* column = &columns->Columns[columns->Current];
+    ImGuiOldColumnData* column = &columnsCombo->Columns[columnsCombo->Current];
     SetWindowClipRectBeforeSetChannel(window, column->ClipRect);
-    columns->Splitter.SetCurrentChannel(window->DrawList, columns->Current + 1);
+    columnsCombo->Splitter.SetCurrentChannel(window->DrawList, columnsCombo->Current + 1);
 
     const float column_padding = g.Style.ItemSpacing.x;
-    columns->LineMaxY = ImMax(columns->LineMaxY, window->DC.CursorPos.y);
-    if (columns->Current > 0)
+    columnsCombo->LineMaxY = ImMax(columnsCombo->LineMaxY, window->DC.CursorPos.y);
+    if (columnsCombo->Current > 0)
     {
         // Columns 1+ ignore IndentX (by canceling it out)
         // FIXME-COLUMNS: Unnecessary, could be locked?
-        window->DC.ColumnsOffset.x = GetColumnOffset(columns->Current) - window->DC.Indent.x + column_padding;
+        window->DC.ColumnsOffset.x = GetColumnOffset(columnsCombo->Current) - window->DC.Indent.x + column_padding;
     }
     else
     {
         // New row/line: column 0 honor IndentX.
         window->DC.ColumnsOffset.x = ImMax(column_padding - window->WindowPadding.x, 0.0f);
         window->DC.IsSameLine = false;
-        columns->LineMinY = columns->LineMaxY;
+        columnsCombo->LineMinY = columnsCombo->LineMaxY;
     }
     window->DC.CursorPos.x = IM_FLOOR(window->Pos.x + window->DC.Indent.x + window->DC.ColumnsOffset.x);
-    window->DC.CursorPos.y = columns->LineMinY;
+    window->DC.CursorPos.y = columnsCombo->LineMinY;
     window->DC.CurrLineSize = ImVec2(0.0f, 0.0f);
     window->DC.CurrLineTextBaseOffset = 0.0f;
 
-    // FIXME-COLUMNS: Share code with BeginColumns() - move code on columns setup.
-    float offset_0 = GetColumnOffset(columns->Current);
-    float offset_1 = GetColumnOffset(columns->Current + 1);
+    // FIXME-COLUMNS: Share code with BeginColumns() - move code on columnsCombo setup.
+    float offset_0 = GetColumnOffset(columnsCombo->Current);
+    float offset_1 = GetColumnOffset(columnsCombo->Current + 1);
     float width = offset_1 - offset_0;
     PushItemWidth(width * 0.65f);
     window->WorkRect.Max.x = window->Pos.x + offset_1 - column_padding;
@@ -4019,36 +4019,36 @@ void ImGui::EndColumns()
 {
     ImGuiContext& g = *GImGui;
     ImGuiWindow* window = GetCurrentWindow();
-    ImGuiOldColumns* columns = window->DC.CurrentColumns;
-    IM_ASSERT(columns != NULL);
+    ImGuiOldColumns* columnsCombo = window->DC.CurrentColumns;
+    IM_ASSERT(columnsCombo != NULL);
 
     PopItemWidth();
-    if (columns->Count > 1)
+    if (columnsCombo->Count > 1)
     {
         PopClipRect();
-        columns->Splitter.Merge(window->DrawList);
+        columnsCombo->Splitter.Merge(window->DrawList);
     }
 
-    const ImGuiOldColumnFlags flags = columns->Flags;
-    columns->LineMaxY = ImMax(columns->LineMaxY, window->DC.CursorPos.y);
-    window->DC.CursorPos.y = columns->LineMaxY;
+    const ImGuiOldColumnFlags flags = columnsCombo->Flags;
+    columnsCombo->LineMaxY = ImMax(columnsCombo->LineMaxY, window->DC.CursorPos.y);
+    window->DC.CursorPos.y = columnsCombo->LineMaxY;
     if (!(flags & ImGuiOldColumnFlags_GrowParentContentsSize))
-        window->DC.CursorMaxPos.x = columns->HostCursorMaxPosX;  // Restore cursor max pos, as columns don't grow parent
+        window->DC.CursorMaxPos.x = columnsCombo->HostCursorMaxPosX;  // Restore cursor max pos, as columnsCombo don't grow parent
 
-    // Draw columns borders and handle resize
-    // The IsBeingResized flag ensure we preserve pre-resize columns width so back-and-forth are not lossy
+    // Draw columnsCombo borders and handle resize
+    // The IsBeingResized flag ensure we preserve pre-resize columnsCombo width so back-and-forth are not lossy
     bool is_being_resized = false;
     if (!(flags & ImGuiOldColumnFlags_NoBorder) && !window->SkipItems)
     {
         // We clip Y boundaries CPU side because very long triangles are mishandled by some GPU drivers.
-        const float y1 = ImMax(columns->HostCursorPosY, window->ClipRect.Min.y);
+        const float y1 = ImMax(columnsCombo->HostCursorPosY, window->ClipRect.Min.y);
         const float y2 = ImMin(window->DC.CursorPos.y, window->ClipRect.Max.y);
         int dragging_column = -1;
-        for (int n = 1; n < columns->Count; n++)
+        for (int n = 1; n < columnsCombo->Count; n++)
         {
-            ImGuiOldColumnData* column = &columns->Columns[n];
+            ImGuiOldColumnData* column = &columnsCombo->Columns[n];
             float x = window->Pos.x + GetColumnOffset(n);
-            const ImGuiID column_id = columns->ID + ImGuiID(n);
+            const ImGuiID column_id = columnsCombo->ID + ImGuiID(n);
             const float column_hit_hw = COLUMNS_HIT_RECT_HALF_WIDTH;
             const ImRect column_hit_rect(ImVec2(x - column_hit_hw, y1), ImVec2(x + column_hit_hw, y2));
             if (!ItemAdd(column_hit_rect, column_id, NULL, ImGuiItemFlags_NoNav))
@@ -4073,18 +4073,18 @@ void ImGui::EndColumns()
         // Apply dragging after drawing the column lines, so our rendered lines are in sync with how items were displayed during the frame.
         if (dragging_column != -1)
         {
-            if (!columns->IsBeingResized)
-                for (int n = 0; n < columns->Count + 1; n++)
-                    columns->Columns[n].OffsetNormBeforeResize = columns->Columns[n].OffsetNorm;
-            columns->IsBeingResized = is_being_resized = true;
-            float x = GetDraggedColumnOffset(columns, dragging_column);
+            if (!columnsCombo->IsBeingResized)
+                for (int n = 0; n < columnsCombo->Count + 1; n++)
+                    columnsCombo->Columns[n].OffsetNormBeforeResize = columnsCombo->Columns[n].OffsetNorm;
+            columnsCombo->IsBeingResized = is_being_resized = true;
+            float x = GetDraggedColumnOffset(columnsCombo, dragging_column);
             SetColumnOffset(dragging_column, x);
         }
     }
-    columns->IsBeingResized = is_being_resized;
+    columnsCombo->IsBeingResized = is_being_resized;
 
     window->WorkRect = window->ParentWorkRect;
-    window->ParentWorkRect = columns->HostBackupParentWorkRect;
+    window->ParentWorkRect = columnsCombo->HostBackupParentWorkRect;
     window->DC.CurrentColumns = NULL;
     window->DC.ColumnsOffset.x = 0.0f;
     window->DC.CursorPos.x = IM_FLOOR(window->Pos.x + window->DC.Indent.x + window->DC.ColumnsOffset.x);
@@ -4098,11 +4098,11 @@ void ImGui::Columns(int columns_count, const char* id, bool border)
 
     ImGuiOldColumnFlags flags = (border ? 0 : ImGuiOldColumnFlags_NoBorder);
     //flags |= ImGuiOldColumnFlags_NoPreserveWidths; // NB: Legacy behavior
-    ImGuiOldColumns* columns = window->DC.CurrentColumns;
-    if (columns != NULL && columns->Count == columns_count && columns->Flags == flags)
+    ImGuiOldColumns* columnsCombo = window->DC.CurrentColumns;
+    if (columnsCombo != NULL && columnsCombo->Count == columns_count && columnsCombo->Flags == flags)
         return;
 
-    if (columns != NULL)
+    if (columnsCombo != NULL)
         EndColumns();
 
     if (columns_count != 1)

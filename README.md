@@ -1,10 +1,16 @@
 # GoobySoft
 
-This is a measuring and controlling software. The purpose of this software is to provide an open source measurement software and control software that is easy to maintain and easy to use. 
+This is a measuring and controlling software. The purpose of this software is to provide an open source measurement software and control software that is easy to maintain and easy to use. The unique thing with this project is that this project is written so anybody can implement their own `device`. 
 
-This software is a long time development project. Here I upload the communication protocols such as `Modbus`, `CANopen`, `SAE-J1939` etc. so they can be used to communicate with different industrial devices.
+# Features
 
-The project is written in C++20 and it's using `ImGui` as graphics library.
+* CAN-bus/Modbus RTU/Modbus TCP/USB support
+* Measure digital/analog inputs
+* Control output actuators
+* Easy to add own `device` by using `callback` functions
+* Database connection
+* Real time data acquisition
+* Multifunctional plots
 
 # Supported devices
 
@@ -12,7 +18,149 @@ The project is written in C++20 and it's using `ImGui` as graphics library.
  - Beijer Electronics Performance Inverter P2 (Comming soon)
  - [STM32-PLC](https://github.com/DanielMartensson/STM32-PLC) (Comming soon)
 
-# Pictures
+# How to add a new `device`
+
+Assume that you have for example a `Modbus` or a special USB dongle that can communicate with a `input/output device`, and you want `GoobySoft` to read, write and store measurement data and also have a control connection to that `device`. All you need to do, is to work inside `Devices` folder of this project.
+
+1. Begin first to add your new `protocol` and new `device` here.
+```cpp
+void Tools_Communications_Devices_createDevices() {
+	// Get the parameter holder
+	Protocol* protocols = Tools_Hardware_ParameterStore_getParameterHolder()->protocols;
+
+	// Reset all
+	for (int i = 0; i < MAX_PROTOCOLS; i++) {
+		protocols[i].isProtocolUsed = false;
+	}
+
+	// Create devices for protocols 
+	createProtocolTool(&protocols[0], USB_PROTOCOL_STRING[0], 1); // Modbus RTU, 1 device
+	createProtocolTool(&protocols[1], USB_PROTOCOL_STRING[1], 1); // CDC, 1 device
+	// Add new protocol here...
+
+	// Create devices
+	createDeviceTool(&protocols[0].devices[0], "ADL400", Tools_Communications_Devices_ADL400_getFunctionValues, Tools_Communications_Devices_ADL400_getTableColumnIDs, Tools_Communications_Devices_ADL400_getInput, Tools_Communications_Devices_ADL400_setOutput, Tools_Communications_Devices_ADL400_getColumnFunction);
+	createDeviceTool(&protocols[1].devices[0], "STM32 PLC", Tools_Communications_Devices_STM32PLC_getFunctionValues, Tools_Communications_Devices_STM32PLC_getTableColumnIDs, Tools_Communications_Devices_STM32PLC_getInput, Tools_Communications_Devices_STM32PLC_setOutput, Tools_Communications_Devices_STM32PLC_getColumnFunction);
+	// Add new device here...
+}
+```
+
+2. Create the `getFunctionValues()` callback. This function should return a string of function values with `\0` as null termination e.g `Read Input A\0Read Input B\0Write Output C\0`. The reason for that is that `ImGui::Combo` box want an argument that contains a `const char*` that null terminations
+```cpp
+std::string Tools__Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_getFunctionValues(){
+	std::string functionNames;
+	functionNames += "Read Input A";
+	functionNames += '\0';
+	functionNames += "Read Input B";
+	functionNames += '\0';
+	functionNames += "Write Output C";
+	functionNames += '\0';
+	return functionNames;
+}
+```
+
+3. Create the `getTableColumnsID()` callback. Here you can determine the name of your column when you are going to configure your e.g measurement `device` or `CAN-bus device`. Here are some fields. You don't need to use them all, but some of them are mandatory. 
+```cpp
+std::vector<TableColumnID> Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_getTableColumnIDs() {
+	// Only one column definition is allowed.
+	std::vector<TableColumnID> tableColumnIDs;
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Port", COLUMN_DEFINITION_PORT)); // Mandatory field
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Function", COLUMN_DEFINITION_FUNCTION)); // Mandatory field
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("CAN address", COLUMN_DEFINITION_ADDRESS));
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Min value raw", COLUMN_DEFINITION_MIN_VALUE_RAW));
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Max value raw", COLUMN_DEFINITION_MAX_VALUE_RAW));
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Min value real", COLUMN_DEFINITION_MIN_VALUE_REAL));
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Max value real", COLUMN_DEFINITION_MAX_VALUE_REAL));
+	tableColumnIDs.emplace_back(Tools_Communications_Devices_createTableIDs("Display name", COLUMN_DEFINITION_DISPLAY_NAME)); // Mandatory field
+	return tableColumnIDs;
+}
+```
+
+If you have this setup, then your configuration table is going to look like this. Depending on which function you are selecting, some input fields are hidden. The `COLUMN_DEFINITION enum` can be found in `Parameters.h` file
+
+![a](https://github.com/DanielMartensson/GoobySoft/blob/main/Pictures/ConfigureMeasurement.png?raw=true)
+
+
+4. Create the `getInput()` callback. This function want to have three arguments. A `C-string` port that describe the `USB` port, or it can also be the `Ip Address` if `Modbus TCP` is used. Next argument is the `functionValueIndex`. That index value corresponds to the index of `getFunctionValues()` callback. What `getInput()` does, is that it's reading the measurements of a device and return it back
+
+```cpp
+float Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_getInput(const char port[], int functionValueIndex, int address) {
+	/* These must follow the same linear pattern as getFunctionValues() */
+	setSlaveAddress(port, address); // set slave address if you are using e.g Modbus etc. If not, then you can remove this line
+	switch (functionValueIndex) {
+	case IO_READ_INPUT_A:
+		return functionThatReadsInputA(port);
+	case IO_READ_INPUT_B:
+		return functionThatReadsInputB(port);
+	default:
+		return -1.0f;
+	}
+}
+```
+
+5. Create the `IO enum`. This enum is going to serve the argument `functionValueIndex` together with a `switch`-statement.
+```cpp
+/* These must follow the same linear pattern as getFunctionValues() */
+typedef enum {
+	IO_READ_INPUT_A,
+	IO_READ_INPUT_B,
+	IO_WRITE_OUTPUT_C
+}
+```
+
+6. Create the `setOutput()` callback. Four arguments, same as `getInput()` callback, but this one have an integer `value` that `GoobySoft` is sending to the `device` for e.g `PWM control`.
+```cpp
+bool Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_setOutput(const char port[], int functionValueIndex, int address, int value) {
+	/* These must follow the same linear pattern as getFunctionValues() */
+	switch (functionValueIndex) {
+	case IO_WRITE_OUTPUT_C:
+		// If you are using a device who wants an address, you might consider to include `address` argument inside the funftion
+		return funtionThatWritesOutputC(port, value); 
+	default:
+		return false; // Fail
+	}
+```
+
+7. Create the `getColumnFunction()` callback. Here you are going to select which `IO` that has a specific purpose. Some functions might be an `CAN-bus` output or input or some functions might be a pure analog input with 16-bit ADC e.g `STM32`. The `COLUMN_FUNCTION enum` can be found in `Parameters.h` file
+```cpp
+COLUMN_FUNCTION Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_getColumnFunction(int functionValueIndex) {
+	/* These must follow the same linear pattern as getFunctionValues() */
+	switch (functionValueIndex) {
+	case IO_READ_INPUT_A:
+		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS; // E.g STM32 with CAN-bus sensor
+	case IO_READ_INPUT_B:
+		return COLUMN_FUNCTION_INPUT_SENSOR_ANALOG; // E.g Arduino ADC
+	case IO_WRITE_OUTPUT_C:
+		return COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS; // E.g PWM CAN-bus unit
+	default:
+		return COLUMN_FUNCTION_HOLD_DATA; // Just hold data
+```
+
+It's very important to select right `COLUMN_FUNCTION` for a specific `IO` index. The `getColumnFunction()` callback determine how your configuration window will look like and if your sensor is going to be calibrated or not.
+
+8. Now when you have made your protocol for your `device`, it's time to connect them to `GoobySoft`
+
+```cpp
+/* 
+ * One protocol can contains multiple devices.
+ * USB_PROTOCOL_STRING[1] is "CDC" and it stands for USB communications device class e.g regular USB communication
+ * Here I say that `CDC` can hold 10 devices.
+ */
+createProtocolTool(&protocols[1], USB_PROTOCOL_STRING[1], 10); 
+
+
+/* Add your device to that protocol CDC. Here I say that my device is CDC and the device is at index 0 */
+createDeviceTool(&protocols[1].devices[0], "<NAME_OF_YOUR_DEVICE>", 
+Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_getFunctionValues, 
+Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_getTableColumnIDs, 
+Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_getInput, 
+Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_setOutput, 
+Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_getColumnFunction);
+
+```
+
+Now you are done! For examples, head over to [Devices](https://github.com/DanielMartensson/GoobySoft/tree/main/GoobySoft/Tools/Communications/Devices) folder.
+
 
 # How to install
 
@@ -69,9 +217,6 @@ Measuring process
 
 ![a](https://github.com/DanielMartensson/GoobySoft/blob/main/Pictures/Measure.png?raw=true)
 
-Configure measurement
-
-![a](https://github.com/DanielMartensson/GoobySoft/blob/main/Pictures/ConfigureMeasurement.png?raw=true)
 
 File dialog
 

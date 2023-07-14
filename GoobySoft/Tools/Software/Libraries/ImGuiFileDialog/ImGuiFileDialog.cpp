@@ -1822,7 +1822,7 @@ IGFD_API void IGFD::FileManager::ScanDir(const FileDialogInternal& vFileDialogIn
                         }
                         break;
                     }
-                    default: break;  // leave it invalid (devices, etc.)
+                    default: break;  // leave it invalid (protocolDevices, etc.)
                 }
 
                 if (fileType.isValid()) {
