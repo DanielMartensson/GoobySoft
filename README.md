@@ -119,6 +119,7 @@ bool Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_setOutput(const char por
 	default:
 		return false; // Fail
 	}
+}
 ```
 
 7. Create the `getColumnFunction()` callback. Here you are going to select which `IO` that has a specific purpose. Some functions might be an `CAN-bus` output or input or some functions might be a pure analog input with 16-bit ADC e.g `STM32`. The `COLUMN_FUNCTION enum` can be found in `Parameters.h` file
@@ -134,6 +135,8 @@ COLUMN_FUNCTION Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_getColumnFunc
 		return COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS; // E.g PWM CAN-bus unit
 	default:
 		return COLUMN_FUNCTION_HOLD_DATA; // Just hold data
+	}
+}
 ```
 
 It's very important to select right `COLUMN_FUNCTION` for a specific `IO` index. The `getColumnFunction()` callback determine how your configuration window will look like and if your sensor is going to be calibrated or not.
