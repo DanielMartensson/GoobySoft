@@ -21,7 +21,7 @@ This is a measuring and controlling software. The purpose of this software is to
 
 # How to add a new `device`
 
-Assume that you have for example a `Modbus` or a special USB dongle that can communicate with a `input/output device`, and you want `GoobySoft` to read, write and store measurement data and also have a control connection to that `device`. All you need to do, is to work inside `Devices` folder of this project.
+Assume that you have for example a `Modbus` or a special USB dongle that can communicate with an `input/output device`, and you want `GoobySoft` to read, write and store measurement data and also have a control connection to that `device`. All you need to do, is to work inside `Devices` folder of this project.
 
 1. Begin first to add your new `protocol` and new `device` here. Notice the name `Tools_Communications_Devices_createDevices()`. The project is structured so each folder name begins with a capital letter and subfolders path are displayed with `_` and functions begins with lower case letters. So to find `Tools_Communications_Devices_createDevices()`, head over to `Tools/Communications/Devices` and open the file `Devices.cpp`. Each folder have the same folder name as the header and source file. So inside folder `Devices`, it exists `Devices.cpp` and `Devices.h`.
 ```cpp
@@ -182,7 +182,7 @@ bool Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_setOutput(const char por
 }
 ```
 
-7. Create the `getColumnFunction()` callback. Here you are going to select which `IO` that has a specific purpose. Some functions might be an `CAN-bus` output or input or some functions might be a pure analog input with 16-bit ADC e.g `STM32`. The `COLUMN_FUNCTION enum` can be found in `Parameters.h` file
+7. Create the `getColumnFunction()` callback. Here you are going to select which `IO` that has a specific purpose. Some functions might be a `CAN-bus` output or input or some functions might be a pure analog input with 16-bit ADC e.g `STM32`. The `COLUMN_FUNCTION enum` can be found in `Parameters.h` file
 ```cpp
 COLUMN_FUNCTION Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_getColumnFunction(int functionValueIndex) {
 	/* These must follow the same linear pattern as getFunctionValues() */
