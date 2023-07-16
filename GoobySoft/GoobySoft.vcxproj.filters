@@ -204,6 +204,9 @@
     <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigureSAEJ1939IdentificationsDialog\ConfigureSAEJ1939IdentificationsDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Tools\Hardware\USB\Protocols\OpenSAEJ1939\Open_SAE_J1939\Closedown_ECU.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tools\Communications\Devices\Devices.h">

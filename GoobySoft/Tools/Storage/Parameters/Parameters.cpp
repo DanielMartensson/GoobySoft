@@ -40,10 +40,7 @@ void Tools_Hardware_ParameterStore_saveParameters() {
 	}
 
 	// Save J1939 struct
-	uint32_t ECU_information_length = sizeof(Information_this_ECU);
-	uint8_t dataJ1939[sizeof(Information_this_ECU)];
-	std::memcpy(dataJ1939, &j1939.information_this_ECU, ECU_information_length);
-	Save_Struct(dataJ1939, ECU_information_length, (char*)INFORMATION_THIS_ECU);
+	Open_SAE_J1939_Closedown_ECU(&j1939);
 }
 
 void* Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(TableColumn* tableColumns, int tableColumnCount, COLUMN_DEFINITION columnDefinition, COLUMN_TYPE* columnType) {

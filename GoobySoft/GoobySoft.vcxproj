@@ -156,6 +156,7 @@
     <ClCompile Include="Tools\Hardware\USB\Protocols\OpenSAEJ1939\ISO_11783\ISO_11783-7_Application_Layer\General_Purpose_Valve_Command.c" />
     <ClCompile Include="Tools\Hardware\USB\Protocols\OpenSAEJ1939\ISO_11783\ISO_11783-7_Application_Layer\General_Purpose_Valve_Estimated_Flow.c" />
     <ClCompile Include="Tools\Hardware\USB\Protocols\OpenSAEJ1939\OpenSAEJ1939.cpp" />
+    <ClCompile Include="Tools\Hardware\USB\Protocols\OpenSAEJ1939\Open_SAE_J1939\Closedown_ECU.c" />
     <ClCompile Include="Tools\Hardware\USB\Protocols\OpenSAEJ1939\Open_SAE_J1939\Listen_For_Messages.c" />
     <ClCompile Include="Tools\Hardware\USB\Protocols\OpenSAEJ1939\Open_SAE_J1939\Startup_ECU.c" />
     <ClCompile Include="Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-21_Transport_Layer\Acknowledgement.c" />
