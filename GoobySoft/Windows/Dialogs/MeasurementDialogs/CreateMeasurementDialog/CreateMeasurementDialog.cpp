@@ -94,7 +94,7 @@ static void createPlot(const char plotTitle[], Protocol* protocols, bool perform
 
 void Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasurementDialog(bool* createMeasurement) {
 	// Display
-	if (ImGui::BeginPopupModal("Create measurement", createMeasurement)) {
+	if (ImGui::Begin("Create measurement", createMeasurement)) {
 		// Get the parameter holder
 		Protocol* protocols = Tools_Hardware_ParameterStore_getParameterHolder()->protocols;
 
@@ -293,6 +293,6 @@ void Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasur
 				samplesShown++; // Important to have this after the threshold, due to the shift
 			}
 		}
-		ImGui::EndPopup();
+		ImGui::End();
 	}
 }

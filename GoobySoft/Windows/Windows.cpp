@@ -86,7 +86,6 @@ void showMainWindow(bool* done) {
 			Windows_Dialogs_MeasurementDialogs_ConfigureMeasurementDialog_showConfigureMeasurementDialog(&configureMeasurement);
 		}
 		if (createMeasurement) {
-			ImGui::OpenPopup("Create measurement"); // Modal dialog
 			Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasurementDialog(&createMeasurement);
 		}
 		if (viewMeasurement) {
