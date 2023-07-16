@@ -137,6 +137,6 @@ void Tools_Hardware_ParameterStore_saveParameters();
 void* Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(TableColumn* tableColumns, int tableColumnCount, COLUMN_DEFINITION columnDefinition, COLUMN_TYPE* columnType);
 COLUMN_FUNCTION Tools_Hardware_ParameterStore_readColumnFunctionAtColumnDefinition(TableColumn* tableColumns, int tableColumnCount, COLUMN_DEFINITION columnDefinition);
 ParameterHolder* Tools_Hardware_ParameterStore_getParameterHolder();
-J1939* Tools_Hardware_ParameterStore_getJ1939Holder();
+J1939* Tools_Hardware_ParameterStore_getJ1939();
 
 #endif // !Parameters

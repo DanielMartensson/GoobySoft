@@ -201,6 +201,9 @@
     <ClCompile Include="Tools\Hardware\USB\Protocols\OpenSAEJ1939\OpenSAEJ1939.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigureSAEJ1939IdentificationsDialog\ConfigureSAEJ1939IdentificationsDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tools\Communications\Devices\Devices.h">
@@ -423,6 +426,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tools\Hardware\USB\Protocols\OpenSAEJ1939\Open_SAE_J1939\C89_Library.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigureSAEJ1939IdentificationsDialog\ConfigureSAEJ1939IdentificationsDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationDialogs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

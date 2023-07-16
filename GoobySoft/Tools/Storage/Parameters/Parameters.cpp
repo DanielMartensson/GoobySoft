@@ -21,7 +21,7 @@ void Tools_Hardware_ParameterStore_loadParameters() {
 		file.close();
 	}
 
-	/* Load J1939 struct */
+	// Load J1939 struct
 	Open_SAE_J1939_Startup_ECU(&j1939);
 }
 
@@ -39,11 +39,11 @@ void Tools_Hardware_ParameterStore_saveParameters() {
 		file.close();
 	}
 
-	/* Save J1939 struct */
+	// Save J1939 struct
 	uint32_t ECU_information_length = sizeof(Information_this_ECU);
-	uint8_t ECU_information_data[sizeof(Information_this_ECU)];
-	std::memcpy(ECU_information_data, (uint8_t*)&j1939, ECU_information_length);
-	Save_Struct(ECU_information_data, ECU_information_length, (char*)INFORMATION_THIS_ECU);
+	uint8_t dataJ1939[sizeof(Information_this_ECU)];
+	std::memcpy(dataJ1939, &j1939.information_this_ECU, ECU_information_length);
+	Save_Struct(dataJ1939, ECU_information_length, (char*)INFORMATION_THIS_ECU);
 }
 
 void* Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(TableColumn* tableColumns, int tableColumnCount, COLUMN_DEFINITION columnDefinition, COLUMN_TYPE* columnType) {
@@ -78,7 +78,6 @@ COLUMN_FUNCTION Tools_Hardware_ParameterStore_readColumnFunctionAtColumnDefiniti
 ParameterHolder* Tools_Hardware_ParameterStore_getParameterHolder() {
 	return &parameters;
 }
-
-J1939* Tools_Hardware_ParameterStore_getJ1939Holder() {
+J1939* Tools_Hardware_ParameterStore_getJ1939() {
 	return &j1939;
 }

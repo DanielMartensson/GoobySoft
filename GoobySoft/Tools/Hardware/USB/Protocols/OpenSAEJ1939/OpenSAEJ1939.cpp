@@ -20,14 +20,14 @@ void Tools_Hardware_USB_Protocol_OpenSAEJ1939_callbackFunctionSend(uint32_t ID, 
 	}
 
 	// Get the port
-	const char* port = Tools_Communications_Devices_STM32PLC_getPortOpenSAEJ1939();
+	const char* port = Tools_Communications_Devices_STM32PLC_getAddressPort();
 
 	Tools_Hardware_USB_Protocols_CDC_startTransieveProcesss(port, 1000, dataTX, sizeof(dataTX));
 }
 
 void Tools_Hardware_USB_Protocol_OpenSAEJ1939_callbackFunctionRead(uint32_t* ID, uint8_t data[], bool* is_new_data) {
 	// Get the port
-	const char* port = Tools_Communications_Devices_STM32PLC_getPortOpenSAEJ1939();
+	const char* port = Tools_Communications_Devices_STM32PLC_getAddressPort();
 	
 	// Ask for CAN message
 	uint8_t dataTX[1] = { STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE };

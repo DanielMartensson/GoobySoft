@@ -277,6 +277,10 @@ The folders `x64/Debug` and `x64/Release` contains prebuilt 64-bit Windows binar
 
 # Pictures
 
+SAE J1939 Identifications
+
+![a](https://github.com/DanielMartensson/GoobySoft/blob/main/Pictures/ConfigureSAEJ1939Identifications.png?raw=true)
+
 USB connection
 
 ![a](https://github.com/DanielMartensson/GoobySoft/blob/main/Pictures/USB.png?raw=true)

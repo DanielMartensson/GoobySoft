@@ -1,14 +1,122 @@
-﻿  STM32PLC.cpp
+﻿  GoobySoft.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+  ADL400.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\ADL400\ADL400.cpp(147,2): warning C4065: switch statement contains 'default' but no 'case' labels
+  Devices.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+  STM32PLC.cpp
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(96,50): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(96,56): warning C4838: conversion from 'uint16_t' to 'uint8_t' requires a narrowing conversion
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(96,56): warning C4244: 'initializing': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+  CreateDialogs.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+  Network.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+  ModbusTCP.cpp
   OpenSAEJ1939.cpp
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+  ImGuiFileDialog.cpp
+  CreateItems.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Gui\CreateItems\CreateItems.cpp(13,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Gui\CreateItems\CreateItems.cpp(27,21): warning C4018: '<': signed/unsigned mismatch
+  imgui_impl_opengl3.cpp
+  imgui_impl_sdl2.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  implot.cpp
+  implot_items.cpp
+  FileSystem.cpp
+  Compiling...
+  CDC.cpp
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+  ModbusRTU.cpp
+  USB.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+  Algorithms.cpp
+  Databases.cpp
+  MySQL.cpp
+C:\vcpkg\installed\x86-windows\include\mysqlx\common.h(38,1): warning C4005: '_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING': macro redefinition
+C:\vcpkg\installed\x86-windows\include\mysqlx\common.h(38,1): message : '_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING' previously declared on the command line
+  Parameters.cpp
+  ConfigureSAEJ1939IdentificationsDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+  DatabaseConnectionDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+  NetworkConnectionDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+  USBConnectionDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+  LogFilePathDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+  ConfigureMeasurementDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+  CreateMeasurementDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(50,75): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(50,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(53,36): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(68,43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(73,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(208,18): warning C4244: 'initializing': conversion from '_Rep' to 'int', possible loss of data
+          with
+          [
+              _Rep=__int64
+          ]
+  ViewMeasurementDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+  Windows.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+  CAN_Transmit_Receive.c
+  FLASH_EEPROM_RAM_Memory.c
+  Save_Load_Struct.c
+  Auxiliary_Valve_Command.c
+  Auxiliary_Valve_Estimated_Flow.c
+  Auxiliary_Valve_Measured_Position.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\ISO_11783\ISO_11783-7_Application_Layer\Auxiliary_Valve_Measured_Position.c(29,71): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\ISO_11783\ISO_11783-7_Application_Layer\Auxiliary_Valve_Measured_Position.c(32,71): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+  General_Purpose_Valve_Command.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\ISO_11783\ISO_11783-7_Application_Layer\General_Purpose_Valve_Command.c(24,12): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+  General_Purpose_Valve_Estimated_Flow.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\ISO_11783\ISO_11783-7_Application_Layer\General_Purpose_Valve_Estimated_Flow.c(33,60): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\ISO_11783\ISO_11783-7_Application_Layer\General_Purpose_Valve_Estimated_Flow.c(35,60): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+  Listen_For_Messages.c
+  Startup_ECU.c
+  Acknowledgement.c
+  Request.c
+  Transport_Protocol_Connection_Management.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-21_Transport_Layer\Transport_Protocol_Connection_Management.c(42,33): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+  Transport_Protocol_Data_Transfer.c
+  Request_Component_Identification.c
+  Request_ECU_Identification.c
+  Request_Software_Identification.c
+  DM1.c
+  DM14.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM14.c(21,12): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM14.c(27,12): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM14.c(61,58): warning C4244: 'function': conversion from 'uint16_t' to 'const uint8_t', possible loss of data
+  DM15.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM15.c(21,21): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM15.c(27,21): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+  Compiling...
+  DM16.c
+  DM2.c
+  DM3.c
+  Address_Claimed.c
+  Address_Delete.c
+  Address_Not_Claimed.c
+  Commanded_Address.c
      Creating library C:\Users\dmn\GitHub\GoobySoft\Release\GoobySoft.lib and object C:\Users\dmn\GitHub\GoobySoft\Release\GoobySoft.exp
   Generating code
-  0 of 7214 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB not found, fall back to full compilation.
+  All 7276 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   GoobySoft.vcxproj -> C:\Users\dmn\GitHub\GoobySoft\Release\GoobySoft.exe

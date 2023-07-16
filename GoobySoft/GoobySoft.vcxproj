@@ -135,6 +135,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <HeapCommitSize>
+      </HeapCommitSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -192,6 +194,7 @@
     <ClCompile Include="Tools\Storage\Databases\Databases.cpp" />
     <ClCompile Include="Tools\Storage\Databases\MySQL\MySQL.cpp" />
     <ClCompile Include="Tools\Storage\Parameters\Parameters.cpp" />
+    <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigureSAEJ1939IdentificationsDialog\ConfigureSAEJ1939IdentificationsDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\ConnectionDialogs\DatabaseConnectionDialog\DatabaseConnectionDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\ConnectionDialogs\NetworkConnectionDialog\NetworkConnectionDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\ConnectionDialogs\USBConnectionDialog\USBConnectionDialog.cpp" />
@@ -264,6 +267,8 @@
     <ClInclude Include="Tools\Storage\Parameters\Parameters.h" />
     <ClInclude Include="Tools\Storage\Storage.h" />
     <ClInclude Include="Tools\Tools.h" />
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationDialogs.h" />
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigureSAEJ1939IdentificationsDialog\ConfigureSAEJ1939IdentificationsDialog.h" />
     <ClInclude Include="Windows\Dialogs\ConnectionDialogs\ConnectionDialogs.h" />
     <ClInclude Include="Windows\Dialogs\ConnectionDialogs\DatabaseConnectionDialog\DatabaseConnectionDialog.h" />
     <ClInclude Include="Windows\Dialogs\ConnectionDialogs\NetworkConnectionDialog\NetworkConnectionDialog.h" />

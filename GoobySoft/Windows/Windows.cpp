@@ -11,6 +11,7 @@ bool selectDatabaseServer = false;
 bool configureMeasurement = false;
 bool createMeasurement = false;
 bool viewMeasurement = false;
+bool configureSAEJ1939Identifications = false;
 
 void showMainWindow(bool* done) {
 	// Show the main window
@@ -53,7 +54,12 @@ void showMainWindow(bool* done) {
 			if (ImGui::MenuItem("View measurement", nullptr, nullptr)) {
 				viewMeasurement = true;
 			}
-
+			ImGui::EndMenu();
+		}
+		if (ImGui::BeginMenu("Configure")) {
+			if (ImGui::MenuItem("Configure SAE J1939 identifications", nullptr, nullptr)) {
+				configureSAEJ1939Identifications = true;
+			}
 			ImGui::EndMenu();
 		}
 
@@ -80,11 +86,14 @@ void showMainWindow(bool* done) {
 			Windows_Dialogs_MeasurementDialogs_ConfigureMeasurementDialog_showConfigureMeasurementDialog(&configureMeasurement);
 		}
 		if (createMeasurement) {
-			ImGui::OpenPopup("Create measurement");
+			ImGui::OpenPopup("Create measurement"); // Modal dialog
 			Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasurementDialog(&createMeasurement);
 		}
 		if (viewMeasurement) {
 			Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasurementDialog(&viewMeasurement);
+		}
+		if (configureSAEJ1939Identifications) {
+			Windows_Dialogs_ConfigurationiDialogs_ConfigureSAEJ1939Dialog_showConfigureSAEJ1939IdentificationsDialog(&configureSAEJ1939Identifications);
 		}
 
 		ImGui::EndMainMenuBar();

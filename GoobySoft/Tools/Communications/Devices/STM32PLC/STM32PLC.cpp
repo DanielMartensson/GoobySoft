@@ -1,7 +1,7 @@
 #include "STM32PLC.h"
 
 // Open SAE J1939 port
-static char portOpenSAEJ1939[50] = { 0 };
+static char addressPort[50] = { 0 };
 
 // Read
 #define DIGITAL 10
@@ -100,7 +100,7 @@ static bool writeOutputUint16_t(const char port[], uint8_t messageType, uint8_t 
 
 static bool writeSAEJ1939AuxiliaryValveCommand(const char port[], uint8_t valve_number, uint8_t standard_flow) {
 	// Get the J1939 struct
-	J1939* j1939 = Tools_Hardware_ParameterStore_getJ1939Holder();
+	J1939* j1939 = Tools_Hardware_ParameterStore_getJ1939();
 
 	// Add the valve states
 	uint8_t valve_state = VALVE_STATE_NEUTRAL;
@@ -112,7 +112,7 @@ static bool writeSAEJ1939AuxiliaryValveCommand(const char port[], uint8_t valve_
 	}
 
 	// Save the port 
-	std::strcpy(portOpenSAEJ1939, port);
+	std::strcpy(addressPort, port);
 
 	// Write the command
 	ENUM_J1939_STATUS_CODES status = ISO_11783_Send_Auxiliary_Valve_Command(j1939, valve_number, standard_flow, 0, valve_state);
@@ -438,6 +438,6 @@ bool Tools_Communications_Devices_STM32PLC_setOutput(const char port[], int func
 	}
 }
 
-const char* Tools_Communications_Devices_STM32PLC_getPortOpenSAEJ1939() {
-	return portOpenSAEJ1939;
+const char* Tools_Communications_Devices_STM32PLC_getAddressPort() {
+	return addressPort;
 }

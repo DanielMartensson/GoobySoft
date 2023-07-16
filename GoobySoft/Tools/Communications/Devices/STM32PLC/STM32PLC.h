@@ -31,6 +31,6 @@ COLUMN_FUNCTION Tools_Communications_Devices_STM32PLC_getColumnFunction(int func
 std::string Tools_Communications_Devices_STM32PLC_getFunctionValues();
 float Tools_Communications_Devices_STM32PLC_getInput(const char port[], int functionValueIndex, int address);
 bool Tools_Communications_Devices_STM32PLC_setOutput(const char port[], int functionValueIndex, int address, int value);
-const char* Tools_Communications_Devices_STM32PLC_getPortOpenSAEJ1939();
+const char* Tools_Communications_Devices_STM32PLC_getAddressPort();
 
 #endif // !STM32PLC
