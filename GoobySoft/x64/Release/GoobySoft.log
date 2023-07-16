@@ -2,8 +2,8 @@
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
      Creating library C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.lib and object C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exp
   Generating code
-  2 of 7276 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  1 of 7276 functions (<0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    103 functions had inline decision re-evaluated but remain unchanged
+    47 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   GoobySoft.vcxproj -> C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exe

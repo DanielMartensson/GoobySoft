@@ -38,12 +38,11 @@ void Windows_Dialogs_ConfigurationiDialogs_ConfigureSAEJ1939Dialog_showConfigure
 			}
 		}
 		ImGuiInputTextFlags readOnlyFlag = thisOrOtherECU ? ImGuiInputTextFlags_None : ImGuiInputTextFlags_ReadOnly;
-		ImGui::Separator();
-
+		
 		// This ECU address only
 		if (thisOrOtherECU) {
 			int ecu_address = j1939->information_this_ECU.this_ECU_address;
-			if (ImGui::InputInt("ECU address", &ecu_address)) {
+			if (ImGui::InputInt("This ECU address", &ecu_address)) {
 				if (ecu_address > 255) {
 					ecu_address = 255;
 				}
@@ -53,6 +52,7 @@ void Windows_Dialogs_ConfigurationiDialogs_ConfigureSAEJ1939Dialog_showConfigure
 			}
 			j1939->information_this_ECU.this_ECU_address = ecu_address;
 		}
+		ImGui::Separator();
 
 		// Name - Identity
 		if (!thisOrOtherECU) {
