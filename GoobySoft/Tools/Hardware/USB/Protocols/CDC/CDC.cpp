@@ -2,9 +2,7 @@
 #include <boost/asio.hpp>
 #include <map>
 #include <memory>
-#include <thread>
 #include <chrono>
-#include <atomic>
 #include <cstdio>
 #include "../../../../Tools.h"
 
@@ -187,50 +185,36 @@ std::string Tools_Hardware_USB_Protocols_CDC_getPortsOfConnectedDevices() {
 std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_startTransieveProcesss(const char port[], const long long timeOutMilliseconds, uint8_t dataTX[], size_t size) {
 	std::vector<uint8_t> dataRX;
 	if (CDCDeviceExist(port)) {
-		// Atomic variable for the thread
-		std::atomic<bool> dataReceived(false);
-
-		// Start a read thread
-		std::thread readThread([&]() {
-			constexpr std::size_t buffer_size = 1024;
-			std::array<char, buffer_size> buffer;
-
-			boost::system::error_code error;
-			std::size_t bytes_transferred = 0;
-			try {
-				bytes_transferred = devicesCDC.at(port)->read_some(boost::asio::buffer(buffer), error);
-			}
-			catch (...) {}
-
-			if (!error) {
-				dataRX.assign(buffer.begin(), buffer.begin() + bytes_transferred);
-				dataReceived = true;
-			}
-			});
-
-		// Write data
-		devicesCDC.at(port)->write_some(boost::asio::buffer(dataTX, size));
-
 		// Check if data has been received or timeout has occurred
-		bool timeout = false;
 		auto startTime = std::chrono::steady_clock::now();
 		auto timeoutDuration = std::chrono::milliseconds(timeOutMilliseconds);
-		while (!dataReceived && !timeout) {
-			auto currentTime = std::chrono::steady_clock::now();
-			auto elapsedTime = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - startTime);
+
+		// Stop variable for the loop
+		bool dataReceived = false;
+
+		// Buffer for the read
+		std::array<char, 1024> buffer;
+
+		// Write data
+		auto usbPort = devicesCDC.at(port);
+		usbPort->write_some(boost::asio::buffer(dataTX, size));
+
+		// Read the data
+		while (!dataReceived) {
+			usbPort->async_read_some(boost::asio::buffer(buffer), [&](const boost::system::error_code& error, std::size_t bytes_transferred) {
+				if (!error) {
+					dataRX.assign(buffer.begin(), buffer.begin() + bytes_transferred);
+					dataReceived = true;
+				}
+			});
 
 			// Check if timeout has occurred
+			auto currentTime = std::chrono::steady_clock::now();
+			auto elapsedTime = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - startTime);
 			if (elapsedTime >= timeoutDuration) {
-				timeout = true;
-				readThread.detach(); // Kill the thread
+				dataReceived = true; // Kill the loop
 			}
 		}
-
-		// End the thread
-		if (readThread.joinable()) {
-			readThread.join();
-		}
-
 	}
 	return dataRX;
 }
