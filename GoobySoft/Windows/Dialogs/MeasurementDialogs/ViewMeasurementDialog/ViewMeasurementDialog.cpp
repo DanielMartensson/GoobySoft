@@ -36,6 +36,7 @@ void Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasuremen
 	// Display
 	if (ImGui::Begin("View measurement", viewMeasurement)) {
 		// File path
+		ImGui::PushItemWidth(600);
 		ImGui::InputText("File path", Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName, sizeof(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName), ImGuiInputTextFlags_ReadOnly);
 
 		// Configuration

@@ -105,6 +105,7 @@ void Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasur
 		static int samplesShown = 0;
 		static int sampleSpeed = 1;
 		// File path, Samples, Sample time
+		ImGui::PushItemWidth(600);
 		ImGui::InputText("File path", Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName, sizeof(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName), ImGuiInputTextFlags_ReadOnly);
 		ImGui::SliderInt("Show samples", &showSamples, 0, MAX_DATA_MEASUREMENT_PLOT - 1);
 		ImGui::SliderInt("Sample speed [ms]", &sampleSpeed, 1, 2000);
