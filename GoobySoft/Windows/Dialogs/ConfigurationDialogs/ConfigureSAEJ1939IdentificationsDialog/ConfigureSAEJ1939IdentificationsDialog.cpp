@@ -81,8 +81,17 @@ void Windows_Dialogs_ConfigurationiDialogs_ConfigureSAEJ1939Dialog_showConfigure
 		}
 
 		// Name - Manufacture code
-		static std::string selectedManufactureCode;
+		std::string selectedManufactureCode;
 		std::vector<std::string> manufactureCodes = { "Sonceboz", "Grayhill" };
+		int manufacturerCode = thisOrOtherECU ? this_ecu_name->manufacturer_code : from_other_ecu_name->manufacturer_code;
+		switch (manufacturerCode) {
+		case MANUFACTURER_CODE_SONCEBOZ:
+			selectedManufactureCode = manufactureCodes.at(0);
+			break;
+		case MANUFACTURER_CODE_GRAYHILL:
+			selectedManufactureCode = manufactureCodes.at(1);
+			break;
+		}
 		Tools_Gui_CreateItems_createCombo("Manufacture code", manufactureCodes, selectedManufactureCode, false);
 		int index = Tools_Software_Algorithms_findIndexOf(manufactureCodes, selectedManufactureCode);
 		switch (index) {
@@ -139,8 +148,17 @@ void Windows_Dialogs_ConfigurationiDialogs_ConfigureSAEJ1939Dialog_showConfigure
 		}
 
 		// Name - Function
-		static std::string selectedFunction;
-		std::vector<std::string> functions = { "Auxiliary valve control", "VDC module"};
+		std::string selectedFunction;
+		std::vector<std::string> functions = { "Auxiliary valve control", "VDC module" };
+		int function = thisOrOtherECU ? this_ecu_name->function : from_other_ecu_name->function;
+		switch (function) {
+		case FUNCTION_AUXILIARY_VALVES_CONTROL:
+			selectedFunction = functions.at(0);
+			break;
+		case FUNCTION_VDC_MODULE:
+			selectedFunction = functions.at(1);
+			break;
+		}
 		Tools_Gui_CreateItems_createCombo("Function", functions, selectedFunction, false);
 		index = Tools_Software_Algorithms_findIndexOf(functions, selectedFunction);
 		switch (index) {
@@ -163,8 +181,29 @@ void Windows_Dialogs_ConfigurationiDialogs_ConfigureSAEJ1939Dialog_showConfigure
 		}
 
 		// Name - Industry group
-		static std::string selectedIndustryGroup;
+		std::string selectedIndustryGroup;
 		std::vector<std::string> industryGroups = { "Global", "On highway", "Agricultural and forrestry", "Construction", "Marine", "Industrial control process"};
+		int industryGroup = thisOrOtherECU ? this_ecu_name->industry_group : from_other_ecu_name->industry_group;
+		switch (industryGroup) {
+		case INDUSTRY_GROUP_GLOBAL:
+			selectedIndustryGroup = industryGroups.at(0);
+			break;
+		case INDUSTRY_GROUP_ON_HIGHWAY:
+			selectedIndustryGroup = industryGroups.at(1);
+			break;
+		case INDUSTRY_GROUP_AGRICULTURAL_AND_FORESTRY:
+			selectedIndustryGroup = industryGroups.at(2);
+			break;
+		case INDUSTRY_GROUP_CONSTRUCTION:
+			selectedIndustryGroup = industryGroups.at(3);
+			break;
+		case INDUSTRY_GROUP_MARINE:
+			selectedIndustryGroup = industryGroups.at(4);
+			break;
+		case INDUSTRY_GROUP_INDUSTRIAL_CONTROL_PROCESS:
+			selectedIndustryGroup = industryGroups.at(5);
+			break;
+		}
 		Tools_Gui_CreateItems_createCombo("Industry group", industryGroups, selectedIndustryGroup, false);
 		index = Tools_Software_Algorithms_findIndexOf(industryGroups, selectedIndustryGroup);
 		switch (index) {
