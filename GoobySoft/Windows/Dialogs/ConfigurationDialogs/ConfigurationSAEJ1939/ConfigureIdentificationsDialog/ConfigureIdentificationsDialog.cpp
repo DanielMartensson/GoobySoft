@@ -35,8 +35,6 @@ void Windows_Dialogs_ConfigurationiDialogs_ConfigurationSAEJ1939_ConfigureIdenti
 		}
 		ImGuiInputTextFlags readOnlyFlag = thisOrOtherECU ? ImGuiInputTextFlags_None : ImGuiInputTextFlags_ReadOnly;
 		
-		
-		
 		// ECU identifications
 		ImGui::Separator();
 		if (!thisOrOtherECU) {

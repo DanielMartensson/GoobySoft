@@ -155,7 +155,6 @@ void Windows_Dialogs_ConfigurationiDialogs_ConfigurationSAEJ1939_ConfigureDiagno
 				std::strcpy(text, (const char*)j1939->from_other_ecu_dm.dm16.raw_binary_data);
 				ImGui::InputText("Raw binary data", text, readOnlyFlag);
 				ImGui::InputInt("DM - From ECU address", (int*)&j1939->from_other_ecu_dm.dm16.from_ecu_address, 1, 100, readOnlyFlag);
-
 			}
 		}
 
