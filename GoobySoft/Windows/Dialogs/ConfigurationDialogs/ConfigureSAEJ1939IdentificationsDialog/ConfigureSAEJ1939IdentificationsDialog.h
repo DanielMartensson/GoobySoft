@@ -1,7 +1,0 @@
-#ifndef ConfigureSAEJ1939Dialog
-#define ConfigureSAEJ1939Dialog
-
-void Windows_Dialogs_ConfigurationiDialogs_ConfigureSAEJ1939Dialog_showConfigureSAEJ1939IdentificationsDialog(bool* configureSAEJ1939Identifications);
-
-#endif // !ConfigureSAEJ1939Dialog
-

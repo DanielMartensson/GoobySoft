@@ -53,7 +53,9 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Algorithms\Algorithms.cpp
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Storage\Databases\Databases.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Release\Databases.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Storage\Databases\MySQL\MySQL.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Release\MySQL.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Storage\Parameters\Parameters.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Release\Parameters.obj
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigureSAEJ1939IdentificationsDialog\ConfigureSAEJ1939IdentificationsDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Release\ConfigureSAEJ1939IdentificationsDialog.obj
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureDiagnosticMessageDialog\ConfigureDiagnosticMessageDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Release\ConfigureDiagnosticMessageDialog.obj
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureIdentificationsDialog\ConfigureIdentificationsDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Release\ConfigureIdentificationsDialog.obj
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureNameDialog\ConfigureNameDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Release\ConfigureNameDialog.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConnectionDialogs\DatabaseConnectionDialog\DatabaseConnectionDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Release\DatabaseConnectionDialog.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConnectionDialogs\NetworkConnectionDialog\NetworkConnectionDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Release\NetworkConnectionDialog.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConnectionDialogs\USBConnectionDialog\USBConnectionDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Release\USBConnectionDialog.obj

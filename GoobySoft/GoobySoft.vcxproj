@@ -195,7 +195,9 @@
     <ClCompile Include="Tools\Storage\Databases\Databases.cpp" />
     <ClCompile Include="Tools\Storage\Databases\MySQL\MySQL.cpp" />
     <ClCompile Include="Tools\Storage\Parameters\Parameters.cpp" />
-    <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigureSAEJ1939IdentificationsDialog\ConfigureSAEJ1939IdentificationsDialog.cpp" />
+    <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureDiagnosticMessageDialog\ConfigureDiagnosticMessageDialog.cpp" />
+    <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureIdentificationsDialog\ConfigureIdentificationsDialog.cpp" />
+    <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureNameDialog\ConfigureNameDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\ConnectionDialogs\DatabaseConnectionDialog\DatabaseConnectionDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\ConnectionDialogs\NetworkConnectionDialog\NetworkConnectionDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\ConnectionDialogs\USBConnectionDialog\USBConnectionDialog.cpp" />
@@ -269,7 +271,10 @@
     <ClInclude Include="Tools\Storage\Storage.h" />
     <ClInclude Include="Tools\Tools.h" />
     <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationDialogs.h" />
-    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigureSAEJ1939IdentificationsDialog\ConfigureSAEJ1939IdentificationsDialog.h" />
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureDiagnosticMessageDialog\ConfigureDiagnosticMessageDialog.h" />
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureIdentificationsDialog\ConfigureIdentificationsDialog.h" />
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigurationSAEJ1939.h" />
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureNameDialog\ConfigureNameDialog.h" />
     <ClInclude Include="Windows\Dialogs\ConnectionDialogs\ConnectionDialogs.h" />
     <ClInclude Include="Windows\Dialogs\ConnectionDialogs\DatabaseConnectionDialog\DatabaseConnectionDialog.h" />
     <ClInclude Include="Windows\Dialogs\ConnectionDialogs\NetworkConnectionDialog\NetworkConnectionDialog.h" />

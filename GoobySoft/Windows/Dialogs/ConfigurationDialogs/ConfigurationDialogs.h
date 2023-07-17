@@ -1,6 +1,6 @@
 #ifndef ConfigurationDialogs
 #define ConfigurationDialogs
 
-#include "ConfigureSAEJ1939IdentificationsDialog/ConfigureSAEJ1939IdentificationsDialog.h"
+#include "ConfigurationSAEJ1939/ConfigurationSAEJ1939.h"
 
 #endif // !ConfigurationDialogs

@@ -1,0 +1,6 @@
+#ifndef ConfigureDiagnosticMessageDialog
+#define ConfigureDiagnosticMessageDialog
+
+void Windows_Dialogs_ConfigurationiDialogs_ConfigurationSAEJ1939_ConfigureDiagnosticMessageDialog_showConfigureDiagnosticMessageDialog(bool* configureSAEJ1939DiagnosticMessage);
+
+#endif // !ConfigureDiagnosticMessageDialog

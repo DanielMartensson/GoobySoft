@@ -201,10 +201,16 @@
     <ClCompile Include="Tools\Hardware\USB\Protocols\OpenSAEJ1939\OpenSAEJ1939.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigureSAEJ1939IdentificationsDialog\ConfigureSAEJ1939IdentificationsDialog.cpp">
+    <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureIdentificationsDialog\ConfigureIdentificationsDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Tools\Hardware\USB\Protocols\OpenSAEJ1939\Open_SAE_J1939\Closedown_ECU.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureDiagnosticMessageDialog\ConfigureDiagnosticMessageDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureNameDialog\ConfigureNameDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -431,10 +437,19 @@
     <ClInclude Include="Tools\Hardware\USB\Protocols\OpenSAEJ1939\Open_SAE_J1939\C89_Library.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigureSAEJ1939IdentificationsDialog\ConfigureSAEJ1939IdentificationsDialog.h">
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureIdentificationsDialog\ConfigureIdentificationsDialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationDialogs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureDiagnosticMessageDialog\ConfigureDiagnosticMessageDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigurationSAEJ1939.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureNameDialog\ConfigureNameDialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

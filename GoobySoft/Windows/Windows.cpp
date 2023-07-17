@@ -11,54 +11,39 @@ bool selectDatabaseServer = false;
 bool configureMeasurement = false;
 bool createMeasurement = false;
 bool viewMeasurement = false;
+bool configureSAEJ1939Name = false;
 bool configureSAEJ1939Identifications = false;
+bool configureSAEJ1939DiagnosticMessage = false;
 
 void showMainWindow(bool* done) {
 	// Show the main window
 	ImGui::SetNextWindowSize(ImVec2(500.0f, 350.0f));
 	if (ImGui::BeginMainMenuBar()) {
 		if (ImGui::BeginMenu("File")) {
-			if (ImGui::MenuItem("Select a file", nullptr, nullptr)) {
-				selectFile = true;
-			}
-			if (ImGui::MenuItem("Create a file", nullptr, nullptr)) {
-				createFile = true;
-			}
-			if (ImGui::MenuItem("Delete a file", nullptr, nullptr)) {
-				createFile = true;
-			}
-			if (ImGui::MenuItem("Quit", nullptr, nullptr)) {
-				*done = true; // Close the application
-			}
+			ImGui::MenuItem("Select a file", nullptr, &selectFile);
+			ImGui::MenuItem("Create a file", nullptr, &createFile);
+			ImGui::MenuItem("Delete a file", nullptr, &createFile);
+			ImGui::MenuItem("Quit", nullptr, done);
 			ImGui::EndMenu();
 		}
 		if (ImGui::BeginMenu("Connection")) {
-			if (ImGui::MenuItem("Select USB ports", nullptr, nullptr)) {
-				selectUSBPorts = true;
-			}
-			if (ImGui::MenuItem("Select database server", nullptr, nullptr)) {
-				selectDatabaseServer = true;
-			}
-			if (ImGui::MenuItem("Select network addresses", nullptr, nullptr)) {
-				selectNetworkAddreses = true;
-			}
+			ImGui::MenuItem("Select USB ports", nullptr, &selectUSBPorts);
+			ImGui::MenuItem("Select database server", nullptr, &selectDatabaseServer);
+			ImGui::MenuItem("Select network addresses", nullptr, &selectNetworkAddreses);
 			ImGui::EndMenu();
 		}
 		if (ImGui::BeginMenu("Measurement")) {
-			if (ImGui::MenuItem("Configure measurement", nullptr, nullptr)) {
-				configureMeasurement = true;
-			}
-			if (ImGui::MenuItem("Create measurement", nullptr, nullptr)) {
-				createMeasurement = true;
-			}
-			if (ImGui::MenuItem("View measurement", nullptr, nullptr)) {
-				viewMeasurement = true;
-			}
+			ImGui::MenuItem("Configure measurement", nullptr, &configureMeasurement);
+			ImGui::MenuItem("Create measurement", nullptr, &createMeasurement);
+			ImGui::MenuItem("View measurement", nullptr, &viewMeasurement);
 			ImGui::EndMenu();
 		}
 		if (ImGui::BeginMenu("Configure")) {
-			if (ImGui::MenuItem("Configure SAE J1939 identifications", nullptr, nullptr)) {
-				configureSAEJ1939Identifications = true;
+			if (ImGui::BeginMenu("SAE J1939")) {
+				ImGui::MenuItem("Name", nullptr, &configureSAEJ1939Name);
+				ImGui::MenuItem("Identifications", nullptr, &configureSAEJ1939Identifications);
+				ImGui::MenuItem("Diagnostics messages", nullptr, &configureSAEJ1939DiagnosticMessage);
+				ImGui::EndMenu();
 			}
 			ImGui::EndMenu();
 		}
@@ -92,7 +77,13 @@ void showMainWindow(bool* done) {
 			Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasurementDialog(&viewMeasurement);
 		}
 		if (configureSAEJ1939Identifications) {
-			Windows_Dialogs_ConfigurationiDialogs_ConfigureSAEJ1939Dialog_showConfigureSAEJ1939IdentificationsDialog(&configureSAEJ1939Identifications);
+			Windows_Dialogs_ConfigurationiDialogs_ConfigurationSAEJ1939_ConfigureIdentificationsDialog_showConfigureIdentificationsDialog(&configureSAEJ1939Identifications);
+		}
+		if (configureSAEJ1939DiagnosticMessage) {
+			Windows_Dialogs_ConfigurationiDialogs_ConfigurationSAEJ1939_ConfigureDiagnosticMessageDialog_showConfigureDiagnosticMessageDialog(&configureSAEJ1939DiagnosticMessage);
+		}
+		if (configureSAEJ1939Name) {
+			Windows_Dialogs_ConfigurationiDialogs_ConfigurationSAEJ1939_ConfigureNameDialog_showConfigureNameDialog(&configureSAEJ1939Name);
 		}
 
 		ImGui::EndMainMenuBar();

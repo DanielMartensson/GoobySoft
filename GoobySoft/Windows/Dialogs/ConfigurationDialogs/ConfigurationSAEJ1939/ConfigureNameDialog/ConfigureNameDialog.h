@@ -1,0 +1,6 @@
+#ifndef ConfigureNameDialog
+#define ConfigureNameDialog
+
+void Windows_Dialogs_ConfigurationiDialogs_ConfigurationSAEJ1939_ConfigureNameDialog_showConfigureNameDialog(bool* configureSAEJ1939Name);
+
+#endif // !ConfigureNameDialog

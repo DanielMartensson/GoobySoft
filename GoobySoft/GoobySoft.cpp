@@ -159,6 +159,9 @@ int main(int, char**) {
         // Show main window
         showMainWindow(&done);
 
+        /* Read the CAN messages - if it exist */
+        Open_SAE_J1939_Listen_For_Messages(Tools_Hardware_ParameterStore_getJ1939());
+
         // Rendering
         ImGui::Render();
         glViewport(0, 0, (int)io.DisplaySize.x, (int)io.DisplaySize.y);
