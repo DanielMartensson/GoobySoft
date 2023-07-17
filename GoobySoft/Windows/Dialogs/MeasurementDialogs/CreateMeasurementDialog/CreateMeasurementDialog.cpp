@@ -9,7 +9,6 @@ static std::ofstream measurementFile;
 
 static void createPlot(const char plotTitle[], Protocol* protocols, bool performMeasurementUpdate, int rowCount, int samplesShown, int showSamples) {
 	// Create plot
-	ImPlot::CreateContext();
 	if (ImPlot::BeginPlot(plotTitle)) {
 		// Iterate the protocols
 		for (int i = 0; i < MAX_PROTOCOLS; i++) {

@@ -1,13 +1,29 @@
-﻿  CDC.cpp
+﻿  GoobySoft.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+  CDC.cpp
   Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
   - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
   - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
   Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+  CreateMeasurementDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(49,75): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(49,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(52,36): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(67,43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(72,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(208,18): warning C4244: 'initializing': conversion from '_Rep' to 'int', possible loss of data
+          with
+          [
+              _Rep=__int64
+          ]
+  ViewMeasurementDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.h(27,10): warning C4091: 'typedef ': ignored on left of '<unnamed-enum-STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE>' when no variable is declared
      Creating library C:\Users\dmn\GitHub\GoobySoft\Release\GoobySoft.lib and object C:\Users\dmn\GitHub\GoobySoft\Release\GoobySoft.exp
   Generating code
-  9 of 7343 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+  67 of 7347 functions ( 0.9%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    116 functions had inline decision re-evaluated but remain unchanged
+    65 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   GoobySoft.vcxproj -> C:\Users\dmn\GitHub\GoobySoft\Release\GoobySoft.exe

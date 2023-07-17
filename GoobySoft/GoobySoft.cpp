@@ -121,6 +121,9 @@ int main(int, char**) {
     // Create the protocolDevices
     Tools_Communications_Devices_createDevices();
 
+    // For the plots
+    ImPlot::CreateContext();
+
     // Main loop
     bool done = false;
 #ifdef __EMSCRIPTEN__
@@ -170,6 +173,9 @@ int main(int, char**) {
 
     // Save parameters
     Tools_Hardware_ParameterStore_saveParameters();
+
+    // For the plots
+    ImPlot::DestroyContext();
 
     // Cleanup
     ImGui_ImplOpenGL3_Shutdown();

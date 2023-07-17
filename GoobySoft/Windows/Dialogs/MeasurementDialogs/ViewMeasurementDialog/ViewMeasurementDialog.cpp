@@ -3,7 +3,6 @@
 
 static void createPlot(const char plotTitle[], rapidcsv::Document& doc, std::vector<std::string>& columnNames, size_t columnCount, size_t from, size_t to, size_t withStep) {
 	// Create plots
-	ImPlot::CreateContext();
 	if (ImPlot::BeginPlot(plotTitle)) {
 		// Avoid the first column at index 0. It's the time column
 		for (size_t i = 1; i < columnCount; i++) {
