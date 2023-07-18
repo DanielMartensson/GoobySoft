@@ -8,6 +8,6 @@ bool Tools_Hardware_USB_Protocols_CDC_openConnection(const char port[], const un
 std::vector<std::string> Tools_Hardware_USB_Protocols_CDC_getAllPorts();
 bool Tools_Hardware_USB_Protocols_CDC_isConnected(const char port[]);
 std::string Tools_Hardware_USB_Protocols_CDC_getPortsOfConnectedDevices();
-std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_startTransieveProcesss(const char port[], const long long timeOutMilliseconds, uint8_t dataTX[], size_t size);
+std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_startTransieveProcesss(const char port[], const long long timeoutMilliseconds, uint8_t dataTX[], size_t size, std::string endingOfDataRX = "\r\n");
 
 #endif // !CDC

@@ -180,39 +180,44 @@ std::string Tools_Hardware_USB_Protocols_CDC_getPortsOfConnectedDevices() {
 	return ports;
 }
 
-std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_startTransieveProcesss(const char port[], const long long timeOutMilliseconds, uint8_t dataTX[], size_t size) {
+std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_startTransieveProcesss(const char port[], const long long timeoutMilliseconds, uint8_t dataTX[], size_t size, std::string endingOfDataRX) {
 	std::vector<uint8_t> dataRX;
 	if (CDCDeviceExist(port)) {
-		// Check if data has been received or timeout has occurred
-		auto startTime = std::chrono::steady_clock::now();
-		auto timeoutDuration = std::chrono::milliseconds(timeOutMilliseconds);
 
-		// Stop variable for the loop
-		bool dataReceived = false;
+		// Get the USB
+		auto deviceUSB = devicesCDC.at(port);
 
-		// Buffer for the read
-		std::array<char, 1024> buffer;
-
-		// Write data
-		auto usbPort = devicesCDC.at(port);
-		usbPort->write_some(boost::asio::buffer(dataTX, size));
-
-		// Read the data
-		while (!dataReceived) {
-			usbPort->async_read_some(boost::asio::buffer(buffer), [&](const boost::system::error_code& error, std::size_t bytes_transferred) {
-				if (!error) {
-					dataRX.assign(buffer.begin(), buffer.begin() + bytes_transferred);
-					dataReceived = true;
-				}
-			});
-
-			// Check if timeout has occurred
-			auto currentTime = std::chrono::steady_clock::now();
-			auto elapsedTime = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - startTime);
-			if (elapsedTime >= timeoutDuration) {
-				dataReceived = true; // Kill the loop
+		// Timer
+		boost::asio::steady_timer timer(io, std::chrono::milliseconds(timeoutMilliseconds));
+		timer.async_wait([&](boost::system::error_code ec) {
+#ifdef _GOOBYSOFT_DEBUG
+			std::cerr << "CDC.cpp - Timer completion (Code:" << ec.value() << " Message:" << ec.message() << ")" << std::endl;
+#endif
+			if (!ec) {
+#ifdef _GOOBYSOFT_DEBUG
+				std::cerr << "CDC.cpp - Timeout expired" << std::endl;
+#endif
+				deviceUSB->cancel(); // Cancels any async operation
 			}
-		}
+		});
+
+		// Read process
+		boost::asio::async_read_until(*deviceUSB, boost::asio::dynamic_buffer(dataRX), endingOfDataRX, [&](boost::system::error_code ec, size_t bytes_transferred) {
+#ifdef _GOOBYSOFT_DEBUG
+			std::cerr << "CDC.cpp - Read completion (" << ec.message() << ", " << bytes_transferred << " bytes)" << std::endl;
+#endif
+			if (!ec.failed()) {
+#ifdef _GOOBYSOFT_DEBUG
+				std::cerr << "Reading data - OK" << std::endl;
+				timer.cancel();
+#endif
+			}
+		});
+
+		// Write 
+		boost::asio::write(*deviceUSB, boost::asio::buffer(dataTX, size));
+
+		io.run();
 	}
 	return dataRX;
 }
