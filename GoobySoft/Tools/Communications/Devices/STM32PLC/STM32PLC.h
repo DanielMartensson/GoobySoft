@@ -1,5 +1,5 @@
-#ifndef STM32PLC
-#define STM32PLC
+#ifndef STM32PLC_H
+#define STM32PLC_H
 #include "../../../Tools.h"
 
 // Message types for STM32 PLC
@@ -33,4 +33,4 @@ float Tools_Communications_Devices_STM32PLC_getInput(const char port[], int func
 bool Tools_Communications_Devices_STM32PLC_setOutput(const char port[], int functionValueIndex, int address, int value);
 const char* Tools_Communications_Devices_STM32PLC_getAddressPort();
 
-#endif // !STM32PLC
+#endif // !STM32PLC_H
