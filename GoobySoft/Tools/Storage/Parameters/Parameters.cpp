@@ -1,6 +1,7 @@
 #include "Parameters.h"
 #include <fstream>
 #include <cstring>
+#include <memory>
 
 #define FILE_NAME "parameters.dat"
 #define SIZE_PARAMETER_HOLDER sizeof(ParameterHolder)
