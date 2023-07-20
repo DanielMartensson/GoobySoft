@@ -262,6 +262,12 @@ The folders `x64/Debug` and `x64/Release` contains prebuilt 64-bit Windows binar
  6. Compile `cmake --build build` 
  7. Go to the `build` folder inside `GoobySoft` and run `./GoobySoft`  
 
+Or your could just run the script `installForUbuntuDebian.sh`
+
+```bash
+./installForUbuntuDebian.sh
+```
+
 ## Raspberry Pi - Compile from source
  1. Install software `sudo apt-get install build-essential cmake libsdl2-dev libopengl-dev libmodbus-dev libboost-all-dev`
  2. Download the `Linux - Generic (glibc <version>) (ARM, 64-bit), Compressed TAR Archive` from [Oracle Connectors](https://dev.mysql.com/downloads/connector/cpp/)
@@ -274,6 +280,12 @@ The folders `x64/Debug` and `x64/Release` contains prebuilt 64-bit Windows binar
  9. Run CMake `cmake -B build .`
  10. Compile `cmake --build build` 
  11. Go to the `build` folder inside `GoobySoft` and run `./GoobySoft`  
+
+Or your could just run the script `installForRaspberryPi.sh`
+
+```bash
+./installForRaspberryPi.sh
+```
 
 # Pictures
 
