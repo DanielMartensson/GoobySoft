@@ -180,7 +180,7 @@ std::string Tools_Hardware_USB_Protocols_CDC_getPortsOfConnectedDevices() {
 	return ports;
 }
 
-std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_startTransieveProcesss(const char port[], const long long timeoutMilliseconds, uint8_t dataTX[], size_t size, std::string endingOfDataRX) {
+std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(const char port[], const long long timeoutMilliseconds, uint8_t dataTX[], size_t size, std::string endingOfDataRX) {
 	std::vector<uint8_t> dataRX;
 	if (CDCDeviceExist(port)) {
 

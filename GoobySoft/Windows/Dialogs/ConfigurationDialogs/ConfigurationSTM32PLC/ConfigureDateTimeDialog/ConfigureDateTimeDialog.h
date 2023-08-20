@@ -1,0 +1,7 @@
+#ifndef ConfigureDateTimeDialog
+#define ConfigureDateTimeDialog
+
+void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureDateTimeDialog_showConfigureDateTimeDialog(bool* configureDateTime);
+
+#endif
+

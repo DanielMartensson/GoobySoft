@@ -1,0 +1,6 @@
+#ifndef ConfigureAnalogInputDialog
+#define ConfigureAnalogInputDialog
+
+void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureAnalogInputDialog_showConfigureAnalogInputDialog(bool* configureAnalogInput);
+
+#endif // !ConfigureAnalogInputDialog

@@ -1,5 +1,5 @@
+#include "Windows.h"
 #include "../Tools/Tools.h"
-#include "Dialogs/Dialogs.h"
 
 // For file dialogs
 bool selectFile = false;
@@ -14,6 +14,10 @@ bool viewMeasurement = false;
 bool configureSAEJ1939Name = false;
 bool configureSAEJ1939Identifications = false;
 bool configureSAEJ1939DiagnosticMessage = false;
+bool configureAnalogInput = false;
+bool configureDateTime = false;
+bool configurePWM = false;
+bool canTrafficDialog = false;
 
 void showMainWindow(bool* done) {
 	// Show the main window
@@ -43,6 +47,19 @@ void showMainWindow(bool* done) {
 				ImGui::MenuItem("Name", nullptr, &configureSAEJ1939Name);
 				ImGui::MenuItem("Identifications", nullptr, &configureSAEJ1939Identifications);
 				ImGui::MenuItem("Diagnostics messages", nullptr, &configureSAEJ1939DiagnosticMessage);
+				ImGui::EndMenu();
+			}
+			if (ImGui::BeginMenu("STM32 PLC")) {
+				ImGui::MenuItem("Analog input", nullptr, &configureAnalogInput);
+				ImGui::MenuItem("Date time", nullptr, &configureDateTime);
+				ImGui::MenuItem("PWM", nullptr, &configurePWM);
+				ImGui::EndMenu();
+			}
+			ImGui::EndMenu();
+		}
+		if (ImGui::BeginMenu("Analyze")) {
+			if (ImGui::BeginMenu("STM32 PLC")) {
+				ImGui::MenuItem("CAN traffic", nullptr, &canTrafficDialog);
 				ImGui::EndMenu();
 			}
 			ImGui::EndMenu();
@@ -84,6 +101,18 @@ void showMainWindow(bool* done) {
 		}
 		if (configureSAEJ1939Name) {
 			Windows_Dialogs_ConfigurationiDialogs_ConfigurationSAEJ1939_ConfigureNameDialog_showConfigureNameDialog(&configureSAEJ1939Name);
+		}
+		if (configureAnalogInput) {
+			Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureAnalogInputDialog_showConfigureAnalogInputDialog(&configureAnalogInput);
+		}
+		if (configureDateTime) {
+			Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureDateTimeDialog_showConfigureDateTimeDialog(&configureDateTime);
+		}
+		if (configurePWM) {
+			Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigurePWMDialog_showConfigurePWMDialog(&configurePWM);
+		}
+		if (canTrafficDialog) {
+			Windows_Dialogs_AnalyzeDialogs_CANTrafficDialog_showCANTrafficDialog(&canTrafficDialog);
 		}
 
 		ImGui::EndMainMenuBar();

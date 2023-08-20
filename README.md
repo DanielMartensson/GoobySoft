@@ -35,8 +35,8 @@ void Tools_Communications_Devices_createDevices() {
 	}
 
 	// Create devices for protocols 
-	createProtocolTool(&protocols[0], USB_PROTOCOL_STRING[0], 1); // Modbus RTU, 1 device
-	createProtocolTool(&protocols[1], USB_PROTOCOL_STRING[1], 1); // CDC, 1 device
+	createProtocolTool(&protocols[0], USB_PROTOCOL_STRING[USB_PROTOCOL_ENUM_MODBUS_RTU], 1); // Modbus RTU, 1 device
+	createProtocolTool(&protocols[1], USB_PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC], 1); // CDC, 1 device
 	// Add new protocol here...
 
 	// Create devices
@@ -206,10 +206,10 @@ It's very important to select right `COLUMN_FUNCTION` for a specific `IO` index.
 ```cpp
 /* 
  * One protocol can contains multiple devices.
- * USB_PROTOCOL_STRING[1] is "CDC" and it stands for USB communications device class e.g regular USB communication
+ * USB_PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC] stands for USB communications device class e.g regular USB communication
  * Here I say that `CDC` can hold 10 devices.
  */
-createProtocolTool(&protocols[1], USB_PROTOCOL_STRING[1], 10); 
+createProtocolTool(&protocols[1], USB_PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC], 10); 
 
 
 /* Add your device to that protocol CDC. Here I say that my device is CDC and the device is at index 0 */

@@ -2,5 +2,6 @@
 #define ConfigurationDialogs
 
 #include "ConfigurationSAEJ1939/ConfigurationSAEJ1939.h"
+#include "ConfigurationSTM32PLC/ConfigurationSTM32PLC.h"
 
 #endif // !ConfigurationDialogs

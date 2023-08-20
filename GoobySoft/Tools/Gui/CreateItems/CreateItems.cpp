@@ -35,6 +35,38 @@ void Tools_Gui_CreateItems_createListBox(const char label[], const float height,
 	}
 }
 
+bool Tools_Gui_CreateItems_createTable(const char strId[], std::vector<std::vector<std::string>> rows) {
+	size_t columnsCombo = rows.size();
+	size_t amountOfRows = 0;
+	bool clicked = false;
+	if (columnsCombo > 0) {
+		amountOfRows = rows.size();
+		columnsCombo = rows.at(0).size();
+	}
+	else {
+		return false;
+	}
+	if (ImGui::BeginTable(strId, (int)columnsCombo, ImGuiTableFlags_RowBg | ImGuiTableFlags_Borders | ImGuiTableFlags_BordersH | ImGuiTableFlags_BordersOuterH | ImGuiTableFlags_BordersInnerH | ImGuiTableFlags_BordersV | ImGuiTableFlags_BordersOuterV | ImGuiTableFlags_BordersInnerV | ImGuiTableFlags_BordersOuter | ImGuiTableFlags_BordersInner | ImGuiTableFlags_SizingFixedFit)) {
+		// Headers setup - Row index 0
+		for (size_t column = 0; column < columnsCombo; column++) {
+			ImGui::TableSetupColumn(rows.at(0).at(column).c_str());
+		}
+		ImGui::TableHeadersRow();
+
+		// The rest of the rows
+		for (size_t rowIndex = 1; rowIndex < amountOfRows; rowIndex++) {
+			ImGui::TableNextRow();
+			for (size_t column = 0; column < columnsCombo; column++) {
+				ImGui::TableSetColumnIndex((int)column);
+				const char* cellValueString = rows.at(rowIndex).at(column).c_str();
+				ImGui::Selectable(cellValueString, false);
+			}
+		}
+		ImGui::EndTable();
+	}
+	return true;
+}
+
 bool Tools_Gui_CreateItems_createTableSelectable(const char strId[], std::vector<std::vector<std::string>> rows, int* selectedRow) {
 	size_t columnsCombo = rows.size();
 	size_t amountOfRows = 0;

@@ -22,7 +22,7 @@ void Tools_Hardware_USB_Protocol_OpenSAEJ1939_callbackFunctionSend(uint32_t ID, 
 	// Get the port
 	const char* port = Tools_Communications_Devices_STM32PLC_getAddressPort();
 
-	Tools_Hardware_USB_Protocols_CDC_startTransieveProcesss(port, 1000, dataTX, sizeof(dataTX));
+	Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(port, 1000, dataTX, sizeof(dataTX));
 }
 
 void Tools_Hardware_USB_Protocol_OpenSAEJ1939_callbackFunctionRead(uint32_t* ID, uint8_t data[], bool* is_new_data) {
@@ -31,7 +31,7 @@ void Tools_Hardware_USB_Protocol_OpenSAEJ1939_callbackFunctionRead(uint32_t* ID,
 	
 	// Ask for CAN message
 	uint8_t dataTX[1] = { STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE };
-	std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_startTransieveProcesss(port, 1000, dataTX, sizeof(dataTX));
+	std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(port, 1000, dataTX, sizeof(dataTX));
 	if (dataRX.empty()) {
 		*is_new_data = false;
 		return;
@@ -50,8 +50,4 @@ void Tools_Hardware_USB_Protocol_OpenSAEJ1939_callbackFunctionRead(uint32_t* ID,
 		}
 		*is_new_data = true;
 	}
-}
-
-void Tools_Hardware_USB_Protocol_OpenSAEJ1939_callbackFunctionTraffic(uint32_t ID, uint8_t DLC, uint8_t data[], bool is_TX) {
-	
 }

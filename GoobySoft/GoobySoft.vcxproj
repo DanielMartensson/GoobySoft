@@ -128,7 +128,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <LanguageStandard_C>Default</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -198,10 +198,14 @@
     <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureDiagnosticMessageDialog\ConfigureDiagnosticMessageDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureIdentificationsDialog\ConfigureIdentificationsDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureNameDialog\ConfigureNameDialog.cpp" />
+    <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureAnalogInputDialog\ConfigureAnalogInputDialog.cpp" />
+    <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp" />
+    <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\ConnectionDialogs\DatabaseConnectionDialog\DatabaseConnectionDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\ConnectionDialogs\NetworkConnectionDialog\NetworkConnectionDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\ConnectionDialogs\USBConnectionDialog\USBConnectionDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\FileDialogs\LogFilePathDialog\LogFilePathDialog.cpp" />
+    <ClCompile Include="Windows\Dialogs\AnalyzeDialogs\CANTrafficDialog\CANTrafficDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\MeasurementDialogs\ConfigureMeasurementDialog\ConfigureMeasurementDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\MeasurementDialogs\ViewMeasurementDialog\ViewMeasurementDialog.cpp" />
@@ -270,11 +274,16 @@
     <ClInclude Include="Tools\Storage\Parameters\Parameters.h" />
     <ClInclude Include="Tools\Storage\Storage.h" />
     <ClInclude Include="Tools\Tools.h" />
+    <ClInclude Include="Windows\Dialogs\AnalyzeDialogs\AnalyzeDialogs.h" />
     <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationDialogs.h" />
     <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureDiagnosticMessageDialog\ConfigureDiagnosticMessageDialog.h" />
     <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureIdentificationsDialog\ConfigureIdentificationsDialog.h" />
     <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigurationSAEJ1939.h" />
     <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureNameDialog\ConfigureNameDialog.h" />
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurationSTM32PLC.h" />
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureAnalogInputDialog\ConfigureAnalogInputDialog.h" />
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.h" />
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.h" />
     <ClInclude Include="Windows\Dialogs\ConnectionDialogs\ConnectionDialogs.h" />
     <ClInclude Include="Windows\Dialogs\ConnectionDialogs\DatabaseConnectionDialog\DatabaseConnectionDialog.h" />
     <ClInclude Include="Windows\Dialogs\ConnectionDialogs\NetworkConnectionDialog\NetworkConnectionDialog.h" />
@@ -282,6 +291,7 @@
     <ClInclude Include="Windows\Dialogs\Dialogs.h" />
     <ClInclude Include="Windows\Dialogs\FileDialogs\FileDialogs.h" />
     <ClInclude Include="Windows\Dialogs\FileDialogs\LogFilePathDialog\LogFilePathDialog.h" />
+    <ClInclude Include="Windows\Dialogs\AnalyzeDialogs\CANTrafficDialog\CANTrafficDialog.h" />
     <ClInclude Include="Windows\Dialogs\MeasurementDialogs\ConfigureMeasurementDialog\ConfigureMeasurementDialog.h" />
     <ClInclude Include="Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.h" />
     <ClInclude Include="Windows\Dialogs\MeasurementDialogs\MeasurementDialogs.h" />

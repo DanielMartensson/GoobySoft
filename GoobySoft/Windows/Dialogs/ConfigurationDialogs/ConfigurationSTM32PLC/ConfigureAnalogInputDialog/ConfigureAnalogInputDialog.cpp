@@ -1,0 +1,61 @@
+#include "ConfigureAnalogInputDialog.h"
+#include "../../../../../Tools/Tools.h"
+
+void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureAnalogInputDialog_showConfigureAnalogInputDialog(bool* configureAnalogInput) {
+	// Display
+	ImGui::SetNextWindowSize(ImVec2(450, 270));
+	if (ImGui::Begin("Configure analog input", configureAnalogInput, ImGuiWindowFlags_NoResize)) {
+		// Get the CDC ports
+		std::string connectedCDCports = Tools_Hardware_USB_getConnectedPorts(USB_PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC]);
+
+		// Create combo box
+		static int cdcIndex = 0;
+		ImGui::PushItemWidth(60);
+		ImGui::Combo("Connected CDC ports", &cdcIndex, connectedCDCports.c_str());
+		char port[20];
+		Tools_Software_Algorithms_extractElementFromCharArray(connectedCDCports.c_str(), cdcIndex, port);
+
+		// Gains for 3 ADCs and each ADC have 3 configurations indexes.
+		static int inputGains[3 * 3] = { 0 };
+
+		// Create two buttons
+		ImGui::SameLine();
+		if (ImGui::Button("Receive gains")) {
+			for (int adc = 0; adc < 3; adc++) {
+				uint8_t dataTX[2] = { STM32PLC_SEND_BACK_ANALOG_GAINS_MESSAGE_TYPE , adc };
+				std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(port, 1000, dataTX, sizeof(dataTX));
+				if (!dataRX.empty()) {
+					for (int configurationIndex = 0; configurationIndex < 3; configurationIndex++) {
+						inputGains[adc * 3 + configurationIndex] = dataRX.at(configurationIndex); 
+					}
+				}
+			}
+		}
+		ImGui::SameLine();
+		if (ImGui::Button("Transmit gains")) {
+			for (int adc = 0; adc < 3; adc++) {
+				uint8_t dataTX[4] = { STM32PLC_WRITE_SET_ANALOG_INPUT_GAIN_MESSAGE_TYPE, adc };
+				for (int configurationIndex = 0; configurationIndex < 3; configurationIndex++) {
+					dataTX[2] = configurationIndex;
+					dataTX[3] = inputGains[adc * 3 + configurationIndex];
+					Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(port, 1000, dataTX, sizeof(dataTX));
+				}
+			}
+		}
+
+		// Build up all gains for each input
+		const char* gains[] = {"1X", "2X", "4X", "8X", "16X", "32X", "1/2X"};
+		ImGui::Combo("Analog 0, Analog 1, Analog 2", &inputGains[0 * 3 + 0], gains, IM_ARRAYSIZE(gains));
+		ImGui::Combo("Analog 3, Analog 4, Analog 5, Analog 6", &inputGains[0 * 3 + 1], gains, IM_ARRAYSIZE(gains));
+		ImGui::Combo("Analog 7, Analog 8", &inputGains[0 * 3 + 0], gains, IM_ARRAYSIZE(gains));
+		ImGui::Combo("Analog 9", &inputGains[1 * 3 + 0], gains, IM_ARRAYSIZE(gains));
+		ImGui::Combo("Analog 10", &inputGains[1 * 3 + 1], gains, IM_ARRAYSIZE(gains));
+		ImGui::Combo("Analog 11", &inputGains[1 * 3 + 2], gains, IM_ARRAYSIZE(gains));
+		ImGui::Combo("Analog differential 0, Analog differential 1", &inputGains[2 * 3 + 0], gains, IM_ARRAYSIZE(gains));
+		ImGui::Combo("Analog differential 2, Analog differential 3", &inputGains[2 * 3 + 1], gains, IM_ARRAYSIZE(gains));
+		ImGui::Combo("Analog differential 4", &inputGains[2 * 3 + 2], gains, IM_ARRAYSIZE(gains));
+
+		// End
+		ImGui::End();
+	}
+}

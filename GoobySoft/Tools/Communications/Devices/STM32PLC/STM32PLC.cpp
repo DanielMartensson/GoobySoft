@@ -82,19 +82,19 @@ typedef enum {
 
 static uint8_t readInputUint8_t(const char port[], uint8_t messageType, uint8_t index) {
 	uint8_t dataTX[2] = { messageType, index };
-	std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_startTransieveProcesss(port, 1000, dataTX, sizeof(dataTX));
+	std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(port, 1000, dataTX, sizeof(dataTX));
 	return !dataRX.empty() ? dataRX.at(0) : 0;
 }
 
 static uint16_t readInputUint16_t(const char port[], uint8_t messageType, uint8_t index) {
 	uint8_t dataTX[2] = { messageType, index };
-	std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_startTransieveProcesss(port, 1000, dataTX, sizeof(dataTX));
+	std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(port, 1000, dataTX, sizeof(dataTX));
 	return !dataRX.empty() ? (dataRX.at(0) << 8) | dataRX.at(1) : 0;
 }
 
 static bool writeOutputUint16_t(const char port[], uint8_t messageType, uint8_t index, uint16_t value) {
 	uint8_t dataTX[4] = { messageType, index, value >> 8, value };
-	std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_startTransieveProcesss(port, 1000, dataTX, sizeof(dataTX));
+	std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(port, 1000, dataTX, sizeof(dataTX));
 	return !dataRX.empty();
 }
 

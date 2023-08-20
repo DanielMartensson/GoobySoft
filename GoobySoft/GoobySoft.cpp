@@ -113,7 +113,7 @@ int main(int, char**) {
 	SDL_SetWindowIcon(window, icon);
 
     // Set the call back functions for SAE J1939
-    CAN_Set_Callback_Functions(Tools_Hardware_USB_Protocol_OpenSAEJ1939_callbackFunctionSend, Tools_Hardware_USB_Protocol_OpenSAEJ1939_callbackFunctionRead, Tools_Hardware_USB_Protocol_OpenSAEJ1939_callbackFunctionTraffic);
+    CAN_Set_Callback_Functions(Tools_Hardware_USB_Protocol_OpenSAEJ1939_callbackFunctionSend, Tools_Hardware_USB_Protocol_OpenSAEJ1939_callbackFunctionRead, Windows_Dialogs_AnalyzeDialogs_CANTrafficDialog_callbackFunctionTraffic);
 
 	// Load parameters 
 	Tools_Hardware_ParameterStore_loadParameters();

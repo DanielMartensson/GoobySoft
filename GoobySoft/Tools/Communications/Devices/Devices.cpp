@@ -104,8 +104,8 @@ void Tools_Communications_Devices_createDevices() {
 	}
 
 	// Create devices for protocols 
-	createProtocolTool(&protocols[0], USB_PROTOCOL_STRING[0], 1); // Modbus RTU, 1 device
-	createProtocolTool(&protocols[1], USB_PROTOCOL_STRING[1], 1); // CDC, 1 device
+	createProtocolTool(&protocols[0], USB_PROTOCOL_STRING[USB_PROTOCOL_ENUM_MODBUS_RTU], 1); // Modbus RTU, 1 device
+	createProtocolTool(&protocols[1], USB_PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC], 1); // CDC, 1 device
 	// Add new protocol here...
 
 	// Create devices
