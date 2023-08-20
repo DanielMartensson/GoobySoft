@@ -11,6 +11,7 @@ This is a measuring and controlling software. The purpose of this software is to
 * Database connection
 * Real time data acquisition
 * Multifunctional plots
+* CAN Traffic reader
 * Multiple connections to multiple devices at the same time during data acquisition
 
 # Supported devices
