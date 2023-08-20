@@ -187,6 +187,9 @@ std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(co
 		// Get the USB
 		auto deviceUSB = devicesCDC.at(port);
 
+		// Flag
+		bool wait;
+
 		// Timer
 		boost::asio::steady_timer timer(io, std::chrono::milliseconds(timeoutMilliseconds));
 		timer.async_wait([&](boost::system::error_code ec) {
@@ -197,9 +200,12 @@ std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(co
 #ifdef _GOOBYSOFT_DEBUG
 				std::cerr << "CDC.cpp - Timeout expired" << std::endl;
 #endif
-				deviceUSB->cancel(); // Cancels any async operation
 			}
+			wait = false;
 		});
+
+		// Write 
+		boost::asio::write(*deviceUSB, boost::asio::buffer(dataTX, size));
 
 		// Read process
 		boost::asio::async_read_until(*deviceUSB, boost::asio::dynamic_buffer(dataRX), endingOfDataRX, [&](boost::system::error_code ec, size_t bytes_transferred) {
@@ -212,12 +218,15 @@ std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(co
 				timer.cancel();
 #endif
 			}
+			wait = false;
 		});
 
-		// Write 
-		boost::asio::write(*deviceUSB, boost::asio::buffer(dataTX, size));
-
+		wait = true;
 		io.run();
+
+		// Wait
+		while (wait) { ; }
+		io.reset();
 	}
 	return dataRX;
 }

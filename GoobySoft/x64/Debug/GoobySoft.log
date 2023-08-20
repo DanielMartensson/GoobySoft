@@ -1,3 +1,7 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (ModBusReader.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  CAN_Transmit_Receive.c
+  ConfigurePWMDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp(33,96): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp(33,125): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp(33,156): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp(33,185): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
   GoobySoft.vcxproj -> C:\Users\dmn\GitHub\GoobySoft\x64\Debug\GoobySoft.exe

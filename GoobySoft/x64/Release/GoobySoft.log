@@ -1,165 +1,20 @@
-﻿  GoobySoft.cpp
-  ADL400.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\ADL400\ADL400.cpp(147,2): warning C4065: switch statement contains 'default' but no 'case' labels
-  Devices.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\Devices.cpp(14,56): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  STM32PLC.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(96,50): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(96,56): warning C4838: conversion from 'uint16_t' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(96,56): warning C4244: 'initializing': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-  CreateDialogs.cpp
-  Network.cpp
-  ModbusTCP.cpp
-  OpenSAEJ1939.cpp
-  ImGuiFileDialog.cpp
-  CreateItems.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Gui\CreateItems\CreateItems.cpp(95,30): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  imgui_impl_opengl3.cpp
-  imgui_impl_sdl2.cpp
-  imgui.cpp
-  imgui_demo.cpp
-  imgui_draw.cpp
-  imgui_tables.cpp
-  imgui_widgets.cpp
-  implot.cpp
-  implot_items.cpp
-  FileSystem.cpp
-  Compiling...
-  CDC.cpp
-  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
-  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
-  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
-  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
-  ModbusRTU.cpp
-  USB.cpp
-  Algorithms.cpp
-  Databases.cpp
-  MySQL.cpp
-C:\vcpkg\installed\x64-windows\include\mysqlx\common.h(38,1): warning C4005: '_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING': macro redefinition
-C:\vcpkg\installed\x64-windows\include\mysqlx\common.h(38,1): message : '_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING' previously declared on the command line
-  Parameters.cpp
-  ConfigureDiagnosticMessageDialog.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureDiagnosticMessageDialog\ConfigureDiagnosticMessageDialog.cpp(147,34): warning C4267: 'initializing': conversion from 'size_t' to 'uint8_t', possible loss of data
-  ConfigureIdentificationsDialog.cpp
-  ConfigureNameDialog.cpp
-  ConfigureAnalogInputDialog.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureAnalogInputDialog\ConfigureAnalogInputDialog.cpp(25,74): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureAnalogInputDialog\ConfigureAnalogInputDialog.cpp(37,78): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-  ConfigureDateTimeDialog.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(45,74): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(45,82): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(45,89): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(45,99): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(45,106): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(61,67): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(61,73): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(61,80): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(77,67): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(77,77): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(77,84): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-  ConfigurePWMDialog.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp(33,96): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp(33,125): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp(33,156): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp(33,185): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-  DatabaseConnectionDialog.cpp
-  NetworkConnectionDialog.cpp
-  USBConnectionDialog.cpp
-  LogFilePathDialog.cpp
-  CANTrafficDialog.cpp
-  ConfigureMeasurementDialog.cpp
-  CreateMeasurementDialog.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(49,75): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(49,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(52,36): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(67,43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(72,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(208,18): warning C4244: 'initializing': conversion from '_Rep' to 'int', possible loss of data
-          with
-          [
-              _Rep=__int64
-          ]
-  Compiling...
-  ViewMeasurementDialog.cpp
-  Windows.cpp
-  CAN_Transmit_Receive.c
-  FLASH_EEPROM_RAM_Memory.c
-  Save_Load_Struct.c
-  Auxiliary_Valve_Command.c
-  Auxiliary_Valve_Estimated_Flow.c
-  Auxiliary_Valve_Measured_Position.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\ISO_11783\ISO_11783-7_Application_Layer\Auxiliary_Valve_Measured_Position.c(29,71): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\ISO_11783\ISO_11783-7_Application_Layer\Auxiliary_Valve_Measured_Position.c(32,71): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-  General_Purpose_Valve_Command.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\ISO_11783\ISO_11783-7_Application_Layer\General_Purpose_Valve_Command.c(24,12): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-  General_Purpose_Valve_Estimated_Flow.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\ISO_11783\ISO_11783-7_Application_Layer\General_Purpose_Valve_Estimated_Flow.c(33,60): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\ISO_11783\ISO_11783-7_Application_Layer\General_Purpose_Valve_Estimated_Flow.c(35,60): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-  Closedown_ECU.c
-  Listen_For_Messages.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\Open_SAE_J1939\Listen_For_Messages.c(26,20): warning C4244: 'initializing': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\Open_SAE_J1939\Listen_For_Messages.c(27,19): warning C4244: 'initializing': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\Open_SAE_J1939\Listen_For_Messages.c(28,16): warning C4244: 'initializing': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-  Startup_ECU.c
-  Acknowledgement.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-21_Transport_Layer\Acknowledgement.c(34,12): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-21_Transport_Layer\Acknowledgement.c(35,34): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-21_Transport_Layer\Acknowledgement.c(36,34): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-  Request.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-21_Transport_Layer\Request.c(67,11): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-21_Transport_Layer\Request.c(68,20): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-21_Transport_Layer\Request.c(69,20): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-  Transport_Protocol_Connection_Management.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-21_Transport_Layer\Transport_Protocol_Connection_Management.c(42,33): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-21_Transport_Layer\Transport_Protocol_Connection_Management.c(46,33): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-21_Transport_Layer\Transport_Protocol_Connection_Management.c(47,62): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-21_Transport_Layer\Transport_Protocol_Connection_Management.c(48,62): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-  Transport_Protocol_Data_Transfer.c
-  Request_Component_Identification.c
-  Request_ECU_Identification.c
-  Request_Software_Identification.c
-  DM1.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM1.c(32,35): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM1.c(33,39): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM1.c(52,64): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM1.c(53,68): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-  DM14.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM14.c(21,12): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM14.c(23,12): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM14.c(24,20): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM14.c(25,20): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM14.c(27,12): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM14.c(61,58): warning C4244: 'function': conversion from 'uint16_t' to 'const uint8_t', possible loss of data
-  Compiling...
-  DM15.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM15.c(21,21): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM15.c(23,21): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM15.c(24,35): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM15.c(25,35): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM15.c(27,21): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-  DM16.c
-  DM2.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM2.c(32,35): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM2.c(33,39): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM2.c(53,64): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM2.c(54,68): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-  DM3.c
-  Address_Claimed.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-81_Network_Management_Layer\Address_Claimed.c(33,49): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-81_Network_Management_Layer\Address_Claimed.c(34,66): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-81_Network_Management_Layer\Address_Claimed.c(35,74): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-  Address_Delete.c
-  Address_Not_Claimed.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-81_Network_Management_Layer\Address_Not_Claimed.c(20,49): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-81_Network_Management_Layer\Address_Not_Claimed.c(21,66): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-81_Network_Management_Layer\Address_Not_Claimed.c(22,74): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-  Commanded_Address.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-81_Network_Management_Layer\Commanded_Address.c(22,34): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-81_Network_Management_Layer\Commanded_Address.c(23,50): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-81_Network_Management_Layer\Commanded_Address.c(24,58): warning C4244: '=': conversion from 'uint32_t' to 'uint8_t', possible loss of data
+﻿  ConfigureDateTimeDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,74): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,82): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,89): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,104): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,109): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,116): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(66,67): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(66,73): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(66,80): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(86,76): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(86,81): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(86,88): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
      Creating library C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.lib and object C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exp
   Generating code
-  Previous IPDB not found, fall back to full compilation.
-  All 7813 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  2 of 7814 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    54 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   GoobySoft.vcxproj -> C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exe

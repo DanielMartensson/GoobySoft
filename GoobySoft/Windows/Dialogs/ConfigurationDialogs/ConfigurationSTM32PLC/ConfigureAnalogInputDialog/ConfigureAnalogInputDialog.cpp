@@ -28,6 +28,7 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureAnalogI
 					for (int configurationIndex = 0; configurationIndex < 3; configurationIndex++) {
 						inputGains[adc * 3 + configurationIndex] = dataRX.at(configurationIndex); 
 					}
+					Tools_Gui_CreateDialogs_showPopUpInformationDialogOK("Analog input", "Analog input gains received");
 				}
 			}
 		}
@@ -35,10 +36,17 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureAnalogI
 		if (ImGui::Button("Transmit gains")) {
 			for (int adc = 0; adc < 3; adc++) {
 				uint8_t dataTX[4] = { STM32PLC_WRITE_SET_ANALOG_INPUT_GAIN_MESSAGE_TYPE, adc };
+				int count = 0;
 				for (int configurationIndex = 0; configurationIndex < 3; configurationIndex++) {
 					dataTX[2] = configurationIndex;
 					dataTX[3] = inputGains[adc * 3 + configurationIndex];
-					Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(port, 1000, dataTX, sizeof(dataTX));
+					std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(port, 1000, dataTX, sizeof(dataTX));
+					if (!dataRX.empty()) {
+						count++;
+					}
+				}
+				if (count == 3) {
+					Tools_Gui_CreateDialogs_showPopUpInformationDialogOK("Analog input", "Analog input gains transmitted");
 				}
 			}
 		}
@@ -46,8 +54,8 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureAnalogI
 		// Build up all gains for each input
 		const char* gains[] = {"1X", "2X", "4X", "8X", "16X", "32X", "1/2X"};
 		ImGui::Combo("Analog 0, Analog 1, Analog 2", &inputGains[0 * 3 + 0], gains, IM_ARRAYSIZE(gains));
-		ImGui::Combo("Analog 3, Analog 4, Analog 5, Analog 6", &inputGains[0 * 3 + 1], gains, IM_ARRAYSIZE(gains));
-		ImGui::Combo("Analog 7, Analog 8", &inputGains[0 * 3 + 0], gains, IM_ARRAYSIZE(gains));
+		ImGui::Combo("Analog 3, Analog 4, Analog 5", &inputGains[0 * 3 + 1], gains, IM_ARRAYSIZE(gains));
+		ImGui::Combo("Analog 6, Analog 7, Analog 8", &inputGains[0 * 3 + 2], gains, IM_ARRAYSIZE(gains));
 		ImGui::Combo("Analog 9", &inputGains[1 * 3 + 0], gains, IM_ARRAYSIZE(gains));
 		ImGui::Combo("Analog 10", &inputGains[1 * 3 + 1], gains, IM_ARRAYSIZE(gains));
 		ImGui::Combo("Analog 11", &inputGains[1 * 3 + 2], gains, IM_ARRAYSIZE(gains));
