@@ -1,20 +1,20 @@
-﻿  ConfigureDateTimeDialog.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,74): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,82): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,89): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,104): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,109): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,116): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(66,67): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(66,73): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(66,80): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(86,76): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(86,81): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(86,88): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+﻿  fisherfaces.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\fisherfaces.c(49,10): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\fisherfaces.c(49,10): message : consider using '%zi' in the format string
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\fisherfaces.c(190,17): warning C4477: 'fprintf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'const size_t'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\fisherfaces.c(190,17): message : consider using '%zi' in the format string
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\fisherfaces.c(191,17): warning C4477: 'fprintf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'const size_t'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\fisherfaces.c(191,17): message : consider using '%zi' in the format string
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\fisherfaces.c(383,10): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'const size_t'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\fisherfaces.c(383,10): message : consider using '%zi' in the format string
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\fisherfaces.c(383,10): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'const size_t'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\fisherfaces.c(383,10): message : consider using '%zi' in the format string
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\fisherfaces.c(389,13): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\fisherfaces.c(389,13): message : consider using '%zi' in the format string
      Creating library C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.lib and object C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exp
   Generating code
-  2 of 7814 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  0 of 7928 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    54 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   GoobySoft.vcxproj -> C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exe

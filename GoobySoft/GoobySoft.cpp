@@ -18,7 +18,7 @@
 #include "Resources/Resources.h"
 
 // Remove console
-#ifndef _GOOBYSOFT_DEBUG
+#ifdef _GOOBYSOFT_DEBUG
 #pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 #endif
 

@@ -186,3 +186,25 @@ void Tools_Gui_CreateDialogs_showFileDialog(bool* isOpen, bool* isPressedOK, con
 		}
 	}
 }
+
+void Tools_Gui_CreateDialogs_showFolderDialog(bool* isOpen, bool* isPressedOK, std::string& folderPath) {
+	if (*isOpen) {
+		ImGuiFileDialog::Instance()->OpenDialog("FolderDialogKey", "Choose a Directory", nullptr, ".");
+
+		// Display
+		if (ImGuiFileDialog::Instance()->Display("FolderDialogKey"))
+		{
+			// Action if OK
+			if (ImGuiFileDialog::Instance()->IsOk())
+			{
+				folderPath = ImGuiFileDialog::Instance()->GetCurrentPath();
+				// Action
+				*isPressedOK = true;
+			}
+
+			// close
+			ImGuiFileDialog::Instance()->Close();
+			*isOpen = false;
+		}
+	}
+}

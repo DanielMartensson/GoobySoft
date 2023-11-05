@@ -125,8 +125,7 @@ void Tools_Gui_CreateItems_createConnectDisconnectButtons(const bool isConnected
 	}
 	ImGui::PopStyleColor();
 
-	// Pop up for connect button
-		// Center for popup
+	// Pop up for connect button - Center for popup
 	ImVec2 popUpCenterPosition(ImGui::GetWindowPos().x + ImGui::GetWindowSize().x * 0.5f, ImGui::GetWindowPos().y + ImGui::GetWindowSize().y * 0.5f);
 	ImGui::SetNextWindowPos(popUpCenterPosition, ImGuiCond_Appearing, ImVec2(0.5f, 0.5f));
 	if (ImGui::BeginPopup("Connected", ImGuiWindowFlags_Modal)) {

@@ -44,6 +44,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <UseInteloneMKL>Sequential</UseInteloneMKL>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -51,6 +52,7 @@
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <UseInteloneMKL>Sequential</UseInteloneMKL>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -106,7 +108,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;_CRT_SECURE_NO_WARNINGS;_GOOBYSOFT_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -128,7 +130,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <LanguageStandard_C>Default</LanguageStandard_C>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -176,6 +178,301 @@
     <ClCompile Include="Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-81_Network_Management_Layer\Address_Delete.c" />
     <ClCompile Include="Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-81_Network_Management_Layer\Address_Not_Claimed.c" />
     <ClCompile Include="Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-81_Network_Management_Layer\Commanded_Address.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ArtificialIntelligence\Astar.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ArtificialIntelligence\inpolygon.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ControlEngineering\c2d.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ControlEngineering\kalman.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ControlEngineering\lqi.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ControlEngineering\mpc.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ControlEngineering\mrac.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ControlEngineering\stability.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ControlEngineering\theta2ss.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Hardware\concatenate_paths.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Hardware\count_sub_folders.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Hardware\scan_file_names.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Hardware\scan_sub_folder_names.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\imcollect.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\imfree.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\imgaussfilt.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\imread.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\imresize.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\imshow.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\pooling.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\rpca.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\sobel.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\balance.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\chol.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\cholupdate.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\ieeeck.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\iladlc.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\iladlr.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\ilaenv.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\ilaslc.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\ilaslr.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\iparmq.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\isamax.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\lsame.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\saxpy.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sbdsdc.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sbdsqr.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sceil.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\scopy.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sdot.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sgebak.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sgebal.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sgebd2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sgebrd.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sgeev.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sgehd2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sgehrd.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sgelq2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sgelqf.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sgemm.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sgemv.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sgeqr2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sgeqrf.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sger.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sgesdd.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sgesvd.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sgetrf.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sgetri.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sgetrs.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sggbak.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sggbal.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sggev.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sgghrd.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\shgeqz.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\shseqr.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sisnan.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slabad.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slabrd.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slacpy.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sladiv.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slae2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaed0.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaed1.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaed2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaed3.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaed4.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaed5.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaed6.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaed7.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaed8.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaed9.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaeda.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaev2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaexc.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slag2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slahqr.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slahr2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaisnan.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaln2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slamch.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slamrg.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slange.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slanhs.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slanst.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slansy.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slanv2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slapy2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slapy3.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaqr0.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaqr1.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaqr2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaqr3.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaqr4.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaqr5.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slarf.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slarfb.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slarfg.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slarfp.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slarft.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slarfx.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slartg.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slas2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slascl.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasd0.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasd1.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasd2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasd3.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasd4.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasd5.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasd6.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasd7.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasd8.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasda.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasdq.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasdt.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaset.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasq1.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasq2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasq3.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasq4.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasq5.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasq6.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasr.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasrt.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slassq.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasv2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slaswp.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slasy2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\slatrd.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\snrm2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sorg2r.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sorgbr.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sorghr.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sorgl2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sorglq.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sorgqr.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sorm2l.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sorm2r.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sormbr.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sormhr.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sorml2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sormlq.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sormql.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sormqr.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sormtr.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sposv.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\spotf2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\spotrf.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\spotrs.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\srot.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sscal.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sstedc.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\ssteqr.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\ssterf.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\sswap.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\ssyevd.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\ssygs2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\ssygst.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\ssygvd.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\ssymm.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\ssymv.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\ssyr2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\ssyr2k.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\ssyrk.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\ssytd2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\ssytrd.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\stgevc.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\strevc.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\strexc.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\strmm.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\strmv.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\strsm.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\strsv.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\strti2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\strtri.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\xerbla.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\close.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\endfile.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\err.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\exit_.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\f77_aloc.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\fmt.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\fmtlib.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\i_len_trim.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\i_nint.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\open.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\pow_dd.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\pow_ii.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\pow_ri.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\r_lg10.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\r_sign.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\sfe.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\sig_die.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\s_cat.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\s_cmp.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\s_copy.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\s_stop.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\util.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\wref.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\wrtfmt.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\wsfe.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\conv2fft.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\det.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\dlyap.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\dot.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\eig.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\eig_generalized.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\expm.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\hankel.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\inv.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\linsolve_chol.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\linsolve_gauss.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\linsolve_lower_triangular.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\linsolve_lup.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\linsolve_qr.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\linsolve_upper_triangular.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\lup.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\mul.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\nonlinsolve.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\norm.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\pinv.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\qr.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\rank.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\svd.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\tran.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\brisk.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\collect_data.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\dbscan.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\fast.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\fisherfaces.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\hough.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\kernel.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\kmeans.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\kpca.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\lbp.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\odorp.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\orp.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\svm.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\cat.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\cut.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\deg2rad.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\find.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\insert.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\issymmetric.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\pdist2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\print.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\rad2deg.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\saturation.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\sign.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\sort.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\sum.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\vmax.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\vmin.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Optimization\linprog.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Optimization\lsqnonneg.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Optimization\quadprog.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SignalProcessing\cluster_filter.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SignalProcessing\fft.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SignalProcessing\fft2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SignalProcessing\FFTpack\fftpack.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SignalProcessing\fftshift.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SignalProcessing\filtfilt.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SignalProcessing\ifft.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SignalProcessing\ifft2.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SignalProcessing\ifftshift.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SignalProcessing\pf.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SignalProcessing\sr_ukf_state_estimation.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\amax.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\area.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\center.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\circleaverage.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\cov.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\covm.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\lda.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\mean.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\pca.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\randn.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\randperm.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\stddev.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\var.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SystemIdentification\era.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SystemIdentification\okid.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SystemIdentification\rls.c" />
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SystemIdentification\sr_ukf_parameter_estimation.c" />
     <ClCompile Include="Tools\Software\Libraries\ImGuiFileDialog\ImGuiFileDialog.cpp" />
     <ClCompile Include="Tools\Gui\CreateItems\CreateItems.cpp" />
     <ClCompile Include="Tools\Software\Libraries\ImGui\backends\imgui_impl_opengl3.cpp" />
@@ -209,6 +506,8 @@
     <ClCompile Include="Windows\Dialogs\MeasurementDialogs\ConfigureMeasurementDialog\ConfigureMeasurementDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\MeasurementDialogs\ViewMeasurementDialog\ViewMeasurementDialog.cpp" />
+    <ClCompile Include="Windows\Dialogs\UtilDialogs\FisherFacesDialog\FisherFacesDialog.cpp" />
+    <ClCompile Include="Windows\Dialogs\UtilDialogs\ODORPDialog\ODORPDialog.cpp" />
     <ClCompile Include="Windows\Windows.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +540,23 @@
     <ClInclude Include="Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939_Enums\Enum_NAME.h" />
     <ClInclude Include="Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939_Enums\Enum_PGN.h" />
     <ClInclude Include="Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939_Enums\Enum_Send_Status.h" />
+    <ClInclude Include="Tools\Software\Libraries\CControl\ccontrol.h" />
+    <ClInclude Include="Tools\Software\Libraries\CControl\Headers\defines.h" />
+    <ClInclude Include="Tools\Software\Libraries\CControl\Headers\enums.h" />
+    <ClInclude Include="Tools\Software\Libraries\CControl\Headers\functions.h" />
+    <ClInclude Include="Tools\Software\Libraries\CControl\Headers\structs.h" />
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\clapack.h" />
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\blaswrap.h" />
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\clapack.h" />
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\f2c.h" />
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Routines\routines.h" />
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\f2c.h" />
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\fio.h" />
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\fmt.h" />
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\fp.h" />
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\sysdep1.h" />
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\CLapack\Tools\tools.h" />
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\SignalProcessing\FFTpack\fftpack.h" />
     <ClInclude Include="Tools\Software\Libraries\ImGuiFileDialog\dirent\dirent.h" />
     <ClInclude Include="Tools\Software\Libraries\ImGuiFileDialog\ImGuiFileDialog.h" />
     <ClInclude Include="Tools\Software\Libraries\ImGuiFileDialog\ImGuiFileDialogConfig.h" />
@@ -296,6 +612,9 @@
     <ClInclude Include="Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.h" />
     <ClInclude Include="Windows\Dialogs\MeasurementDialogs\MeasurementDialogs.h" />
     <ClInclude Include="Windows\Dialogs\MeasurementDialogs\ViewMeasurementDialog\ViewMeasurementDialog.h" />
+    <ClInclude Include="Windows\Dialogs\UtilDialogs\FisherFacesDialog\FisherFacesDialog.h" />
+    <ClInclude Include="Windows\Dialogs\UtilDialogs\ODORPDialog\ODORPDialog.h" />
+    <ClInclude Include="Windows\Dialogs\UtilDialogs\UtilDialogs.h" />
     <ClInclude Include="Windows\Windows.h" />
   </ItemGroup>
   <ItemGroup>

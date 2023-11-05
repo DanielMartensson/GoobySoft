@@ -11,5 +11,6 @@ bool Tools_Gui_CreateDialogs_showPopUpInputTextDialogOKCancle(const char popUpId
 void Tools_Gui_CreateDialogs_showPopUpInformationDialogOK(const char popUpId[], const char information[]);
 bool Tools_Gui_CreateDialogs_showPopUpComboInputIntInputFloatInputTextDialogOKCancle(const char popUpId[], TableRow* tableRow);
 void Tools_Gui_CreateDialogs_showFileDialog(bool* isOpen, bool* isPressedOK, const char fileFilter[], std::string& folderPath, std::string& filePathName, std::string& fileName, ImGuiFileDialogFlags flags);
+void Tools_Gui_CreateDialogs_showFolderDialog(bool* isOpen, bool* isPressedOK, std::string& folderPath);
 
 #endif // !CreateImGuiDialogs

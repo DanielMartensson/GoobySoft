@@ -7,5 +7,6 @@
 #include "ImGui/imgui.h"
 #include "ImGui/backends/imgui_impl_sdl2.h"
 #include "ImGui/backends/imgui_impl_opengl3.h"
+#include "CControl/ccontrol.h"
 
 #endif // !Libraries

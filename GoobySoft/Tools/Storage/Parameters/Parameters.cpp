@@ -9,6 +9,7 @@
 static ParameterHolder parameters;
 static J1939 j1939;
 
+// This should be called at the beginning of the startup
 void Tools_Hardware_ParameterStore_loadParameters() {
 	// Allocate memory on the heap
 	std::unique_ptr<uint8_t[]> data(new uint8_t[SIZE_PARAMETER_HOLDER]);
@@ -26,6 +27,7 @@ void Tools_Hardware_ParameterStore_loadParameters() {
 	Open_SAE_J1939_Startup_ECU(&j1939);
 }
 
+// This should be called at the closedown
 void Tools_Hardware_ParameterStore_saveParameters() {
 	// Allocate memory on the heap
 	std::unique_ptr<uint8_t[]> data(new uint8_t[SIZE_PARAMETER_HOLDER]);

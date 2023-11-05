@@ -18,6 +18,9 @@ bool configureAnalogInput = false;
 bool configureDateTime = false;
 bool configurePWM = false;
 bool canTrafficDialog = false;
+bool fisherFacesDialog = false;
+bool odOrpDialog = false;
+
 
 void showMainWindow(bool* done) {
 	// Show the main window
@@ -64,6 +67,17 @@ void showMainWindow(bool* done) {
 			}
 			ImGui::EndMenu();
 		}
+		if (ImGui::BeginMenu("Utils")) {
+			if (ImGui::BeginMenu("Fisherfaces")) {
+				ImGui::MenuItem("Build Fisherfaces model", nullptr, &fisherFacesDialog);
+				ImGui::EndMenu();
+			}
+			if (ImGui::BeginMenu("ODORP")) {
+				ImGui::MenuItem("Train ODORP model", nullptr, &odOrpDialog);
+				ImGui::EndMenu();
+			}
+			ImGui::EndMenu();
+		}
 
 		/* Dialogs */
 		if (selectFile) {
@@ -94,7 +108,7 @@ void showMainWindow(bool* done) {
 			Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasurementDialog(&viewMeasurement);
 		}
 		if (configureSAEJ1939Identifications) {
-			Windows_Dialogs_ConfigurationiDialogs_ConfigurationSAEJ1939_ConfigureIdentificationsDialog_showConfigureIdentificationsDialog(&configureSAEJ1939Identifications);
+			Windows_Dialogs_ConfigurationDialogs_ConfigurationSAEJ1939_ConfigureIdentificationsDialog_showConfigureIdentificationsDialog(&configureSAEJ1939Identifications);
 		}
 		if (configureSAEJ1939DiagnosticMessage) {
 			Windows_Dialogs_ConfigurationiDialogs_ConfigurationSAEJ1939_ConfigureDiagnosticMessageDialog_showConfigureDiagnosticMessageDialog(&configureSAEJ1939DiagnosticMessage);
@@ -113,6 +127,12 @@ void showMainWindow(bool* done) {
 		}
 		if (canTrafficDialog) {
 			Windows_Dialogs_AnalyzeDialogs_CANTrafficDialog_showCANTrafficDialog(&canTrafficDialog);
+		}
+		if (fisherFacesDialog) {
+			Windows_Dialogs_UtilDialogs_FisherFacesDialog_showFisherFacesDialog(&fisherFacesDialog);
+		}
+		if (odOrpDialog) {
+			Windows_Dialogs_UtilDialogs_ODORPDialog_showODORPDialog(&odOrpDialog);
 		}
 
 		ImGui::EndMainMenuBar();
