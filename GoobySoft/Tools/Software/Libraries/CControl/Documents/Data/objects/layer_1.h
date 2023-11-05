@@ -1,10 +1,10 @@
 /*
  * layer_1.h
  *
- * Created on : 2023-11-05 17:07:47
+ * Created on : 2023-11-05 21:16:45
  * Author: <Your name>
  * Purpose: <Classify <your things>
- * Model ID: 31102
+ * Model ID: 27597
  */
 
 #ifndef layer_1_H_
@@ -28,13 +28,13 @@
 #define layer_1_row 4
 #define layer_1_column 5
 
-const static float layer_1_w[layer_1_row * layer_1_column] = { 1.163870795e-03f, 2.036702121e-03f, 6.691898219e-03f, -5.301159108e-04f, 1.480963780e-03f, 
-1.480963780e-03f, -9.302328341e-03f, -9.302330203e-03f, -5.116280541e-02f, 4.651160911e-03f, 
-4.651160911e-03f, -4.651164263e-02f, -3.147365525e-03f, -5.087837577e-03f, -2.444062382e-03f, 
--2.444062382e-03f, 5.830192193e-02f, 9.799703956e-03f, 4.419609904e-04f, -1.144964993e-02f };
+const static float layer_1_w[layer_1_row * layer_1_column] = { 1.650463091e-03f, 3.703328548e-03f, 2.666858491e-04f, 7.719079033e-03f, 3.569646273e-03f, 
+3.569646273e-03f, -4.975125194e-02f, -4.975127056e-03f, -4.975128919e-03f, -4.975125194e-02f, 
+-4.975125194e-02f, -9.313225746e-10f, 1.582176052e-02f, -7.015913725e-04f, 5.476627499e-02f, 
+5.476627499e-02f, -1.101095974e-02f, -8.974594995e-03f, 4.271874577e-02f, -2.417639643e-02f };
 
-const static float layer_1_b[layer_1_row] = { -1.354875326e+00f, 7.395351529e-01f, -1.233440518e+00f, 3.592641652e-02f };
+const static float layer_1_b[layer_1_row] = { -1.389532804e+00f, 6.467663050e-01f, -1.249911547e+00f, 2.199067175e-02f };
 
-const static ACTIVATION_FUNCTION layer_1_activtion_function = ACTIVTION_FUNCTION_CLOSEST_VALUE_INDEX;
+const static ACTIVATION_FUNCTION layer_1_activtion_function = ACTIVATION_FUNCTION_HIGHEST_VALUE_INDEX;
 
 #endif /* !layer_1_H_ */

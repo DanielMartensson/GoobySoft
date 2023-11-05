@@ -9,35 +9,15 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\ST
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(96,56): warning C4244: 'initializing': conversion from 'uint16_t' to 'uint8_t', possible loss of data
   CreateDialogs.cpp
   Network.cpp
-  ModbusTCP.cpp
-  OpenSAEJ1939.cpp
-  ImGuiFileDialog.cpp
-  CreateItems.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Gui\CreateItems\CreateItems.cpp(95,30): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  imgui_impl_opengl3.cpp
-  imgui_impl_sdl2.cpp
-  imgui.cpp
-  imgui_demo.cpp
-  imgui_draw.cpp
-  imgui_tables.cpp
-  imgui_widgets.cpp
-  implot.cpp
-  implot_items.cpp
-  FileSystem.cpp
-  Compiling...
   CDC.cpp
   Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
   - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
   - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
   Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
-  ModbusRTU.cpp
+  OpenSAEJ1939.cpp
   USB.cpp
-  Algorithms.cpp
-  Databases.cpp
-  MySQL.cpp
-C:\vcpkg\installed\x64-windows\include\mysqlx\common.h(38,1): warning C4005: '_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING': macro redefinition
-C:\vcpkg\installed\x64-windows\include\mysqlx\common.h(38,1): message : '_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING' previously declared on the command line
   Parameters.cpp
+  CANTrafficDialog.cpp
   ConfigureDiagnosticMessageDialog.cpp
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureDiagnosticMessageDialog\ConfigureDiagnosticMessageDialog.cpp(147,34): warning C4267: 'initializing': conversion from 'size_t' to 'uint8_t', possible loss of data
   ConfigureIdentificationsDialog.cpp
@@ -66,8 +46,8 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\Con
   DatabaseConnectionDialog.cpp
   NetworkConnectionDialog.cpp
   USBConnectionDialog.cpp
+  Compiling...
   LogFilePathDialog.cpp
-  CANTrafficDialog.cpp
   ConfigureMeasurementDialog.cpp
   CreateMeasurementDialog.cpp
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(49,75): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
@@ -80,7 +60,6 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\Creat
           [
               _Rep=__int64
           ]
-  Compiling...
   ViewMeasurementDialog.cpp
   FisherFacesDialog.cpp
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\FisherFacesDialog\FisherFacesDialog.cpp(34,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
@@ -89,46 +68,6 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\FisherFacesD
   ODORPDialog.cpp
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ODORPDialog\ODORPDialog.cpp(107,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Windows.cpp
-  CAN_Transmit_Receive.c
-  FLASH_EEPROM_RAM_Memory.c
-  Save_Load_Struct.c
-  Auxiliary_Valve_Command.c
-  Auxiliary_Valve_Estimated_Flow.c
-  Auxiliary_Valve_Measured_Position.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\ISO_11783\ISO_11783-7_Application_Layer\Auxiliary_Valve_Measured_Position.c(29,71): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\ISO_11783\ISO_11783-7_Application_Layer\Auxiliary_Valve_Measured_Position.c(32,71): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-  General_Purpose_Valve_Command.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\ISO_11783\ISO_11783-7_Application_Layer\General_Purpose_Valve_Command.c(24,12): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-  General_Purpose_Valve_Estimated_Flow.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\ISO_11783\ISO_11783-7_Application_Layer\General_Purpose_Valve_Estimated_Flow.c(33,60): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\ISO_11783\ISO_11783-7_Application_Layer\General_Purpose_Valve_Estimated_Flow.c(35,60): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-  Closedown_ECU.c
-  Listen_For_Messages.c
-  Startup_ECU.c
-  Acknowledgement.c
-  Request.c
-  Transport_Protocol_Connection_Management.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-21_Transport_Layer\Transport_Protocol_Connection_Management.c(42,33): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-  Transport_Protocol_Data_Transfer.c
-  Request_Component_Identification.c
-  Request_ECU_Identification.c
-  Request_Software_Identification.c
-  DM1.c
-  DM14.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM14.c(21,12): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM14.c(27,12): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM14.c(61,58): warning C4244: 'function': conversion from 'uint16_t' to 'const uint8_t', possible loss of data
-  Compiling...
-  DM15.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM15.c(21,21): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\OpenSAEJ1939\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM15.c(27,21): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
-  DM16.c
-  DM2.c
-  DM3.c
-  Address_Claimed.c
-  Address_Delete.c
-  Address_Not_Claimed.c
-  Commanded_Address.c
   Astar.c
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ArtificialIntelligence\Astar.c(50,16): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ArtificialIntelligence\Astar.c(55,17): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
@@ -156,7 +95,6 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Source
   concatenate_paths.c
   count_sub_folders.c
   scan_file_names.c
-  Compiling...
   scan_sub_folder_names.c
   imcollect.c
   imfree.c
@@ -171,6 +109,7 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Source
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\imresize.c(24,23): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
   imshow.c
   pooling.c
+  Compiling...
   rpca.c
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\rpca.c(30,35): warning C4244: 'function': conversion from 'size_t' to 'float', possible loss of data
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\rpca.c(30,40): warning C4244: 'function': conversion from 'size_t' to 'float', possible loss of data
@@ -207,7 +146,6 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Source
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\eig_generalized.c(165,106): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\eig_generalized.c(165,115): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
   expm.c
-  Compiling...
   hankel.c
   inv.c
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\inv.c(48,56): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
@@ -229,6 +167,7 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Source
   linsolve_qr.c
   linsolve_upper_triangular.c
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\linsolve_upper_triangular.c(25,16): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+  Compiling...
   lup.c
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\lup.c(32,49): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\lup.c(32,54): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
@@ -280,7 +219,6 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Source
   fisherfaces.c
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\fisherfaces.c(39,10): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\fisherfaces.c(39,10): message : consider using '%zi' in the format string
-  Compiling...
   hough.c
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\hough.c(36,42): warning C4133: 'function': incompatible types - from 'float **' to 'size_t **'
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\hough.c(39,32): warning C4133: 'function': incompatible types - from 'float **' to 'size_t **'
@@ -320,6 +258,7 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Source
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(139,9): message : consider using '%zi' in the format string
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(153,9): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
   odorp.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\odorp.c(96,12): warning C4101: 'j': unreferenced local variable
   orp.c
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\orp.c(37,24): warning C4244: '=': conversion from 'float' to 'uint8_t', possible loss of data
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\orp.c(48,30): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
@@ -329,6 +268,7 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Source
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\orp.c(106,16): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\orp.c(111,16): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\orp.c(116,16): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+  Compiling...
   svm.c
   cat.c
   cut.c
@@ -346,7 +286,6 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Source
   rad2deg.c
   saturation.c
   sign.c
-  Compiling...
   sort.c
   sum.c
   vmax.c
@@ -355,19 +294,11 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Source
   lsqnonneg.c
   quadprog.c
   cluster_filter.c
+  Compiling...
   fft.c
   fft2.c
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\fft2.c(29,28): warning C4267: 'initializing': conversion from 'size_t' to 'long', possible loss of data
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\fft2.c(29,33): warning C4267: 'initializing': conversion from 'size_t' to 'long', possible loss of data
-  fftpack.c
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\FFTpack\fftpack.c(1083,22): warning C4244: '=': conversion from 'double' to 'real', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\FFTpack\fftpack.c(1603,22): warning C4244: '=': conversion from 'double' to 'real', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\FFTpack\fftpack.c(2013,23): warning C4244: '=': conversion from 'double' to 'real', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\FFTpack\fftpack.c(2218,23): warning C4244: '=': conversion from 'double' to 'real', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\FFTpack\fftpack.c(2412,19): warning C4244: '=': conversion from 'double' to 'real', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\FFTpack\fftpack.c(2504,15): warning C4244: '=': conversion from 'double' to 'real', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\FFTpack\fftpack.c(2661,15): warning C4244: '=': conversion from 'double' to 'real', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\FFTpack\fftpack.c(2663,32): warning C4244: '=': conversion from 'double' to 'real', possible loss of data
   fftshift.c
   filtfilt.c
   ifft.c
@@ -381,7 +312,6 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Source
   sr_ukf_state_estimation.c
   amax.c
   area.c
-  Compiling...
   center.c
   cov.c
   covm.c
@@ -401,6 +331,7 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Source
   randperm.c
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\randperm.c(18,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
   stddev.c
+  Compiling...
   var.c
   era.c
   okid.c
@@ -411,8 +342,8 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Source
   sr_ukf_parameter_estimation.c
      Creating library C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.lib and object C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exp
   Generating code
-  Previous IPDB was built with incompatible compiler, fall back to full compilation.
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(107): warning C4715: 'nn_predict': not all control paths return a value
-  All 7878 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  6 of 7879 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    70 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   GoobySoft.vcxproj -> C:\Users\dmn\GitHub\GoobySoft\x64\Release\GoobySoft.exe

@@ -191,6 +191,9 @@ void Windows_Dialogs_UtilDialogs_FisherFacesDialog_showFisherFacesDialog(bool* f
 
 			/* Total models */
 			parameterHolder->models.fisherfaces_models.total_models = data_collect->fisherfaces_models.total_models;
+			
+			/* Clear */
+			imcollect_free(data_collect);
 		}
 
 		// End window 

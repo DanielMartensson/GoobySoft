@@ -146,6 +146,9 @@ void Windows_Dialogs_UtilDialogs_ODORPDialog_showODORPDialog(bool* odorpDialog) 
 
 			/* Total models */
 			parameterHolder->models.odorp_models.total_models = data_collect->odorp_models.total_models;
+		
+			/* Clear */
+			imcollect_free(data_collect);
 		}
 
 		// End window 
