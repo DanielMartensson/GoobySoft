@@ -1,11 +1,9 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (ModBusReader.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  brisk.c
-c1 : fatal  error C1083: Cannot open source file: 'Tools\Software\Libraries\CControl\Sources\MachineLearning\brisk.c': No such file or directory
-  collect_data.c
-c1 : fatal  error C1083: Cannot open source file: 'Tools\Software\Libraries\CControl\Sources\MachineLearning\collect_data.c': No such file or directory
-  dbscan.c
-  circleaverage.c
-c1 : fatal  error C1083: Cannot open source file: 'Tools\Software\Libraries\CControl\Sources\Statistics\circleaverage.c': No such file or directory
-  cov.c
-  sr_ukf_parameter_estimation.c
+  FisherFacesDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\FisherFacesDialog\FisherFacesDialog.cpp(34,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\FisherFacesDialog\FisherFacesDialog.cpp(77,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\FisherFacesDialog\FisherFacesDialog.cpp(87,22): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  ODORPDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ODORPDialog\ODORPDialog.cpp(107,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Generating Code...
+  GoobySoft.vcxproj -> C:\Users\dmn\GitHub\GoobySoft\x64\Debug\GoobySoft.exe

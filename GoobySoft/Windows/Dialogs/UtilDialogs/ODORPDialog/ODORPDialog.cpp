@@ -5,7 +5,7 @@
 
 void Windows_Dialogs_UtilDialogs_ODORPDialog_showODORPDialog(bool* odorpDialog) {
 	// Display
-	ImGui::SetNextWindowSize(ImVec2(500, 450));
+	ImGui::SetNextWindowSize(ImVec2(500, 350));
 	if (ImGui::Begin("ODORP", odorpDialog, ImGuiWindowFlags_NoResize)) {
 
 		// Get the parameter holder 
@@ -83,6 +83,9 @@ void Windows_Dialogs_UtilDialogs_ODORPDialog_showODORPDialog(bool* odorpDialog) 
 		case FAST_METHOD_12:
 			fast_method_index = 3;
 			break;
+		default:
+			fast_method_index = 0;
+			break;
 		}
 		ImGui::Combo("FAST method", &fast_method_index, "FAST method 9\0FAST method 10\0FAST method 11\0FAST method 12");
 		settings_ordorp->fast_method = fast_method[fast_method_index];
@@ -99,7 +102,21 @@ void Windows_Dialogs_UtilDialogs_ODORPDialog_showODORPDialog(bool* odorpDialog) 
 			settings_ordorp->lambda = MIN_ODORP_PARAMETER_VALUE;
 		}
 
+		// K-value
+		ImGui::Separator();
+		int k_value = settings_ordorp->k_value;
+		ImGui::InputInt("K-nearest neighbor", &k_value);
+		if (k_value < 2) {
+			k_value = 2;
+		}
+		settings_ordorp->k_value = k_value;
+		
+		// Save model
+		ImGui::Separator();
+		ImGui::Checkbox("Save model", &settings_ordorp->save_model);
+
 		// Build model
+		ImGui::SameLine();
 		if (ImGui::Button("Build model")) {
 			ImGui::OpenPopup("buildFisherModel");
 		}

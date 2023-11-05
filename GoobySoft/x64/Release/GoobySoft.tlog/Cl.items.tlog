@@ -47,6 +47,7 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Source
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Hardware\count_sub_folders.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\count_sub_folders.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Hardware\scan_file_names.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\scan_file_names.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Hardware\scan_sub_folder_names.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\scan_sub_folder_names.obj
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\imcollect.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\imcollect.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\imfree.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\imfree.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\imgaussfilt.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\imgaussfilt.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\imread.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\imread.obj
@@ -82,15 +83,17 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Source
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\rank.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\rank.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\svd.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\svd.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\tran.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\tran.obj
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\brisk.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\brisk.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\dbscan.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\dbscan.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\fast.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\fast.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\fisherfaces.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\fisherfaces.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\hough.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\hough.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\kernel.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\kernel.obj
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\kmeans.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\kmeans.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\kpca.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\kpca.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\lbp.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\lbp.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\nn.obj
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\odorp.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\odorp.obj
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\orp.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\orp.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\svm.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\svm.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Miscellaneous\cat.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\cat.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Miscellaneous\cut.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\cut.obj
@@ -122,8 +125,8 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Source
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\pf.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\pf.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\sr_ukf_state_estimation.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\sr_ukf_state_estimation.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\amax.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\amax.obj
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\area.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\area.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\center.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\center.obj
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\circleaverage.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\circleaverage.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\cov.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\cov.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\covm.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\covm.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\lda.c;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\lda.obj
@@ -170,5 +173,6 @@ C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\AnalyzeDialogs\CANTraffi
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\ConfigureMeasurementDialog\ConfigureMeasurementDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\ConfigureMeasurementDialog.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\CreateMeasurementDialog.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\ViewMeasurementDialog\ViewMeasurementDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\ViewMeasurementDialog.obj
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\BuildFisherFacesModelDialog\BuildFisherFacesModelDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\BuildFisherFacesModelDialog.obj
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\FisherFacesDialog\FisherFacesDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\FisherFacesDialog.obj
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ODORPDialog\ODORPDialog.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\ODORPDialog.obj
 C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Windows.cpp;C:\Users\dmn\GitHub\GoobySoft\GoobySoft\x64\Release\Windows.obj

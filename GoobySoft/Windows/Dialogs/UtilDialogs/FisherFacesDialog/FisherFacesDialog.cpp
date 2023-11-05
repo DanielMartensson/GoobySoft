@@ -5,7 +5,7 @@
 
 void Windows_Dialogs_UtilDialogs_FisherFacesDialog_showFisherFacesDialog(bool* fisherFacesDialog) {
 	// Display
-	ImGui::SetNextWindowSize(ImVec2(500, 450));
+	ImGui::SetNextWindowSize(ImVec2(500, 350));
 	if (ImGui::Begin("Fisherfaces", fisherFacesDialog, ImGuiWindowFlags_NoResize)) {
 
 		// Get the parameter holder 
@@ -13,6 +13,22 @@ void Windows_Dialogs_UtilDialogs_FisherFacesDialog_showFisherFacesDialog(bool* f
 
 		/* Extract */
 		DATA_SETTINGS_FISHERFACES* settings_fisherfaces = &parameterHolder->data_settings.data_settings_fisherfaces;
+
+		// Source to the data 
+		static bool isOpen = false;
+		ImGui::InputText(" ", settings_fisherfaces->folder_path, sizeof(settings_fisherfaces->folder_path), ImGuiInputTextFlags_ReadOnly);
+		ImGui::SameLine();
+		if (ImGui::Button("Select folder")) {
+			isOpen = true;
+		}
+		bool isPressedOK = false;
+		static std::string folderPath;
+		Tools_Gui_CreateDialogs_showFolderDialog(&isOpen, &isPressedOK, folderPath);
+		if (isPressedOK) {
+			std::strcpy(settings_fisherfaces->folder_path, folderPath.c_str());
+			isOpen = false;
+		}
+		ImGui::Separator();
 
 		// Pooling size 
 		int pooling_size = settings_fisherfaces->pooling_size;
@@ -39,32 +55,17 @@ void Windows_Dialogs_UtilDialogs_FisherFacesDialog_showFisherFacesDialog(bool* f
 		case POOLING_METHOD_SHAPE:
 			pooling_method_index = 3;
 			break;
+		default:
+			pooling_size = 1;
+			pooling_method_index = 0;
+			break;
 		}
 		ImGui::Combo("Pooling method", &pooling_method_index, "No pooling\0Max pooling\0Average pooling\0Shape pooling");
 		settings_fisherfaces->pooling_method = pooling_method[pooling_method_index];
 
 		ImGui::Separator();
-
-		// Source to the data 
-		static bool isOpen = false;
-		ImGui::InputText(" ", settings_fisherfaces->folder_path, sizeof(settings_fisherfaces->folder_path), ImGuiInputTextFlags_ReadOnly);
-		ImGui::SameLine();
-		if (ImGui::Button("Select folder")) {
-			isOpen = true;
-		}
-		bool isPressedOK = false;
-		static std::string folderPath;
-		Tools_Gui_CreateDialogs_showFolderDialog(&isOpen, &isPressedOK, folderPath);
-		if (isPressedOK) {
-			std::strcpy(settings_fisherfaces->folder_path, folderPath.c_str());
-			isOpen = false;
-		}
-		ImGui::Separator();
-
 		// Remove outliers settings
-		int remove_outliers_index = settings_fisherfaces->remove_outliers;
-		ImGui::Combo("Remove outliers", &remove_outliers_index, "No\0Yes");
-		settings_fisherfaces->remove_outliers = remove_outliers_index;
+		ImGui::Checkbox("Remove outliers", &settings_fisherfaces->remove_outliers);
 		if (settings_fisherfaces->remove_outliers) {
 			// Epsilon
 			ImGui::InputFloat("Epsilon", &settings_fisherfaces->epsilon);
@@ -75,6 +76,9 @@ void Windows_Dialogs_UtilDialogs_FisherFacesDialog_showFisherFacesDialog(bool* f
 			// Min PTS
 			int min_pts = settings_fisherfaces->min_pts;
 			ImGui::InputInt("Min PTS", &min_pts);
+			if (min_pts < 1) {
+				min_pts = 1;
+			}
 			settings_fisherfaces->min_pts = min_pts;
 		}
 		ImGui::Separator();
@@ -108,6 +112,9 @@ void Windows_Dialogs_UtilDialogs_FisherFacesDialog_showFisherFacesDialog(bool* f
 			break;
 		case KERNEL_METHOD_EXPONENTIAL:
 			kernel_method_index = 5;
+			break;
+		default:
+			kernel_method_index = 0;
 			break;
 		}
 		ImGui::Combo("Kernel method", &kernel_method_index, "Linear\0Radial basis function\0Polynomial\0Sigmoid\0Gaussian\0Exponential");
@@ -149,7 +156,12 @@ void Windows_Dialogs_UtilDialogs_FisherFacesDialog_showFisherFacesDialog(bool* f
 			settings_fisherfaces->lambda = MIN_FISHERFACES_PARAMETER_VALUE;
 		}
 
+		// Save model
+		ImGui::Separator();
+		ImGui::Checkbox("Save model", &settings_fisherfaces->save_model);
+
 		// Build model
+		ImGui::SameLine();
 		if (ImGui::Button("Build model")) {
 			ImGui::OpenPopup("buildFisherModel");
 		}
