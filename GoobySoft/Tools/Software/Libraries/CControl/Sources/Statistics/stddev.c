@@ -5,13 +5,13 @@
  *      Author: Daniel Mårtensson
  */
 
-#include "../../Headers/functions.h"
+#include "statistics.h"
 
 /*
  * Compute Bessel's Standard deviation
  * x[L] Vector with values
  * L = Length of vector x
  */
-float stddev(float x[], size_t length) {
+INLINE float stddev(const float x[], const size_t length) {
 	return sqrtf(var(x, length));
 }

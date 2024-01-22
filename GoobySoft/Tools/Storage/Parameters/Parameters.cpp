@@ -27,8 +27,7 @@ void Tools_Hardware_ParameterStore_loadParameters() {
 	Open_SAE_J1939_Startup_ECU(&j1939);
 
 	/* Important to set the total models to zero */
-	parameters.models.fisherfaces_models.total_models = 0;
-	parameters.models.odorp_models.total_models = 0;
+	parameters.models.fisherfaces_model.total_models = 0;
 }
 
 // This should be called at the closedown

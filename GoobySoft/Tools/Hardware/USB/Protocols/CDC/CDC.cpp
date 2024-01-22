@@ -193,11 +193,11 @@ std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(co
 		// Timer
 		boost::asio::steady_timer timer(io, std::chrono::milliseconds(timeoutMilliseconds));
 		timer.async_wait([&](boost::system::error_code ec) {
-#ifdef _GOOBYSOFT_DEBUG
+#ifndef _GOOBYSOFT_DEBUG
 			std::cerr << "CDC.cpp - Timer completion (Code:" << ec.value() << " Message:" << ec.message() << ")" << std::endl;
 #endif
 			if (!ec) {
-#ifdef _GOOBYSOFT_DEBUG
+#ifndef _GOOBYSOFT_DEBUG
 				std::cerr << "CDC.cpp - Timeout expired" << std::endl;
 #endif
 			}
@@ -209,11 +209,11 @@ std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(co
 
 		// Read process
 		boost::asio::async_read_until(*deviceUSB, boost::asio::dynamic_buffer(dataRX), endingOfDataRX, [&](boost::system::error_code ec, size_t bytes_transferred) {
-#ifdef _GOOBYSOFT_DEBUG
+#ifndef _GOOBYSOFT_DEBUG
 			std::cerr << "CDC.cpp - Read completion (" << ec.message() << ", " << bytes_transferred << " bytes)" << std::endl;
 #endif
 			if (!ec.failed()) {
-#ifdef _GOOBYSOFT_DEBUG
+#ifndef _GOOBYSOFT_DEBUG
 				std::cerr << "Reading data - OK" << std::endl;
 				timer.cancel();
 #endif

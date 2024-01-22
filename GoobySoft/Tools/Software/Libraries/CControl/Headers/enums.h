@@ -2,11 +2,11 @@
  * enums.h
  *
  *  Created on: 20 Juli. 2023
- *      Author: Daniel Mårtensson
+ *      Author: Daniel MÃ¥rtensson
  */
 
-#ifndef CCONTROL_HEADERS_ENUMS_H_
-#define CCONTROL_HEADERS_ENUMS_H_
+#ifndef ENUMS_H_
+#define ENUMS_H_
 
  /* For lqi.c */
 typedef enum {
@@ -77,7 +77,7 @@ typedef enum {
 	LBP_BIT_32
 }LBP_BIT;
 
-/* For fast.c */
+/* For featuredetection.c */
 typedef enum {
 	FAST_METHOD_9,
 	FAST_METHOD_10,
@@ -87,7 +87,8 @@ typedef enum {
 
 /* For area.c */
 typedef enum {
-	AREA_METHOD_CIRCLE
+	AREA_METHOD_CIRCLE,
+	AREA_METHOD_SQURE
 }AREA_METHOD;
 
 /* For nn.c */
@@ -96,10 +97,52 @@ typedef enum {
 	ACTIVATION_FUNCTION_CLOSEST_VALUE_INDEX
 }ACTIVATION_FUNCTION;
 
-/* For data_collect.c */
+/* For imcollect.c */
 typedef enum {
-	DATA_SETTINGS_CHOICE_FISHERFACES,
-	DATA_SETTINGS_CHOICE_ODORP
-}DATA_SETTINGS_CHOICE;
+	MODEL_CHOICE_FISHERFACES,
+	MODEL_CHOICE_LANDMARK
+}MODEL_CHOICE;
 
-#endif /* !CCONTROL_HEADERS_ENUMS_H_ */
+/* For sobel.c */
+typedef enum {
+	SOBEL_METHOD_GRADIENT,
+	SOBEL_METHOD_ORIENTATION,
+	SOBEL_METHOD_GRADIENT_ORIENTATION,
+	SOBEL_METHOD_GRADIENT_X_Y
+}SOBEL_METHOD;
+
+/* For conv.c and conv2.c */
+typedef enum {
+	CONV_SHAPE_FULL,
+	CONV_SHAPE_SAME,
+	CONV_SHAPE_SAME_NO_FFT,
+	CONV_SHAPE_SAME_SEPARABLE_KERNEL,
+	CONV_SHAPE_VALID
+}CONV_SHAPE;
+
+/* For fspecial.c */
+typedef enum {
+	FSPECIAL_TYPE_GAUSSIAN_2D,
+	FSPECIAL_TYPE_GAUSSIAN_1D,
+	FSPEICAL_TYPE_SOBEL_X,
+	FSPEICAL_TYPE_SOBEL_Y,
+	FSPECIAL_TYPE_BOX_OF_ONES
+}FSPECIAL_TYPE;
+
+/* For landmarkdetection.c */
+typedef enum {
+	HOG_BINS_9,
+	HOG_BINS_10,
+	HOG_BINS_12,
+	HOG_BINS_15,
+	HOG_BINS_18,
+	HOG_BINS_20
+}HOG_BINS;
+
+/* For normalize.c */
+typedef enum {
+	NORMALIZE_METHOD_UNIT_CIRCLE,
+	NORMALIZE_METHOD_TOTAL_SUM_1
+}NORMALIZE_METHOD;
+
+#endif /* !ENUMS_H_ */

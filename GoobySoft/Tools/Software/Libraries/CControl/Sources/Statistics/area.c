@@ -5,14 +5,14 @@
  *      Author: Daniel Mårtensson
  */
 
-#include "../../Headers/functions.h"
+#include "statistics.h"
 
 /*
  * Compute the average of all values inside a circle
  * X[m*n]
  * m == n
  */
-float area(float X[], size_t row, size_t* total_elements, AREA_METHOD area_method) {
+float area(const float X[], const size_t row, size_t* total_elements, const AREA_METHOD area_method) {
 	/* Define area variable*/
 	float area_value = 0.0f;
 	*total_elements = 0U;
@@ -32,18 +32,29 @@ float area(float X[], size_t row, size_t* total_elements, AREA_METHOD area_metho
 				/* Compute the distance by giving the row and column coordinates for L2-norm */
 				coordinate[0] = (float)radius - i;
 				coordinate[1] = (float)radius - j;
-				distance = sqrtf(coordinate[0] * coordinate[0] + coordinate[1] * coordinate[1]);
+				distance = norm(coordinate, 2, 1, NORM_METHOD_L2);
 
 				/* Check if distance is equal or less */
 				if (distance <= radius) {
-					area_value += X[0];
+					area_value += X[j];
 					(*total_elements)++;
 				}
-
-				/* Shift index one step */
-				X += 1;
 			}
+
+			/* New row */
+			X += row;
 		}
+
+		break;
+	}case AREA_METHOD_SQURE: {
+		/* Total iterations */
+		size_t i;
+		const size_t row_row = row * row;
+		for (i = 0; i < row_row; i++) {
+			area_value += X[i];
+			(*total_elements)++;
+		}
+		break;
 	}
 	}
 

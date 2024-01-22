@@ -125,19 +125,14 @@ struct DatabaseSettings {
 	char password[MAX_C_STRING_LEN] = "myPassword";
 };
 
-struct Models {
-	MODEL fisherfaces_models;
-	MODEL odorp_models;
-};
-
 typedef struct {
 	USBSettings usbSettings[MAX_USB_PORTS];
 	ModbusSettings modbusSettings[MAX_USB_PORTS];
 	DatabaseSettings databaseSettings;
 	FileSettings fileSettings;
 	Protocol protocols[MAX_PROTOCOLS];
-	DATA_SETTINGS data_settings;
-	Models models;
+	MODEL_SETTINGS model_settings;
+	MODEL models;
 }ParameterHolder;
 
 void Tools_Hardware_ParameterStore_loadParameters();

@@ -13,8 +13,10 @@ void Tools_Storage_Databases_dropSchema(const char schemaName[]) {
 	Tools_Storage_Databases_closeConnection();
 }
 
-void Tools_Communications_Units_Database_createFileLogTable() {
-	const char tableName[] = "fileLogs";
-	const char columNamesWithDataTypes[] = "`id` BIGINT NOT NULL AUTO_INCREMENT, `file_created` DATETIME, `file_path` VARCHAR(1024), PRIMARY KEY(`id`)";
-	Tools_Storage_Databases_MySQL_createTable(tableName, columNamesWithDataTypes);
+std::vector<std::vector<std::string>> Tools_Storage_Databases_getRowsWhere(const char tableName[], const char where[], const char whereValue[]) {
+	return Tools_Storage_Databases_MySQL_getRowsWhere(tableName, where, whereValue);
+}
+
+std::vector<std::vector<std::string>> Tools_Storage_Databases_getRowsFromQuery(const char query[]) {
+	return Tools_Storage_Databases_MySQL_getRowsFromQuery(query);
 }

@@ -5,7 +5,7 @@
  *      Author: Daniel Mårtensson
  */
 
-#include "../../Headers/functions.h"
+#include "imageprocessing.h"
 
 /*
  * Pooling 
@@ -13,7 +13,7 @@
  * P[(m/p)*(n/p)]
  * If you don't want to use pooling, just set p = 1 and pooling_method to POOLING_METHOD_NO_POOLING
  */
-void pooling(float X[], float P[], size_t row, size_t column, size_t p, POOLING_METHOD pooling_method) {
+void pooling(float X[], float P[], size_t row, size_t column, uint8_t p, POOLING_METHOD pooling_method) {
 	/* Check if we want no pooling */
 	if (POOLING_METHOD_NO_POOLING == pooling_method) {
 		memcpy(P, X, row * column * sizeof(float));
@@ -30,11 +30,9 @@ void pooling(float X[], float P[], size_t row, size_t column, size_t p, POOLING_
 	float* B = (float*)malloc(pp * sizeof(float));
 
 	/* When you want minimal structures left */
-	float mean_X, max_X;
+	float ratio_mean_max = 1.0f;
 	if (pooling_method == POOLING_METHOD_SHAPE) {
-		const size_t row_column = row * column;
-		mean_X = mean(X, row_column);
-		max_X = amax(X, &max_index, row_column);
+		ratio_mean_max = amax(X, &max_index, row * column) / mean(X, row * column);
 	}
 
 	/* Loop */
@@ -57,7 +55,7 @@ void pooling(float X[], float P[], size_t row, size_t column, size_t p, POOLING_
 				P[j] = amax(B, &max_index, pp);
 				break;
 			case POOLING_METHOD_SHAPE:
-				P[j] = mean(B, pp) / mean_X * max_X;
+				P[j] = mean(B, pp) * ratio_mean_max;
 				break;
 			}
 		}

@@ -1,7 +1,7 @@
 #ifndef UtilDialogs
 #define UtilDialogs
 
-#include "FisherFacesDialog/FisherFacesDialog.h"
-#include "ODORPDialog/ODORPDialog.h"
+#include "ImageDialogs/ImageDialogs.h"
+#include "DatabaseDialogs/DatabaseDialogs.h"
 
 #endif // !UtilDialogs

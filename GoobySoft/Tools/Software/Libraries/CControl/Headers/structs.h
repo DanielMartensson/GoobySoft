@@ -5,8 +5,17 @@
  *      Author: Daniel Mårtensson
  */
 
-#ifndef CCONTROL_HEADERS_STRUCTS_H_
-#define CCONTROL_HEADERS_STRUCTS_H_
+#ifndef STRUCTS_H_
+#define STRUCTS_H_
+
+ /* For landmarkdetection.c */
+typedef struct {
+	uint32_t id_descriptors[256];
+	uint16_t x_descriptors[256];
+	uint16_t y_descriptors[256];
+	uint8_t total_descriptors;
+	bool is_descriptors_available;
+}DESCRIPTORS_BINARY_32;
 
 /* For imshow.c and imread.c */
 typedef struct {
@@ -16,7 +25,6 @@ typedef struct {
 	uint8_t* pixels;
 }PGM;
 
-/* For imcollect.c */
 typedef struct {
 	/* Model */
 	uint8_t total_models;
@@ -25,23 +33,23 @@ typedef struct {
 	size_t model_row[10];
 	size_t model_column[10];
 	ACTIVATION_FUNCTION activation_function[10];
-}MODEL;
-
-typedef struct {
-	/* Models */
-	MODEL fisherfaces_models;
-	MODEL odorp_models;
 
 	/* Data */
 	size_t input_row;
 	size_t input_column;
-	size_t* class_id_original;
-	size_t* class_id_k_means;
-	size_t classes_original;
-	size_t classes_k_means;
 	float* input;
-}DATA_COLLECT;
+	uint8_t* class_id;
+	uint8_t classes;
+}MODEL_NN;
 
+/* Model holder */
+typedef struct {
+	MODEL_NN fisherfaces_model;
+	DESCRIPTORS_BINARY_32 landmark_model;
+	MODEL_CHOICE model_choice;
+}MODEL;
+
+/* For NN models */
 typedef struct {
 	/* General */
 	char folder_path[260];
@@ -51,63 +59,44 @@ typedef struct {
 	float C;
 	float lambda;
 
-	/* For fisherfaces.c */
-	size_t pooling_size;
-	POOLING_METHOD pooling_method;
-
-	/* For fisherfaces.c */
+	/* For kpda_lda_nn.c */
 	bool remove_outliers;
 	float epsilon;
-	size_t min_pts;
+	uint8_t min_pts;
 
-	/* For fisherfaces.c */
+	/* For kpda_lda_nn.c */
 	size_t components_pca;
 	float kernel_parameters[2];
-	KERNEL_METHOD kernel_method;	
-}DATA_SETTINGS_FISHERFACES;
+	KERNEL_METHOD kernel_method;
 
-/* For odorp.c */
-typedef struct {
-	/* General */
-	char folder_path[260];
-	bool save_model;
-
-	/* For nn.c */
-	float C;
-	float lambda;
-
-	/* For orp.c */
-	size_t k_value;
-	float sigma1;
-	float sigma2;
-	uint8_t threshold_sobel;
-	uint8_t threshold_fast;
-	FAST_METHOD fast_method;
-}DATA_SETTINGS_ODORP;
+	/* For pooing.c */
+	uint8_t pooling_size;
+	POOLING_METHOD pooling_method;
+}MODEL_NN_SETTINGS;
 
 /* For imcollect.c */
 typedef struct {
-	DATA_SETTINGS_ODORP data_settings_odorp;
-	DATA_SETTINGS_FISHERFACES data_settings_fisherfaces;
-	DATA_SETTINGS_CHOICE data_settings_choice;
-}DATA_SETTINGS;
+	MODEL_NN_SETTINGS settings_fisherfaces;
+	MODEL_CHOICE model_choice;
+}MODEL_SETTINGS;
 
-/* For fast.c */
+/* For featuredetection.c */
 typedef struct {
 	int x;
 	int y;
 } FAST_XY;
 
-/* For orp.c */
+/* For generalizedhough.c */
 typedef struct {
-	/* Collection of corners from FAST */
-	int num_corners;
-	FAST_XY* xy;
+	float alpha;
+	float R;
+	float shortest;
+}GENERALIZED_HOUGH_VOTE;
 
-	/* Binary data [data_row * data_column] */
-	float* data;
-	size_t data_row;
-	size_t data_column;
-}ORP;
+/* For generalizedhough.c */
+typedef struct {
+	GENERALIZED_HOUGH_VOTE* vote;
+	size_t votes_active;
+}GENERALIZED_HOUGH_MODEL;
 
-#endif /* !CCONTROL_HEADERS_STRUCTS_H_ */
+#endif /* !STRUCTS_H_ */

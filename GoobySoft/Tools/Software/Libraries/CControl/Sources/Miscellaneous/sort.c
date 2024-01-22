@@ -5,107 +5,98 @@
  *      Author: Daniel Mårtensson
  */
 
-#include "../../Headers/functions.h"
+#include "miscellaneous.h"
 
-static void insertion_sort(float X[], size_t index[], size_t n, SORT_MODE sort_mode);
+static void insertion_sort(float X[], size_t index[], const size_t n, const SORT_MODE sort_mode);
 
 /*
  * Sort a matrix
  * X[m*n]
  * index[m*n]
  */
-void sort(float X[], size_t index[], size_t row, size_t column, SORT_MODE sort_mode){
+void sort(float X[], size_t index[], const size_t row, const size_t column, const SORT_MODE sort_mode) {
 	/* Decleration */
 	size_t i, j;
 
-	/* Initial values for index */
+	/* If we are sorting on rows */
 	if (sort_mode == SORT_MODE_ROW_DIRECTION_ASCEND || sort_mode == SORT_MODE_ROW_DIRECTION_DESCEND) {
+		/* Row major */
+		tran(X, row, column);
+
+		/* Sort on columns */
+		sort(X, index, column, row, sort_mode == SORT_MODE_ROW_DIRECTION_ASCEND ? SORT_MODE_COLUMN_DIRECTION_ASCEND : SORT_MODE_COLUMN_DIRECTION_DESCEND);
+		
+		/* Restore back - Transpose */
+		const size_t row_column = row * column;
+		size_t* indexT = (size_t*)malloc(row_column * sizeof(size_t));
+		float* XT = (float*)malloc(row_column * sizeof(float));
 		for (i = 0; i < row; i++) {
 			for (j = 0; j < column; j++) {
-				index[i * column + j] = i;
+				XT[i * column + j] = X[j * row + i];
+				indexT[i * column + j] = index[j * row + i];
 			}
 		}
+
+		/* Copy over */
+		memcpy(X, XT, row_column * sizeof(float));
+		memcpy(index, indexT, row_column * sizeof(size_t));
+
+		/* Free */
+		free(indexT);
+		free(XT);
+
+		return;
 	}
-	else {
-		for (i = 0; i < row; i++) {
-			for (j = 0; j < column; j++) {
-				index[i * column + j] = j;
-			}
+	
+	/* Initial values for index */
+	for (i = 0; i < row; i++) {
+		for (j = 0; j < column; j++) {
+			index[i * column + j] = j;
 		}
 	}
 	
-	/* Save address */
-	float* X0 = X;
-	size_t* index0 = index;
-
-	/* Declare outsider array Y */
-	float* Y = (float*)malloc(row * sizeof(float));
-	size_t* I = (size_t*)malloc(row * sizeof(size_t));
-
-	if (sort_mode == SORT_MODE_ROW_DIRECTION_ASCEND || sort_mode == SORT_MODE_ROW_DIRECTION_DESCEND) {
-		for (j = 0; j < column; j++) {
-			/* Reset */
-			X0 = X; 
-			index0 = index;
-			for (i = 0; i < row; i++) {
-				/* Y[i] = X[i*column + j]; */
-				Y[i] = X0[j];
-				I[i] = index0[j];
-				X0 += column;
-				index0 += column;
-			}
-
-			/* Sort Y */
-			insertion_sort(Y, I, row, sort_mode);
-
-			/* Place back */
-			X0 = X; /* Reset */
-			index0 = index;
-			for (i = 0; i < row; i++) {
-				/* X[i*column + j] = Y[i]; */
-				X0[j] = Y[i];
-				index0[j] = I[i];
-				X0 += column;
-				index0 += column;
-			}
-		}
+	for (i = 0; i < row; i++) {
+		insertion_sort(X, index, column, sort_mode);
+		X += column;
+		index += column;
 	}
-	if(sort_mode == SORT_MODE_COLUMN_DIRECTION_ASCEND || sort_mode == SORT_MODE_COLUMN_DIRECTION_DESCEND){
-		for(i = 0; i < row; i++) {
-			insertion_sort(X0, index, column, sort_mode);
-			X0 += column;
-			index += column;
-		}
-	}
-
-	/* Free */
-	free(Y);
-	free(I);
 }
 
-
-static void insertion_sort(float X[], size_t index[], size_t n, SORT_MODE sort_mode) {
+static void insertion_sort(float X[], size_t index[], const size_t column, const SORT_MODE sort_mode) {
 	size_t i, j;
-	for(i = 1; i < n; i++) {
-		float key = X[i];
-		j = i;
-		if (sort_mode == SORT_MODE_COLUMN_DIRECTION_ASCEND || sort_mode == SORT_MODE_ROW_DIRECTION_ASCEND) {
+	float key;
+	switch (sort_mode) {
+	case SORT_MODE_COLUMN_DIRECTION_ASCEND:
+		for (i = 1; i < column; i++) {
+			key = X[i];
+			j = i;
+
 			/* Ascend */
 			while ((j > 0) && (key < X[j - 1])) {
 				X[j] = X[j - 1];
 				index[j] = index[j - 1];
 				--j;
 			}
+
+			X[j] = key;
+			index[j] = i;
 		}
-		if (sort_mode == SORT_MODE_COLUMN_DIRECTION_DESCEND || sort_mode == SORT_MODE_ROW_DIRECTION_DESCEND) {
+		break;
+	case SORT_MODE_COLUMN_DIRECTION_DESCEND:
+		for (i = 1; i < column; i++) {
+			key = X[i];
+			j = i;
+
 			/* Descend */
-			while( (j > 0) && (key > X[j - 1]) ) {
+			while ((j > 0) && (key > X[j - 1])) {
 				X[j] = X[j - 1];
 				index[j] = index[j - 1];
 				--j;
 			}
+
+			X[j] = key;
+			index[j] = i;
 		}
-		X[j] = key;
-		index[j] = i;
+		break;
 	}
 }

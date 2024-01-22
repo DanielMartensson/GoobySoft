@@ -19,7 +19,9 @@ bool configureDateTime = false;
 bool configurePWM = false;
 bool canTrafficDialog = false;
 bool fisherFacesDialog = false;
-bool odOrpDialog = false;
+bool landmarkDialog = false;
+bool cameraDialog = false;
+bool viewGradesDialog = false;
 
 
 void showMainWindow(bool* done) {
@@ -68,12 +70,26 @@ void showMainWindow(bool* done) {
 			ImGui::EndMenu();
 		}
 		if (ImGui::BeginMenu("Utils")) {
-			if (ImGui::BeginMenu("Fisherfaces")) {
-				ImGui::MenuItem("Build Fisherfaces model", nullptr, &fisherFacesDialog);
+			if (ImGui::BeginMenu("Image")) {
+				if (ImGui::BeginMenu("Fisherfaces")) {
+					ImGui::MenuItem("Build Fisherfaces model", nullptr, &fisherFacesDialog);
+					ImGui::EndMenu();
+				}
+				if (ImGui::BeginMenu("Object detection")) {
+					ImGui::MenuItem("Create landmark model", nullptr, &landmarkDialog);
+					ImGui::EndMenu();
+				}
+				if (ImGui::BeginMenu("Camera")) {
+					ImGui::MenuItem("Open camera", nullptr, &cameraDialog);
+					ImGui::EndMenu();
+				}
 				ImGui::EndMenu();
 			}
-			if (ImGui::BeginMenu("ODORP")) {
-				ImGui::MenuItem("Train ODORP model", nullptr, &odOrpDialog);
+			if (ImGui::BeginMenu("Database")) {
+				if (ImGui::BeginMenu("Grades dialog")) {
+					ImGui::MenuItem("View grades", nullptr, &viewGradesDialog);
+					ImGui::EndMenu();
+				}
 				ImGui::EndMenu();
 			}
 			ImGui::EndMenu();
@@ -129,10 +145,16 @@ void showMainWindow(bool* done) {
 			Windows_Dialogs_AnalyzeDialogs_CANTrafficDialog_showCANTrafficDialog(&canTrafficDialog);
 		}
 		if (fisherFacesDialog) {
-			Windows_Dialogs_UtilDialogs_FisherFacesDialog_showFisherFacesDialog(&fisherFacesDialog);
+			Windows_Dialogs_UtilDialogs_ImageDialogs_FisherFacesDialog_showFisherFacesDialog(&fisherFacesDialog);
 		}
-		if (odOrpDialog) {
-			Windows_Dialogs_UtilDialogs_ODORPDialog_showODORPDialog(&odOrpDialog);
+		if (landmarkDialog) {
+			Windows_Dialogs_UtilDialogs_ImageDialogs_LandmarkDialog_showLandmarkDialog(&landmarkDialog);
+		}
+		if (cameraDialog) {
+			Windows_Dialogs_UtilDialogs_ImageDialogs_CameraDialog_showCameraDialog(&cameraDialog);
+		}
+		if (viewGradesDialog) {
+			Windows_Dialogs_UtilDialogs_DatabaseDialogs_GradesDialog_showViewGradesDialog(&viewGradesDialog);
 		}
 
 		ImGui::EndMainMenuBar();

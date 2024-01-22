@@ -5,11 +5,10 @@
  *      Author: Daniel Mårtensson
  */
 
-#include "../../Headers/functions.h"
+#include "signalprocessing.h"
 
 static void shift_matrix(float matrix[], float x[], size_t p, size_t* k, size_t m);
 static void kernel_density_estimation(float P[], float H[], float horizon[], float noise[], size_t m, size_t p);
-static float normal_pdf(float x, float mu, float sigma);
 
 /*
  * Particle filter
@@ -119,7 +118,11 @@ static void kernel_density_estimation(float P[], float H[], float horizon[], flo
 
 	/* Sort smallest values first because H is like a histogram with only one count for each values */
 	memcpy(H, horizon, m * p * sizeof(float));
-	sort(H, m, p, 2, 1);
+	size_t* index = (size_t*)malloc(m * p * sizeof(size_t));
+	sort(H, index, m, p, SORT_MODE_COLUMN_DIRECTION_DESCEND);
+
+	/* Free */
+	free(index);
 
 	/* Create empty array */
 	memset(P, 0, m * p * sizeof(float));
@@ -136,7 +139,7 @@ static void kernel_density_estimation(float P[], float H[], float horizon[], flo
 		for (j = 0; j < p; j++) {
 			/* Fill the array P(:, k) */
 			for (k = 0; k < p; k++) {
-				P0[k] += normal_pdf(H[k], H[j], sigma);
+				P0[k] += normpdf(H[k], H[j], sigma);
 			}
 		}
 
@@ -151,7 +154,7 @@ static void kernel_density_estimation(float P[], float H[], float horizon[], flo
 	float y[1];
 	for (i = 0; i < m; i++) {
 		/* Do a sum of P */
-		sum(&P0[0], y, 1, p, 2U); /* Column direction, get one value back */
+		sum(&P0[0], y, 1, p, false); /* Column direction, get one value back */
 		for (j = 0; j < p; j++) {
 			P0[j] /= y[0];
 		}
@@ -159,8 +162,4 @@ static void kernel_density_estimation(float P[], float H[], float horizon[], flo
 		/* Shift to next row */
 		P0 += p;
 	}
-}
-
-static float normal_pdf(float x, float mu, float sigma) {
-	return 1.0f / (sigma * sqrtf(2.0f * PI)) * expf(-1.0f / 2.0f * (x - mu) * (x - mu) / (sigma * sigma));
 }

@@ -5,11 +5,11 @@
  *      Author: Daniel Mårtensson
  */
 
-#include "../../Headers/functions.h"
+#include "miscellaneous.h"
 
 /*
  * Turn radians into degrees
  */
-float rad2deg(float radians) {
+INLINE float rad2deg(const float radians) {
 	return radians * 180.0f / PI;
 }

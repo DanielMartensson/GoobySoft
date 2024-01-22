@@ -5,21 +5,19 @@
  *      Author: Daniel Mårtensson
  */
 
-#include "../../Headers/functions.h"
+#include "miscellaneous.h"
 
  /*
   * Sign function
   */
-float sign(float number) {
-	float s;
+INLINE float sign(const float number) {
 	if (number > 0.0f) {
-		s = 1.0f; 
+		return 1.0f; 
 	}else if (number < 0.0f) {
-		s = -1.0f; 
+		return -1.0f; 
 	}else{
-		s = 0.0f;
+		return 0.0f;
 	}
-	return s;
 }
 
 

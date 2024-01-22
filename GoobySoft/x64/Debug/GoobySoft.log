@@ -1,9 +1,430 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (ModBusReader.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  FisherFacesDialog.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\FisherFacesDialog\FisherFacesDialog.cpp(34,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\FisherFacesDialog\FisherFacesDialog.cpp(77,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\FisherFacesDialog\FisherFacesDialog.cpp(87,22): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  ODORPDialog.cpp
-C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ODORPDialog\ODORPDialog.cpp(107,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  GoobySoft.cpp
+  ITHBetyg.cpp
+  ADL400.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\ADL400\ADL400.cpp(147,2): warning C4065: switch statement contains 'default' but no 'case' labels
+  Devices.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\Devices.cpp(14,56): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  STM32PLC.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(96,50): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(96,56): warning C4838: conversion from 'uint16_t' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(96,56): warning C4244: 'initializing': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+  CreateDialogs.cpp
+  Network.cpp
+  CDC.cpp
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+  OpenSAEJ1939.cpp
+  USB.cpp
+  Parameters.cpp
+  CANTrafficDialog.cpp
+  ConfigureDiagnosticMessageDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureDiagnosticMessageDialog\ConfigureDiagnosticMessageDialog.cpp(147,34): warning C4267: 'initializing': conversion from 'size_t' to 'uint8_t', possible loss of data
+  ConfigureIdentificationsDialog.cpp
+  ConfigureNameDialog.cpp
+  ConfigureAnalogInputDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureAnalogInputDialog\ConfigureAnalogInputDialog.cpp(25,74): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureAnalogInputDialog\ConfigureAnalogInputDialog.cpp(38,78): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+  ConfigureDateTimeDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,74): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,82): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,89): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,104): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,109): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,116): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(66,67): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(66,73): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(66,80): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(86,76): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(86,81): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(86,88): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+  ConfigurePWMDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp(34,96): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp(34,125): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp(34,156): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp(34,185): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+  DatabaseConnectionDialog.cpp
+  NetworkConnectionDialog.cpp
   Generating Code...
+  Compiling...
+  USBConnectionDialog.cpp
+  LogFilePathDialog.cpp
+  ConfigureMeasurementDialog.cpp
+  CreateMeasurementDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(49,75): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(49,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(52,36): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(67,43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(72,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(208,18): warning C4244: 'initializing': conversion from '_Rep' to 'int', possible loss of data
+          with
+          [
+              _Rep=__int64
+          ]
+  ViewMeasurementDialog.cpp
+  GradesDialog.cpp
+  CameraDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\CameraDialog\CameraDialog.cpp(88,17): warning C4312: 'type cast': conversion from 'GLuint' to 'ImTextureID' of greater size
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\CameraDialog\CameraDialog.cpp(88,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\CameraDialog\CameraDialog.cpp(88,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  FisherFacesDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\FisherFacesDialog\FisherFacesDialog.cpp(87,22): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  LandmarkDialog.cpp
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(54,69): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(54,55): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(59,18): warning C4312: 'type cast': conversion from 'GLuint' to 'ImTextureID' of greater size
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(59,64): warning C4244: 'argument': conversion from 'size_t' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(59,50): warning C4244: 'argument': conversion from 'size_t' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(70,15): warning C4244: '=': conversion from 'size_t' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(82,15): warning C4244: '=': conversion from 'size_t' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(107,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(123,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(150,43): warning C4244: '=': conversion from 'float' to 'uint16_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(151,43): warning C4244: '=': conversion from 'float' to 'uint16_t', possible loss of data
+  Windows.cpp
+  Generating Code...
+  Astar.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ArtificialIntelligence\Astar.c(50,16): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ArtificialIntelligence\Astar.c(55,17): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ArtificialIntelligence\Astar.c(63,15): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ArtificialIntelligence\Astar.c(64,15): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ArtificialIntelligence\Astar.c(74,20): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ArtificialIntelligence\Astar.c(75,20): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ArtificialIntelligence\Astar.c(90,17): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ArtificialIntelligence\Astar.c(100,15): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ArtificialIntelligence\Astar.c(134,19): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ArtificialIntelligence\Astar.c(147,15): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ArtificialIntelligence\Astar.c(176,23): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ArtificialIntelligence\Astar.c(177,23): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+  inpolygon.c
+  c2d.c
+  kalman.c
+  lqi.c
+  mpc.c
+  mrac.c
+  stability.c
+  theta2ss.c
+  concatenate_paths.c
+  count_sub_folders.c
+  detectmemoryleak.c
+  scan_file_names.c
+  scan_sub_folder_names.c
+  cornerdetection.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\cornerdetection.c(18,80): warning C4267: 'function': conversion from 'size_t' to 'const int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\cornerdetection.c(18,85): warning C4267: 'function': conversion from 'size_t' to 'const int', possible loss of data
+  featuredetection.c
+  fspecial.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\fspecial.c(48,11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\fspecial.c(56,12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\fspecial.c(110,20): warning C4090: '=': different 'const' qualifiers
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\fspecial.c(123,20): warning C4090: '=': different 'const' qualifiers
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\fspecial.c(136,18): warning C4090: '=': different 'const' qualifiers
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\fspecial.c(34,30): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\fspecial.c(35,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\fspecial.c(90,30): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  generalizedhough.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\generalizedhough.c(29,33): warning C4267: 'function': conversion from 'size_t' to 'uint8_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\generalizedhough.c(35,22): warning C4267: '=': conversion from 'size_t' to 'uint8_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\generalizedhough.c(147,9): warning C4114: same type qualifier used more than once
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\generalizedhough.c(160,47): warning C4244: '=': conversion from 'const int' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\generalizedhough.c(125,10): warning C4090: 'initializing': different 'const' qualifiers
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\generalizedhough.c(147,20): warning C4244: 'initializing': conversion from 'float' to 'const int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\generalizedhough.c(303,9): warning C4114: same type qualifier used more than once
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\generalizedhough.c(257,9): warning C4090: 'initializing': different 'const' qualifiers
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\generalizedhough.c(284,10): warning C4090: 'initializing': different 'const' qualifiers
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\generalizedhough.c(303,20): warning C4244: 'initializing': conversion from 'float' to 'const int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\generalizedhough.c(393,12): warning C4090: 'function': different 'const' qualifiers
+  harris.c
+  hough.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\hough.c(36,42): warning C4133: 'function': incompatible types - from 'float **' to 'size_t **'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\hough.c(42,32): warning C4133: 'function': incompatible types - from 'float **' to 'const size_t **'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\hough.c(113,17): warning C4244: '=': conversion from 'size_t' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\hough.c(114,17): warning C4244: '=': conversion from 'size_t' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\hough.c(147,29): warning C4267: 'function': conversion from 'size_t' to 'uint8_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\hough.c(182,28): warning C4244: 'function': conversion from 'const size_t' to 'float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\hough.c(182,12): warning C4244: '=': conversion from 'float' to 'size_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\hough.c(220,9): warning C4244: '=': conversion from 'float' to 'size_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\hough.c(236,17): warning C4244: '=': conversion from 'float' to 'size_t', possible loss of data
+  Generating Code...
+  Compiling...
+  imcollect.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\imcollect.c(57,11): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\imcollect.c(57,11): message : consider using '%zi' in the format string
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\imcollect.c(80,56): warning C4267: 'function': conversion from 'size_t' to 'uint8_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\imcollect.c(98,40): warning C4133: '=': incompatible types - from 'size_t *' to 'uint8_t *'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\imcollect.c(101,78): warning C4267: '=': conversion from 'size_t' to 'uint8_t', possible loss of data
+  imfree.c
+  imgaussfilt.c
+  imread.c
+  imresize.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\imresize.c(23,23): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\imresize.c(24,23): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  imshow.c
+  imwrite.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\imwrite.c(26,16): warning C4477: 'fprintf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type 'const size_t'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\imwrite.c(26,16): message : consider using '%zu' in the format string
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\imwrite.c(26,16): warning C4477: 'fprintf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 2 has type 'const size_t'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\imwrite.c(26,16): message : consider using '%zu' in the format string
+  integralimage.c
+  intensitycentroid.c
+  landmarkdetection.c
+  pooling.c
+  rpca.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\rpca.c(30,35): warning C4244: 'function': conversion from 'size_t' to 'const float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\rpca.c(30,40): warning C4244: 'function': conversion from 'size_t' to 'const float', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\rpca.c(24,31): warning C4267: 'initializing': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\rpca.c(67,31): warning C4267: 'initializing': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\rpca.c(117,31): warning C4267: 'initializing': conversion from 'size_t' to 'uint32_t', possible loss of data
+  shapedetection.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\shapedetection.c(41,74): warning C4267: 'function': conversion from 'size_t' to 'const int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\ImageProcessing\shapedetection.c(41,79): warning C4267: 'function': conversion from 'size_t' to 'const int', possible loss of data
+  sobel.c
+  balance.c
+  chol.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\chol.c(40,54): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\chol.c(40,62): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+  cholupdate.c
+  conv.c
+  conv2.c
+  conv2fft.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\conv2fft.c(32,26): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  Generating Code...
+  Compiling...
+  convfft.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\convfft.c(19,23): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+  det.c
+  dlyap.c
+  dot.c
+  eig.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\eig.c(103,54): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\eig.c(103,62): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\eig.c(103,79): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\eig.c(103,88): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\eig.c(371,59): warning C4028: formal parameter 4 different from declaration
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\eig.c(371,89): warning C4029: declared formal parameter list different from definition
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\eig.c(453,11): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+  eig_generalized.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\eig_generalized.c(146,63): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\eig_generalized.c(146,72): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\eig_generalized.c(146,84): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\eig_generalized.c(165,59): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\eig_generalized.c(165,71): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\eig_generalized.c(165,83): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\eig_generalized.c(165,106): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\eig_generalized.c(165,115): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+  expm.c
+  hankel.c
+  inv.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\inv.c(48,56): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\inv.c(48,61): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\inv.c(48,69): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\inv.c(49,56): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\inv.c(49,64): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\inv.c(107,15): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+  linsolve_chol.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\linsolve_chol.c(49,53): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\linsolve_chol.c(49,68): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\linsolve_chol.c(49,76): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+  linsolve_gauss.c
+  linsolve_lower_triangular.c
+  linsolve_lup.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\linsolve_lup.c(39,49): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\linsolve_lup.c(39,61): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\linsolve_lup.c(39,76): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+  linsolve_qr.c
+  linsolve_upper_triangular.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\linsolve_upper_triangular.c(25,16): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+  lup.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\lup.c(32,49): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\lup.c(32,54): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\lup.c(32,63): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+  mul.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\mul.c(104,43): warning C4267: 'function': conversion from 'size_t' to 'const int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\mul.c(104,62): warning C4267: 'function': conversion from 'size_t' to 'const int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\mul.c(121,45): warning C4267: 'function': conversion from 'size_t' to 'const int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\mul.c(121,52): warning C4267: 'function': conversion from 'size_t' to 'const int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\mul.c(121,71): warning C4267: 'function': conversion from 'size_t' to 'const int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\mul.c(107,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\mul.c(108,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\mul.c(109,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\mul.c(124,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\mul.c(125,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\mul.c(126,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  nonlinsolve.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\nonlinsolve.c(30,9): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\nonlinsolve.c(68,42): warning C4244: '=': conversion from 'float' to 'size_t', possible loss of data
+  norm.c
+  pinv.c
+  Generating Code...
+  Compiling...
+  qr.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\qr.c(150,49): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\qr.c(150,56): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\qr.c(150,69): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\qr.c(181,46): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\qr.c(181,53): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\qr.c(181,63): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\qr.c(181,73): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\qr.c(184,46): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\qr.c(184,53): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\qr.c(184,63): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\qr.c(184,76): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+  rank.c
+  svd.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\svd.c(154,56): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\svd.c(154,64): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\svd.c(185,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\svd.c(186,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\svd.c(611,17): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\svd.c(611,34): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\svd.c(639,17): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\svd.c(639,28): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\LinearAlgebra\svd.c(686,17): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+  tran.c
+  adaboost.c
+  dbscan.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\dbscan.c(34,33): warning C4101: 'm': unreferenced local variable
+  fisherfaces.c
+  kernel.c
+  kmeans.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\kmeans.c(19,10): warning C4133: 'initializing': incompatible types - from 'float *' to 'size_t *'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\kmeans.c(23,9): warning C4090: 'initializing': different 'const' qualifiers
+  kpca.c
+  kpca_lda_nn.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\kpca_lda_nn.c(31,59): warning C4090: '=': different 'const' qualifiers
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\kpca_lda_nn.c(43,10): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\kpca_lda_nn.c(43,10): message : consider using '%zi' in the format string
+  lbp.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\lbp.c(60,13): warning C4090: 'function': different 'const' qualifiers
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\lbp.c(52,33): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\lbp.c(53,36): warning C4244: 'initializing': conversion from 'float' to 'const size_t', possible loss of data
+  nn.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(76,10): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(76,10): message : consider using '%zi' in the format string
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(102,10): warning C4267: 'return': conversion from 'size_t' to 'uint8_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(104,10): warning C4267: 'return': conversion from 'size_t' to 'uint8_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(138,9): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'size_t'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(138,9): message : consider using '%zi' in the format string
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(138,9): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 3 has type 'const size_t'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(138,9): message : consider using '%zi' in the format string
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(139,9): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'size_t'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(139,9): message : consider using '%zi' in the format string
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(139,9): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 3 has type 'const size_t'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(139,9): message : consider using '%zi' in the format string
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(140,9): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'size_t'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(140,9): message : consider using '%zi' in the format string
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(140,9): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 3 has type 'const size_t'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(140,9): message : consider using '%zi' in the format string
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(141,9): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'size_t'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(141,9): message : consider using '%zi' in the format string
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(141,9): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 3 has type 'const size_t'
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(141,9): message : consider using '%zi' in the format string
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\nn.c(155,9): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+  svm.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\MachineLearning\svm.c(98,9): warning C4090: 'initializing': different 'const' qualifiers
+  anglevector.c
+  cat.c
+  cumsum.c
+  cut.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Miscellaneous\cut.c(20,9): warning C4090: 'initializing': different 'const' qualifiers
+  deg2rad.c
+  find.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Miscellaneous\find.c(26,34): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Miscellaneous\find.c(31,34): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Miscellaneous\find.c(36,34): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Miscellaneous\find.c(41,34): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Miscellaneous\find.c(46,34): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+  Generating Code...
+  Compiling...
+  float2uint.c
+  ind2sub.c
+  insert.c
+  issymmetric.c
+  normalize.c
+  pdist2.c
+  popcount.c
+  print.c
+  rad2deg.c
+  radianvector.c
+  rot2d.c
+  saturation.c
+  scalar.c
+  sign.c
+  sort.c
+  sum.c
+  uint2float.c
+  unit.c
+  vmax.c
+  vmin.c
+  Generating Code...
+  Compiling...
+  linprog.c
+  lsqnonneg.c
+  quadprog.c
+  clusterfilter.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\clusterfilter.c(20,10): warning C4090: 'function': different 'const' qualifiers
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\clusterfilter.c(30,12): warning C4090: 'function': different 'const' qualifiers
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\clusterfilter.c(69,12): warning C4090: 'function': different 'const' qualifiers
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\clusterfilter.c(24,9): warning C4090: 'initializing': different 'const' qualifiers
+  fft.c
+  fft2.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\fft2.c(29,28): warning C4267: 'initializing': conversion from 'size_t' to 'long', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\fft2.c(29,33): warning C4267: 'initializing': conversion from 'size_t' to 'long', possible loss of data
+  fftshift.c
+  filtfilt.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\filtfilt.c(22,23): warning C4090: 'function': different 'const' qualifiers
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\filtfilt.c(28,20): warning C4090: 'function': different 'const' qualifiers
+  ifft.c
+  ifft2.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\ifft2.c(26,28): warning C4267: 'initializing': conversion from 'size_t' to 'long', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SignalProcessing\ifft2.c(26,33): warning C4267: 'initializing': conversion from 'size_t' to 'long', possible loss of data
+  ifftshift.c
+  pf.c
+  sr_ukf_state_estimation.c
+  amax.c
+  amin.c
+  area.c
+  center.c
+  centroid.c
+  clusterratio.c
+  clustersdistance.c
+  Generating Code...
+  Compiling...
+  cov.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\cov.c(17,21): warning C4090: 'function': different 'const' qualifiers
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\cov.c(18,21): warning C4090: 'function': different 'const' qualifiers
+  covm.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\covm.c(38,26): warning C4267: '=': conversion from 'size_t' to 'uint32_t', possible loss of data
+  giniimpurity.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\giniimpurity.c(17,26): warning C4028: formal parameter 1 different from declaration
+  lda.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\lda.c(46,26): warning C4090: 'initializing': different 'const' qualifiers
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\lda.c(169,17): warning C4090: 'function': different 'const' qualifiers
+  mean.c
+  normpdf.c
+  opa.c
+  pca.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\pca.c(103,45): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\pca.c(103,50): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\pca.c(103,61): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\pca.c(103,75): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\pca.c(103,86): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+  randn.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\randn.c(21,9): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+  randperm.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\randperm.c(18,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+  stddev.c
+  var.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\Statistics\var.c(16,25): warning C4090: 'function': different 'const' qualifiers
+  era.c
+  okid.c
+  rls.c
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SystemIdentification\rls.c(66,14): warning C4267: '=': conversion from 'size_t' to 'int8_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SystemIdentification\rls.c(70,14): warning C4267: '=': conversion from 'size_t' to 'int8_t', possible loss of data
+C:\Users\dmn\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SystemIdentification\rls.c(74,15): warning C4267: '=': conversion from 'size_t' to 'int8_t', possible loss of data
+  sr_ukf_parameter_estimation.c
+  Generating Code...
+     Creating library C:\Users\dmn\GitHub\GoobySoft\x64\Debug\GoobySoft.lib and object C:\Users\dmn\GitHub\GoobySoft\x64\Debug\GoobySoft.exp
   GoobySoft.vcxproj -> C:\Users\dmn\GitHub\GoobySoft\x64\Debug\GoobySoft.exe

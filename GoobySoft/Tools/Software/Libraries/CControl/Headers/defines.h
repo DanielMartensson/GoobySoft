@@ -5,8 +5,8 @@
  *      Author: Daniel Mårtensson
  */
 
-#ifndef CCONTROL_HEADERS_DEFINES_H_
-#define CCONTROL_HEADERS_DEFINES_H_
+#ifndef DEFINES_H_
+#define DEFINES_H_
 
 #ifndef __cplusplus
 /* In ANSI C (C89), the __STDC_VERSION__ is not defined */
@@ -18,12 +18,14 @@
 typedef unsigned char uint8_t;
 typedef unsigned short uint16_t;
 typedef unsigned int uint32_t;
+typedef unsigned long long uint64_t;
 typedef signed char int8_t;
 typedef signed short int16_t;
 typedef signed int int32_t;
 typedef uint8_t bool;
 #define true 1
 #define false 0
+#define IS_C89
 #ifndef _MSC_VER
 #define NULL ((void *)0)
 typedef unsigned long long size_t;
@@ -34,19 +36,28 @@ typedef unsigned long long size_t;
 #endif /* !__STDC_VERSION__ */
 #endif /* !__cplusplus */
 
- /* Define for all */
+/* For memory leaks in Visual Studio */
+#ifdef _MSC_VER
+#define _CRTDBG_MAP_ALLOC 				
+#endif /* !_MSC_VER */
+
+/* If ARM compiler is used */
+#if defined(__aarch64__) || defined(__arm__)
+#define ARM_IS_USED
+#endif /* !!defined(__aarch64__) || !defined(__arm__) */
+
+/* Define for all */
 #define PI 3.14159265358979323846f		/* Constant PI */
 #define MIN_VALUE 1e-11f				/* Tuning parameter for the smalles value that can be allowed */
-#define MAX_ITERATIONS 10000U			/* For all iteration algorithsm */
+#define MAX_ITERATIONS 10000U			/* For all iteration algorithm */
+#define CONV_MAX_KERNEL_FFT_INSTEAD 80  /* When we are going to use FFT with conv or conv2 */
 
 /* Select library by uncomment - If non of these are uncomment, then CControl will use the internal library instead */
+#ifndef ARM_IS_USED
 #define MKL_LAPACK_USED 				/* For large matrices on a regular computer */
 #define MKL_FFT_USED					/* For large matrices on a regular computer */
-/* #define CLAPACK_USED   				/* For larger embedded systems */
+#else
+#define CLAPACK_USED   					/* For larger embedded systems */
+#endif /* !ARM_IS_USED */
 
-/* Load the MKL library */
-#if defined(MKL_LAPACK_USED) || defined(MKL_FFT_USED)
-#include <mkl.h>
-#endif
-
-#endif /* !CCONTROL_HEADERS_DEFINES_H_ */
+#endif /* !DEFINES_H_ */

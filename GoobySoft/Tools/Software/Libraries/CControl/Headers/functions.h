@@ -5,205 +5,71 @@
  *      Author: Daniel Mårtensson
  */
 
-#ifndef CCONTROL_HEADERS_FUNCTIONS_H_
-#define CCONTROL_HEADERS_FUNCTIONS_H_
-
-/* C89 standard library */
-#include <string.h>						/* For memcpy, memset etc */
-#include <stdio.h>						/* For printf */
-#include <stdlib.h>						/* Standard library */
-#include <math.h>						/* For sqrtf */
-#include <float.h>						/* Required for FLT_EPSILON, FLT_MAX, FLT_MIN */
-#include <stddef.h>						/* Requried for NULL */
-#include <time.h> 						/* For srand, clock */
-
-/* CControl headers */
-#include "defines.h"
-#include "enums.h"
-#include "structs.h"
+#ifndef FUNCTIONS_H_
+#define FUNCTIONS_H_
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#if __STDC_VERSION___ < 199901L
-#ifndef _MSC_VER
-float sqrtf(float x) {
+#if __STDC_VERSION__ < 199901L
+#if !defined(_MSC_VER) && !defined(ARM_IS_USED)
+INLINE float sqrtf(float x) {
 	return (float)sqrt(x);
 }
 
-float fabsf(float x) {
+INLINE float fabsf(float x) {
 	return (float)fabs(x);
 }
 
-float acosf(float x) {
+INLINE float acosf(float x) {
 	return (float)acos(x);
 }
 
-float atan2f(float x) {
+INLINE float atan2f(float x) {
 	return (float)atan(x);
 }
 
-float expf(float x) {
+INLINE float expf(float x) {
 	return (float)exp(x);
 }
 
-float powf(float base, float power) {
+INLINE float powf(float base, float power) {
 	return (float)pow(base, power);
 }
 
-float logf(float x) {
+INLINE float logf(float x) {
 	return (float)log(x);
 }
 
-float sinf(float x) {
+INLINE float sinf(float x) {
 	return (float)sin(x);
 }
 
-float tanhf(float x) {
+INLINE float tanhf(float x) {
 	return (float)tanh(x);
 }
 
 float roundf(float x) {
 	return (float)round(x);
 }
-#endif /* !_MSC_VER */
-#endif /* !__STDC_VERSION___ */
 
-/* Control engineering */
-void lmpc(float A[], float B[], float C[], float x[], float u[], float r[], size_t ADIM, size_t YDIM, size_t RDIM, size_t HORIZON, bool has_integration);
-void kalman(float A[], float B[], float C[], float K[], float u[], float x[], float y[], size_t ADIM, size_t YDIM, size_t RDIM);
-void lqi(float y[], float u[], float qi, float r[], float L[], float Li[], float x[], float xi[], size_t ADIM, size_t YDIM, size_t RDIM, ANTI_WINUP anti_winup);
-void mrac(float limit, float gain, float y[], float u[], float r[], float I1[], float I2[], size_t RDIM);
-void theta2ss(float A[], float B[], float C[], float theta[], float K[], size_t ADIM, size_t NP, size_t NZ, bool integral_action);
-bool stability(float A[], size_t ADIM);
-void c2d(float A[], float B[], size_t ADIM, size_t RDIM, float sampleTime);
+INLINE float ceilf(float x) {
+	return (float)ceil(x);
+}
 
-/* Machine learning */
-void orpfree(ORP* orp_model);
-ORP* orp(float X[], const float sigma1, const float sigma2, const uint8_t threshold_sobel, const uint8_t threshold_fast, const FAST_METHOD fast_method, const size_t row, const size_t column);
-void dbscan(float X[], size_t idx[], float epsilon, size_t min_pts, size_t row, size_t column);
-FAST_XY* fast(const uint8_t X[], int row, int column, int threshold, int* num_corners, FAST_METHOD fast_method);
-DATA_COLLECT* fisherfaces(DATA_SETTINGS* settings);
-size_t hough(float X[], float* K[], float* M[], float p, float epsilon, size_t min_pts, size_t row, size_t column);
-void kernel(const float X[], float K[], const size_t row, const size_t column, const float kernel_parameters[], const KERNEL_METHOD kernel_method);
-bool kmeans(const float X[], size_t idx[], float C[], const size_t k, const size_t row, const size_t column);
-void kpca(float X[], float W[], float P[], size_t c, size_t row, size_t column, float kernel_parameters[], KERNEL_METHOD kernel_method);
-uint32_t lbp(const float X[], const size_t row, const size_t column, const size_t x, const size_t y, const float init_angle, const float radius, LBP_BIT lbp_bit);
-void nn_train(const float X[], const size_t class_id[], float weight[], float bias[], bool status[], float accuracy[], const size_t row, const size_t column, const size_t classes, const float C, const float lambda);
-size_t nn_predict(const float model_w[], const float model_b[], const float x[], float y[], const size_t row_w, const size_t column_w, bool* class_id_found, const ACTIVATION_FUNCTION activation_function);
-void nn_eval(const float model_w[], const float model_b[], const float X[], float Y[], const size_t class_id[], const size_t row_w, const size_t column_w, const size_t row_x, const ACTIVATION_FUNCTION activation_function);
-void nn_save(const float model_w[], const float model_b[], const ACTIVATION_FUNCTION activation_function, const char model_path[], const char model_name[], const size_t row, const size_t column);
-DATA_COLLECT* odorp(DATA_SETTINGS* settings);
-bool svm(float X[], float y[], float w[], float* b, float* accuracy, float C, float lambda, size_t row, size_t column);
+INLINE float floorf(float x) {
+	return (float)floor(x);
+}
 
-/* Miscellaneous */
-void cat(bool row_wise, float A[], float B[], float C[], size_t row_a, size_t column_a, size_t row_b, size_t column_b, size_t row_c, size_t column_c);
-float saturation(float input, float lower_limit, float upper_limit);
-void cut(float A[], size_t column, float B[], size_t start_row, size_t stop_row, size_t start_column, size_t stop_column);
-void find(float A[], int32_t index[], float condition, size_t row, FIND_CONDITION_METOD condition_method);
-void insert(float A[], float B[], size_t row_a, size_t column_a, size_t column_b, size_t startRow_b, size_t startColumn_b);
-bool issymmetric(float A[], size_t row, size_t column);
-void pdist2(const float A[], const float B[], float C[], const size_t row_a, const size_t column_a, const size_t row_b, const PDIST2_METRIC metric);
-void print(float A[], size_t row, size_t column);
-float rad2deg(float radians);
-float deg2rad(float radians);
-float sign(float number);
-float vmax(float a, float b);
-float vmin(float a, float b);
-void sort(float X[], size_t index[], size_t row, size_t column, SORT_MODE sort_mode);
-void sum(float x[], float y[], size_t row, size_t column, bool row_direction);
+INLINE float fmodf(float x, float y) {
+	return (float)fmod(x, y);
+}
 
-/* Hardware */
-void concatenate_paths(char total_path[], const char path_first[], const char path_second[]);
-size_t count_sub_folders(const char folder_path[]);
-size_t scan_file_names(const char folder_path[], char** file_names[]);
-size_t scan_sub_folder_names(const char folder_path[], char** sub_folder_names[]);
-
-/* Linear algebra */
-bool inv(float A[], size_t row);
-void linsolve_upper_triangular(float A[], float x[], float b[], size_t column);
-void tran(float A[], size_t row, size_t column);
-void mul(const float A[], const float B[], float C[], const size_t row_a, const size_t column_a, const size_t column_b);
-size_t rank(float A[], size_t row, size_t column);
-bool svd(float A[], size_t row, size_t column, float U[], float S[], float V[]);
-void dlyap(float A[], float P[], float Q[], size_t row);
-float dot(float a[], float b[], size_t row);
-bool qr(float A[], float Q[], float R[], size_t row_a, size_t column_a, bool only_compute_R);
-bool linsolve_qr(float A[], float x[], float b[], size_t row, size_t column);
-void linsolve_lower_triangular(float A[], float x[], float b[], size_t row);
-bool lup(float A[], float LU[], int P[], size_t row);
-float det(float A[], size_t row);
-bool linsolve_lup(float A[], float x[], float b[], size_t row);
-bool chol(float A[], float L[], size_t row);
-void cholupdate(float L[], float x[], size_t row, bool rank_one_update);
-void conv2fft(float A[], float B[], size_t row_a, size_t column_a, float K[], size_t row_k);
-bool linsolve_chol(float A[], float x[], float b[], size_t row);
-void pinv(float A[], size_t row, size_t column);
-bool hankel(float V[], float H[], size_t row_v, size_t column_v, size_t row_h, size_t column_h, size_t shift);
-void balance(float A[], size_t row);
-bool eig(float A[], float dr[], float di[], float wr[], float wi[], size_t row);
-bool eig_generalized(float A[], float B[], size_t row, float dr[], float di[], float wr[], float wi[]);
-float norm(float X[], size_t row, size_t column, NORM_METHOD norm_method);
-bool expm(float A[], size_t row);
-void nonlinsolve(void (*nonlinear_equation_system)(float[], float[], float[]), float b[], float x[], size_t elements, float alpha, float max_value, float min_value, bool random_guess_active);
-void linsolve_gauss(float A[], float x[], float b[], size_t row, size_t column, float alpha);
-  
-/* Optimization */
-bool linprog(float c[], float A[], float b[], float x[], size_t row_a, size_t column_a, bool maximization);
-bool lsqnonneg(float A[], float x[], float b[], float residual[], size_t row, size_t column);
-bool quadprog(float Q[], float c[], float A[], float b[], float G[], float h[], float x[], size_t row_a, size_t row_g, size_t column_a, bool equality_constraints_are_used);
-
-/* Signal processing */
-size_t cluster_filter(float X[], size_t row, size_t column, float epsilon, size_t min_pts);
-void filtfilt(float y[], float t[], size_t l, float K);
-void pf(float x[], float xhat[], float xhatp[], float horizon[], float noise[], size_t m, size_t p, size_t* k);
-void sr_ukf_state_estimation(float y[], float xhat[], float Rn[], float Rv[], float u[], void (*F)(float[], float[], float[]), float S[], float alpha, float beta, size_t L);
-void fft(float xr[], float xi[], size_t n);
-void fft2(float XR[], float XI[], size_t row, size_t column);
-void fftshift(float X[], size_t row, size_t column);
-void ifft(float xr[], float xi[], size_t n);
-void ifftshift(float X[], size_t row, size_t column);
-void ifft2(float XR[], float XI[], size_t row, size_t column);
-
-/* Image processing */
-void imshow(PGM* image);
-PGM* imread(const char file_path[]);
-void imresize(float X[], float Y[], float d, size_t row, size_t column);
-void imgaussfilt(float X[], float sigma, size_t row, size_t column);
-DATA_COLLECT* imcollect(const DATA_SETTINGS* data_settings);
-void imcollect_free(DATA_COLLECT* data_collect);
-void imfree(PGM* image);
-void pooling(float X[], float P[], size_t row, size_t column, size_t p, POOLING_METHOD pooling_method);
-void rpca(float X[], float L[], float S[], size_t row, size_t column);
-void sobel(float X[], float G[], float O[], size_t row, size_t column, bool only_compute_G);
-
-/* Statistics */
-float amax(float x[], size_t* max_index, size_t length);
-void center(float X[], float mu[], size_t row, size_t column);
-float area(float X[], size_t row, size_t* total_elements, AREA_METHOD area_method);
-void randn(float x[], size_t length, float mu, float sigma);
-void randperm(size_t x[], size_t N, size_t M);
-float mean(float x[], size_t length);
-float var(float x[], size_t length);
-float cov(float x[], float y[], size_t length);
-void covm(float X[], float Y[], size_t row, size_t column);
-float stddev(float x[], size_t length);
-void pca(const float X[], float W[], float P[], float mu[], const size_t c, const size_t row, const size_t column);
-void lda(const float X[], const size_t y[], float W[], float P[], const size_t c, const size_t row, const size_t column);
-
-/* AI-algorithms */
-void Astar(int32_t map[], int32_t path_x[], int32_t path_y[], size_t x_start, size_t y_start, size_t x_stop, size_t y_stop, size_t height, size_t width, ASTAR_MODE astar_mode, size_t* steps);
-bool inpolygon(float x, float y, float px[], float py[], size_t p);
-
-/* System identification */
-void rls(size_t NP, size_t NZ, size_t NZE, float theta[], float u, float y, size_t* count, float* past_e, float* past_y, float* past_u, float phi[], float P[], float Pq, float forgetting);
-void okid(float u[], float y[], float g[], size_t row, size_t column);
-void era(float u[], float y[], size_t row, size_t column, float A[], float B[], float C[], size_t row_a, size_t inputs_outputs);
-void sr_ukf_parameter_estimation(float d[], float what[], float Re[], float x[], void (*G)(float[], float[], float[]), float lambda_rls, float Sw[], float alpha, float beta, size_t L);
-
+#endif /* !defined(_MSC_VER) && !defined(ARM_IS_USED) */
+#endif /* !__STDC_VERSION__ */
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* !CCONTROL_HEADERS_FUNCTIONS_H_ */
+#endif /* !FUNCTIONS_H_ */

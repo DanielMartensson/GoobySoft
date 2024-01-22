@@ -5,7 +5,7 @@
  *      Author: Daniel Mårtensson
  */
 
-#include "../../Headers/functions.h"
+#include "miscellaneous.h"
 
 /*
  * Find elements
@@ -13,8 +13,9 @@
  * index[m]
  * m = row
  * condition FIND_CONDITION_METOD A[]
+ * Returning the count of the find
  */
-void find(float A[], int32_t index[], float condition, size_t row, FIND_CONDITION_METOD condition_method) {
+size_t find(const float A[], int32_t index[], const float condition, const size_t row, const FIND_CONDITION_METOD condition_method) {
 	size_t i;
     size_t count = 0;
     memset(index, -1, row * sizeof(int32_t));
@@ -46,6 +47,6 @@ void find(float A[], int32_t index[], float condition, size_t row, FIND_CONDITIO
             }
             break;
         }
-
     }
+    return count;
 }

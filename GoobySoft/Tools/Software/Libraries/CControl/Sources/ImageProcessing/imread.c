@@ -5,7 +5,7 @@
  *      Author: Daniel Mårtensson
  */
 
-#include "../../Headers/functions.h"
+#include "imageprocessing.h"
 
 PGM* imread(const char file_path[]) {
 	/* Check if file_path holds .pgm */
@@ -61,6 +61,9 @@ PGM* imread(const char file_path[]) {
 			image->pixels[i] = s;
 		}
 	}
+
+	/* Close the image */
+	fclose(file);
 
 	/* Everything went fine */
 	return image;

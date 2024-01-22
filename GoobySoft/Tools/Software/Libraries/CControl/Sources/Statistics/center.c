@@ -5,11 +5,11 @@
  *      Author: Daniel Mårtensson
  */
 
-#include "../../Headers/functions.h"
+#include "statistics.h"
 
 /*
  * Center the data matrix X by using X = X - mean(X)
- * X[m*n]
+ * X[m*n] - Input and output
  * mu[n]
  */
 void center(float X[], float mu[], size_t row, size_t column) {

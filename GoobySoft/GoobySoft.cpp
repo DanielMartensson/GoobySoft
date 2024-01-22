@@ -7,12 +7,6 @@
 #include "Tools/Tools.h"
 #include "Windows/Windows.h"
 #include <stdio.h>
-#include <SDL2/SDL.h>
-#if defined(IMGUI_IMPL_OPENGL_ES2)
-#include <SDL2/SDL_opengles2.h>
-#else
-#include <SDL2/SDL_opengl.h>
-#endif
 
 // Images and icons
 #include "Resources/Resources.h"

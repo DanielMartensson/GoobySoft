@@ -5,14 +5,14 @@
  *      Author: Daniel Mårtensson
  */
 
-#include "../../Headers/functions.h"
+#include "linearalgebra.h"
 
 /*
  * Compute dot product of two vectors
  * a[m]
  * b[m]
  */
-float dot(float a[], float b[], size_t row) {
+float dot(const float a[], const float b[], const size_t row) {
     float result = 0.0f;
     size_t i;
     for (i = 0; i < row; i++) {

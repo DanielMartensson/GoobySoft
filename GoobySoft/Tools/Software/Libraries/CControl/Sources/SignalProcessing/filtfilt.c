@@ -5,7 +5,7 @@
  *      Author: Daniel Mårtensson
  */
 
-#include "../../Headers/functions.h"
+#include "signalprocessing.h"
 
 static void simulation(float K, float y[], float t[], size_t l);
 static void flip(float y[], size_t l);
@@ -17,7 +17,7 @@ static void flip(float y[], size_t l);
  * K > 0, but small number
  * Returns y as filtered
  */
-void filtfilt(float y[], float t[], size_t l, float K) {
+void filtfilt(float y[], const float t[], const size_t l, const float K) {
 	/* Simulate */
     simulation(K, y, t, l);
 

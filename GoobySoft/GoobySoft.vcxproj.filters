@@ -81,9 +81,6 @@
     <ClCompile Include="Tools\Software\Libraries\ImGui\imgui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tools\Software\Libraries\ImGui\imgui_demo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Tools\Software\Libraries\ImGui\imgui_draw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -372,13 +369,7 @@
     <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\dbscan.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\fast.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\fisherfaces.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\hough.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\kernel.c">
@@ -453,9 +444,6 @@
     <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SignalProcessing\FFTpack\fftpack.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SignalProcessing\cluster_filter.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SignalProcessing\fft.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -528,25 +516,136 @@
     <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SystemIdentification\sr_ukf_parameter_estimation.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Windows\Dialogs\UtilDialogs\FisherFacesDialog\FisherFacesDialog.cpp">
+    <ClCompile Include="Windows\Dialogs\UtilDialogs\ImageDialogs\FisherFacesDialog\FisherFacesDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Windows\Dialogs\UtilDialogs\ODORPDialog\ODORPDialog.cpp">
+    <ClCompile Include="Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\kmeans.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\odorp.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\orp.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\area.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\imcollect.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Windows\Dialogs\UtilDialogs\ImageDialogs\CameraDialog\CameraDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Hardware\detectmemoryleak.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\popcount.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\kpca_lda_nn.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\anglevector.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Windows\Dialogs\UtilDialogs\DatabaseDialogs\GradesDialog\GradesDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Communications\Databases\ITHBetyg\ITHBetyg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\cornerdetection.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\featuredetection.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\fspecial.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\generalizedhough.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\harris.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\hough.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\imwrite.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\intensitycentroid.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\landmarkdetection.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\shapedetection.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\conv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\conv2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\convfft.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\float2uint.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\ind2sub.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\radianvector.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\rot2d.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\scalar.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\uint2float.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\unit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\amin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\centroid.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\clusterratio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\clustersdistance.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\normpdf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\opa.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\integralimage.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\cumsum.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SignalProcessing\clusterfilter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\adaboost.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\normalize.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\giniimpurity.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -824,13 +923,73 @@
     <ClInclude Include="Tools\Software\Libraries\CControl\ccontrol.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Windows\Dialogs\UtilDialogs\FisherFacesDialog\FisherFacesDialog.h">
+    <ClInclude Include="Windows\Dialogs\UtilDialogs\ImageDialogs\FisherFacesDialog\FisherFacesDialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Windows\Dialogs\UtilDialogs\UtilDialogs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Windows\Dialogs\UtilDialogs\ODORPDialog\ODORPDialog.h">
+    <ClInclude Include="Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\Dialogs\UtilDialogs\ImageDialogs\ImageDialogs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\Dialogs\UtilDialogs\ImageDialogs\CameraDialog\CameraDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Software\Libraries\CControl\Headers\macros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\Dialogs\UtilDialogs\DatabaseDialogs\DatabaseDialogs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\Dialogs\UtilDialogs\DatabaseDialogs\GradesDialog\GradesDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Communications\Databases\ITHBetyg\ITHBetyg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Communications\Databases\Databases.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Software\Libraries\CControl\Headers\headers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\ArtificialIntelligence\artificialintelligence.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\ControlEngineering\controlengineering.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\Hardware\hardware.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\ImageProcessing\imageprocessing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\LinearAlgebra\linearalgebra.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\MachineLearning\machinelearning.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\Miscellaneous\miscellaneous.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\Optimization\optimization.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\SignalProcessing\signalprocessing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\Statistics\statistics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\SystemIdentification\systemidentification.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Software\Libraries\CControl\Sources\sources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -9,15 +9,17 @@ bool Tools_Gui_CreateDialogs_showPopUpConfirmDialogOKCancleWithCheckBox(const ch
 	if (ImGui::BeginPopup(popUpId, ImGuiWindowFlags_Modal)) {
 		ImGui::Text(question);
 		static bool checkBox = false;
-		if (ImGui::Button("OK") && checkBox) {
-			if (confirmCallBack != nullptr) {
-				confirmCallBack();
+		if (checkBox) {
+			if (ImGui::Button("OK")) {
+				if (confirmCallBack != nullptr) {
+					confirmCallBack();
+				}
+				ImGui::CloseCurrentPopup();
+				checkBox = false;
+				isPressedOK = true;
 			}
-			ImGui::CloseCurrentPopup();
-			checkBox = false;
-			isPressedOK = true;
+			ImGui::SameLine();
 		}
-		ImGui::SameLine();
 		ImGui::Checkbox(checkBoxConfirm, &checkBox);
 		ImGui::SameLine();
 		if (ImGui::Button("Cancle")) {

@@ -5,12 +5,12 @@
  *      Author: Daniel Mårtensson
  */
 
-#include "../../Headers/functions.h"
+#include "miscellaneous.h"
 
 /*
  * Return min value of a and b
  */
-float vmin(float a, float b){
+INLINE float vmin(const float a, const float b){
 	if (a < b) {
 		return a;
 	}
