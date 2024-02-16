@@ -8,10 +8,9 @@ C:\Users\dmn\GitHub\GoobySoft\x64\Release\zstd.dll
 C:\Users\dmn\GitHub\GoobySoft\x64\Release\libssl-3-x64.dll
 C:\Users\dmn\GitHub\GoobySoft\x64\Release\libcrypto-3-x64.dll
 C:\Users\dmn\GitHub\GoobySoft\x64\Release\libprotobuf-lite.dll
-C:\Users\dmn\GitHub\GoobySoft\x64\Release\opencv_videoio4.dll
+C:\Users\dmn\GitHub\GoobySoft\x64\Release\opencv_core4.dll
 C:\Users\dmn\GitHub\GoobySoft\x64\Release\opencv_imgcodecs4.dll
 C:\Users\dmn\GitHub\GoobySoft\x64\Release\opencv_imgproc4.dll
-C:\Users\dmn\GitHub\GoobySoft\x64\Release\opencv_core4.dll
 C:\Users\dmn\GitHub\GoobySoft\x64\Release\jpeg62.dll
 C:\Users\dmn\GitHub\GoobySoft\x64\Release\libwebpdecoder.dll
 C:\Users\dmn\GitHub\GoobySoft\x64\Release\libwebp.dll
@@ -19,4 +18,5 @@ C:\Users\dmn\GitHub\GoobySoft\x64\Release\libsharpyuv.dll
 C:\Users\dmn\GitHub\GoobySoft\x64\Release\libpng16.dll
 C:\Users\dmn\GitHub\GoobySoft\x64\Release\tiff.dll
 C:\Users\dmn\GitHub\GoobySoft\x64\Release\liblzma.dll
+C:\Users\dmn\GitHub\GoobySoft\x64\Release\opencv_videoio4.dll
 C:\Users\dmn\GitHub\GoobySoft\x64\Release\SDL2.dll

@@ -4,6 +4,9 @@
 void Windows_Dialogs_MeasurementDialogs_ConfigureMeasurementDialog_showConfigureMeasurementDialog(bool* configureMeasurement) {
 	// Display
 	if (ImGui::Begin("Configure measurement", configureMeasurement)) {
+		// Update the ports for the devices
+		Tools_Communications_Devices_updatePorts();
+
 		// Get the parameter holder
 		Protocol* protocols = Tools_Hardware_ParameterStore_getParameterHolder()->protocols;
 
@@ -29,6 +32,7 @@ void Windows_Dialogs_MeasurementDialogs_ConfigureMeasurementDialog_showConfigure
 							if (ImGui::Button(("Add new row of " + deviceName).c_str())) { 
 								devices[j].tableRowSelected = tableRows[*selectedRowIndex];
 								ImGui::OpenPopup(("popUpAdd" + deviceName).c_str()); 
+
 							}
 							if (*tableRowCount > 0) {
 								ImGui::SameLine();

@@ -648,6 +648,9 @@
     <ClCompile Include="Tools\Software\Libraries\CControl\Sources\Statistics\giniimpurity.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Tools\Communications\Devices\Uponor-X-148\Uponor-X-148.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tools\Communications\Devices\Devices.h">
@@ -990,6 +993,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tools\Software\Libraries\CControl\Sources\sources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Communications\Devices\Uponor-X-148\Uponor-X-148.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

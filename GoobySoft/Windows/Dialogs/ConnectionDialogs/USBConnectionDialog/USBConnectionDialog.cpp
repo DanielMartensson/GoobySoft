@@ -103,7 +103,7 @@ void Windows_Dialogs_ConnectionDialogs_USBConnectionDialog_showUSBConnectionDial
 			disconnectionUSBCallback
 		);
 
-		// Update the ports for the protocolDevices
+		// Update the ports for the devices
 		Tools_Communications_Devices_updatePorts();
 
 		ImGui::End();

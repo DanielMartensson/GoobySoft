@@ -18,6 +18,7 @@ This is a measuring and controlling software. The purpose of this software is to
 
  - ADL400 DIN Rail Energy Meter
  - Beijer Electronics Performance Inverter P2 (Comming soon)
+ - Uponor X-148 Home Automation System
  - [STM32-PLC](https://github.com/DanielMartensson/STM32-PLC)
 
 # How to add a new `device`

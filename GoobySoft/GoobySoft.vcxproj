@@ -130,7 +130,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <LanguageStandard_C>Default</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,6 +147,7 @@
     <ClCompile Include="Tools\Communications\Devices\ADL400\ADL400.cpp" />
     <ClCompile Include="Tools\Communications\Devices\Devices.cpp" />
     <ClCompile Include="Tools\Communications\Devices\STM32PLC\STM32PLC.cpp" />
+    <ClCompile Include="Tools\Communications\Devices\Uponor-X-148\Uponor-X-148.cpp" />
     <ClCompile Include="Tools\Gui\CreateDialogs\CreateDialogs.cpp" />
     <ClCompile Include="Tools\Hardware\Network\Network.cpp" />
     <ClCompile Include="Tools\Hardware\Network\Protocols\ModbusTCP\ModbusTCP.cpp" />
@@ -364,6 +365,7 @@
     <ClInclude Include="Tools\Communications\Devices\ADL400\ADL400.h" />
     <ClInclude Include="Tools\Communications\Devices\Devices.h" />
     <ClInclude Include="Tools\Communications\Devices\STM32PLC\STM32PLC.h" />
+    <ClInclude Include="Tools\Communications\Devices\Uponor-X-148\Uponor-X-148.h" />
     <ClInclude Include="Tools\Gui\CreateDialogs\CreateDialogs.h" />
     <ClInclude Include="Tools\Hardware\Network\Protocols\ModbusTCP\ModbusTCP.h" />
     <ClInclude Include="Tools\Hardware\Network\Network.h" />
