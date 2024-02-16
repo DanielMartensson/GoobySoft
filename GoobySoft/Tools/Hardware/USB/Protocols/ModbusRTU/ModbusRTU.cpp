@@ -26,9 +26,9 @@ bool Tools_Hardware_USB_Protocols_ModbusRTU_readRegister(const char port[], cons
 		if (modbus_read_registers(getDevice(port), registerAddress, numberOfRegisters, registers) == numberOfRegisters) {
 			return true;
 		}
-#if(defined(_GOOBYSOFT_DEBUG))
+//#if(defined(_GOOBYSOFT_DEBUG))
 		std::printf("Modbus read register failed: %s\n", modbus_strerror(errno));
-#endif
+//#endif
 		return false;
 	}
 	else {
@@ -55,9 +55,9 @@ bool Tools_Hardware_USB_Protocols_ModbusRTU_closeConnection(const char port[]) {
 bool Tools_Hardware_USB_Protocols_ModbusRTU_openConnection(const char port[], const unsigned int baudrate, const char parity, const unsigned int dataBit, const unsigned int stopBits) {
 	modbus_t* devices = modbus_new_rtu(port, baudrate, parity, dataBit, stopBits);
 	if (modbus_connect(devices) == -1) {
-#if(defined(_GOOBYSOFT_DEBUG))
+//#if(defined(_GOOBYSOFT_DEBUG))
 		std::printf("Modbus RTU connection failed: %s\n", modbus_strerror(errno));
-#endif
+//#endif
 		modbus_free(devices);
 		return false;
 	}
@@ -71,9 +71,9 @@ bool Tools_Hardware_USB_Protocols_ModbusRTU_openConnection(const char ipAddress[
 	// This is a special case because I cannot include <modbus.h> inside a header file with Visual Studio Community 2022. Getting C2059 error
 	modbus_t* devices = modbus_new_tcp(ipAddress, port);
 	if (modbus_connect(devices) == -1) {
-#if(defined(_GOOBYSOFT_DEBUG))
+//#if(defined(_GOOBYSOFT_DEBUG))
 		std::printf("Modbus TCP connection failed: %s\n", modbus_strerror(errno));
-#endif
+//#endif
 		modbus_free(devices);
 		return false;
 	}
@@ -88,10 +88,11 @@ bool Tools_Hardware_USB_Protocols_ModbusRTU_setSlaveAddress(const char port[], c
 	if (!modbusDeviceExist(port)) {
 		return false;
 	}
-	if (modbus_set_slave(getDevice(port), slaveAddress) == -1) {
-#if(defined(_GOOBYSOFT_DEBUG))
+	int s = modbus_set_slave(getDevice(port), slaveAddress);
+	if (s == -1) {
+//#if(defined(_GOOBYSOFT_DEBUG))
 		std::printf("Modbus set slave failed: %s\n", modbus_strerror(errno));
-#endif
+//#endif
 		return false;
 	}
 	return true;
