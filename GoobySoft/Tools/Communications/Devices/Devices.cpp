@@ -5,7 +5,6 @@ void createDeviceTool(struct Device* devices, const char deviceName[], std::stri
 	std::strcpy(devices->deviceName, deviceName);															
 	// Iterate the rows
 	TableRow* tableRows = devices->tableRows;
-	int tableRowCount = devices->tableRowCount;
 	for (int i = 0; i < MAX_ROWS; i++) {
 		// Check if it's the first row. The first row is the header row
 		tableRows[i].isHeader = i == 0;	
@@ -104,12 +103,16 @@ void Tools_Communications_Devices_createDevices() {
 	}
 
 	// Create devices for protocols 
-	createProtocolTool(&protocols[0], USB_PROTOCOL_STRING[USB_PROTOCOL_ENUM_MODBUS_RTU], 1); // Modbus RTU, 1 device
+	createProtocolTool(&protocols[0], USB_PROTOCOL_STRING[USB_PROTOCOL_ENUM_MODBUS_RTU], 2); // Modbus RTU, 2 device
 	createProtocolTool(&protocols[1], USB_PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC], 1); // CDC, 1 device
 	// Add new protocol here...
 
-	// Create devices
+	// Create modbus RTU devices
 	createDeviceTool(&protocols[0].devices[0], "ADL400", Tools_Communications_Devices_ADL400_getFunctionValues, Tools_Communications_Devices_ADL400_getTableColumnIDs, Tools_Communications_Devices_ADL400_getInput, Tools_Communications_Devices_ADL400_setOutput, Tools_Communications_Devices_ADL400_getColumnFunction);
+	createDeviceTool(&protocols[0].devices[1], "Uponor X-141", Tools_Communications_Devices_Uponor_X_148_getFunctionValues, Tools_Communications_Devices_Uponor_X_148_getTableColumnIDs, Tools_Communications_Devices_Uponor_X_148_getInput, Tools_Communications_Devices_Uponor_X_148_setOutput, Tools_Communications_Devices_Uponor_X_148_getColumnFunction);
+	// Add new device here...
+
+	// Create CDC devices
 	createDeviceTool(&protocols[1].devices[0], "STM32 PLC", Tools_Communications_Devices_STM32PLC_getFunctionValues, Tools_Communications_Devices_STM32PLC_getTableColumnIDs, Tools_Communications_Devices_STM32PLC_getInput, Tools_Communications_Devices_STM32PLC_setOutput, Tools_Communications_Devices_STM32PLC_getColumnFunction);
 	// Add new device here...
 }
@@ -129,7 +132,7 @@ void Tools_Communications_Devices_updatePorts() {
 				// Iterate the rows
 				TableRow* tableRows = devices[j].tableRows;
 				int tableRowCount = devices[j].tableRowCount;
-				for (int k = 0; k < tableRowCount; k++) {
+				for (int k = 0; k <= tableRowCount; k++) {
 					// Iterate the columns
 					TableColumn* tableColumns = tableRows[k].tableColumns;
 					int tableColumnCount = tableRows[k].tableColumnCount;

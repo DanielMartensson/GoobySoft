@@ -5,6 +5,7 @@
 // Devices
 #include "ADL400/ADL400.h"
 #include "STM32PLC/STM32PLC.h"
+#include "Uponor-X-148/Uponor-X-148.h"
 
 TableColumnID Tools_Communications_Devices_createTableIDs(const char columName[], COLUMN_DEFINITION columnDefinition);
 void Tools_Communications_Devices_createDevices();
