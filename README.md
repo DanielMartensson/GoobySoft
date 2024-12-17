@@ -250,7 +250,7 @@ The folders `x64/Debug` and `x64/Release` contains prebuilt 64-bit Windows binar
  1. Install `Visual Studio Community`
  2. Install `vcpkg`
  3. Configure `vcpkg` with `Visual Studio Community`
- 4. Install the following packages: `sdl2`, `opengl`, `mysql-connector-cpp`, `libmodbus`, `boost-asio`, `boost-date-time`, `boost-filesystem`
+ 4. Install the following packages: `sdl2`, `intel-mkl`, `opengl`, `mysql-connector-cpp`, `libmodbus`, `boost-asio`, `boost-date-time`, `boost-filesystem`
  5. Run the `GoobySoft.sln` file with `Visual Studio Community` and press the compile button.
 
 ## Ubuntu/Debian - Compile from source
