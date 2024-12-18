@@ -1,11 +1,9 @@
 #include "CameraDialog.h"
 #include "../../../../../Tools/Tools.h"
-#include <opencv2/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc.hpp>
+#include <opencv4/opencv2/opencv.hpp>
 
 void Windows_Dialogs_UtilDialogs_ImageDialogs_CameraDialog_showCameraDialog(bool* cameraDialog) {
-	// Display
+	//  Display
 	if (ImGui::Begin("Camera", cameraDialog)) {
 		// Open the camera
 		static cv::VideoCapture cap;
@@ -54,11 +52,11 @@ void Windows_Dialogs_UtilDialogs_ImageDialogs_CameraDialog_showCameraDialog(bool
 			cv::Mat frame;
 			cap >> frame;
 
-			/* Turn image to grey scale */
+			// Turn image to grey scale 
 			cv::Mat image;
 			cv::cvtColor(frame, image, cv::COLOR_RGB2GRAY);
 
-			/* Create display image */
+			// Create display image
 			static GLuint texID;
 			glDeleteTextures(1, &texID);
 			glGenTextures(1, &texID);
@@ -82,7 +80,7 @@ void Windows_Dialogs_UtilDialogs_ImageDialogs_CameraDialog_showCameraDialog(bool
 
 			// Create texture
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image.cols, image.rows, 0, GL_RGB, GL_UNSIGNED_BYTE, frame.data);
-			
+
 			// Dipslay image
 			ImGui::NewLine();
 			ImGui::Image((ImTextureID)texID, ImVec2(image.cols, image.rows));

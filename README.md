@@ -248,16 +248,17 @@ The folders `x64/Debug` and `x64/Release` contains prebuilt 64-bit Windows binar
 ## Windows - Compile from source
 
  1. Install `Visual Studio Community`
- 2. Install `vcpkg`
- 3. Configure `vcpkg` with `Visual Studio Community`
- 4. Install the following packages: `sdl2`, `intel-mkl`, `opengl`, `mysql-connector-cpp`, `libmodbus`, `boost-asio`, `boost-date-time`, `boost-filesystem`
- 5. Run the `GoobySoft.sln` file with `Visual Studio Community` and press the compile button.
+ 2. Install `Vcpkg`
+ 3. Install `Intel Math Kernel Library` manually
+ 4. Configure `vcpkg` with `Visual Studio Community`
+ 5. Install the following vcpkg packages: `sdl3`, `opengl`, `opencv`, `mysql-connector-cpp`, `libmodbus`, `boost-asio`, `boost-date-time`, `boost-filesystem`
+ 6. Run the `GoobySoft.sln` file with `Visual Studio Community` and press the compile button.
 
 ## Ubuntu/Debian - Compile from source
 
  1. Download and Configure [Oracle APT Repository](https://dev.mysql.com/downloads/repo/apt/)
  2. Update APT `sudo apt-get update`
- 3. Install software `sudo apt-get install build-essential cmake libsdl2-dev libopengl-dev libmodbus-dev libboost-all-dev libmysqlcppconn-dev`
+ 3. Install software `sudo apt-get install build-essential cmake libsdl2-dev libopencv2-dev intel-oneapi-mkl libopengl-dev libmodbus-dev libboost-all-dev libmysqlcppconn-dev`
  4. Download `GoobySoft` repository and extract the `.zip` file.
  5. Make sure you are standing inside the `GoobySoft` folder.
  5. Run CMake `cmake -B build .`

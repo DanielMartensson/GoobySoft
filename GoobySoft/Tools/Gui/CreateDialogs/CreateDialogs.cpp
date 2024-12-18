@@ -167,7 +167,9 @@ bool Tools_Gui_CreateDialogs_showPopUpComboInputIntInputFloatInputTextDialogOKCa
 
 void Tools_Gui_CreateDialogs_showFileDialog(bool* isOpen, bool* isPressedOK, const char fileFilter[], std::string& folderPath, std::string& filePathName, std::string& fileName, ImGuiFileDialogFlags flags) {
 	if (*isOpen) {
-		ImGuiFileDialog::Instance()->OpenDialog("FileDialogKey", "File dialog", fileFilter, filePathName, 1, nullptr, flags); // fileFilter[] = ".cpp,.h,.hpp" 
+		IGFD::FileDialogConfig vConfig;
+		vConfig.flags = flags;
+		ImGuiFileDialog::Instance()->OpenDialog("FileDialogKey", "File dialog", fileFilter, vConfig);
 
 		// Display
 		if (ImGuiFileDialog::Instance()->Display("FileDialogKey"))
@@ -191,7 +193,8 @@ void Tools_Gui_CreateDialogs_showFileDialog(bool* isOpen, bool* isPressedOK, con
 
 void Tools_Gui_CreateDialogs_showFolderDialog(bool* isOpen, bool* isPressedOK, std::string& folderPath) {
 	if (*isOpen) {
-		ImGuiFileDialog::Instance()->OpenDialog("FolderDialogKey", "Choose a Directory", nullptr, ".");
+		IGFD::FileDialogConfig vConfig;
+		ImGuiFileDialog::Instance()->OpenDialog("FolderDialogKey", "Choose a Directory", ".", vConfig);
 
 		// Display
 		if (ImGuiFileDialog::Instance()->Display("FolderDialogKey"))

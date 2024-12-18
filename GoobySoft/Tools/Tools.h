@@ -10,11 +10,11 @@
 #include "Software/Software.h"
 #include "Software/Libraries/Libraries.h"
 
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 #if defined(IMGUI_IMPL_OPENGL_ES2)
 #include <SDL2/SDL_opengles2.h>
 #else
-#include <SDL2/SDL_opengl.h>
+#include <SDL3/SDL_opengl.h>
 #endif
 
 #endif // !Tools

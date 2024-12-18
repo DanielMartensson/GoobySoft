@@ -58,7 +58,7 @@
 #   define S_IFDIR _S_IFDIR
 #endif
 
-/* Character addDevice bit */
+/* Character device bit */
 #if !defined(S_IFCHR)
 #   define S_IFCHR _S_IFCHR
 #endif
@@ -93,7 +93,7 @@
 #   define S_IFIFO _S_IFIFO
 #endif
 
-/* Block addDevice */
+/* Block device */
 #if !defined(S_IFBLK)
 #   define S_IFBLK 0
 #endif
@@ -179,7 +179,7 @@
 #define DTTOIF(type) (type)
 
 /*
- * File type macros.  Note that block protocolDevices, sockets and links cannot be
+ * File type macros.  Note that block devices, sockets and links cannot be
  * distinguished on Windows and the macros S_ISBLK, S_ISSOCK and S_ISLNK are
  * only defined for compatibility.  These macros should always return false
  * on Windows.

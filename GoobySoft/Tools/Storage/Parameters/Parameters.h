@@ -1,5 +1,5 @@
-#ifndef Parameters
-#define Parameters
+#ifndef Parameters_H
+#define Parameters_H
 #include "../../Hardware/USB/Protocols/OpenSAEJ1939/OpenSAEJ1939.h"
 #include "../../Software/Libraries/CControl/ccontrol.h"
 
@@ -142,4 +142,4 @@ COLUMN_FUNCTION Tools_Hardware_ParameterStore_readColumnFunctionAtColumnDefiniti
 ParameterHolder* Tools_Hardware_ParameterStore_getParameterHolder();
 J1939* Tools_Hardware_ParameterStore_getJ1939();
 
-#endif // !Parameters
+#endif // !Parameters_H

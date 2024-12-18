@@ -31,6 +31,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <UseInteloneMKL>Sequential</UseInteloneMKL>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -38,6 +39,7 @@
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <UseInteloneMKL>Sequential</UseInteloneMKL>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -80,10 +82,14 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -96,12 +102,16 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -111,6 +121,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\include\opencv4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -119,6 +130,8 @@
       </StackCommitSize>
       <StackReserveSize>
       </StackReserveSize>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -131,6 +144,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>Default</LanguageStandard_C>
+      <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\include\opencv4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,6 +153,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <HeapCommitSize>
       </HeapCommitSize>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -320,7 +336,7 @@
     <ClCompile Include="Tools\Software\Libraries\ImGuiFileDialog\ImGuiFileDialog.cpp" />
     <ClCompile Include="Tools\Gui\CreateItems\CreateItems.cpp" />
     <ClCompile Include="Tools\Software\Libraries\ImGui\backends\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="Tools\Software\Libraries\ImGui\backends\imgui_impl_sdl2.cpp" />
+    <ClCompile Include="Tools\Software\Libraries\ImGui\backends\imgui_impl_sdl3.cpp" />
     <ClCompile Include="Tools\Software\Libraries\ImGui\imgui.cpp" />
     <ClCompile Include="Tools\Software\Libraries\ImGui\imgui_draw.cpp" />
     <ClCompile Include="Tools\Software\Libraries\ImGui\imgui_tables.cpp" />
@@ -417,7 +433,7 @@
     <ClInclude Include="Tools\Gui\Gui.h" />
     <ClInclude Include="Tools\Software\Libraries\ImGui\backends\imgui_impl_opengl3.h" />
     <ClInclude Include="Tools\Software\Libraries\ImGui\backends\imgui_impl_opengl3_loader.h" />
-    <ClInclude Include="Tools\Software\Libraries\ImGui\backends\imgui_impl_sdl2.h" />
+    <ClInclude Include="Tools\Software\Libraries\ImGui\backends\imgui_impl_sdl3.h" />
     <ClInclude Include="Tools\Software\Libraries\ImGui\imconfig.h" />
     <ClInclude Include="Tools\Software\Libraries\ImGui\imgui.h" />
     <ClInclude Include="Tools\Software\Libraries\ImGui\imgui_internal.h" />

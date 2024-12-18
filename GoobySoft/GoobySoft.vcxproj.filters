@@ -90,9 +90,6 @@
     <ClCompile Include="Tools\Software\Libraries\ImGui\imgui_widgets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tools\Software\Libraries\ImGui\backends\imgui_impl_sdl2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Tools\Software\Libraries\ImGui\backends\imgui_impl_opengl3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -651,6 +648,9 @@
     <ClCompile Include="Tools\Communications\Devices\Uponor-X-148\Uponor-X-148.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Tools\Software\Libraries\ImGui\backends\imgui_impl_sdl3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tools\Communications\Devices\Devices.h">
@@ -792,9 +792,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tools\Software\Libraries\ImGui\imstb_truetype.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tools\Software\Libraries\ImGui\backends\imgui_impl_sdl2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tools\Software\Libraries\ImGui\backends\imgui_impl_opengl3_loader.h">
@@ -996,6 +993,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tools\Communications\Devices\Uponor-X-148\Uponor-X-148.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Software\Libraries\ImGui\backends\imgui_impl_sdl3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
