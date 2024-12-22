@@ -13,11 +13,11 @@ This is a measuring and controlling software. The purpose of this software is to
 * Multifunctional plots
 * CAN Traffic reader
 * Multiple connections to multiple devices at the same time during data acquisition
+* Latest modern C++ standard
 
 # Supported devices
 
  - ADL400 DIN Rail Energy Meter
- - Beijer Electronics Performance Inverter P2 (Comming soon)
  - Uponor X-148 Home Automation System
  - [STM32-PLC](https://github.com/DanielMartensson/STM32-PLC)
 

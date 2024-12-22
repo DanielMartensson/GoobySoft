@@ -180,8 +180,6 @@ std::string Tools_Hardware_USB_Protocols_CDC_getPortsOfConnectedDevices() {
 	return ports;
 }
 
-
-
 int32_t Tools_Hardware_USB_Protocols_CDC_write(const char port[], const uint8_t data[], const uint16_t size, const int32_t timeout_ms) {
 	int32_t writtenBytes = 0;
 	if (CDCDeviceExist(port)) {
@@ -228,7 +226,6 @@ int32_t Tools_Hardware_USB_Protocols_CDC_write(const char port[], const uint8_t 
 	}
 	return writtenBytes;
 }
-
 
 int32_t Tools_Hardware_USB_Protocols_CDC_read(const char port[], uint8_t data[], const uint16_t size, const int32_t timeout_ms) {
 	int32_t bytesRead = 0;
