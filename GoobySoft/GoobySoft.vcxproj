@@ -120,7 +120,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\include\opencv4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -142,7 +142,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>Default</LanguageStandard_C>
       <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\include\opencv4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -164,6 +164,7 @@
     <ClCompile Include="Tools\Communications\Devices\Devices.cpp" />
     <ClCompile Include="Tools\Communications\Devices\STM32PLC\STM32PLC.cpp" />
     <ClCompile Include="Tools\Communications\Devices\Uponor-X-148\Uponor-X-148.cpp" />
+    <ClCompile Include="Tools\Communications\Devices\WellerToJCB\WellerToJCB.cpp" />
     <ClCompile Include="Tools\Gui\CreateDialogs\CreateDialogs.cpp" />
     <ClCompile Include="Tools\Hardware\Network\Network.cpp" />
     <ClCompile Include="Tools\Hardware\Network\Protocols\TCPIP\TCPIP.cpp" />
@@ -304,7 +305,7 @@
     <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SystemIdentification\okid.c" />
     <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SystemIdentification\rls.c" />
     <ClCompile Include="Tools\Software\Libraries\CControl\Sources\SystemIdentification\sr_ukf_parameter_estimation.c" />
-    <ClCompile Include="Tools\Software\Libraries\conversions\conversions.c" />
+    <ClCompile Include="Tools\Software\Libraries\conversions\conversions.cpp" />
     <ClCompile Include="Tools\Software\Libraries\ImGuiFileDialog\ImGuiFileDialog.cpp" />
     <ClCompile Include="Tools\Gui\CreateItems\CreateItems.cpp" />
     <ClCompile Include="Tools\Software\Libraries\ImGui\backends\imgui_impl_opengl3.cpp" />
@@ -388,6 +389,7 @@
     <ClInclude Include="Tools\Communications\Devices\Devices.h" />
     <ClInclude Include="Tools\Communications\Devices\STM32PLC\STM32PLC.h" />
     <ClInclude Include="Tools\Communications\Devices\Uponor-X-148\Uponor-X-148.h" />
+    <ClInclude Include="Tools\Communications\Devices\WellerToJCB\WellerToJBC.h" />
     <ClInclude Include="Tools\Gui\CreateDialogs\CreateDialogs.h" />
     <ClInclude Include="Tools\Hardware\Network\Network.h" />
     <ClInclude Include="Tools\Hardware\Network\Protocols\Protocols.h" />

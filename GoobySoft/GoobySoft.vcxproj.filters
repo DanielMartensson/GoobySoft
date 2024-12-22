@@ -558,7 +558,7 @@
     <ClCompile Include="Tools\Software\Libraries\ImGui\backends\imgui_impl_sdl3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tools\Software\Libraries\conversions\conversions.c">
+    <ClCompile Include="Tools\Software\Libraries\conversions\conversions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Tools\Software\Libraries\modbus\nanomodbus\nanomodbus.cpp">
@@ -667,6 +667,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Tools\Software\Libraries\OpenSAEJ1939\SAE_J1939\SAE_J1939-81_Network_Management_Layer\Commanded_Address.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Communications\Devices\WellerToJCB\WellerToJCB.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1029,6 +1032,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tools\Software\Libraries\OpenSAEJ1939\SAE_J1939\SAE_J1939-81_Network_Management_Layer\Network_Management_Layer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Communications\Devices\WellerToJCB\WellerToJBC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
