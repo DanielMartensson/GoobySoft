@@ -22,7 +22,7 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigurePWMDial
 		// Create buttons
 		if (ImGui::Button("Receive PWM prescalers")) {
 			uint8_t dataTX[1] = { STM32PLC_SEND_BACK_PWM_PRESCALERS_MESSAGE_TYPE };
-			std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(port, 1000, dataTX, sizeof(dataTX));
+			std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_writeThenRead(port, 1000, dataTX, sizeof(dataTX));
 			if (!dataRX.empty()) {
 				prescaler_PWM0_to_PWM3 = (dataRX.at(0) << 8) | dataRX.at(1);
 				prescaler_PWM4_to_PWM7 = (dataRX.at(2) << 8) | dataRX.at(3);
@@ -32,7 +32,7 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigurePWMDial
 		ImGui::SameLine();
 		if (ImGui::Button("Transmit PWM prescalers ")) {
 			uint8_t dataTX[5] = { STM32PLC_WRITE_SET_PWM_PRESCALER_MESSAGE_TYPE, prescaler_PWM0_to_PWM3 >> 8, prescaler_PWM0_to_PWM3 & 0xFF, prescaler_PWM4_to_PWM7 >> 8, prescaler_PWM4_to_PWM7 & 0xFF};
-			std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(port, 1000, dataTX, sizeof(dataTX));
+			std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_writeThenRead(port, 1000, dataTX, sizeof(dataTX));
 			if (!dataRX.empty()) {
 				Tools_Gui_CreateDialogs_showPopUpInformationDialogOK("Presecalers", "Presecalers transmitted");
 			}

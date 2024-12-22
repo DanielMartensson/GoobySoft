@@ -1,5 +1,91 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (ModBusReader.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   GoobySoft.cpp
+  ITHBetyg.cpp
+  ADL400.cpp
+  Devices.cpp
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\ADL400\ADL400.cpp(148,2): warning C4065: switch statement contains 'default' but no 'case' labels
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\Devices.cpp(13,56): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  STM32PLC.cpp
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(96,50): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(96,56): warning C4838: conversion from 'uint16_t' to 'uint8_t' requires a narrowing conversion
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp(96,56): warning C4244: 'initializing': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+  Uponor-X-148.cpp
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\Uponor-X-148\Uponor-X-148.cpp(57,2): warning C4065: switch statement contains 'default' but no 'case' labels
+  CreateDialogs.cpp
+  Network.cpp
+  CDC.cpp
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\CDC\CDC.cpp(211,36): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\CDC\CDC.cpp(259,32): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data
+  USB.cpp
+  OpenSAEJ1939.cpp
+  CANTrafficDialog.cpp
+  ConfigureDiagnosticMessageDialog.cpp
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSAEJ1939\ConfigureDiagnosticMessageDialog\ConfigureDiagnosticMessageDialog.cpp(147,34): warning C4267: 'initializing': conversion from 'size_t' to 'uint8_t', possible loss of data
+  ConfigureIdentificationsDialog.cpp
+  ConfigureNameDialog.cpp
+  ConfigureAnalogInputDialog.cpp
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureAnalogInputDialog\ConfigureAnalogInputDialog.cpp(25,74): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureAnalogInputDialog\ConfigureAnalogInputDialog.cpp(38,78): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+  ConfigureDateTimeDialog.cpp
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,74): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,82): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,89): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,104): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,109): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(46,116): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(66,67): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(66,73): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(66,80): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(86,76): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(86,81): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp(86,88): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+  ConfigurePWMDialog.cpp
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp(34,96): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp(34,125): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp(34,156): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp(34,185): warning C4838: conversion from 'int' to 'uint8_t' requires a narrowing conversion
+  DatabaseConnectionDialog.cpp
+  NetworkConnectionDialog.cpp
+  Generating Code...
+  Compiling...
+  USBConnectionDialog.cpp
+  LogFilePathDialog.cpp
+  ConfigureMeasurementDialog.cpp
+  CreateMeasurementDialog.cpp
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(49,75): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(49,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(52,36): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(67,43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(72,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(208,18): warning C4244: 'initializing': conversion from '_Rep' to 'int', possible loss of data
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(208,18): warning C4244:         with
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(208,18): warning C4244:         [
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(208,18): warning C4244:             _Rep=__int64
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\MeasurementDialogs\CreateMeasurementDialog\CreateMeasurementDialog.cpp(208,18): warning C4244:         ]
+  ViewMeasurementDialog.cpp
+  GradesDialog.cpp
+  CameraDialog.cpp
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\CameraDialog\CameraDialog.cpp(86,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\CameraDialog\CameraDialog.cpp(86,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  FisherFacesDialog.cpp
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\FisherFacesDialog\FisherFacesDialog.cpp(87,22): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  LandmarkDialog.cpp
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(54,69): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(54,55): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(59,64): warning C4244: 'argument': conversion from 'size_t' to 'float', possible loss of data
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(59,50): warning C4244: 'argument': conversion from 'size_t' to 'float', possible loss of data
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(70,15): warning C4244: '=': conversion from 'size_t' to 'float', possible loss of data
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(82,15): warning C4244: '=': conversion from 'size_t' to 'float', possible loss of data
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(107,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(123,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(150,43): warning C4244: '=': conversion from 'float' to 'uint16_t', possible loss of data
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\UtilDialogs\ImageDialogs\LandmarkDialog\LandmarkDialog.cpp(151,43): warning C4244: '=': conversion from 'float' to 'uint16_t', possible loss of data
+  Windows.cpp
+  Generating Code...
   GoobySoft.vcxproj -> C:\Users\danie\Documents\GitHub\GoobySoft\x64\Debug\GoobySoft.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

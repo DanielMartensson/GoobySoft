@@ -23,7 +23,7 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureAnalogI
 		if (ImGui::Button("Receive gains")) {
 			for (int adc = 0; adc < 3; adc++) {
 				uint8_t dataTX[2] = { STM32PLC_SEND_BACK_ANALOG_GAINS_MESSAGE_TYPE , adc };
-				std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(port, 1000, dataTX, sizeof(dataTX));
+				std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_writeThenRead(port, 1000, dataTX, sizeof(dataTX));
 				if (!dataRX.empty()) {
 					for (int configurationIndex = 0; configurationIndex < 3; configurationIndex++) {
 						inputGains[adc * 3 + configurationIndex] = dataRX.at(configurationIndex);
@@ -40,7 +40,7 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureAnalogI
 				for (int configurationIndex = 0; configurationIndex < 3; configurationIndex++) {
 					dataTX[2] = configurationIndex;
 					dataTX[3] = inputGains[adc * 3 + configurationIndex];
-					std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(port, 1000, dataTX, sizeof(dataTX));
+					std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_writeThenRead(port, 1000, dataTX, sizeof(dataTX));
 					if (!dataRX.empty()) {
 						count++;
 					}

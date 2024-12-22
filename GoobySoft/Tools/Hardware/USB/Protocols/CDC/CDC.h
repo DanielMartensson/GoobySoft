@@ -14,6 +14,6 @@ bool Tools_Hardware_USB_Protocols_CDC_isConnected(const char port[]);
 std::string Tools_Hardware_USB_Protocols_CDC_getPortsOfConnectedDevices();
 int32_t Tools_Hardware_USB_Protocols_CDC_write(const char port[], const uint8_t data[], const uint16_t size, const int32_t timeout_ms);
 int32_t Tools_Hardware_USB_Protocols_CDC_read(const char port[], uint8_t data[], const uint16_t size, const int32_t timeout_ms);
-std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(const char port[], const long long timeoutMilliseconds, uint8_t dataTX[], size_t size, std::string endingOfDataRX = "\r\n");
+std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_writeThenRead(const char port[], const long long timeoutMilliseconds, uint8_t dataTX[], size_t size, std::string endingOfDataRX = "\r\n");
 
 #endif // !CDC
