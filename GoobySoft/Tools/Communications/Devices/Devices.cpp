@@ -103,13 +103,14 @@ void Tools_Communications_Devices_createDevices() {
 	}
 
 	// Create devices for protocols 
-	createProtocolTool(&protocols[0], PROTOCOL_STRING[USB_PROTOCOL_ENUM_MODBUS_RTU], 2); // Modbus RTU, 2 device
-	createProtocolTool(&protocols[1], PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC], 1); // CDC, 1 device
+	createProtocolTool(&protocols[0], PROTOCOL_STRING[PROTOCOL_ENUM_MODBUS_RTU], 3); // Modbus RTU, 3 device
+	createProtocolTool(&protocols[1], PROTOCOL_STRING[PROTOCOL_ENUM_CDC], 1); // CDC, 1 device
 	// Add new protocol here...
 
 	// Create modbus RTU devices
 	createDeviceTool(&protocols[0].devices[0], "ADL400", Tools_Communications_Devices_ADL400_getFunctionValues, Tools_Communications_Devices_ADL400_getTableColumnIDs, Tools_Communications_Devices_ADL400_getInput, Tools_Communications_Devices_ADL400_setOutput, Tools_Communications_Devices_ADL400_getColumnFunction);
 	createDeviceTool(&protocols[0].devices[1], "Uponor X-141", Tools_Communications_Devices_Uponor_X_148_getFunctionValues, Tools_Communications_Devices_Uponor_X_148_getTableColumnIDs, Tools_Communications_Devices_Uponor_X_148_getInput, Tools_Communications_Devices_Uponor_X_148_setOutput, Tools_Communications_Devices_Uponor_X_148_getColumnFunction);
+	createDeviceTool(&protocols[0].devices[2], "WellerToJBC", Tools_Communications_Devices_WellerToJBC_getFunctionValues, Tools_Communications_Devices_WellerToJBC_getTableColumnIDs, Tools_Communications_Devices_WellerToJBC_getInput, Tools_Communications_Devices_WellerToJBC_setOutput, Tools_Communications_Devices_WellerToJBC_getColumnFunction);
 	// Add new device here...
 
 	// Create CDC devices
@@ -139,14 +140,14 @@ void Tools_Communications_Devices_updatePorts() {
 					for (int l = 0; l < tableColumnCount; l++) {
 						// Check if the column is port column
 						if (tableColumns[l].tableColumnID.columnDefinition == COLUMN_DEFINITION_PORT) {
-							// Check if the protocols name fit the protocols strings
-							bool exist = std::find(std::begin(PROTOCOL_STRING), std::end(PROTOCOL_STRING), protocols[i].protocolName) != std::end(PROTOCOL_STRING);
-							if (exist) {
+							bool isUSB = (std::strcmp(PROTOCOL_STRING[PROTOCOL_ENUM_MODBUS_RTU].c_str(), protocols[i].protocolName) == 0) ||
+								         (std::strcmp(PROTOCOL_STRING[PROTOCOL_ENUM_CDC].c_str(), protocols[i].protocolName) == 0);
+							if (isUSB) {
 								// Copy over the USB ports
 								std::strcpy(tableColumns[l].functionValues, Tools_Hardware_USB_getConnectedPorts().c_str());
 							}
-							exist = std::find(std::begin(PROTOCOL_STRING), std::end(PROTOCOL_STRING), protocols[i].protocolName) != std::end(PROTOCOL_STRING);
-							if (exist) {
+							bool isTCP = (std::strcmp(PROTOCOL_STRING[PROTOCOL_ENUM_MODBUS_TCP].c_str(), protocols[i].protocolName) == 0);
+							if (isTCP) {
 								// Copy over the connected IP addresses
 								std::strcpy(tableColumns[l].functionValues, Tools_Hardware_Network_getConnectedIpAddresses().c_str());
 							}

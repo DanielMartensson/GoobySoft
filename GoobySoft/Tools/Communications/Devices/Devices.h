@@ -3,18 +3,19 @@
 #include "../../Storage/Parameters/Parameters.h"
 #include <string>
 
-// What protocol are the devices talking
+// What protocol are the devices talking. Don't forget to update void Tools_Communications_Devices_updatePorts() as well!
 static const std::string PROTOCOL_STRING[] = { "Modbus RTU", "CDC", "Modbus TCP"};
 typedef enum {
-	USB_PROTOCOL_ENUM_MODBUS_RTU,
-	USB_PROTOCOL_ENUM_CDC,
-	NETWORK_PROTOCOL_ENUM_MODBUS_TCP
+	PROTOCOL_ENUM_MODBUS_RTU,
+	PROTOCOL_ENUM_CDC,
+	PROTOCOL_ENUM_MODBUS_TCP
 }PROTOCOL_ENUM;
 
 // Devices
 #include "ADL400/ADL400.h"
 #include "STM32PLC/STM32PLC.h"
 #include "Uponor-X-148/Uponor-X-148.h"
+#include "WellerToJCB/WellerToJBC.h"
 
 TableColumnID Tools_Communications_Devices_createTableIDs(const char columName[], COLUMN_DEFINITION columnDefinition);
 void Tools_Communications_Devices_createDevices();

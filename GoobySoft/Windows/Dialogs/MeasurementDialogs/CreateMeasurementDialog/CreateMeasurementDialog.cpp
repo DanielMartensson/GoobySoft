@@ -41,6 +41,9 @@ static void createPlot(const char plotTitle[], Protocol* protocols, bool perform
 								if (tableColumns[l].tableColumnID.columnFunction == COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS) {
 									measurement = tableRows[k].getInput(port, tableColumns[l].functionValueIndex, address);
 								}
+								if (tableColumns[l].tableColumnID.columnFunction == COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION) {
+									measurement = tableRows[k].getInput(port, tableColumns[l].functionValueIndex, address);
+								}
 								if (tableColumns[l].tableColumnID.columnFunction == COLUMN_FUNCTION_INPUT_SENSOR_ANALOG) {
 									float valueMin = *(float*)Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MIN_VALUE_REAL, &columnType);
 									float valueMax = *(float*)Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MAX_VALUE_REAL, &columnType);

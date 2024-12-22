@@ -126,6 +126,16 @@ bool Tools_Gui_CreateDialogs_showPopUpComboInputIntInputFloatInputTextDialogOKCa
 				case COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS:
 					ImGui::InputInt(tableColumn->tableColumnID.columnName, &tableColumn->cellValueInt);
 					break;
+				case COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION:
+					// Non calibrated address sensor should not have any min and max
+					if (tableColumn->tableColumnID.columnDefinition == COLUMN_DEFINITION_MIN_VALUE_RAW) {
+						break;
+					}
+					if (tableColumn->tableColumnID.columnDefinition == COLUMN_DEFINITION_MAX_VALUE_RAW) {
+						break;
+					}
+					ImGui::InputInt(tableColumn->tableColumnID.columnName, &tableColumn->cellValueInt);
+					break;
 				case COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS:
 					ImGui::InputInt(tableColumn->tableColumnID.columnName, &tableColumn->cellValueInt);
 					break;
@@ -141,6 +151,16 @@ bool Tools_Gui_CreateDialogs_showPopUpComboInputIntInputFloatInputTextDialogOKCa
 						break;
 					}
 					ImGui::InputFloat(tableColumn->tableColumnID.columnName, &tableColumn->cellValueFloat);
+					break;
+				case COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION:
+					// Non calibrated address sensor should not have any min and max
+					if (tableColumn->tableColumnID.columnDefinition == COLUMN_DEFINITION_MIN_VALUE_REAL) {
+						break;
+					}
+					if (tableColumn->tableColumnID.columnDefinition == COLUMN_DEFINITION_MAX_VALUE_REAL) {
+						break;
+					}
+					ImGui::InputInt(tableColumn->tableColumnID.columnName, &tableColumn->cellValueInt);
 					break;
 				}
 				break;

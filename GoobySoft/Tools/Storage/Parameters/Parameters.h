@@ -34,6 +34,7 @@ typedef enum {
 typedef enum {
 	COLUMN_FUNCTION_HOLD_DATA,							// Regular field e.g Device Name column
 	COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS,				// For e.g pre calibrated analog sensors but it's for CAN-bus/Modbus. 
+	COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION,// For e.g pre calibrated analog sensors but it's for CAN-bus/Modbus without calibration
 	COLUMN_FUNCTION_INPUT_SENSOR_NO_CALIBRATION,		// For e.g digital inputs or analog sensors that don't requrire calibration
 	COLUMN_FUNCTION_INPUT_SENSOR_ANALOG,				// For e.g analog sensors that need calibration
 	COLUMN_FUNCTION_OUTPUT_ACTUATOR,					// For e.g PWM outputs, or outputs with fixed address e.g Auxiliary Valve Command inside SAE J1939
