@@ -13,31 +13,17 @@ size_t Tools_Hardware_USB_getPortIndex(const char port[]) {
 	return index;
 }
 
-USB_STATUS Tools_Hardware_USB_isConnected(const char port[], const std::string& protocols) {
-	int index = Tools_Software_Algorithms_findIndexOf(USB_PROTOCOL_STRING, protocols);
-	switch (index) {
-	case USB_PROTOCOL_ENUM_MODBUS_RTU:
-		return Tools_Hardware_USB_Protocols_ModbusRTU_isConnected(port) ? USB_STATUS_CONNECTED : USB_STATUS_NOT_CONNECTED;
-	case USB_PROTOCOL_ENUM_CDC:
-		return Tools_Hardware_USB_Protocols_CDC_isConnected(port) ? USB_STATUS_CONNECTED : USB_STATUS_NOT_CONNECTED;
-	}
-	return USB_STATUS_NO_PROTOCOL;
+USB_STATUS Tools_Hardware_USB_isConnected(const char port[]) {
+	return Tools_Hardware_USB_Protocols_CDC_isConnected(port) ? USB_STATUS_CONNECTED : USB_STATUS_NOT_CONNECTED;
 }
 
-USB_STATUS Tools_Hardware_USB_closeConnection(const char port[], const std::string& protocols) {
-	int index = Tools_Software_Algorithms_findIndexOf(USB_PROTOCOL_STRING, protocols);
-	switch (index) {
-	case USB_PROTOCOL_ENUM_MODBUS_RTU:
-		return Tools_Hardware_USB_Protocols_ModbusRTU_closeConnection(port) ? USB_STATUS_DISCONNECTED : USB_STATUS_NOT_CONNECTED;
-	case USB_PROTOCOL_ENUM_CDC:
-		return Tools_Hardware_USB_Protocols_CDC_closeConnection(port) ? USB_STATUS_DISCONNECTED : USB_STATUS_NOT_CONNECTED;
-	}
-	return USB_STATUS_NO_PROTOCOL;
+USB_STATUS Tools_Hardware_USB_closeConnection(const char port[]) {
+	return Tools_Hardware_USB_Protocols_CDC_closeConnection(port) ? USB_STATUS_DISCONNECTED : USB_STATUS_NOT_CONNECTED;
 }
 
 USB_STATUS Tools_Hardware_USB_openConnection(const char port[], const unsigned int baudrate, const unsigned int dataBits, const std::string& flowControl, const std::string& stopBits, const std::string& parity, const std::string& protocols) {
 	// Check if we are already connected 
-	if (Tools_Hardware_USB_isConnected(port, protocols) == USB_STATUS_CONNECTED) {
+	if (Tools_Hardware_USB_isConnected(port) == USB_STATUS_CONNECTED) {
 		return USB_STATUS_CONNECTED;
 	}
 
@@ -64,35 +50,18 @@ USB_STATUS Tools_Hardware_USB_openConnection(const char port[], const unsigned i
 	int stopBitsCDC = Tools_Software_Algorithms_findIndexOf(USB_STOP_BITS_STRING, stopBits);
 
 	// Get the selection of which protocols is being used
-	index = Tools_Software_Algorithms_findIndexOf(USB_PROTOCOL_STRING, protocols);
-
-	switch (index) {
-	case USB_PROTOCOL_ENUM_MODBUS_RTU:
-		return Tools_Hardware_USB_Protocols_ModbusRTU_openConnection(port, baudrate, parityModbus, dataBits, stopBitsModbus) ? USB_STATUS_CONNECTED : USB_STATUS_FAIL;
-	case USB_PROTOCOL_ENUM_CDC:
-		return Tools_Hardware_USB_Protocols_CDC_openConnection(port, baudrate, dataBits, flowControlCDC, stopBitsCDC, parityCDC) ? USB_STATUS_CONNECTED : USB_STATUS_FAIL;
-	}
-	return USB_STATUS_NO_PROTOCOL;
+	return Tools_Hardware_USB_Protocols_CDC_openConnection(port, baudrate, dataBits, flowControlCDC, stopBitsCDC, parityCDC) ? USB_STATUS_CONNECTED : USB_STATUS_FAIL;
 }
 
 std::vector<std::string> Tools_Hardware_USB_getAllPorts() {
-	// CDC is using Boost Asio and can locate all existing ports
-	return Tools_Hardware_USB_Protocols_CDC_getAllPorts();
+	return Tools_Hardware_USB_Protocols_CDC_getAllPorts(); 	// CDC is using Boost Asio and can locate all existing ports
 }
 
-std::string Tools_Hardware_USB_getConnectedPorts(const std::string& protocols) {
-	std::string ports;
-	int index = Tools_Software_Algorithms_findIndexOf(USB_PROTOCOL_STRING, protocols);
-	switch (index) {
-	case USB_PROTOCOL_ENUM_MODBUS_RTU:
-		return Tools_Hardware_USB_Protocols_ModbusRTU_getPortsOfConnectedDevices(false);
-	case USB_PROTOCOL_ENUM_CDC:
-		return Tools_Hardware_USB_Protocols_CDC_getPortsOfConnectedDevices();
-	}
-	return ports;
+std::string Tools_Hardware_USB_getConnectedPorts() {
+	return Tools_Hardware_USB_Protocols_CDC_getPortsOfConnectedDevices();
 }
 
 std::string Tools_Hardware_USB_getProtocolFromPort(const char port[]) {
 	size_t index = Tools_Hardware_USB_getPortIndex(port);
-	return USB_PROTOCOL_STRING[Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[index].protocolIndex];
+	return PROTOCOL_STRING[Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[index].protocolIndex];
 }

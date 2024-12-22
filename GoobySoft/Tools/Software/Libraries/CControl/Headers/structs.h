@@ -7,6 +7,7 @@
 
 #ifndef STRUCTS_H_
 #define STRUCTS_H_
+#include <stdint.h>
 
  /* For landmarkdetection.c */
 typedef struct {

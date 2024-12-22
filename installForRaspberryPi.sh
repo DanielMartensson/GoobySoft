@@ -1,4 +1,4 @@
-sudo apt-get install build-essential cmake libsdl2-dev libopengl-dev libmodbus-dev libboost-all-dev git wget -y
+sudo apt-get install build-essential cmake libsdl3-dev libopengl-dev libboost-all-dev git wget -y
 wget https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-8.1.0-linux-glibc2.28-aarch64.tar.gz
 tar -xvf mysql-connector-c++-8.1.0-linux-glibc2.28-aarch64.tar.gz
 sudo mkdir /usr/include/mysql-cppconn-8/

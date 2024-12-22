@@ -7,7 +7,8 @@ typedef enum {
 
 static int readModbusRegister(const char port[], int registerAddress) {
 	uint16_t modbusRegister = 0;
-	Tools_Hardware_USB_Protocols_ModbusRTU_readRegister(port, registerAddress, 1, &modbusRegister);
+	modbus_set_serial_port(port);
+	modbus_client_get_parameters(&modbusRegister, registerAddress, 1);
 	return modbusRegister;
 }
 
@@ -40,7 +41,7 @@ std::string Tools_Communications_Devices_Uponor_X_148_getFunctionValues() {
 
 float Tools_Communications_Devices_Uponor_X_148_getInput(const char port[], int functionValueIndex, int address) {
 	/* These must follow the same linear pattern as getFunctionValues() */
-	Tools_Hardware_USB_Protocols_ModbusRTU_setSlaveAddress(port, address);
+	modbus_client_set_RTU_address(address);
 	switch (functionValueIndex) {
 	case ROOM_TEMPERATURE_DATA_CHANNEL_1:
 		return ((float)readModbusRegister(port, 30002));

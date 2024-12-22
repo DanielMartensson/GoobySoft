@@ -6,7 +6,7 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigurePWMDial
 	ImGui::SetNextWindowSize(ImVec2(350, 125));
 	if (ImGui::Begin("Configure PWM", configurePWM, ImGuiWindowFlags_NoResize)) {
 		// Get the CDC ports
-		std::string connectedCDCports = Tools_Hardware_USB_getConnectedPorts(USB_PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC]);
+		std::string connectedCDCports = Tools_Hardware_USB_getConnectedPorts();
 
 		// Create combo box
 		static int cdcIndex = 0;

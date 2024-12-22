@@ -5,15 +5,15 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureAnalogI
 	// Display
 	ImGui::SetNextWindowSize(ImVec2(450, 270));
 	if (ImGui::Begin("Configure analog input", configureAnalogInput, ImGuiWindowFlags_NoResize)) {
-		// Get the CDC ports
-		std::string connectedCDCports = Tools_Hardware_USB_getConnectedPorts(USB_PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC]);
+		// Get the connected ports
+		std::string connectedPorts = Tools_Hardware_USB_getConnectedPorts();
 
 		// Create combo box
 		static int cdcIndex = 0;
 		ImGui::PushItemWidth(60);
-		ImGui::Combo("Connected CDC ports", &cdcIndex, connectedCDCports.c_str());
+		ImGui::Combo("Connected CDC ports", &cdcIndex, connectedPorts.c_str());
 		char port[20];
-		Tools_Software_Algorithms_extractElementFromCharArray(connectedCDCports.c_str(), cdcIndex, port);
+		Tools_Software_Algorithms_extractElementFromCharArray(connectedPorts.c_str(), cdcIndex, port);
 
 		// Gains for 3 ADCs and each ADC have 3 configurations indexes.
 		static int inputGains[3 * 3] = { 0 };
@@ -26,7 +26,7 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureAnalogI
 				std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(port, 1000, dataTX, sizeof(dataTX));
 				if (!dataRX.empty()) {
 					for (int configurationIndex = 0; configurationIndex < 3; configurationIndex++) {
-						inputGains[adc * 3 + configurationIndex] = dataRX.at(configurationIndex); 
+						inputGains[adc * 3 + configurationIndex] = dataRX.at(configurationIndex);
 					}
 					Tools_Gui_CreateDialogs_showPopUpInformationDialogOK("Analog input", "Analog input gains received");
 				}

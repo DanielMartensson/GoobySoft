@@ -121,8 +121,18 @@ int main(int, char**) {
     SDL_Surface* icon = SDL_CreateSurfaceFrom(GOOBY_ICON_WIDTH, GOOBY_ICON_HEIGHT, SDL_PIXELFORMAT_RGBA32, GOOBY_ICON, GOOBY_ICON_WIDTH * 4);
     SDL_SetWindowIcon(window, icon);
 
-    // Set the call back functions for SAE J1939
-    CAN_Set_Callback_Functions(Tools_Hardware_USB_Protocol_OpenSAEJ1939_callbackFunctionSend, Tools_Hardware_USB_Protocol_OpenSAEJ1939_callbackFunctionRead, Windows_Dialogs_AnalyzeDialogs_CANTrafficDialog_callbackFunctionTraffic);
+    // Set the callback function for modbus
+    modbus_set_serial_write(Tools_Hardware_USB_Protocols_CDC_write);
+    modbus_set_serial_read(Tools_Hardware_USB_Protocols_CDC_read);
+
+    // Create modbus client with the initial address 1 (it will be changed later when logging, see ADL400 or Uponor-X-148 source files)
+    modbus_client_create_RTU(1);
+
+    // Set the callback functions for SAE J1939
+    CAN_Set_Callback_Functions(Tools_Software_Libraries_OpenSAEJ1939_callbackFunctionSend, 
+                               Tools_Software_Libraries_OpenSAEJ1939_callbackFunctionRead, 
+                               Tools_Software_Libraries_OpenSAEJ1939_callbackFunctionTraffic, 
+                               Tools_Software_Libraries_OpenSAEJ1939_callbackDelay);
 
 	// Load parameters 
 	Tools_Hardware_ParameterStore_loadParameters();

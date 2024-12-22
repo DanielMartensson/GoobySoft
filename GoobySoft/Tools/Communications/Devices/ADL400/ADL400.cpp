@@ -20,7 +20,8 @@ typedef enum {
 
 static int readModbusRegister(const char port[], int registerAddress) {
 	uint16_t modbusRegister = 0;
-	Tools_Hardware_USB_Protocols_ModbusRTU_readRegister(port, registerAddress, 1, &modbusRegister);
+	modbus_set_serial_port(port);
+	modbus_client_get_parameters(&modbusRegister, registerAddress, 1);
 	return modbusRegister;
 }
 
@@ -105,7 +106,7 @@ std::string Tools_Communications_Devices_ADL400_getFunctionValues() {
 
 float Tools_Communications_Devices_ADL400_getInput(const char port[], int functionValueIndex, int address) {
 	/* These must follow the same linear pattern as getFunctionValues() */
-	Tools_Hardware_USB_Protocols_ModbusRTU_setSlaveAddress(port, address);
+	modbus_client_set_RTU_address(address);
 	switch (functionValueIndex) {
 	case IO_VOLT_A:
 		return ((float)readModbusRegister(port, 0x61)) / 10.0f;

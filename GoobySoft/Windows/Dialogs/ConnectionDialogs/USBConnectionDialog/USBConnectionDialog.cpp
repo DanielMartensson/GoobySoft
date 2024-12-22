@@ -6,12 +6,12 @@ size_t portIndex;
 
 bool connectionUSBCallback() {
 	USBSettings usbSettings = Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex];
-	return Tools_Hardware_USB_openConnection(usbSettings.port, usbSettings.baudrate, usbSettings.dataBit, USB_CONTROL_FLOW_STRING[usbSettings.controlFlowIndex], USB_STOP_BITS_STRING[usbSettings.stopBitIndex], USB_PARITY_STRING[usbSettings.parityIndex], USB_PROTOCOL_STRING[usbSettings.protocolIndex]) == USB_STATUS_CONNECTED;
+	return Tools_Hardware_USB_openConnection(usbSettings.port, usbSettings.baudrate, usbSettings.dataBit, USB_CONTROL_FLOW_STRING[usbSettings.controlFlowIndex], USB_STOP_BITS_STRING[usbSettings.stopBitIndex], USB_PARITY_STRING[usbSettings.parityIndex], PROTOCOL_STRING[usbSettings.protocolIndex]) == USB_STATUS_CONNECTED;
 }
 
 void disconnectionUSBCallback() {
 	USBSettings usbSettings = Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[portIndex];
-	Tools_Hardware_USB_closeConnection(usbSettings.port, USB_PROTOCOL_STRING[usbSettings.protocolIndex]);
+	Tools_Hardware_USB_closeConnection(usbSettings.port);
 }
 
 void Windows_Dialogs_ConnectionDialogs_USBConnectionDialog_showUSBConnectionDialog(bool* selectUSBPorts) {
@@ -40,13 +40,13 @@ void Windows_Dialogs_ConnectionDialogs_USBConnectionDialog_showUSBConnectionDial
 		std::strcpy(usbSettings->port, port.c_str());
 
 		// USB protocols
-		const std::vector<std::string> protocolDevices = Tools_Software_Algorithms_arrayToVector(USB_PROTOCOL_STRING);
-		std::string protocols = USB_PROTOCOL_STRING[usbSettings->protocolIndex];
+		const std::vector<std::string> protocolDevices = Tools_Software_Algorithms_arrayToVector(PROTOCOL_STRING);
+		std::string protocols = PROTOCOL_STRING[usbSettings->protocolIndex];
 		Tools_Gui_CreateItems_createCombo("Protocol", protocolDevices, protocols, isConnected);
-		usbSettings->protocolIndex = Tools_Software_Algorithms_findIndexOf(USB_PROTOCOL_STRING, protocols);
+		usbSettings->protocolIndex = Tools_Software_Algorithms_findIndexOf(PROTOCOL_STRING, protocols);
 
 		// Check if it's connected
-		isConnected = Tools_Hardware_USB_isConnected(port.c_str(), protocols) == USB_STATUS_CONNECTED;
+		isConnected = Tools_Hardware_USB_isConnected(port.c_str()) == USB_STATUS_CONNECTED;
 
 		// Baudrate
 		const std::vector<std::string> baudrates = { "110", "150", "300", "600", "1200", "1800", "2400", "4800", "9600", "19200", "38400", "57600", "115200" };

@@ -1,6 +1,6 @@
 #ifndef ADL400
 #define ADL400
-#include "../../../Tools.h"
+#include "../../Tools/Tools.h"
 
 std::vector<TableColumnID> Tools_Communications_Devices_ADL400_getTableColumnIDs();
 COLUMN_FUNCTION Tools_Communications_Devices_ADL400_getColumnFunction(int functionValueIndex);

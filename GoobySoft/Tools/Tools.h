@@ -8,7 +8,6 @@
 #include "Gui/Gui.h"
 #include "Storage/Storage.h"
 #include "Software/Software.h"
-#include "Software/Libraries/Libraries.h"
 
 #include <SDL3/SDL.h>
 #if defined(IMGUI_IMPL_OPENGL_ES2)

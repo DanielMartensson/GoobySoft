@@ -180,6 +180,104 @@ std::string Tools_Hardware_USB_Protocols_CDC_getPortsOfConnectedDevices() {
 	return ports;
 }
 
+
+
+int32_t Tools_Hardware_USB_Protocols_CDC_write(const char port[], const uint8_t data[], const uint16_t size, const int32_t timeout_ms) {
+	int32_t writtenBytes = 0;
+	if (CDCDeviceExist(port)) {
+
+		// Get the USB
+		auto deviceUSB = devicesCDC.at(port);
+
+		// Skapa en io_context och deadline_timer
+		boost::asio::io_context io;
+		boost::asio::deadline_timer timer(io);
+		boost::system::error_code ec;
+
+		// Starta deadline timer
+		timer.expires_from_now(boost::posix_time::milliseconds(timeout_ms));
+		timer.async_wait([&](const boost::system::error_code& error) {
+			if (!error) {
+				// Om timeout intr ffar, st ng seriellporten
+				ec = boost::asio::error::operation_aborted;
+				deviceUSB->cancel();
+			}
+			});
+
+		// Starta en separat tr d f r att k ra io_context
+		std::thread io_thread([&]() { io.run(); });
+
+		// Utför skrivoperationen
+		writtenBytes = boost::asio::write(*deviceUSB, boost::asio::buffer(data, size), ec);
+
+		// Avbryt timern och v nta p  io_context-tr den
+		timer.cancel();
+		if (io_thread.joinable()) {
+			io_thread.join();
+		}
+
+		// Kontrollera fel
+		if (ec) {
+			if (ec == boost::asio::error::operation_aborted) {
+				std::cerr << "Timeout intr ffade under skrivning till port: " << port << std::endl;
+				return -1; // Returnera felkod f r timeout
+			}
+			std::cerr << "Fel vid skrivning: " << ec.message() << std::endl;
+			return -1;
+		}
+	}
+	return writtenBytes;
+}
+
+
+int32_t Tools_Hardware_USB_Protocols_CDC_read(const char port[], uint8_t data[], const uint16_t size, const int32_t timeout_ms) {
+	int32_t bytesRead = 0;
+	if (CDCDeviceExist(port)) {
+
+		// Get the USB
+		auto deviceUSB = devicesCDC.at(port);
+
+		// Skapa en io_context och deadline_timer
+		boost::asio::io_context io;
+		boost::asio::deadline_timer timer(io);
+		boost::system::error_code ec;
+
+		// Starta deadline timer
+		timer.expires_from_now(boost::posix_time::milliseconds(timeout_ms));
+		timer.async_wait([&](const boost::system::error_code& error) {
+			if (!error) {
+				// Om timeout intr ffar, st ng seriellporten
+				ec = boost::asio::error::operation_aborted;
+				deviceUSB->cancel();
+			}
+			});
+
+		// Starta en separat tr d f r att k ra io_context
+		std::thread io_thread([&]() { io.run(); });
+
+		// Utför operationen
+		bytesRead = boost::asio::read(*deviceUSB, boost::asio::buffer(data, size), ec);
+
+		// Avbryt timern och v nta p  io_context-tr den
+		timer.cancel();
+		if (io_thread.joinable()) {
+			io_thread.join();
+		}
+
+		// Kontrollera fel
+		if (ec) {
+			if (ec == boost::asio::error::operation_aborted) {
+				std::cerr << "Timeout intr ffade under l sning fr n port: " << port << std::endl;
+				return -1; // Returnera felkod f r timeout
+			}
+			std::cerr << "Fel vid l sning: " << ec.message() << std::endl;
+			return -1;
+		}
+	}
+
+	return bytesRead;
+}
+
 std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(const char port[], const long long timeoutMilliseconds, uint8_t dataTX[], size_t size, std::string endingOfDataRX) {
 	std::vector<uint8_t> dataRX;
 	if (CDCDeviceExist(port)) {
@@ -202,7 +300,7 @@ std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(co
 #endif
 			}
 			wait = false;
-		});
+			});
 
 		// Write 
 		boost::asio::write(*deviceUSB, boost::asio::buffer(dataTX, size));
@@ -219,7 +317,7 @@ std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_startTransceiveProcesss(co
 #endif
 			}
 			wait = false;
-		});
+			});
 
 		wait = true;
 		io.run();

@@ -37,8 +37,8 @@ void Tools_Communications_Devices_createDevices() {
 	}
 
 	// Create devices for protocols 
-	createProtocolTool(&protocols[0], USB_PROTOCOL_STRING[USB_PROTOCOL_ENUM_MODBUS_RTU], 1); // Modbus RTU, 1 device
-	createProtocolTool(&protocols[1], USB_PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC], 1); // CDC, 1 device
+	createProtocolTool(&protocols[0], PROTOCOL_STRING[USB_PROTOCOL_ENUM_MODBUS_RTU], 1); // Modbus RTU, 1 device
+	createProtocolTool(&protocols[1], PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC], 1); // CDC (Communication Device Class a.k.a own USB protocol), 1 device
 	// Add new protocol here...
 
 	// Create devices
@@ -208,10 +208,10 @@ It's very important to select right `COLUMN_FUNCTION` for a specific `IO` index.
 ```cpp
 /* 
  * One protocol can contains multiple devices.
- * USB_PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC] stands for USB communications device class e.g regular USB communication
+ * PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC] stands for USB communications device class e.g regular USB communication
  * Here I say that `CDC` can hold 10 devices.
  */
-createProtocolTool(&protocols[1], USB_PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC], 10); 
+createProtocolTool(&protocols[1], PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC], 10); 
 
 
 /* Add your device to that protocol CDC. Here I say that my device is CDC and the device is at index 0 */
@@ -249,16 +249,16 @@ The folders `x64/Debug` and `x64/Release` contains prebuilt 64-bit Windows binar
 
  1. Install `Visual Studio Community`
  2. Install `Vcpkg`
- 3. Install `Intel Math Kernel Library` manually
+ 3. Install `Intel Math Kernel Library` manually from Intel.
  4. Configure `vcpkg` with `Visual Studio Community`
- 5. Install the following vcpkg packages: `sdl3`, `opengl`, `opencv`, `mysql-connector-cpp`, `libmodbus`, `boost-asio`, `boost-date-time`, `boost-filesystem`
+ 5. Install the following vcpkg packages: `sdl3`, `opengl`, `opencv`, `mysql-connector-cpp`, `boost-asio`, `boost-date-time`, `boost-filesystem`
  6. Run the `GoobySoft.sln` file with `Visual Studio Community` and press the compile button.
 
 ## Ubuntu/Debian - Compile from source
 
  1. Download and Configure [Oracle APT Repository](https://dev.mysql.com/downloads/repo/apt/)
  2. Update APT `sudo apt-get update`
- 3. Install software `sudo apt-get install build-essential cmake libsdl2-dev libopencv2-dev intel-oneapi-mkl libopengl-dev libmodbus-dev libboost-all-dev libmysqlcppconn-dev`
+ 3. Install software `sudo apt-get install build-essential cmake libsdl3-dev libopencv-dev intel-oneapi-mkl libopengl-dev libboost-all-dev libmysqlcppconn-dev`
  4. Download `GoobySoft` repository and extract the `.zip` file.
  5. Make sure you are standing inside the `GoobySoft` folder.
  5. Run CMake `cmake -B build .`
@@ -272,7 +272,7 @@ Or your could just run the script `installForUbuntuDebian.sh`
 ```
 
 ## Raspberry Pi - Compile from source
- 1. Install software `sudo apt-get install build-essential cmake libsdl2-dev libopengl-dev libmodbus-dev libboost-all-dev`
+ 1. Install software `sudo apt-get install build-essential cmake libsdl3-dev libopengl-dev libboost-all-dev`
  2. Download the `Linux - Generic (glibc <version>) (ARM, 64-bit), Compressed TAR Archive` from [Oracle Connectors](https://dev.mysql.com/downloads/connector/cpp/)
  3. Extract the tar archive and stand inside the extracted folder. You will now see the folders `include` and `lib64`.
  4. Write `sudo mkdir /usr/include/mysql-cppconn-8/`

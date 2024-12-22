@@ -8,11 +8,11 @@ int addressID[4] = { 0 };
 std::string protocols;
 
 bool connectionNetworkCallback() {
-	return Tools_Hardware_Network_openConnection(ipAddress, portID, protocols);
+	return Tools_Hardware_Network_openConnection(ipAddress, portID);
 }
 
 void disconnectionNetworkCallback() {
-	Tools_Hardware_Network_closeConnection(ipAddress, portID, protocols);
+	Tools_Hardware_Network_closeConnection(ipAddress, portID);
 }
 
 void Windows_Dialogs_ConnectionDialogs_NetworkConnectionDialog_showNetworkConnectionDialog(bool* selectNetworkAddresses) {
@@ -20,11 +20,11 @@ void Windows_Dialogs_ConnectionDialogs_NetworkConnectionDialog_showNetworkConnec
 	ImGui::SetNextWindowSize(ImVec2(300, 350));
 	if (ImGui::Begin("Select network address", selectNetworkAddresses, ImGuiWindowFlags_NoResize)) {
 		// Network protocols
-		const std::vector<std::string> protocolDevices = Tools_Software_Algorithms_arrayToVector(NETWORK_PROTOCOL_STRING);
+		const std::vector<std::string> protocolDevices = Tools_Software_Algorithms_arrayToVector(PROTOCOL_STRING);
 		Tools_Gui_CreateItems_createCombo("Protocol", protocolDevices, protocols, false);
 
 		// Connected addresses
-		std::string portStr = Tools_Hardware_Network_getConnectedIpAddresses(protocols);
+		std::string portStr = Tools_Hardware_Network_getConnectedIpAddresses();
 		const char* ports = portStr.c_str();
 		if (ImGui::BeginListBox("Connected")) {
 			while (*ports) {
@@ -78,7 +78,7 @@ void Windows_Dialogs_ConnectionDialogs_NetworkConnectionDialog_showNetworkConnec
 
 		// Check if it's connected
 		std::sprintf(ipAddress, "%i%i%i%i", addressID[0], addressID[1], addressID[2], addressID[3]);
-		bool isConnected = Tools_Hardware_Network_isConnected(ipAddress, portID, protocols) == NETWORK_STATUS_CONNECTED;
+		bool isConnected = Tools_Hardware_Network_isConnected(ipAddress, portID) == NETWORK_STATUS_CONNECTED;
 
 		// Connect and disconnect buttons
 		Tools_Gui_CreateItems_createConnectDisconnectButtons(

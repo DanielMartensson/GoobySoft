@@ -1,11 +1,6 @@
-#ifndef NetworkProtocols
-#define NetworkProtocols
+#ifndef TCPIPProtocols
+#define TCPIPProtocols
 
-#include "ModbusTCP/ModbusTCP.h"
+#include "TCPIP/TCPIP.h"
 
-static const std::string NETWORK_PROTOCOL_STRING[] = { "Modbus TCP" };
-typedef enum {
-	NETWORK_PROTOCOL_ENUM_MODBUS_TCP
-}NETWORK_PROTOCOL_ENUM;
-
-#endif // !NetworkProtocols
+#endif // !TCPIPProtocols

@@ -103,8 +103,8 @@ void Tools_Communications_Devices_createDevices() {
 	}
 
 	// Create devices for protocols 
-	createProtocolTool(&protocols[0], USB_PROTOCOL_STRING[USB_PROTOCOL_ENUM_MODBUS_RTU], 2); // Modbus RTU, 2 device
-	createProtocolTool(&protocols[1], USB_PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC], 1); // CDC, 1 device
+	createProtocolTool(&protocols[0], PROTOCOL_STRING[USB_PROTOCOL_ENUM_MODBUS_RTU], 2); // Modbus RTU, 2 device
+	createProtocolTool(&protocols[1], PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC], 1); // CDC, 1 device
 	// Add new protocol here...
 
 	// Create modbus RTU devices
@@ -140,15 +140,15 @@ void Tools_Communications_Devices_updatePorts() {
 						// Check if the column is port column
 						if (tableColumns[l].tableColumnID.columnDefinition == COLUMN_DEFINITION_PORT) {
 							// Check if the protocols name fit the protocols strings
-							bool exist = std::find(std::begin(USB_PROTOCOL_STRING), std::end(USB_PROTOCOL_STRING), protocols[i].protocolName) != std::end(USB_PROTOCOL_STRING);
+							bool exist = std::find(std::begin(PROTOCOL_STRING), std::end(PROTOCOL_STRING), protocols[i].protocolName) != std::end(PROTOCOL_STRING);
 							if (exist) {
 								// Copy over the USB ports
-								std::strcpy(tableColumns[l].functionValues, Tools_Hardware_USB_getConnectedPorts(protocols[i].protocolName).c_str());
+								std::strcpy(tableColumns[l].functionValues, Tools_Hardware_USB_getConnectedPorts().c_str());
 							}
-							exist = std::find(std::begin(NETWORK_PROTOCOL_STRING), std::end(NETWORK_PROTOCOL_STRING), protocols[i].protocolName) != std::end(NETWORK_PROTOCOL_STRING);
+							exist = std::find(std::begin(PROTOCOL_STRING), std::end(PROTOCOL_STRING), protocols[i].protocolName) != std::end(PROTOCOL_STRING);
 							if (exist) {
 								// Copy over the connected IP addresses
-								std::strcpy(tableColumns[l].functionValues, Tools_Hardware_Network_getConnectedIpAddresses(protocols[i].protocolName).c_str());
+								std::strcpy(tableColumns[l].functionValues, Tools_Hardware_Network_getConnectedIpAddresses().c_str());
 							}
 						}
 					}

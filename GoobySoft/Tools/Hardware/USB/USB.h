@@ -36,10 +36,10 @@ typedef enum {
 }USB_STOP_BITS_ENUM;
 
 size_t Tools_Hardware_USB_getPortIndex(const char port[]);
-USB_STATUS Tools_Hardware_USB_isConnected(const char port[], const std::string& protocols);
-USB_STATUS Tools_Hardware_USB_closeConnection(const char port[], const std::string& protocols);
+USB_STATUS Tools_Hardware_USB_isConnected(const char port[]);
+USB_STATUS Tools_Hardware_USB_closeConnection(const char port[]);
 USB_STATUS Tools_Hardware_USB_openConnection(const char port[], const unsigned int baudrate, const unsigned int dataBits, const std::string& flowControl, const std::string& stopBits, const std::string& parity, const std::string& protocols);
 std::vector<std::string> Tools_Hardware_USB_getAllPorts();
-std::string Tools_Hardware_USB_getConnectedPorts(const std::string& protocols);
+std::string Tools_Hardware_USB_getConnectedPorts();
 std::string Tools_Hardware_USB_getProtocolFromPort(const char port[]);
 #endif // !USB

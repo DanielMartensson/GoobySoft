@@ -6,7 +6,7 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureDateTim
 	ImGui::SetNextWindowSize(ImVec2(360, 370));
 	if (ImGui::Begin("Configure date time", configureDateTime, ImGuiWindowFlags_NoResize)) {
 		// Get the CDC ports
-		std::string connectedCDCports = Tools_Hardware_USB_getConnectedPorts(USB_PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC]);
+		std::string connectedCDCports = Tools_Hardware_USB_getConnectedPorts();
 
 		// Create combo box
 		static int cdcIndex = 0;
