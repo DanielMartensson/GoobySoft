@@ -160,7 +160,7 @@ bool Tools_Gui_CreateDialogs_showPopUpComboInputIntInputFloatInputTextDialogOKCa
 					if (tableColumn->tableColumnID.columnDefinition == COLUMN_DEFINITION_MAX_VALUE_REAL) {
 						break;
 					}
-					ImGui::InputInt(tableColumn->tableColumnID.columnName, &tableColumn->cellValueInt);
+					ImGui::InputFloat(tableColumn->tableColumnID.columnName, &tableColumn->cellValueFloat);
 					break;
 				}
 				break;
