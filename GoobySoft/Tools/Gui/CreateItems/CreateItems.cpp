@@ -90,8 +90,9 @@ bool Tools_Gui_CreateItems_createTableSelectable(const char strId[], std::vector
 			ImGui::TableNextRow();
 			for (size_t column = 0; column < columnsCombo; column++){
 				ImGui::TableSetColumnIndex((int)column);
-				const char* cellValueString = rows.at(rowIndex).at(column).c_str();
-				if (ImGui::Selectable(cellValueString, *selectedRow == rowIndex - 1)) {
+				// It's important to add StringValue##XX then XX=row_column because some items could have the same value 
+				std::string cellValueString = rows.at(rowIndex).at(column) + "##" + std::to_string(rowIndex) + "_" + std::to_string(column);
+				if (ImGui::Selectable(cellValueString.c_str(), *selectedRow == rowIndex - 1)) {
 					*selectedRow = rowIndex - 1;
 					clicked = true;
 				}
