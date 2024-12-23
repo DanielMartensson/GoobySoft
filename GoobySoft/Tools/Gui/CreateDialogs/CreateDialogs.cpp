@@ -162,6 +162,9 @@ bool Tools_Gui_CreateDialogs_showPopUpComboInputIntInputFloatInputTextDialogOKCa
 					}
 					ImGui::InputFloat(tableColumn->tableColumnID.columnName, &tableColumn->cellValueFloat);
 					break;
+				case COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS:
+					ImGui::InputFloat(tableColumn->tableColumnID.columnName, &tableColumn->cellValueFloat);
+					break;
 				}
 				break;
 			}
