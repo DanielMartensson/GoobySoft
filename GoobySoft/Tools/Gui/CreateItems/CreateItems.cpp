@@ -58,8 +58,9 @@ bool Tools_Gui_CreateItems_createTable(const char strId[], std::vector<std::vect
 			ImGui::TableNextRow();
 			for (size_t column = 0; column < columnsCombo; column++) {
 				ImGui::TableSetColumnIndex((int)column);
-				const char* cellValueString = rows.at(rowIndex).at(column).c_str();
-				ImGui::Selectable(cellValueString, false);
+				// It's important to add StringValue##XX then XX=row_column because some items could have the same value 
+				std::string cellValueString = rows.at(rowIndex).at(column) + "##" + std::to_string(rowIndex) + "_" + std::to_string(column);
+				ImGui::Selectable(cellValueString.c_str(), false);
 			}
 		}
 		ImGui::EndTable();
