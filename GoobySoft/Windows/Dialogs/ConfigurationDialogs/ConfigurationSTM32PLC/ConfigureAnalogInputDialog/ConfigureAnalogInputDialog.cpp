@@ -11,7 +11,7 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureAnalogI
 		// Create combo box
 		static int cdcIndex = 0;
 		ImGui::PushItemWidth(60);
-		ImGui::Combo("Connected CDC ports", &cdcIndex, connectedPorts.c_str());
+		ImGui::Combo("Connected USB ports", &cdcIndex, connectedPorts.c_str());
 		char port[20];
 		Tools_Software_Algorithms_extractElementFromCharArray(connectedPorts.c_str(), cdcIndex, port);
 

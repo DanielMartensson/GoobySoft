@@ -217,10 +217,10 @@ int32_t Tools_Hardware_USB_Protocols_CDC_write(const char port[], const uint8_t 
 		// Kontrollera fel
 		if (ec) {
 			if (ec == boost::asio::error::operation_aborted) {
-				std::cerr << "Timeout intr ffade under skrivning till port: " << port << std::endl;
+				std::cerr << "CDC.cpp: Timeout intr ffade under skrivning till port: " << port << std::endl;
 				return -1; // Returnera felkod f r timeout
 			}
-			std::cerr << "Fel vid skrivning: " << ec.message() << std::endl;
+			std::cerr << "CDC.cpp: Fel vid skrivning: " << ec.message() << std::endl;
 			return -1;
 		}
 	}
@@ -264,10 +264,10 @@ int32_t Tools_Hardware_USB_Protocols_CDC_read(const char port[], uint8_t data[],
 		// Kontrollera fel
 		if (ec) {
 			if (ec == boost::asio::error::operation_aborted) {
-				std::cerr << "Timeout intr ffade under l sning fr n port: " << port << std::endl;
+				std::cerr << "CDC.cpp: Timeout intr ffade under l sning fr n port: " << port << std::endl;
 				return -1; // Returnera felkod f r timeout
 			}
-			std::cerr << "Fel vid l sning: " << ec.message() << std::endl;
+			std::cerr << "CDC.cpp: Fel vid l sning: " << ec.message() << std::endl;
 			return -1;
 		}
 	}
@@ -309,7 +309,7 @@ std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_writeThenRead(const char p
 #endif
 			if (!ec.failed()) {
 #ifndef _GOOBYSOFT_DEBUG
-				std::cerr << "Reading data - OK" << std::endl;
+				std::cerr << "CDC.cpp: Reading data - OK" << std::endl;
 				timer.cancel();
 #endif
 			}

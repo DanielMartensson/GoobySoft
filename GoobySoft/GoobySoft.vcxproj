@@ -364,6 +364,7 @@
     <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureAnalogInputDialog\ConfigureAnalogInputDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp" />
+    <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationWellerToJBC\ConfigureAnalogInputDialog\ConfigureAnalogInputWellerToJBCDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\ConnectionDialogs\DatabaseConnectionDialog\DatabaseConnectionDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\ConnectionDialogs\NetworkConnectionDialog\NetworkConnectionDialog.cpp" />
     <ClCompile Include="Windows\Dialogs\ConnectionDialogs\USBConnectionDialog\USBConnectionDialog.cpp" />
@@ -480,6 +481,8 @@
     <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureAnalogInputDialog\ConfigureAnalogInputDialog.h" />
     <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.h" />
     <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.h" />
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationWellerToJBC\ConfigurationWellerToJBC.h" />
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationWellerToJBC\ConfigureAnalogInputDialog\ConfigureAnalogInputWellerToJBCDialog.h" />
     <ClInclude Include="Windows\Dialogs\ConnectionDialogs\ConnectionDialogs.h" />
     <ClInclude Include="Windows\Dialogs\ConnectionDialogs\DatabaseConnectionDialog\DatabaseConnectionDialog.h" />
     <ClInclude Include="Windows\Dialogs\ConnectionDialogs\NetworkConnectionDialog\NetworkConnectionDialog.h" />

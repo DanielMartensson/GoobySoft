@@ -104,6 +104,80 @@ bool Tools_Gui_CreateItems_createTableSelectable(const char strId[], std::vector
 	return clicked;
 }
 
+bool Tools_Gui_CreateItems_createTableEditable(const char* tableId, std::vector<std::vector<std::string>>& rows, const std::vector<std::vector<bool>>& editableCells, const std::vector<std::vector<InputType>>& inputTypes) {
+	size_t columns = rows.empty() ? 0 : rows[0].size();
+	size_t amountOfRows = rows.size();
+	bool updated = false;
+
+	if (amountOfRows == 0 || columns == 0) {
+		return false; // Om inga rader eller kolumner finns
+	}
+
+	if (ImGui::BeginTable(tableId, (int)columns, ImGuiTableFlags_RowBg | ImGuiTableFlags_Borders | ImGuiTableFlags_SizingStretchSame)) {
+		// Write the header of the table
+		ImGui::TableNextRow(ImGuiTableRowFlags_Headers);
+		for (size_t column = 0; column < columns; ++column) {
+			ImGui::TableSetColumnIndex((int)column);
+			ImGui::Text("%s", rows.at(0).at(column).c_str());
+		}
+
+		// Handle the rest of the rows
+		for (size_t row = 1; row < amountOfRows; ++row) {
+			ImGui::TableNextRow();
+			for (size_t column = 0; column < columns; ++column) {
+				ImGui::TableSetColumnIndex((int)column);
+				const bool editable = editableCells.at(row).at(column);
+				if (editable) {
+					// Redigerbar cell
+					InputType type = inputTypes.at(row).at(column);
+					const std::string labelStr = "##" + std::to_string(row) + "_" + std::to_string(column);
+					const char* label = labelStr.c_str();
+					int valueInt;
+					float valueFloat;
+					switch (type) {
+					case InputType::Text:
+						// Text-input
+						char buffer[256];
+						strncpy(buffer, rows.at(row).at(column).c_str(), sizeof(buffer));
+						buffer[sizeof(buffer) - 1] = '\0';
+						if (ImGui::InputText(label, buffer, sizeof(buffer))) {
+							rows.at(row).at(column) = buffer;
+							updated = true;
+						}
+						break;
+					case InputType::Int:
+						// Int-input
+						valueInt = std::stoi(rows.at(row).at(column));
+						if (ImGui::InputInt(label, &valueInt)) {
+							rows.at(row).at(column) = std::to_string(valueInt);
+							updated = true;
+						}
+						break;
+					case InputType::Float:
+						// Float-input
+						valueFloat = std::stof(rows.at(row).at(column));
+						if (ImGui::InputFloat(label, &valueFloat)) {
+							rows.at(row).at(column) = std::to_string(valueFloat);
+							updated = true;
+						}
+						break;
+					default:
+						break;
+					}
+				}
+				else {
+					// Locked cell
+					ImGui::Text("%s", rows.at(row).at(column).c_str());
+				}
+			}
+		}
+
+		ImGui::EndTable();
+	}
+
+	return updated;
+}
+
 void Tools_Gui_CreateItems_createConnectDisconnectButtons(const bool isConnected, bool allFieldSetForConnection, const char connectButtonText[], const char connectionSuccessMessage[], const char connectionFailMessage[], bool (*connectionCallback)(void), const char disconnectButtonText[], const char disconnectionSuccessMessage[], void (*disconnectionCallback)(void)) {
 	// Color for connect button
 	if (isConnected) {

@@ -14,9 +14,10 @@ bool viewMeasurement = false;
 bool configureSAEJ1939Name = false;
 bool configureSAEJ1939Identifications = false;
 bool configureSAEJ1939DiagnosticMessage = false;
-bool configureAnalogInput = false;
-bool configureDateTime = false;
-bool configurePWM = false;
+bool configureAnalogInputSTM32PLC = false;
+bool configureAnalogInputWellerToJBC = false;
+bool configureDateTimeSTM32PLC = false;
+bool configurePWMSTM32PLC = false;
 bool canTrafficDialog = false;
 bool fisherFacesDialog = false;
 bool landmarkDialog = false;
@@ -55,9 +56,13 @@ void showMainWindow(bool* done) {
 				ImGui::EndMenu();
 			}
 			if (ImGui::BeginMenu("STM32 PLC")) {
-				ImGui::MenuItem("Analog input", nullptr, &configureAnalogInput);
-				ImGui::MenuItem("Date time", nullptr, &configureDateTime);
-				ImGui::MenuItem("PWM", nullptr, &configurePWM);
+				ImGui::MenuItem("Analog input", nullptr, &configureAnalogInputSTM32PLC);
+				ImGui::MenuItem("Date time", nullptr, &configureDateTimeSTM32PLC);
+				ImGui::MenuItem("PWM", nullptr, &configurePWMSTM32PLC);
+				ImGui::EndMenu();
+			}
+			if (ImGui::BeginMenu("Weller To JBC")) {
+				ImGui::MenuItem("Analog input", nullptr, &configureAnalogInputWellerToJBC);
 				ImGui::EndMenu();
 			}
 			ImGui::EndMenu();
@@ -132,14 +137,17 @@ void showMainWindow(bool* done) {
 		if (configureSAEJ1939Name) {
 			Windows_Dialogs_ConfigurationiDialogs_ConfigurationSAEJ1939_ConfigureNameDialog_showConfigureNameDialog(&configureSAEJ1939Name);
 		}
-		if (configureAnalogInput) {
-			Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureAnalogInputDialog_showConfigureAnalogInputDialog(&configureAnalogInput);
+		if (configureAnalogInputSTM32PLC) {
+			Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureAnalogInputDialog_showConfigureAnalogInputDialog(&configureAnalogInputSTM32PLC);
 		}
-		if (configureDateTime) {
-			Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureDateTimeDialog_showConfigureDateTimeDialog(&configureDateTime);
+		if (configureAnalogInputWellerToJBC) {
+			Windows_Dialogs_ConfigurationDialogs_ConfigurationWellerToJBC_ConfigureAnalogInputDialog_showConfigureAnalogInputDialog(&configureAnalogInputWellerToJBC);
 		}
-		if (configurePWM) {
-			Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigurePWMDialog_showConfigurePWMDialog(&configurePWM);
+		if (configureDateTimeSTM32PLC) {
+			Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureDateTimeDialog_showConfigureDateTimeDialog(&configureDateTimeSTM32PLC);
+		}
+		if (configurePWMSTM32PLC) {
+			Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigurePWMDialog_showConfigurePWMDialog(&configurePWMSTM32PLC);
 		}
 		if (canTrafficDialog) {
 			Windows_Dialogs_AnalyzeDialogs_CANTrafficDialog_showCANTrafficDialog(&canTrafficDialog);

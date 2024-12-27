@@ -4,6 +4,7 @@ C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\Devices.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\Devices.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\STM32PLC\STM32PLC.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\STM32PLC.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\Uponor-X-148\Uponor-X-148.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\Uponor-X-148.obj
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Communications\Devices\WellerToJCB\WellerToJCB.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\WellerToJCB.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Gui\CreateDialogs\CreateDialogs.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\CreateDialogs.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Hardware\Network\Network.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\Network.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Hardware\Network\Protocols\TCPIP\TCPIP.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\TCPIP.obj
@@ -144,7 +145,7 @@ C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CCo
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SystemIdentification\okid.c;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\okid.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SystemIdentification\rls.c;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\rls.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\Sources\SystemIdentification\sr_ukf_parameter_estimation.c;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\sr_ukf_parameter_estimation.obj
-C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\conversions\conversions.c;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\conversions.obj
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\conversions\conversions.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\conversions.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\ImGuiFileDialog\ImGuiFileDialog.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\ImGuiFileDialog.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Gui\CreateItems\CreateItems.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\CreateItems.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\ImGui\backends\imgui_impl_opengl3.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\imgui_impl_opengl3.obj
@@ -203,6 +204,7 @@ C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\Configuratio
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureAnalogInputDialog\ConfigureAnalogInputDialog.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\ConfigureAnalogInputDialog.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\ConfigureDateTimeDialog.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\ConfigurePWMDialog.obj
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationWellerToJBC\ConfigureAnalogInputDialog\ConfigureAnalogInputWellerToJBCDialog.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\ConfigureAnalogInputWellerToJBCDialog.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConnectionDialogs\DatabaseConnectionDialog\DatabaseConnectionDialog.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\DatabaseConnectionDialog.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConnectionDialogs\NetworkConnectionDialog\NetworkConnectionDialog.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\NetworkConnectionDialog.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConnectionDialogs\USBConnectionDialog\USBConnectionDialog.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\USBConnectionDialog.obj
