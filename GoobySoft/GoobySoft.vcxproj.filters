@@ -561,16 +561,16 @@
     <ClCompile Include="Tools\Software\Libraries\conversions\conversions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tools\Software\Libraries\modbus\nanomodbus\nanomodbus.cpp">
+    <ClCompile Include="Tools\Software\Libraries\modbus\nanomodbus\nanomodbus.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tools\Software\Libraries\modbus\modbus.cpp">
+    <ClCompile Include="Tools\Software\Libraries\modbus\modbus.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tools\Software\Libraries\modbus\modbusclient.cpp">
+    <ClCompile Include="Tools\Software\Libraries\modbus\modbusclient.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tools\Software\Libraries\modbus\modbusserver.cpp">
+    <ClCompile Include="Tools\Software\Libraries\modbus\modbusserver.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Tools\Hardware\Network\Protocols\TCPIP\TCPIP.cpp">
@@ -672,7 +672,7 @@
     <ClCompile Include="Tools\Communications\Devices\WellerToJCB\WellerToJCB.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationWellerToJBC\ConfigureAnalogInputDialog\ConfigureAnalogInputWellerToJBCDialog.cpp">
+    <ClCompile Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationWellerToJBC\ConfigureParametersDialog\ConfigureParametersDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1043,7 +1043,10 @@
     <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationWellerToJBC\ConfigurationWellerToJBC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationWellerToJBC\ConfigureAnalogInputDialog\ConfigureAnalogInputWellerToJBCDialog.h">
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationWellerToJBC\ConfigureParametersDialog\ConfigureAnalogInputWellerToJBCDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\Dialogs\ConfigurationDialogs\ConfigurationWellerToJBC\ConfigureParametersDialog\ConfigureParametersDialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

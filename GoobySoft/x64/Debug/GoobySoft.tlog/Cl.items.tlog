@@ -160,10 +160,10 @@ C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Hardware\FileSystem\Fi
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\CDC\CDC.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\CDC.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\USB.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\USB.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Algorithms\Algorithms.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\Algorithms.obj
-C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\modbus\modbus.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\modbus.obj
-C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\modbus\modbusclient.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\modbusclient.obj
-C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\modbus\modbusserver.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\modbusserver.obj
-C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\modbus\nanomodbus\nanomodbus.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\nanomodbus.obj
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\modbus\modbus.c;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\modbus.obj
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\modbus\modbusclient.c;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\modbusclient.obj
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\modbus\modbusserver.c;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\modbusserver.obj
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\modbus\nanomodbus\nanomodbus.c;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\nanomodbus.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Hardware\CAN_Transmit_Receive.c;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\CAN_Transmit_Receive.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Hardware\FLASH_EEPROM_RAM_Memory.c;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\FLASH_EEPROM_RAM_Memory.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Hardware\Save_Load_Struct.c;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\Save_Load_Struct.obj
@@ -204,7 +204,7 @@ C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\Configuratio
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureAnalogInputDialog\ConfigureAnalogInputDialog.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\ConfigureAnalogInputDialog.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigureDateTimeDialog\ConfigureDateTimeDialog.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\ConfigureDateTimeDialog.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationSTM32PLC\ConfigurePWMDialog\ConfigurePWMDialog.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\ConfigurePWMDialog.obj
-C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationWellerToJBC\ConfigureAnalogInputDialog\ConfigureAnalogInputWellerToJBCDialog.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\ConfigureAnalogInputWellerToJBCDialog.obj
+C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConfigurationDialogs\ConfigurationWellerToJBC\ConfigureParametersDialog\ConfigureParametersDialog.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\ConfigureParametersDialog.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConnectionDialogs\DatabaseConnectionDialog\DatabaseConnectionDialog.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\DatabaseConnectionDialog.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConnectionDialogs\NetworkConnectionDialog\NetworkConnectionDialog.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\NetworkConnectionDialog.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Windows\Dialogs\ConnectionDialogs\USBConnectionDialog\USBConnectionDialog.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\USBConnectionDialog.obj

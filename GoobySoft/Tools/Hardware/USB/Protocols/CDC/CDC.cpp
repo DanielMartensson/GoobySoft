@@ -6,7 +6,6 @@
 #include <cstdio>
 #include "../../../../Tools.h"
 
-static boost::asio::io_context io;
 static std::map<std::string, std::shared_ptr<boost::asio::serial_port>> devicesCDC;
 
 static bool CDCDeviceExist(const char port[]) {
@@ -22,6 +21,7 @@ static void checkPort(std::vector<std::string>& ports, const char port[]) {
 	}
 	else {
 		// Create temporary port
+		static boost::asio::io_context io;
 		boost::asio::serial_port addDevice(io);
 		addDevice.open(port);
 		if (addDevice.is_open()) {
@@ -91,6 +91,7 @@ bool Tools_Hardware_USB_Protocols_CDC_closeConnection(const char port[]) {
 
 bool Tools_Hardware_USB_Protocols_CDC_openConnection(const char port[], const unsigned int baudrate, const unsigned int dataBits, const unsigned int flowControl, const unsigned int stopBits, const unsigned int parity) {
 	// Open connection
+	static boost::asio::io_context io;
 	std::shared_ptr<boost::asio::serial_port> addDevice = std::make_shared<boost::asio::serial_port>(io, port);
 
 	// Baudrate options
@@ -187,42 +188,8 @@ int32_t Tools_Hardware_USB_Protocols_CDC_write(const char port[], const uint8_t 
 		// Get the USB
 		auto deviceUSB = devicesCDC.at(port);
 
-		// Skapa en io_context och deadline_timer
-		boost::asio::io_context io;
-		boost::asio::deadline_timer timer(io);
-		boost::system::error_code ec;
-
-		// Starta deadline timer
-		timer.expires_from_now(boost::posix_time::milliseconds(timeout_ms));
-		timer.async_wait([&](const boost::system::error_code& error) {
-			if (!error) {
-				// Om timeout intr ffar, st ng seriellporten
-				ec = boost::asio::error::operation_aborted;
-				deviceUSB->cancel();
-			}
-			});
-
-		// Starta en separat tr d f r att k ra io_context
-		std::thread io_thread([&]() { io.run(); });
-
 		// Utför skrivoperationen
-		writtenBytes = boost::asio::write(*deviceUSB, boost::asio::buffer(data, size), ec);
-
-		// Avbryt timern och v nta p  io_context-tr den
-		timer.cancel();
-		if (io_thread.joinable()) {
-			io_thread.join();
-		}
-
-		// Kontrollera fel
-		if (ec) {
-			if (ec == boost::asio::error::operation_aborted) {
-				std::cerr << "CDC.cpp: Timeout intr ffade under skrivning till port: " << port << std::endl;
-				return -1; // Returnera felkod f r timeout
-			}
-			std::cerr << "CDC.cpp: Fel vid skrivning: " << ec.message() << std::endl;
-			return -1;
-		}
+		writtenBytes = boost::asio::write(*deviceUSB, boost::asio::buffer(data, size));
 	}
 	return writtenBytes;
 }
@@ -234,41 +201,31 @@ int32_t Tools_Hardware_USB_Protocols_CDC_read(const char port[], uint8_t data[],
 		// Get the USB
 		auto deviceUSB = devicesCDC.at(port);
 
-		// Skapa en io_context och deadline_timer
-		boost::asio::io_context io;
-		boost::asio::deadline_timer timer(io);
+		// Important stuffs
+		boost::asio::io_context io_context;
+		boost::asio::deadline_timer timer(io_context);
 		boost::system::error_code ec;
 
-		// Starta deadline timer
+		// Create dead line timer
 		timer.expires_from_now(boost::posix_time::milliseconds(timeout_ms));
 		timer.async_wait([&](const boost::system::error_code& error) {
 			if (!error) {
-				// Om timeout intr ffar, st ng seriellporten
+				// If time out occurs
 				ec = boost::asio::error::operation_aborted;
 				deviceUSB->cancel();
 			}
 			});
 
-		// Starta en separat tr d f r att k ra io_context
-		std::thread io_thread([&]() { io.run(); });
+		// Start the thread
+		std::thread io_thread([&]() { io_context.run(); });
 
-		// Utför operationen
+		// Read with error code
 		bytesRead = boost::asio::read(*deviceUSB, boost::asio::buffer(data, size), ec);
 
-		// Avbryt timern och v nta p  io_context-tr den
+		// Cancle the timer and wait for the io_context to join
 		timer.cancel();
 		if (io_thread.joinable()) {
 			io_thread.join();
-		}
-
-		// Kontrollera fel
-		if (ec) {
-			if (ec == boost::asio::error::operation_aborted) {
-				std::cerr << "CDC.cpp: Timeout intr ffade under l sning fr n port: " << port << std::endl;
-				return -1; // Returnera felkod f r timeout
-			}
-			std::cerr << "CDC.cpp: Fel vid l sning: " << ec.message() << std::endl;
-			return -1;
 		}
 	}
 
@@ -286,6 +243,7 @@ std::vector<uint8_t> Tools_Hardware_USB_Protocols_CDC_writeThenRead(const char p
 		bool wait;
 
 		// Timer
+		static boost::asio::io_context io;
 		boost::asio::steady_timer timer(io, std::chrono::milliseconds(timeoutMilliseconds));
 		timer.async_wait([&](boost::system::error_code ec) {
 #ifndef _GOOBYSOFT_DEBUG

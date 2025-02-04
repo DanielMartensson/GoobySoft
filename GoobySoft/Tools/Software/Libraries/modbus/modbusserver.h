@@ -11,6 +11,10 @@
 #include <stdint.h>
 #include "nanomodbus/nanomodbus.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 nmbs_error handle_read_device_identification(uint8_t object_id, char buffer[NMBS_DEVICE_IDENTIFICATION_STRING_LENGTH]);
 nmbs_error handle_read_device_identification_map(nmbs_bitfield_256 map);
 nmbs_error handle_write_file_record(uint16_t file_number, uint16_t record_number, const uint16_t* registers, uint16_t count, uint8_t unit_id, void* arg);
@@ -30,5 +34,9 @@ bool modbus_set_digital_inputs_on_server(const uint8_t inputs[], const uint16_t 
 bool modbus_set_analog_inputs_on_server(const uint16_t inputs[], const uint16_t address, const uint16_t quantity);
 bool modbus_get_parameters_at_server(uint16_t parameters[], const uint16_t address, const uint16_t quantity);
 bool modbus_set_parameters_on_server(const uint16_t parameters[], const uint16_t address, const uint16_t quantity);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* SRC_TOOLS_MODBUS_MODBUSSERVER_H_ */

@@ -1,6 +1,6 @@
 #ifndef ConfigurationWellerToJBC
 #define ConfigurationWellerToJBC
 
-#include "ConfigureAnalogInputDialog/ConfigureAnalogInputWellerToJBCDialog.h"
+#include "ConfigureParametersDialog/ConfigureParametersDialog.h"
 
 #endif // !ConfigurationWellerToJBC

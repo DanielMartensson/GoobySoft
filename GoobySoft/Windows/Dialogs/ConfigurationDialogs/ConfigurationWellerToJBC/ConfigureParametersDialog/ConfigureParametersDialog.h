@@ -1,0 +1,6 @@
+#ifndef ConfigureParametersWellerToJBCDialog
+#define ConfigureParametersWellerToJBCDialog
+
+void Windows_Dialogs_ConfigurationDialogs_ConfigurationWellerToJBC_ConfigureParametersDialog_showConfigureParametersDialog(bool* configureParameters);
+
+#endif // !ConfigureParametersWellerToJBCDialog

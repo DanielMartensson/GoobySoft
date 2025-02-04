@@ -10,6 +10,10 @@
 
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* For all */
 void modbus_set_serial_write(int32_t (*serial_write)(const char port[], const uint8_t*, uint16_t, int32_t));
 void modbus_set_serial_read(int32_t (*serial_read)(const char port[], uint8_t*, uint16_t, int32_t));
@@ -32,5 +36,9 @@ bool modbus_client_get_digital_inputs(uint8_t inputs[], const uint16_t address, 
 bool modbus_client_get_analog_inputs(uint16_t inputs[], const uint16_t address, const uint16_t quantity);
 bool modbus_client_set_parameters(const uint16_t parameters[], const uint16_t address, const uint16_t quantity);
 bool modbus_client_get_parameters(uint16_t parameters[], const uint16_t address, const uint16_t quantity);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* SRC_TOOLS_SOFTWARE_LIBRARIES_MODBUS_MODBUS_H_ */

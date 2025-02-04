@@ -156,7 +156,7 @@ bool Tools_Gui_CreateItems_createTableEditable(const char* tableId, std::vector<
 					case InputType::Float:
 						// Float-input
 						valueFloat = std::stof(rows.at(row).at(column));
-						if (ImGui::InputFloat(label, &valueFloat)) {
+						if (ImGui::InputFloat(label, &valueFloat, 0.0f, 0.0f, "%.7f")) {
 							rows.at(row).at(column) = std::to_string(valueFloat);
 							updated = true;
 						}

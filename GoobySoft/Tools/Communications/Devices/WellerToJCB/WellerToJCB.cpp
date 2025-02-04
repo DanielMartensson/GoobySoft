@@ -8,11 +8,7 @@ typedef enum {
 	IO_READ_TEMPERATURE_REAL,
 	IO_READ_SETPOINT_RAW,
 	IO_READ_SETPOINT_REAL,
-	IO_READ_STATE_XHAT0,
-	IO_READ_STATE_XHAT1,
-	IO_READ_PARAMETER_WHAT0,
-	IO_READ_PARAMETER_WHAT1,
-	IO_READ_PARAMETER_WHAT2,
+	IO_READ_STATE_XHAT,
 	IO_READ_LED_GREEN,
 	IO_READ_LEACKAGE_ACTIVE,
 	IO_READ_SLEEP
@@ -32,15 +28,7 @@ std::string Tools_Communications_Devices_WellerToJBC_getFunctionValues() {
 	functionNames += '\0';
 	functionNames += "Read Setpoint Real";
 	functionNames += '\0';
-	functionNames += "Read estimated state x0";
-	functionNames += '\0';
-	functionNames += "Read estimated state x1";
-	functionNames += '\0';
-	functionNames += "Read estimated parameter w0";
-	functionNames += '\0';
-	functionNames += "Read estimated parameter w1";
-	functionNames += '\0';
-	functionNames += "Read estimated parameter w2";
+	functionNames += "Read estimated state x";
 	functionNames += '\0';
 	functionNames += "Read LED green";
 	functionNames += '\0';
@@ -89,20 +77,8 @@ float Tools_Communications_Devices_WellerToJBC_getInput(const char port[], int f
 		modbus_client_get_analog_inputs(registers, 5, 2);
 		value = uint16_to_float(registers[1], registers[0]);
 		return value;
-	case IO_READ_STATE_XHAT0:
+	case IO_READ_STATE_XHAT:
 		modbus_client_get_analog_inputs(registers, 9, 2);
-		return uint16_to_float(registers[1], registers[0]);
-	case IO_READ_STATE_XHAT1:
-		modbus_client_get_analog_inputs(registers, 11, 2);
-		return uint16_to_float(registers[1], registers[0]);
-	case IO_READ_PARAMETER_WHAT0:
-		modbus_client_get_parameters(registers, 19, 2);
-		return uint16_to_float(registers[1], registers[0]);
-	case IO_READ_PARAMETER_WHAT1:
-		modbus_client_get_parameters(registers, 21, 2);
-		return uint16_to_float(registers[1], registers[0]);
-	case IO_READ_PARAMETER_WHAT2:
-		modbus_client_get_parameters(registers, 23, 2);
 		return uint16_to_float(registers[1], registers[0]);
 	case IO_READ_LED_GREEN:
 		modbus_client_get_digital_outputs(digitals, 1, 1);
@@ -129,26 +105,18 @@ COLUMN_FUNCTION Tools_Communications_Devices_WellerToJBC_getColumnFunction(int f
 	/* These must follow the same linear pattern as getFunctionValues() */
 	switch (functionValueIndex) {
 	case IO_READ_CURRENT_RAW:
-		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS;
+		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION;
 	case IO_READ_CURRENT_REAL:
 		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION;
 	case IO_READ_TEMPERATURE_RAW:
-		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS;
+		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION;
 	case IO_READ_TEMPERATURE_REAL:
 		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION;
 	case IO_READ_SETPOINT_RAW:
-		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS;
+		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION;
 	case IO_READ_SETPOINT_REAL:
 		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION;
-	case IO_READ_STATE_XHAT0:
-		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION;
-	case IO_READ_STATE_XHAT1:
-		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION;
-	case IO_READ_PARAMETER_WHAT0:
-		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION;
-	case IO_READ_PARAMETER_WHAT1:
-		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION;
-	case IO_READ_PARAMETER_WHAT2:
+	case IO_READ_STATE_XHAT:
 		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION;
 	case IO_READ_LED_GREEN:
 		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION;
@@ -189,18 +157,52 @@ bool Tools_Communications_Devices_WellerToJBC_getAnalogInputCalibration(const ch
 	return status;
 }
 
+bool Tools_Communications_Devices_WellerToJBC_setParameters(const char port[], const int address, const float A, const float B, const float Umax, const float S, const float I, const float lambda, const float R, const float Q, const float P) {
+	modbus_client_set_RTU_address(address);
+	modbus_set_serial_port(port);
+	uint16_t registers[18];
+	float_to_uint16(A, &registers[1], &registers[0]);
+	float_to_uint16(B, &registers[3], &registers[2]);
+	float_to_uint16(Umax, &registers[5], &registers[4]);
+	float_to_uint16(S, &registers[7], &registers[6]);
+	float_to_uint16(I, &registers[9], &registers[8]);
+	float_to_uint16(lambda, &registers[11], &registers[10]);
+	float_to_uint16(R, &registers[13], &registers[12]);
+	float_to_uint16(Q, &registers[15], &registers[14]);
+	float_to_uint16(P, &registers[17], &registers[16]);
+	const bool status = modbus_client_set_parameters(registers, 18, 18);
+	return status;
+}
+
+bool Tools_Communications_Devices_WellerToJBC_getParameters(const char port[], const int address, float* A, float* B, float* Umax, float* S, float* I, float* lambda, float* R, float* Q, float* P) {
+	modbus_client_set_RTU_address(address);
+	modbus_set_serial_port(port);
+	uint16_t registers[18];
+	const bool status = modbus_client_get_parameters(registers, 18, 18);
+	*A = uint16_to_float(registers[1], registers[0]);
+	*B = uint16_to_float(registers[3], registers[2]);
+	*Umax = uint16_to_float(registers[5], registers[4]);
+	*S = uint16_to_float(registers[7], registers[6]);
+	*I = uint16_to_float(registers[9], registers[8]);
+	*lambda = uint16_to_float(registers[11], registers[10]);
+	*R = uint16_to_float(registers[13], registers[12]);
+	*Q = uint16_to_float(registers[15], registers[14]);
+	*P = uint16_to_float(registers[17], registers[16]);
+	return status;
+}
+
 bool Tools_Communications_Devices_WellerToJBC_setOperation(const char port[], const int address, const int operationIndex) {
 	modbus_client_set_RTU_address(address);
 	modbus_set_serial_port(port);
 	uint16_t registers[1] = { operationIndex };
-	return modbus_client_set_parameters(registers, 18, 1);
+	return modbus_client_set_parameters(registers, 36, 1);
 }
 
 bool Tools_Communications_Devices_WellerToJBC_getOperation(const char port[], const int address, int* operationIndex) {
 	modbus_client_set_RTU_address(address);
 	modbus_set_serial_port(port);
 	uint16_t registers[1];
-	const bool status = modbus_client_get_parameters(registers, 18, 1);
+	const bool status = modbus_client_get_parameters(registers, 36, 1);
 	*operationIndex = registers[0];
 	return status;
 }
