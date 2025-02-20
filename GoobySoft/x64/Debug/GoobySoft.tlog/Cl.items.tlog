@@ -157,7 +157,6 @@ C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\ImG
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\ImPlot\implot.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\implot.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\ImPlot\implot_items.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\implot_items.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Hardware\FileSystem\FileSystem.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\FileSystem.obj
-C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\Protocols\CDC\CDC.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\CDC.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Hardware\USB\USB.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\USB.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Algorithms\Algorithms.cpp;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\Algorithms.obj
 C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\modbus\modbus.c;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\x64\Debug\modbus.obj

@@ -1,5 +1,14 @@
 #include "USB.h"
 #include "../../Tools.h"
+#include <CSerialPort/SerialPort.h>
+#include <CSerialPort/SerialPortInfo.h>
+
+// Map for all connections
+static std::map<std::string, std::shared_ptr<itas109::CSerialPort>> connections;
+
+bool Tools_Hardware_USB_checkIfExist(const char port[]) {
+	return connections.find(port) != connections.end() ? true : false;
+}
 
 size_t Tools_Hardware_USB_getPortIndex(const char port[]) {
 	size_t indexOfNumber = std::string(port).find_first_of("0123456789");
@@ -14,11 +23,23 @@ size_t Tools_Hardware_USB_getPortIndex(const char port[]) {
 }
 
 USB_STATUS Tools_Hardware_USB_isConnected(const char port[]) {
-	return Tools_Hardware_USB_Protocols_CDC_isConnected(port) ? USB_STATUS_CONNECTED : USB_STATUS_NOT_CONNECTED;
+	if (Tools_Hardware_USB_checkIfExist(port)) {
+		return connections[port]->isOpen() ? USB_STATUS_CONNECTED : USB_STATUS_NOT_CONNECTED;
+	}else {
+		return USB_STATUS_NOT_EXIST;
+	}
 }
 
 USB_STATUS Tools_Hardware_USB_closeConnection(const char port[]) {
-	return Tools_Hardware_USB_Protocols_CDC_closeConnection(port) ? USB_STATUS_DISCONNECTED : USB_STATUS_NOT_CONNECTED;
+	if (Tools_Hardware_USB_checkIfExist(port)) {
+		if (Tools_Hardware_USB_isConnected(port)) {
+			connections[port]->close();
+		}
+		connections.erase(port);
+		return USB_STATUS_DISCONNECTED;
+	}else {
+		return USB_STATUS_NOT_EXIST;
+	}
 }
 
 USB_STATUS Tools_Hardware_USB_openConnection(const char port[], const unsigned int baudrate, const unsigned int dataBits, const std::string& flowControl, const std::string& stopBits, const std::string& parity, const std::string& protocols) {
@@ -27,41 +48,101 @@ USB_STATUS Tools_Hardware_USB_openConnection(const char port[], const unsigned i
 		return USB_STATUS_CONNECTED;
 	}
 
-	// Translate
-	int index = Tools_Software_Algorithms_findIndexOf(USB_PARITY_STRING, parity);
-	int parityCDC = index;
-	char parityModbus;
-	switch (index) {
-	case USB_PARITY_ENUM_NONE:
-		parityModbus = 'N';
+	// Translate databits
+	itas109::DataBits CSerialPortDataBits;
+	switch (dataBits) {
+	case 5:
+		CSerialPortDataBits = itas109::DataBits5;
 		break;
-	case USB_PARITY_ENUM_EVEN:
-		parityModbus = 'E';
+	case 6:
+		CSerialPortDataBits = itas109::DataBits6;
 		break;
-	case USB_PARITY_ENUM_ODD:
-		parityModbus = 'O';
+	case 7:
+		CSerialPortDataBits = itas109::DataBits7;
+		break;
+	case 8:
+		CSerialPortDataBits = itas109::DataBits8;
 		break;
 	default:
-		parityModbus = 'N';
+		CSerialPortDataBits = itas109::DataBits8;
 		break;
 	}
-	int stopBitsModbus = Tools_Software_Algorithms_findIndexOf(USB_STOP_BITS_STRING, stopBits) + 1;
-	int flowControlCDC = Tools_Software_Algorithms_findIndexOf(USB_CONTROL_FLOW_STRING, flowControl);
-	int stopBitsCDC = Tools_Software_Algorithms_findIndexOf(USB_STOP_BITS_STRING, stopBits);
 
-	// Get the selection of which protocols is being used
-	return Tools_Hardware_USB_Protocols_CDC_openConnection(port, baudrate, dataBits, flowControlCDC, stopBitsCDC, parityCDC) ? USB_STATUS_CONNECTED : USB_STATUS_FAIL;
+	// Translate stopbits
+	itas109::StopBits CSerialPortStopBits = itas109::StopBits::StopOne;
+	if (stopBits == "One") {
+		CSerialPortStopBits = itas109::StopBits::StopOne;
+	}else if (stopBits == "Two") {
+		CSerialPortStopBits = itas109::StopBits::StopTwo;
+	}
+
+	// Translate flow control
+	itas109::FlowControl CSerialPortFlowControl = itas109::FlowControl::FlowNone;
+	if (flowControl == "None") {
+		CSerialPortFlowControl = itas109::FlowControl::FlowNone;
+	}else if (flowControl == "Hardware") {
+		CSerialPortFlowControl = itas109::FlowControl::FlowHardware;
+	}else if (flowControl == "Software") {
+		CSerialPortFlowControl = itas109::FlowControl::FlowSoftware;
+	}
+
+	// Translate parity
+	itas109::Parity CSerialPortParity = itas109::Parity::ParityNone;
+	if (parity == "Even") {
+		CSerialPortParity = itas109::Parity::ParityEven;
+	}else if (parity == "None") {
+		CSerialPortParity = itas109::Parity::ParityNone;
+	}else if (parity == "Odd") {
+		CSerialPortParity = itas109::Parity::ParityOdd;
+	}
+	
+	// Create connection
+	std::shared_ptr< itas109::CSerialPort> connect = std::make_shared<itas109::CSerialPort>();
+	connect->init(port, baudrate, CSerialPortParity, CSerialPortDataBits, CSerialPortStopBits, CSerialPortFlowControl);
+
+	// Open and save
+	if (connect->open()) {
+		connections[port] = connect;
+		return USB_STATUS_CONNECTED;
+	}else {
+		return USB_STATUS_DISCONNECTED;
+	}
 }
 
 std::vector<std::string> Tools_Hardware_USB_getAllPorts() {
-	return Tools_Hardware_USB_Protocols_CDC_getAllPorts(); 	// CDC is using Boost Asio and can locate all existing ports
+	std::vector<std::string> ports;
+	auto infos = itas109::CSerialPortInfo::availablePortInfos();
+	for (const auto& info : infos) {
+		ports.push_back(info.portName);
+	}
+	return ports;
 }
 
 std::string Tools_Hardware_USB_getConnectedPorts() {
-	return Tools_Hardware_USB_Protocols_CDC_getPortsOfConnectedDevices();
+	std::string ports = "";
+	size_t maxConnections = connections.size();
+	size_t count = 0;
+	for (const auto& connection : connections) {
+		ports += connection.first;
+		if (count < maxConnections - 1) {
+			ports += '\0';
+		}
+		count++;
+	}
+	return ports;
 }
 
 std::string Tools_Hardware_USB_getProtocolFromPort(const char port[]) {
 	size_t index = Tools_Hardware_USB_getPortIndex(port);
 	return PROTOCOL_STRING[Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[index].protocolIndex];
+}
+
+int32_t Tools_Hardware_USB_write(const char port[], const uint8_t data[], const uint16_t size, const int32_t timeout_ms) {
+	return connections[port]->writeData(data, size);
+}
+
+int32_t Tools_Hardware_USB_read(const char port[], uint8_t data[], const uint16_t size, const int32_t timeout_ms) {
+	// A delay is important as a timeout because if the message is transmitted to fast to the PC, then the PC won't be able to read the read buffer
+	Tools_Software_Algorithms_goobySleep(timeout_ms);
+	return connections[port]->readData(data, size);
 }

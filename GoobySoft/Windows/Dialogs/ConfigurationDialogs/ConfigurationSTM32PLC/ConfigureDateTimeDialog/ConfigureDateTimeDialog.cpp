@@ -29,63 +29,69 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureDateTim
 
 		// Create buttons
 		if (ImGui::Button("Receive date time")) {
-			uint8_t dataTX[1] = { STM32PLC_SEND_BACK_DATE_TIME_MESSAGE_TYPE };
-			std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_writeThenRead(port, 1000, dataTX, sizeof(dataTX));
-			if (!dataRX.empty()) {
-				year = 2000 + dataRX.at(0);
-				month = dataRX.at(1);
-				date = dataRX.at(2);
-				week_day = dataRX.at(3) + 1;
-				hours = dataRX.at(4);
-				minutes = dataRX.at(5);
+			uint8_t data[6] = { STM32PLC_SEND_BACK_DATE_TIME_MESSAGE_TYPE };
+			Tools_Hardware_USB_write(port, data, 1, 0);
+			const int32_t result = Tools_Hardware_USB_read(port, data, 6, 100);
+			if (result > 0) {
+				year = 2000 + data[0];
+				month = data[1];
+				date = data[2];
+				week_day = data[3] + 1;
+				hours = data[4];
+				minutes = data[5];
 				Tools_Gui_CreateDialogs_showPopUpInformationDialogOK("Date time", "Date time received");
 			}
 		}
 		ImGui::SameLine();
 		if (ImGui::Button("Transmit date time")) {
-			uint8_t dataTX[7] = { STM32PLC_WRITE_SET_DATE_TIME_MESSAGE_TYPE, year - 2000, month, date, week_day - 1, hours, minutes };
-			std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_writeThenRead(port, 1000, dataTX, sizeof(dataTX));
-			if (!dataRX.empty()) {
+			uint8_t data[7] = { STM32PLC_WRITE_SET_DATE_TIME_MESSAGE_TYPE, year - 2000, month, date, week_day - 1, hours, minutes };
+			Tools_Hardware_USB_write(port, data, 7, 0);
+			const int32_t result = Tools_Hardware_USB_read(port, data, 1, 100);
+			if (result > 0) {
 				Tools_Gui_CreateDialogs_showPopUpInformationDialogOK("Date time", "Date time transmitted");
 			}
 		}
 		if (ImGui::Button("Receive date alarm")) {
-			uint8_t dataTX[1] = { STM32PLC_SEND_BACK_ALARM_A_MESSAGE_TYPE };
-			std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_writeThenRead(port, 1000, dataTX, sizeof(dataTX));
-			if (!dataRX.empty()) {
-				date = dataRX.at(0);
-				hours = dataRX.at(1);
-				minutes = dataRX.at(2);
-				enableDateAlarm = dataRX.at(3);
-				isDateAlarmActive = dataRX.at(4);
+			uint8_t data[6] = { STM32PLC_SEND_BACK_ALARM_A_MESSAGE_TYPE };
+			Tools_Hardware_USB_write(port, data, 1, 0);
+			const int32_t result = Tools_Hardware_USB_read(port, data, 6, 100);
+			if (result > 0) {
+				date = data[0];
+				hours = data[1];
+				minutes = data[2];
+				enableDateAlarm = data[3];
+				isDateAlarmActive = data[4];
 				Tools_Gui_CreateDialogs_showPopUpInformationDialogOK("Date alarm", "Date alarm received");
 			}
 		}
 		ImGui::SameLine();
 		if (ImGui::Button("Transmit date alarm")) {
-			uint8_t dataTX[5] = { STM32PLC_WRITE_SET_ALARM_A_MESSAGE_TYPE, date, hours, minutes, enableDateAlarm };
-			std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_writeThenRead(port, 1000, dataTX, sizeof(dataTX));
-			if (!dataRX.empty()) {
+			uint8_t data[5] = { STM32PLC_WRITE_SET_ALARM_A_MESSAGE_TYPE, date, hours, minutes, enableDateAlarm };
+			Tools_Hardware_USB_write(port, data, 5, 0);
+			const int32_t result = Tools_Hardware_USB_read(port, data, 1, 100);
+			if (result > 0) {
 				Tools_Gui_CreateDialogs_showPopUpInformationDialogOK("Date alarm", "Date alarm transmitted");
 			}
 		}
 		if (ImGui::Button("Receive week day alarm")) {
-			uint8_t dataTX[1] = { STM32PLC_SEND_BACK_ALARM_B_MESSAGE_TYPE };
-			std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_writeThenRead(port, 1000, dataTX, sizeof(dataTX));
-			if (!dataRX.empty()) {
-				week_day = dataRX.at(0) + 1;
-				hours = dataRX.at(1);
-				minutes = dataRX.at(2);
-				enableWeekAlarm = dataRX.at(3);
-				isWeekAlarmActive = dataRX.at(4);
+			uint8_t data[5] = { STM32PLC_SEND_BACK_ALARM_B_MESSAGE_TYPE };
+			Tools_Hardware_USB_write(port, data, 1, 0);
+			const int32_t result = Tools_Hardware_USB_read(port, data, 5, 100);
+			if (result > 0) {
+				week_day = data[0] + 1;
+				hours = data[1];
+				minutes = data[2];
+				enableWeekAlarm = data[3];
+				isWeekAlarmActive = data[4];
 				Tools_Gui_CreateDialogs_showPopUpInformationDialogOK("Week day alarm", "Week day alarm received");
 			}
 		}
 		ImGui::SameLine();
 		if (ImGui::Button("Transmit week day alarm")) {
-			uint8_t dataTX[5] = { STM32PLC_WRITE_SET_ALARM_B_MESSAGE_TYPE, week_day - 1, hours, minutes, enableWeekAlarm };
-			std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_writeThenRead(port, 1000, dataTX, sizeof(dataTX));
-			if (!dataRX.empty()) {
+			uint8_t data[5] = { STM32PLC_WRITE_SET_ALARM_B_MESSAGE_TYPE, week_day - 1, hours, minutes, enableWeekAlarm };
+			Tools_Hardware_USB_write(port, data, 5, 0);
+			const int32_t result = Tools_Hardware_USB_read(port, data, 1, 100);
+			if (result > 0) {
 				Tools_Gui_CreateDialogs_showPopUpInformationDialogOK("Week day alarm", "Week day alarm transmitted");
 			}
 		}

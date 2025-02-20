@@ -6,13 +6,16 @@
  */
 
 #include "modbusserver.h"
+#include "modbus.h"
+
+#ifdef IS_MODBUS_SERVER
 
 /* Sizes */
-#define COILS_ADDR_MAX 5
-#define INPUTS_ADDR_MAX 5
-#define HOLDING_REGISTERS_ADDR_MAX 40
-#define INPUT_REGISTERS_ADDR_MAX 25
-#define FILE_SIZE_MAX 32
+#define COILS_ADDR_MAX 1
+#define INPUTS_ADDR_MAX 0
+#define HOLDING_REGISTERS_ADDR_MAX 48
+#define INPUT_REGISTERS_ADDR_MAX 11
+#define FILE_SIZE_MAX 0
 
 /* Memories */
 static nmbs_bitfield server_coils = {0};
@@ -243,6 +246,10 @@ bool modbus_set_analog_inputs_on_server(const uint16_t inputs[], const uint16_t 
     return true;
 }
 
+uint16_t* modbus_get_analog_inputs_on_server(){
+	return server_input_registers;
+}
+
 bool modbus_get_parameters_at_server(uint16_t parameters[], const uint16_t address, const uint16_t quantity){
     if (address + quantity > HOLDING_REGISTERS_ADDR_MAX + 1) {
         return false;
@@ -266,3 +273,9 @@ bool modbus_set_parameters_on_server(const uint16_t parameters[], const uint16_t
 
     return true;
 }
+
+uint16_t* modbus_get_parameters_on_server(){
+	return server_holding_registers;
+}
+
+#endif

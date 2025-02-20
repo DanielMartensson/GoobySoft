@@ -82,7 +82,7 @@ extern "C" {
      /**
       * Bitfield consisting of 2000 coils/discrete inputs
       */
-    typedef uint8_t nmbs_bitfield[250];
+    typedef uint8_t nmbs_bitfield[1];
 
     /**
      * Bitfield consisting of 256 values
@@ -235,7 +235,7 @@ extern "C" {
      */
     typedef struct nmbs_t {
         struct {
-            uint8_t buf[260];
+            uint8_t buf[50]; /* Before it was 260 */
             uint16_t buf_idx;
 
             uint8_t unit_id;

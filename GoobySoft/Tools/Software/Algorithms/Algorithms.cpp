@@ -2,6 +2,7 @@
 #include <boost/date_time/posix_time/posix_time.hpp>
 #include <boost/chrono.hpp>
 #include <cstring>
+#include <thread>
 
 std::string Tools_Software_Algorithms_getISO8601Time() {
 	boost::posix_time::ptime t = boost::posix_time::microsec_clock::local_time();
@@ -40,4 +41,8 @@ float Tools_Software_Algorithms_calibration(float x1, float x2, float y1, float 
     float k = deltaY / deltaX;
     float m = y2 - k * x2;
     return k * x + m;
+}
+
+void Tools_Software_Algorithms_goobySleep(const uint32_t milliseconds) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(milliseconds));
 }

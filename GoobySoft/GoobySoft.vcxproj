@@ -121,7 +121,8 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\include\opencv4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\include\opencv4;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions> %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -144,7 +145,8 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>Default</LanguageStandard_C>
-      <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\include\opencv4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\include\opencv4;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions> %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -317,7 +319,6 @@
     <ClCompile Include="Tools\Software\Libraries\ImPlot\implot.cpp" />
     <ClCompile Include="Tools\Software\Libraries\ImPlot\implot_items.cpp" />
     <ClCompile Include="Tools\Hardware\FileSystem\FileSystem.cpp" />
-    <ClCompile Include="Tools\Hardware\USB\Protocols\CDC\CDC.cpp" />
     <ClCompile Include="Tools\Hardware\USB\USB.cpp" />
     <ClCompile Include="Tools\Software\Algorithms\Algorithms.cpp" />
     <ClCompile Include="Tools\Software\Libraries\modbus\modbus.c" />
@@ -437,8 +438,6 @@
     <ClInclude Include="Tools\Software\Libraries\ImPlot\implot_internal.h" />
     <ClInclude Include="Tools\Hardware\FileSystem\FileSystem.h" />
     <ClInclude Include="Tools\Hardware\Hardware.h" />
-    <ClInclude Include="Tools\Hardware\USB\Protocols\CDC\CDC.h" />
-    <ClInclude Include="Tools\Hardware\USB\Protocols\Protocols.h" />
     <ClInclude Include="Tools\Hardware\USB\USB.h" />
     <ClInclude Include="Tools\Software\Libraries\Libraries.h" />
     <ClInclude Include="Tools\Software\Libraries\modbus\modbus.h" />

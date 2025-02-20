@@ -30,9 +30,6 @@
     <ClCompile Include="Tools\Hardware\FileSystem\FileSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tools\Hardware\USB\Protocols\CDC\CDC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Tools\Hardware\USB\USB.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -708,12 +705,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tools\Hardware\FileSystem\FileSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tools\Hardware\USB\Protocols\CDC\CDC.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tools\Hardware\USB\Protocols\Protocols.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tools\Hardware\USB\USB.h">

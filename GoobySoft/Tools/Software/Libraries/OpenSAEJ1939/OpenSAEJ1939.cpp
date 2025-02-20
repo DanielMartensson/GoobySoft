@@ -25,7 +25,7 @@ void Tools_Software_Libraries_OpenSAEJ1939_callbackFunctionSend(uint32_t ID, uin
 	// Get the port
 	const char* port = Tools_Communications_Devices_STM32PLC_getAddressPort();
 
-	Tools_Hardware_USB_Protocols_CDC_write(port, dataTX, sizeof(dataTX), 1000);
+	Tools_Hardware_USB_write(port, dataTX, sizeof(dataTX), 1000);
 }
 
 void Tools_Software_Libraries_OpenSAEJ1939_callbackFunctionRead(uint32_t* ID, uint8_t data[], bool* is_new_data) {
@@ -33,24 +33,23 @@ void Tools_Software_Libraries_OpenSAEJ1939_callbackFunctionRead(uint32_t* ID, ui
 	const char* port = Tools_Communications_Devices_STM32PLC_getAddressPort();
 
 	// Ask for CAN message
-	uint8_t dataTX[1] = { STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE };
-	uint8_t dataRX[30];
-	Tools_Hardware_USB_Protocols_CDC_write(port, dataTX, sizeof(dataTX), 1000);
-	int32_t received = Tools_Hardware_USB_Protocols_CDC_read(port, dataRX, sizeof(dataRX), 1000);
-	if (received < 0) {
+	uint8_t CAN[30] = { STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE };
+	Tools_Hardware_USB_write(port, CAN, 1, 0);
+	int32_t received = Tools_Hardware_USB_read(port, CAN, 30, 1000);
+	if (received <= 0) {
 		*is_new_data = false;
 		return;
 	}
 
 	// Check if the CAN message back has extended ID
-	if (dataRX[0] == CAN_ID_STD) {
+	if (data[0] == CAN_ID_STD) {
 		*is_new_data = false;
 	}
 	else {
-		*ID = (dataRX[1] << 24) | (dataRX[2] << 16) | (dataRX[3] << 8) | dataRX[4];
-		uint8_t DLC = dataRX[5];
+		*ID = (CAN[1] << 24) | (CAN[2] << 16) | (CAN[3] << 8) | CAN[4];
+		uint8_t DLC = CAN[5];
 		for (int i = 0; i < DLC; i++) {
-			data[i] = dataRX[6 + i];
+			data[i] = CAN[6 + i];
 		}
 		*is_new_data = true;
 	}

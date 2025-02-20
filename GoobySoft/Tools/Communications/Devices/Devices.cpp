@@ -39,6 +39,8 @@ void createDeviceTool(struct Device* devices, const char deviceName[], std::stri
 
 			// Set the column function values
 			if(tableColumns[j].tableColumnID.columnDefinition == COLUMN_DEFINITION_FUNCTION){
+				// This slpeed prevent a "not loaded yet" situation
+				Tools_Software_Algorithms_goobySleep(100);
 				std::memcpy(tableColumns[j].functionValues, functionValues().c_str(), sizeof(tableColumns[j].functionValues)); // std::strcpy will stop at first '\0', std::memcpy will not
 			}
 		}

@@ -22,11 +22,12 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureAnalogI
 		ImGui::SameLine();
 		if (ImGui::Button("Receive gains")) {
 			for (int adc = 0; adc < 3; adc++) {
-				uint8_t dataTX[2] = { STM32PLC_SEND_BACK_ANALOG_GAINS_MESSAGE_TYPE , adc };
-				std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_writeThenRead(port, 1000, dataTX, sizeof(dataTX));
-				if (!dataRX.empty()) {
+				uint8_t data[3] = { STM32PLC_SEND_BACK_ANALOG_GAINS_MESSAGE_TYPE , adc };
+				Tools_Hardware_USB_write(port, data, 2, 0);
+				const int32_t result = Tools_Hardware_USB_read(port, data, 3, 100);
+				if (result > 0) {
 					for (int configurationIndex = 0; configurationIndex < 3; configurationIndex++) {
-						inputGains[adc * 3 + configurationIndex] = dataRX.at(configurationIndex);
+						inputGains[adc * 3 + configurationIndex] = data[configurationIndex];
 					}
 					Tools_Gui_CreateDialogs_showPopUpInformationDialogOK("Analog input", "Analog input gains received");
 				}
@@ -35,13 +36,14 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureAnalogI
 		ImGui::SameLine();
 		if (ImGui::Button("Transmit gains")) {
 			for (int adc = 0; adc < 3; adc++) {
-				uint8_t dataTX[4] = { STM32PLC_WRITE_SET_ANALOG_INPUT_GAIN_MESSAGE_TYPE, adc };
+				uint8_t data[4] = { STM32PLC_WRITE_SET_ANALOG_INPUT_GAIN_MESSAGE_TYPE, adc };
 				int count = 0;
 				for (int configurationIndex = 0; configurationIndex < 3; configurationIndex++) {
-					dataTX[2] = configurationIndex;
-					dataTX[3] = inputGains[adc * 3 + configurationIndex];
-					std::vector<uint8_t> dataRX = Tools_Hardware_USB_Protocols_CDC_writeThenRead(port, 1000, dataTX, sizeof(dataTX));
-					if (!dataRX.empty()) {
+					data[2] = configurationIndex;
+					data[3] = inputGains[adc * 3 + configurationIndex];
+					Tools_Hardware_USB_write(port, data, 4, 0);
+					const int32_t result = Tools_Hardware_USB_read(port, data, 1, 100);
+					if (result > 0) {
 						count++;
 					}
 				}

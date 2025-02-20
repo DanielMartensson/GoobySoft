@@ -8,6 +8,7 @@ int_least64_t Tools_Software_Algorithms_getMicroSeconds();
 int_least64_t Tools_Software_Algorithms_getMilliSeconds();
 void Tools_Software_Algorithms_extractElementFromCharArray(const char arraySeparatedByZeros[], int indexNumber, char extracted[]);
 float Tools_Software_Algorithms_calibration(float x1, float x2, float y1, float y2, float x);
+void Tools_Software_Algorithms_goobySleep(const uint32_t milliseconds);
 
 template <typename T, std::size_t N>
 int Tools_Software_Algorithms_findIndexOf(const T(&arr)[N], const T& value) {

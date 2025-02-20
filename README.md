@@ -252,7 +252,7 @@ The folders `x64/Debug` and `x64/Release` contains prebuilt 64-bit Windows binar
  2. Install `Vcpkg`
  3. Install `Intel Math Kernel Library` manually from Intel.
  4. Configure `vcpkg` with `Visual Studio Community`
- 5. Install the following vcpkg packages: `sdl3`, `opengl`, `opencv`, `mysql-connector-cpp`, `boost-asio`, `boost-date-time`, `boost-filesystem`, `boost-chrono`
+ 5. Install the following vcpkg packages: `sdl3`, `opengl`, `opencv`, `mysql-connector-cpp`, `cserialport`, `boost-date-time`, `boost-filesystem`, `boost-chrono`
  6. Run the `GoobySoft.sln` file with `Visual Studio Community` and press the compile button.
 
 ## Ubuntu/Debian - Compile from source
