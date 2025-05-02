@@ -44,4 +44,5 @@ std::string Tools_Hardware_USB_getConnectedPorts();
 std::string Tools_Hardware_USB_getProtocolFromPort(const char port[]);
 int32_t Tools_Hardware_USB_write(const char port[], const uint8_t data[], const uint16_t size, const int32_t timeout_ms);
 int32_t Tools_Hardware_USB_read(const char port[], uint8_t data[], const uint16_t size, const int32_t timeout_ms);
+void Tools_Hardware_USB_flush(const char port[]);
 #endif // !USB

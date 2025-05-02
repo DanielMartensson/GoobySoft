@@ -138,11 +138,24 @@ std::string Tools_Hardware_USB_getProtocolFromPort(const char port[]) {
 }
 
 int32_t Tools_Hardware_USB_write(const char port[], const uint8_t data[], const uint16_t size, const int32_t timeout_ms) {
-	return connections[port]->writeData(data, size);
+	const int32_t transmittedBytes = connections[port]->writeData(data, size);
+	return transmittedBytes;
 }
 
 int32_t Tools_Hardware_USB_read(const char port[], uint8_t data[], const uint16_t size, const int32_t timeout_ms) {
-	// A delay is important as a timeout because if the message is transmitted to fast to the PC, then the PC won't be able to read the read buffer
-	Tools_Software_Algorithms_goobySleep(timeout_ms);
-	return connections[port]->readData(data, size);
+	int32_t countedBytes = 0;
+	int32_t leftBytes = size;
+	long long endTime = Tools_Software_Algorithms_getMilliSeconds() + timeout_ms;
+	while (countedBytes < size && endTime > Tools_Software_Algorithms_getMilliSeconds()) {
+		const int32_t received = connections[port]->readData(data + countedBytes, leftBytes);
+		countedBytes += received;
+		leftBytes -= received;
+	}
+	return countedBytes;
+}
+
+void Tools_Hardware_USB_flush(const char port[]) {
+	connections[port]->flushBuffers();
+	connections[port]->flushReadBuffers();
+	connections[port]->flushWriteBuffers();
 }

@@ -88,7 +88,7 @@ bool modbus_server_create_RTU(const uint8_t address) {
 
 	/* Timeouts */
 	nmbs_set_read_timeout(&nmbs_server, 1000);
-	nmbs_set_byte_timeout(&nmbs_server, 100);
+	nmbs_set_byte_timeout(&nmbs_server, 1000);
 
 	/* Set handle */
     modbus_set_server_handle(&nmbs_server);
@@ -151,8 +151,8 @@ bool modbus_client_create_RTU(const uint8_t address) {
     }
 
     /* Set time out */
-    nmbs_set_read_timeout(&nmbs_client, 100);
-    nmbs_set_byte_timeout(&nmbs_client, 100);
+    nmbs_set_read_timeout(&nmbs_client, 1000);
+    nmbs_set_byte_timeout(&nmbs_client, 1000);
 
     /* Set address */
     nmbs_set_destination_rtu_address(&nmbs_client, address);

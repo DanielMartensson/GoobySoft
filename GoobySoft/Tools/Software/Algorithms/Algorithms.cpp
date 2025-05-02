@@ -1,7 +1,8 @@
 #include "Algorithms.h"
 #include <boost/date_time/posix_time/posix_time.hpp>
-#include <boost/chrono.hpp>
-#include <cstring>
+//#include <boost/chrono.hpp>
+#include <chrono>
+//#include <cstring>
 #include <thread>
 
 std::string Tools_Software_Algorithms_getISO8601Time() {
@@ -10,14 +11,33 @@ std::string Tools_Software_Algorithms_getISO8601Time() {
 	return time;
 }
 
-int_least64_t Tools_Software_Algorithms_getMicroSeconds() {
-    auto now = boost::chrono::high_resolution_clock::now();
-    return boost::chrono::duration_cast<boost::chrono::microseconds>(now.time_since_epoch()).count();
+long long Tools_Software_Algorithms_getMicroSeconds() {
+    // Get the current time from the system clock
+    auto now = std::chrono::system_clock::now();
+
+    // Convert the current time to time since epoch
+    auto duration = now.time_since_epoch();
+
+    // Convert to microseconds
+    auto microseconds = std::chrono::duration_cast<std::chrono::microseconds>(duration).count();
+    return microseconds;
+
+    //auto now = boost::chrono::high_resolution_clock::now();
+    //return boost::chrono::duration_cast<boost::chrono::microseconds>(now.time_since_epoch()).count();
 }
 
-int_least64_t Tools_Software_Algorithms_getMilliSeconds() {
-    auto now = boost::chrono::high_resolution_clock::now();
-    return boost::chrono::duration_cast<boost::chrono::milliseconds>(now.time_since_epoch()).count();
+long long Tools_Software_Algorithms_getMilliSeconds() {
+    // Get the current time from the system clock
+    auto now = std::chrono::system_clock::now();
+
+    // Convert the current time to time since epoch
+    auto duration = now.time_since_epoch();
+
+    // Convert to milliseconds
+    auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(duration).count();
+    return milliseconds;
+    //auto now = boost::chrono::high_resolution_clock::now();
+    //return boost::chrono::duration_cast<boost::chrono::milliseconds>(now.time_since_epoch()).count();
 }
 
 void Tools_Software_Algorithms_extractElementFromCharArray(const char arraySeparatedByZeros[], int indexNumber, char extracted[]) {

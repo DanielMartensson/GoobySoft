@@ -26,7 +26,7 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationWellerToJBC_ConfigurePara
             {"Anti-windup integral limit", "0.0" },
             {"Umin", "0.0" },
             {"Umax", "0.0" },
-            {"Zmin", "0.0" },
+            {"Steady-state model error", "0.0" },
             {"Zmax", "0.0" },
             {"Delta umin", "0.0" },
             {"Delta umax", "0.0" },
@@ -108,10 +108,10 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationWellerToJBC_ConfigurePara
             float realMin[3], realMax[3];
             const bool status = Tools_Communications_Devices_WellerToJBC_getAnalogInputCalibration(port, address, rawMin, rawMax, realMin, realMax);
             for (int i = 0; i < 3; i++) {
-                rowsCalibration.at(i).at(1) = std::to_string(rawMin[i]);
-                rowsCalibration.at(i).at(2) = std::to_string(rawMax[i]);
-                rowsCalibration.at(i).at(3) = std::to_string(realMin[i]);
-                rowsCalibration.at(i).at(4) = std::to_string(realMax[i]);
+                rowsCalibration.at(i+1).at(1) = std::to_string(rawMin[i]);
+                rowsCalibration.at(i+1).at(2) = std::to_string(rawMax[i]);
+                rowsCalibration.at(i+1).at(3) = std::to_string(realMin[i]);
+                rowsCalibration.at(i+1).at(4) = std::to_string(realMax[i]);
             }
             if (status) {
                 ImGui::OpenPopup("Success received operation PopUp");
@@ -121,10 +121,10 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationWellerToJBC_ConfigurePara
         ImGui::SameLine();
         if (ImGui::Button("Transmit calibration")) {
             // Row 3 = Setpoint, 2 = temperature, 1 = current
-            int rawMin[3] = { std::stoi(rowsCalibration.at(3).at(1)), std::stoi(rowsCalibration.at(2).at(1)), std::stoi(rowsCalibration.at(1).at(1)) };
-            int rawMax[3] = { std::stoi(rowsCalibration.at(3).at(2)), std::stoi(rowsCalibration.at(2).at(2)), std::stoi(rowsCalibration.at(1).at(2)) };
-            float realMin[3] = { std::stof(rowsCalibration.at(3).at(3)), std::stof(rowsCalibration.at(2).at(3)), std::stof(rowsCalibration.at(1).at(3)) };
-            float realMax[3] = { std::stof(rowsCalibration.at(3).at(4)), std::stof(rowsCalibration.at(2).at(4)), std::stof(rowsCalibration.at(1).at(4)) };
+            int rawMin[3] = { std::stoi(rowsCalibration.at(1).at(1)), std::stoi(rowsCalibration.at(2).at(1)), std::stoi(rowsCalibration.at(3).at(1)) };
+            int rawMax[3] = { std::stoi(rowsCalibration.at(1).at(2)), std::stoi(rowsCalibration.at(2).at(2)), std::stoi(rowsCalibration.at(3).at(2)) };
+            float realMin[3] = { std::stof(rowsCalibration.at(1).at(3)), std::stof(rowsCalibration.at(2).at(3)), std::stof(rowsCalibration.at(3).at(3)) };
+            float realMax[3] = { std::stof(rowsCalibration.at(1).at(4)), std::stof(rowsCalibration.at(2).at(4)), std::stof(rowsCalibration.at(3).at(4)) };
             if (Tools_Communications_Devices_WellerToJBC_setAnalogInputCalibration(port, address, rawMin, rawMax, realMin, realMax)) {
                 ImGui::OpenPopup("Success transmitted operation PopUp");
             }
@@ -135,8 +135,8 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationWellerToJBC_ConfigurePara
         
         // For the parameters
         if (ImGui::Button("Receive parameters")) {
-            float A, B, qw, rv, qz, s, psi, alpha, antiwindup, umin, umax, zmin, zmax, deltaumin, deltaumax;
-            const bool status = Tools_Communications_Devices_WellerToJBC_getParameters(port, address, &A, &B, &qw, &rv, &qz, &s, &psi, &alpha, &antiwindup, &umin, &umax, &zmin, &zmax, &deltaumin, &deltaumax);
+            float A, B, qw, rv, qz, s, psi, alpha, antiwindup, umin, umax, steadyStateModelError, zmax, deltaumin, deltaumax;
+            const bool status = Tools_Communications_Devices_WellerToJBC_getParameters(port, address, &A, &B, &qw, &rv, &qz, &s, &psi, &alpha, &antiwindup, &umin, &umax, &steadyStateModelError, &zmax, &deltaumin, &deltaumax);
             rowsParameters.at(1).at(1) = std::to_string(A);
             rowsParameters.at(2).at(1) = std::to_string(B);
             rowsParameters.at(3).at(1) = std::to_string(qw);
@@ -148,7 +148,7 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationWellerToJBC_ConfigurePara
             rowsParameters.at(9).at(1) = std::to_string(antiwindup);
             rowsParameters.at(10).at(1) = std::to_string(umin);
             rowsParameters.at(11).at(1) = std::to_string(umax);
-            rowsParameters.at(12).at(1) = std::to_string(zmin);
+            rowsParameters.at(12).at(1) = std::to_string(steadyStateModelError);
             rowsParameters.at(13).at(1) = std::to_string(zmax);
             rowsParameters.at(14).at(1) = std::to_string(deltaumin);
             rowsParameters.at(15).at(1) = std::to_string(deltaumax);
@@ -159,7 +159,7 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationWellerToJBC_ConfigurePara
 
         ImGui::SameLine();
         if (ImGui::Button("Transmit parameters")) {
-            float A, B, qw, rv, qz, s, psi, alpha, antiwindup, umin, umax, zmin, zmax, deltaumin, deltaumax;
+            float A, B, qw, rv, qz, s, psi, alpha, antiwindup, umin, umax, steadyStateModelError, zmax, deltaumin, deltaumax;
             A = std::stof(rowsParameters.at(1).at(1));
             B = std::stof(rowsParameters.at(2).at(1));
             qw = std::stof(rowsParameters.at(3).at(1));
@@ -171,11 +171,11 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationWellerToJBC_ConfigurePara
             antiwindup = std::stof(rowsParameters.at(9).at(1));
             umin = std::stof(rowsParameters.at(10).at(1));
             umax = std::stof(rowsParameters.at(11).at(1));
-            zmin = std::stof(rowsParameters.at(12).at(1));
+            steadyStateModelError = std::stof(rowsParameters.at(12).at(1));
             zmax = std::stof(rowsParameters.at(13).at(1));
             deltaumin = std::stof(rowsParameters.at(14).at(1));
             deltaumax = std::stof(rowsParameters.at(15).at(1));
-            if(Tools_Communications_Devices_WellerToJBC_setParameters(port, address, A, B, qw, rv, qz, s, psi, alpha, antiwindup, umin, umax, zmin, zmax, deltaumin, deltaumax)){
+            if(Tools_Communications_Devices_WellerToJBC_setParameters(port, address, A, B, qw, rv, qz, s, psi, alpha, antiwindup, umin, umax, steadyStateModelError, zmax, deltaumin, deltaumax)){
                 ImGui::OpenPopup("Success transmitted operation PopUp");
             }
         }
