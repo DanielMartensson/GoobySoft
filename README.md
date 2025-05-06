@@ -20,7 +20,7 @@ This is a measuring and controlling software. The purpose of this software is to
  - ADL400 DIN Rail Energy Meter
  - Uponor X-148 Home Automation System
  - [STM32-PLC](https://github.com/DanielMartensson/STM32-PLC)
- - [Weller To JBC](https://github.com/DanielMartensson/Weller-to-JBC-converter)
+ - [Weller to JBC converter](https://github.com/DanielMartensson/Weller-to-JBC-converter)
 
 # How to add a new `device`
 
