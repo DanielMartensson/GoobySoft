@@ -1,6 +1,6 @@
 #ifndef WellerToJCB
 #define WellerToJCB
-#include "../../Tools/Tools.h"
+#include "../../../Tools.h"
 
 std::string Tools_Communications_Devices_WellerToJBC_getFunctionValues();
 std::vector<TableColumnID> Tools_Communications_Devices_WellerToJBC_getTableColumnIDs();
