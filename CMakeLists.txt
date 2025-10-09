@@ -18,19 +18,10 @@ add_executable(GoobySoft ${SOURCES})
 
 include_directories(${INCLUDES})
 
-# Hitta och länka mot libmodbus
-find_library(LIBMODBUS_LIBRARY NAMES modbus)
-if (LIBMODBUS_LIBRARY)
-    message("Libmodbus library found")
-    target_link_libraries(GoobySoft PRIVATE ${LIBMODBUS_LIBRARY})
-else()
-    message(FATAL_ERROR "Libmodbus library not found")
-endif()
-
 # Hitta och länka mot MySQL C++ Connector
-find_library(LIBMYSQLCPPCONN_LIBRARY NAMES mysqlcppconn8)
+find_library(LIBMYSQLCPPCONN_LIBRARY NAMES mysqlcppconn)
 if (LIBMYSQLCPPCONN_LIBRARY)
-    message("MySQL C++ Connector 8 library found")
+    message("MySQL C++ Connector library found")
     target_link_libraries(GoobySoft PRIVATE ${LIBMYSQLCPPCONN_LIBRARY})
 else()
     message(FATAL_ERROR "MySQL C++ Connector library not found")
