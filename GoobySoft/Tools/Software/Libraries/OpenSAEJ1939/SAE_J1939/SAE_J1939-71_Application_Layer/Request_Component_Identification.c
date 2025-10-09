@@ -52,7 +52,7 @@ ENUM_J1939_STATUS_CODES SAE_J1939_Response_Request_Component_Identification(J193
 		}
 
 		/* Send TP CM */
-		j1939->this_ecu_tp_cm.number_of_packages_being_transmitted = j1939->this_ecu_tp_cm.total_message_size_being_transmitted % 8 > 0 ? j1939->this_ecu_tp_cm.total_message_size_being_transmitted/8 + 1 : j1939->this_ecu_tp_cm.total_message_size_being_transmitted/8; /* Rounding up */
+		j1939->this_ecu_tp_cm.number_of_packages_being_transmitted = SAE_J1939_Transport_Protocol_GetNumberOfPackages(j1939->this_ecu_tp_cm.total_message_size_being_transmitted);
 		j1939->this_ecu_tp_cm.PGN_of_the_packeted_message = PGN_COMPONENT_IDENTIFICATION;
 		j1939->this_ecu_tp_cm.control_byte = DA == 0xFF ? CONTROL_BYTE_TP_CM_BAM : CONTROL_BYTE_TP_CM_RTS; /* If broadcast, then use BAM control byte */
 		ENUM_J1939_STATUS_CODES status = SAE_J1939_Send_Transport_Protocol_Connection_Management(j1939, DA);
@@ -83,5 +83,11 @@ void SAE_J1939_Read_Response_Request_Component_Identification(J1939 *j1939, uint
 		j1939->from_other_ecu_identifications.component_identification.component_unit_name[i] = data[i + length_of_each_field*3];
 	}
 	j1939->from_other_ecu_identifications.component_identification.from_ecu_address = SA;
+  if (Callback_Function_Application) {
+    SAE_Application_Info info;
+    info.type = IDENTIFICATION_COMPONENT;
+    info.component_identification = &j1939->from_other_ecu_identifications.component_identification;
+    Callback_Function_Application(info);
+  }
 }
 

@@ -3,6 +3,8 @@
 
 #include "ArtificialIntelligence/artificialintelligence.h"
 #include "ControlEngineering/controlengineering.h"
+#include "DifferentialEquation/differentialequation.h"
+#include "ComputerVision/computervision.h"
 #include "Hardware/hardware.h"
 #include "ImageProcessing/imageprocessing.h"
 #include "LinearAlgebra/linearalgebra.h"

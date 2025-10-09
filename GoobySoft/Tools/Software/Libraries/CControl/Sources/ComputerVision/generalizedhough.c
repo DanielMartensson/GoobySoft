@@ -1,20 +1,20 @@
-/*
+ï»¿/*
  * generalizedhough.c
  *
  *  Created on: 24 december 2023
- *      Author: Daniel Mårtensson
+ *      Author: Daniel Mï¿½rtensson
  */
 
-#include "imageprocessing.h"
+#include "computervision.h"
 
-/*
- * Create data by using corner detection
- * Return a matrix C with size [max_classes*2]
- */
-float* generalizedhough_create_data(const uint8_t X[], const size_t row, const size_t column, uint8_t* max_classes, const uint8_t descriptor_threshold, const uint32_t descriptors[], const uint8_t total_descriptors, const float epsilon, const size_t min_pts) {
+ /*
+  * Create data by using corner detection
+  * Return a matrix C with size [max_classes*2]
+  */
+float* generalizedhough_collect(const uint8_t X[], const size_t row, const size_t column, const uint8_t fast_threshold, const FAST_METHOD fast_method, const float epsilon, const size_t min_pts, size_t* max_classes) {
 	/* Landmark detection */
 	int N;
-	FAST_XY* xy = landmarkdetection_collect(X, &N, descriptor_threshold, descriptors, total_descriptors, row, column);
+	COORDINATE_XY* xy = featuredetection(X, &N, fast_threshold, fast_method, row, column);
 
 	/* Convert to float for using with DBSCAN */
 	float* xy_float = (float*)malloc(N * 2 * sizeof(float));
@@ -65,12 +65,12 @@ float* generalizedhough_create_data(const uint8_t X[], const size_t row, const s
 	return C;
 }
 
-/* 
- * Generalized Hough Transform with Mårtensson Method
+/*
+ * Generalized Hough Transform with Mï¿½rtensson Method
  * X[m*2] - Contains feature points from an image e.g corner detection
  * Return back the generalized hough model
  */
-GENERALIZED_HOUGH_MODEL* generalizedhough_create_model(const float X[], const size_t row) {
+GENERALIZED_HOUGH_MODEL* generalizedhough_train(const float X[], const size_t row) {
 	/* Constants and variables */
 	const size_t column = 2;
 	const size_t column_bytes = column * sizeof(float);
@@ -98,7 +98,7 @@ GENERALIZED_HOUGH_MODEL* generalizedhough_create_model(const float X[], const si
 
 	/* Create generalized hough model */
 	GENERALIZED_HOUGH_MODEL* model = (GENERALIZED_HOUGH_MODEL*)malloc(181 * sizeof(GENERALIZED_HOUGH_MODEL));
-	
+
 	/* Important to set all to zero */
 	memset(model, 0, 181 * sizeof(GENERALIZED_HOUGH_MODEL));
 
@@ -118,11 +118,11 @@ GENERALIZED_HOUGH_MODEL* generalizedhough_create_model(const float X[], const si
 
 	/* Find the angles between vectors from each cluster point */
 	for (i = 0; i < row; i++) {
-		/* Status 
+		/* Status
 		printf("Training: %i of %i points left\n", i, row); */
 
 		/* Select the target vector */
-		float* target = &X[index[i * row] * column];
+		const float* target = &X[index[i * row] * column];
 
 		/* Get the closest point */
 		memcpy(vector_A, &X[index[i * row + 1] * column], column_bytes);
@@ -144,7 +144,7 @@ GENERALIZED_HOUGH_MODEL* generalizedhough_create_model(const float X[], const si
 
 		/* Compute the euclidean distance */
 		const float RA = norm(vector_A, 1, column, NORM_METHOD_L2);
-		const const RB = norm(vector_B, 1, column, NORM_METHOD_L2);
+		const float RB = norm(vector_B, 1, column, NORM_METHOD_L2);
 		const float RC = norm(vector_C, 1, column, NORM_METHOD_L2);
 
 		/* Allocate new vote */
@@ -152,7 +152,7 @@ GENERALIZED_HOUGH_MODEL* generalizedhough_create_model(const float X[], const si
 		model[theta].vote = (GENERALIZED_HOUGH_VOTE*)realloc(model[theta].vote, (votes_active + 1) * sizeof(GENERALIZED_HOUGH_VOTE));
 
 		/* Save shortest of RA and RB - This is used for scaling */
-		if (RA < RB){
+		if (RA < RB) {
 			model[theta].vote[votes_active].shortest = RA;
 			model[theta].vote[votes_active].alpha = alpha1;
 		}
@@ -204,7 +204,7 @@ GENERALIZED_HOUGH_MODEL* generalizedhough_create_model(const float X[], const si
 			yc = (size_t)xc_yc[1];
 
 			/* Save in the accumulator array */
-			if (xc >= 0 && yc >= 0, xc < pm && yc < pn) {
+			if (xc >= 0 && yc >= 0 && xc < pm && yc < pn) {
 				accumulator[xc * pn + yc]++;
 			}
 		}
@@ -234,11 +234,11 @@ GENERALIZED_HOUGH_MODEL* generalizedhough_create_model(const float X[], const si
 }
 
 /*
- * Evaluate the Generalized Hough Model with Mårtensson method
+ * Evaluate the Generalized Hough Model with Mï¿½rtensson method
  * X[m*2] - Contains feature points from an image e.g corner detection
  * xc and yc are center coordinates for the detected object
  */
-void generalizedhough_eval_votes(const float X[], const GENERALIZED_HOUGH_MODEL model[], const float smoothing_accumulator, float* max_value_accumulator, size_t* xc, size_t* yc, const size_t row) {
+void generalizedhough_eval(const float X[], const GENERALIZED_HOUGH_MODEL model[], const float smoothing_accumulator, float* max_value_accumulator, size_t* xc, size_t* yc, const size_t row) {
 	/* Constants and variables */
 	const size_t column = 2;
 	const size_t column_bytes = column * sizeof(float);
@@ -254,7 +254,7 @@ void generalizedhough_eval_votes(const float X[], const GENERALIZED_HOUGH_MODEL 
 	/* Create the accumulator array */
 	size_t pm = 0;
 	size_t pn = 0;
-	float* X0 = X;
+	const float* X0 = X;
 	for (i = 0; i < row; i++) {
 		if (pm < (size_t)X0[0]) {
 			pm = (size_t)X0[0];
@@ -277,11 +277,11 @@ void generalizedhough_eval_votes(const float X[], const GENERALIZED_HOUGH_MODEL 
 
 	/* Find the angles between vectors from each cluster point */
 	for (i = 0; i < row; i++) {
-		/* Status 
+		/* Status
 		printf("Evaluate: %i of %i points left\n", i, row); */
 
 		/* Select the target vector */
-		float* target = &X[index[i * row] * column];
+		const float* target = &X[index[i * row] * column];
 
 		/* Get the closest point */
 		memcpy(vector_A, &X[index[i * row + 1] * column], column_bytes);
@@ -300,14 +300,14 @@ void generalizedhough_eval_votes(const float X[], const GENERALIZED_HOUGH_MODEL 
 
 		/* Compute the euclidean distance */
 		const float RA = norm(vector_A, 1, column, NORM_METHOD_L2);
-		const const RB = norm(vector_B, 1, column, NORM_METHOD_L2);
+		const float RB = norm(vector_B, 1, column, NORM_METHOD_L2);
 
 		/* Get the shortest distance */
 		const float shortest = RA < RB ? RA : RB;
-		
+
 		/* Compare votes */
 		for (j = 0; j < model[theta].votes_active; j++) {
-			/* Display 
+			/* Display
 			printf("Evaluate: %i of %i votes left at theta %i\n", j, model[theta].votes_active, theta); */
 
 			/* Compute the ratio for scaling */
@@ -350,7 +350,7 @@ void generalizedhough_eval_votes(const float X[], const GENERALIZED_HOUGH_MODEL 
 				*yc = (size_t)xc_yc[1];
 
 				/* Save in the accumulator array */
-				if ((*xc) >= 0 && (*yc) >= 0, (*xc) < pm && (*yc) < pn) {
+				if ((*xc) >= 0 && (*yc) >= 0 && (*xc) < pm && (*yc) < pn) {
 					accumulator[(*xc) * pn + (*yc)]++;
 				}
 			}
@@ -380,7 +380,7 @@ void generalizedhough_eval_votes(const float X[], const GENERALIZED_HOUGH_MODEL 
 /*
  * Free the generalized hough model
  */
-void generalizedhough_free_model(const GENERALIZED_HOUGH_MODEL model[]) {
+void generalizedhough_free(const GENERALIZED_HOUGH_MODEL model[]) {
 	uint8_t i;
 	for (i = 0; i < 181; i++) {
 		if (model[i].votes_active > 0) {
@@ -388,7 +388,4 @@ void generalizedhough_free_model(const GENERALIZED_HOUGH_MODEL model[]) {
 			free(model[i].vote);
 		}
 	}
-
-	/* Free */
-	free(model);
 }

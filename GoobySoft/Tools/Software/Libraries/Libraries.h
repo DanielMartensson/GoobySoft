@@ -11,5 +11,7 @@
 #include "modbus/modbus.h"
 #include "OpenSAEJ1939/OpenSAEJ1939.h"
 #include "conversions/conversions.h"
+#include "CSerialPort/CSerialPort/SerialPort.h"
+#include "CSerialPort/CSerialPort/SerialPortInfo.h"
 
 #endif // !Libraries

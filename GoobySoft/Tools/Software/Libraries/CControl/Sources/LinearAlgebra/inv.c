@@ -24,7 +24,7 @@ static bool solve(float x[], float b[], int P[], float LU[], size_t row);
  * Returns true == Success
  * Returns false == Fail
  */
-bool inv(float A[], size_t row) {
+bool inv(float A[], const size_t row) {
 #ifdef CLAPACK_USED
 	/* First use LU factorization */
 	integer m = row, n = row, lda = row, info, lwork;
@@ -60,7 +60,7 @@ bool inv(float A[], size_t row) {
 
 	/* Check if the determinant is 0 */
 	float* LU = (float*)malloc(row * row * sizeof(float));
-	int* P = (size_t*)malloc(row * sizeof(int));
+	int* P = (int*)malloc(row * sizeof(int));
 	bool ok = lup(A, LU, P, row);
     if (ok) {
         /* Create the inverse */

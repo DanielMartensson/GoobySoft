@@ -7,8 +7,9 @@
 #include <stdlib.h>						/* Standard library */
 #include <math.h>						/* For sqrtf */
 #include <float.h>						/* Required for FLT_EPSILON, FLT_MAX, FLT_MIN */
-#include <stddef.h>						/* Requried for NULL */
+#include <stddef.h>						/* Requried for size_t,  NULL etc... */
 #include <time.h> 						/* For srand, clock */
+#include <stdarg.h>                     /* For ... arguments */
 
 /* Libraries for Visual Studio */
 #ifdef _MSC_VER
@@ -22,6 +23,8 @@
 #include "macros.h"
 #include "functions.h"
 #include "structs.h"
+#include "unions.h"
+#include "typedefs.h"
 
 /* Load the MKL library */
 #if defined(MKL_LAPACK_USED) || defined(MKL_FFT_USED)

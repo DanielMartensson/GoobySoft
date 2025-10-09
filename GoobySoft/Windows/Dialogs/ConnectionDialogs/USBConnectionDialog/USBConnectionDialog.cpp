@@ -16,7 +16,7 @@ void disconnectionUSBCallback() {
 
 void Windows_Dialogs_ConnectionDialogs_USBConnectionDialog_showUSBConnectionDialog(bool* selectUSBPorts) {
 	// Display
-	ImGui::SetNextWindowSize(ImVec2(320, 320));
+	ImGui::SetNextWindowSize(ImVec2(400, 400));
 	if (ImGui::Begin("Select USB ports", selectUSBPorts, ImGuiWindowFlags_NoResize)) {
 		// Scan protocols names
 		static std::vector<std::string> ports;

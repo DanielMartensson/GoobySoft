@@ -23,10 +23,16 @@
 #define MAX_TP_DT 1785U
 #define MAX_IDENTIFICATION 30U
 #define MAX_DM_FIELD 10U
+#ifndef MAX_PROPRIETARY_A
 #define MAX_PROPRIETARY_A 15U
+#endif
+#ifndef MAX_PROPRIETARY_B
 #define MAX_PROPRIETARY_B 60U
+#endif
+#ifndef MAX_PROPRIETARY_B_PGNS
 #define MAX_PROPRIETARY_B_PGNS 2U					/* The maximum number of PGNs that the ECUs will be aware of. 
 													 * If proprietary B PGNs are not used, set this to 0 to save memory */
+#endif
 
 /* PGN: 0x00E800 - Storing the Acknowledgement from the reading process */
 struct Acknowledgement {
@@ -47,7 +53,7 @@ struct TP_CM {
 	uint8_t number_of_packages_being_transmitted;	/* How many times we are going to send packages via TP_DT - 2 to 224 because 1785/8 is 224 rounded up */
 	
 	/* CTS */
-	uint8_t total_number_of_packages_transmitted;	/* Total packages we have received */
+	uint8_t number_of_packets_to_be_transmitted;	/* number of packages which has to be transmitted */
 	uint8_t next_packet_number_transmitted;			/* Next packet number we want to have from the transmitter */
 
 	/* EOM */
@@ -84,19 +90,19 @@ struct Name {
 };
 
 /* PGN: 0x00EF00 - Proprietary A where the data is manufacturer specific */
-struct Proprietary_A {
+typedef struct Proprietary_A {
 	uint16_t total_bytes;							/* Length of the data */
 	uint8_t data[MAX_PROPRIETARY_A];				/* This is the collected data */
 	uint8_t from_ecu_address;						/* From which ECU came this message */
-};
+} Proprietary_A;
 
 /* PGN: 0x00FF00 <-> 0x00FFFF - Proprietary B PGN range, where the data is manufacturer specific */
-struct Proprietary_B {
+typedef struct Proprietary_B {
 	uint32_t pgn;									/* The PGN that the ECU will be aware of, a value should be set to be able to send/receive this PGN */
 	uint16_t total_bytes;							/* Length of the data */
 	uint8_t data[MAX_PROPRIETARY_B];				/* This is the collected data */
 	uint8_t from_ecu_address;						/* From which ECU came this message */
-};
+} Proprietary_B;
 
 /* This struct holds manufacturer specific data */
 struct Proprietary {
@@ -153,31 +159,31 @@ struct DM {
 };
 
 /* PGN: 0x00FEDA - Storing the software identification from the reading process */
-struct Software_identification {
+typedef struct Software_identification {
 	uint8_t number_of_fields;						/* How many numbers contains in the identifications array */
 	uint8_t identifications[MAX_IDENTIFICATION];	/* This can be for example ASCII */
 	uint8_t from_ecu_address;						/* From which ECU came this message */
-};
+} Software_identification;
 
 /* PGN: 0x00FDC5 - Storing the ECU identification from the reading process */
-struct ECU_identification {
+typedef struct ECU_identification {
 	uint8_t length_of_each_field;					/* The real length of the fields - Not part of J1939 standard, only for the user */
 	uint8_t ecu_part_number[MAX_IDENTIFICATION];	/* ASCII field */
 	uint8_t ecu_serial_number[MAX_IDENTIFICATION];	/* ASCII field */
 	uint8_t ecu_location[MAX_IDENTIFICATION];		/* ASCII field */
 	uint8_t ecu_type[MAX_IDENTIFICATION];			/* ASCII field */
 	uint8_t from_ecu_address;						/* From which ECU came this message */
-};
+} ECU_identification;
 
 /* PGN: 0x00FEEB - Storing the component identification from the reading process */
-struct Component_identification {
+typedef struct Component_identification {
 	uint8_t length_of_each_field;					/* The real length of the fields - Not part of J1939 standard, only for the user  */
 	uint8_t component_product_date[MAX_IDENTIFICATION];	/* ASCII field */
 	uint8_t component_model_name[MAX_IDENTIFICATION];	/* ASCII field */
 	uint8_t component_serial_number[MAX_IDENTIFICATION];/* ASCII field */
 	uint8_t component_unit_name[MAX_IDENTIFICATION];	/* ASCII field */
 	uint8_t from_ecu_address;						/* From which ECU came this message */
-};
+} Component_identification;
 
 /* Storing the identifications from the reading process */
 struct Identifications {
@@ -234,7 +240,7 @@ struct Auxiliary_valve_measured_position {
 };
 
 /* This struct is used for save information and load information from hard drive/SD-card/flash etc. due to the large size of J1939 */
-typedef struct{
+typedef struct {
 	struct Name this_name;
 	uint8_t this_ECU_address;
 	struct Identifications this_identifications;
@@ -284,5 +290,25 @@ typedef struct {
 
 } J1939;
 
+/* Enum for SAE J1939 application information */
+typedef enum {
+  IDENTIFICATION_SOFTWARE,
+  IDENTIFICATION_ECU,
+  IDENTIFICATION_COMPONENT,
+  PROPRIETARY_A,
+  PROPRIETARY_B
+} SAE_Application_Info_Type;
+
+/* This struct is used to signal application information sent from another ECU over SAE J1939 */
+typedef struct{
+  SAE_Application_Info_Type type;
+  union {
+    Software_identification *software_identification;
+    ECU_identification *ecu_identification;
+    Component_identification *component_identification;
+    Proprietary_A *proprietary_a;
+    Proprietary_B *proprietary_b;
+  };
+} SAE_Application_Info;
 
 #endif /* OPEN_SAE_J1939_OPEN_SAE_J1939_STRUCTS_H_ */

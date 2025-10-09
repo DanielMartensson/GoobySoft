@@ -19,7 +19,7 @@
  * L [m*n]
  * n == m
  */
-bool chol(float A[], float L[], size_t row) {
+bool chol(const float A[], float L[], const size_t row) {
 #ifdef CLAPACK_USED
 	integer info;
 	integer n = row, lda = row;
@@ -52,19 +52,17 @@ bool chol(float A[], float L[], size_t row) {
 	/* Save address */
 	float* Li = L;
 	float* Lj;
-	float* Ai = A;
+	const float* Ai = A;
 
 	memset(L, 0, row * row * sizeof(float));
 	float s;
-	size_t i, j, k;
+	size_t i, j;
 	for (i = 0; i < row; i++) {
 		Lj = L;
 		for (j = 0; j <= i; j++) {
-			s = 0.0f;
-			for (k = 0; k < j; k++) {
-				s += Li[k] * Lj[k]; /* s += L[row * i + k] * L[row * j + k]; */
-			}
-
+			/* s += L[row * i + k] * L[row * j + k]; */
+			s = dot(Li, Lj, j);
+			
 			/* We cannot divide with zero L[row * j + j] */
 			if (fabsf(Lj[j]) < MIN_VALUE) {
 				Lj[j] = FLT_EPSILON;

@@ -78,11 +78,21 @@ typedef enum nmbs_error {
  */
 #define nmbs_error_is_exception(e) ((e) > 0 && (e) < 5)
 
+#ifndef NMBS_BITFIELD_MAX
+#define NMBS_BITFIELD_MAX 2000
+#endif
+
+/* check coil count divisible by 8 */
+#if ((NMBS_BITFIELD_MAX & 7) > 0)
+#error "NMBS_BITFIELD_MAX must be divisible by 8"
+#endif
+
+#define NMBS_BITFIELD_BYTES_MAX (NMBS_BITFIELD_MAX / 8)
 
 /**
  * Bitfield consisting of 2000 coils/discrete inputs
  */
-typedef uint8_t nmbs_bitfield[1];
+typedef uint8_t nmbs_bitfield[NMBS_BITFIELD_BYTES_MAX];
 
 /**
  * Bitfield consisting of 256 values
@@ -92,24 +102,22 @@ typedef uint8_t nmbs_bitfield_256[32];
 /**
  * Read a bit from the nmbs_bitfield bf at position b
  */
-#define nmbs_bitfield_read(bf, b) ((bool) ((bf)[(b) / 8] & (0x1 << ((b) % 8))))
+#define nmbs_bitfield_read(bf, b) ((bool) ((bf)[(b) >> 3] & (0x1 << ((b) & (8 - 1)))))
 
 /**
  * Set a bit of the nmbs_bitfield bf at position b
  */
-#define nmbs_bitfield_set(bf, b) (((bf)[(b) / 8]) = (((bf)[(b) / 8]) | (0x1 << ((b) % 8))))
+#define nmbs_bitfield_set(bf, b) (((bf)[(b) >> 3]) = (((bf)[(b) >> 3]) | (0x1 << ((b) & (8 - 1)))))
 
 /**
  * Reset a bit of the nmbs_bitfield bf at position b
  */
-#define nmbs_bitfield_unset(bf, b) (((bf)[(b) / 8]) = (((bf)[(b) / 8]) & ~(0x1 << ((b) % 8))))
+#define nmbs_bitfield_unset(bf, b) (((bf)[(b) >> 3]) = (((bf)[(b) >> 3]) & ~(0x1 << ((b) & (8 - 1)))))
 
 /**
  * Write value v to the nmbs_bitfield bf at position b
  */
-#define nmbs_bitfield_write(bf, b, v)                                                                                  \
-    (((bf)[(b) / 8]) = ((v) ? (((bf)[(b) / 8]) | (0x1 << ((b) % 8))) : (((bf)[(b) / 8]) & ~(0x1 << ((b) % 8)))))
-
+#define nmbs_bitfield_write(bf, b, v) ((bf)[(b) >> 3] = ((bf)[(b) >> 3] & ~(1 << ((b) & 7))) | ((v) << ((b) & 7)))
 /**
  * Reset (zero) the whole bitfield
  */
@@ -235,7 +243,7 @@ typedef struct nmbs_callbacks {
  */
 typedef struct nmbs_t {
     struct {
-        uint8_t buf[50]; /* Before it was 260 */
+        uint8_t buf[260];
         uint16_t buf_idx;
 
         uint8_t unit_id;

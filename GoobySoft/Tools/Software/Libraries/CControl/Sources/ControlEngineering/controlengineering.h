@@ -7,13 +7,24 @@
 extern "C" {
 #endif
 
-void lmpc(float A[], float B[], float C[], float x[], float u[], float r[], size_t ADIM, size_t YDIM, size_t RDIM, size_t HORIZON, bool has_integration);
-void kalman(float A[], float B[], float C[], float K[], float u[], float x[], float y[], size_t ADIM, size_t YDIM, size_t RDIM);
-void lqi(float y[], float u[], float qi, float r[], float L[], float Li[], float x[], float xi[], size_t ADIM, size_t YDIM, size_t RDIM, ANTI_WINUP anti_winup);
-void mrac(float limit, float gain, float y[], float u[], float r[], float I1[], float I2[], size_t RDIM);
-void theta2ss(float A[], float B[], float C[], float theta[], float K[], size_t ADIM, size_t NP, size_t NZ, bool integral_action);
-bool stability(float A[], size_t ADIM);
-void c2d(float A[], float B[], size_t ADIM, size_t RDIM, float sampleTime);
+void c2d(float A[], float B[], const size_t row_a, const size_t column_b, const float sampleTime);
+void cab(float Gamma[], const float Phi[], const float B[], const float C[], const size_t row_a, const size_t row_c, const size_t column_b, const size_t N);
+void dare(const size_t iterations, const float sampleTime, const float A[], const float B[], const float Q[], const float R[], float X[], const size_t row_a, const size_t column_b);
+bool kf(const float A[], const float B[], const float C[], const float u[], const float y[], const float Q[], const float R[], float xhat[], float P[], const size_t row_a, const size_t row_c, const size_t column_b);
+void lqe(const size_t iterations, const float sampleTime, const float A[], const float C[], const float Q[], const float R[], float K[], const size_t row_a, const size_t row_c);
+void lqr(const size_t iterations, const float sampleTime, const float A[], const float B[], const float Q[], const float R[], float L[], const size_t row_a, const size_t column_b);
+bool qmpc(const float GAMMA[], const float PHI[], const float x[], float u[], const float Umax[], const float S[], const float r[], const size_t row_a, const size_t row_c, const size_t column_b, const size_t N, const float lambda, const bool has_integration_action, const float integration_constant);
+void obsv(float Phi[], const float A[], const float C[], const size_t row_a, const size_t row_c, const size_t N);
+bool ssint(const float A[], const float B[], const float C[], float Ai[], float Bi[], float Ci[], const size_t row_a, const size_t column_b, const size_t row_c);
+bool stability(const float A[], const size_t row);
+
+/* MPC */
+bool mpc_init(MPC* mpc, const float A[], const float B[], const float C[], const float E[], const float sampleTime_mpc, const float sampleTime_kf, const float qw, const float rv, const float qz, const float s, const float Spsi_spsi, const size_t row_a, const size_t column_b, const size_t row_c, const size_t column_e, const size_t N, const size_t iterations);
+void mpc_set_constraints(MPC* mpc, const float umin[], const float umax[], const float zmin[], const float zmax[], const float deltaumin[], const float deltaumax[], const float alpha, const float antiwindup);
+STATUS_CODES mpc_optimize(MPC* mpc, float u[], const float r[], const float y[], const float d[], const bool integral_active);
+void mpc_estimate(MPC* mpc, const float u[], const float y[], const float d[]);
+bool mpc_free(MPC* mpc);
+
 
 #ifdef __cplusplus
 }

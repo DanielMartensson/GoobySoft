@@ -6,13 +6,15 @@
 void Windows_Dialogs_UtilDialogs_ImageDialogs_LandmarkDialog_showLandmarkDialog(bool* landmarkDialog) {
 	// Display
 	if (ImGui::Begin("Landmark", landmarkDialog)) {
+		/* THIS IS AN OLD CODE FOR COMPUTER VISION WITH CORNER DETECTION 
 		// Get the parameter holder 
 		ParameterHolder* parameterHolder = Tools_Hardware_ParameterStore_getParameterHolder();
-		uint8_t* total_descriptors = &parameterHolder->models.landmark_model.total_descriptors;
+		int* total_descriptors = &parameterHolder->models.landmark_model.total_descriptors;
 		bool* is_descriptors_available = &parameterHolder->models.landmark_model.is_descriptors_available;
 		uint32_t* id_descriptors = parameterHolder->models.landmark_model.id_descriptors;
 		uint16_t* x_descriptors = parameterHolder->models.landmark_model.x_descriptors;
 		uint16_t* y_descriptors = parameterHolder->models.landmark_model.y_descriptors;
+		FAST_METHOD fast_method = parameterHolder->models.landmark_model.fast_method;
 
 		// Open folder
 		static bool isOpen = false;
@@ -103,9 +105,9 @@ void Windows_Dialogs_UtilDialogs_ImageDialogs_LandmarkDialog_showLandmarkDialog(
 					for (uint8_t i = 0; i < max_classes; i++) {
 						draw_list->AddCircle(ImVec2(imageCoordinates.x + C[i*2], imageCoordinates.y + C[i * 2 + 1]), 5.0f, ImColor(0.0f, 1.0f, 0.0f));
 					}
-					free(C); */
+					free(C); *
 					int N = min_pts;
-					FAST_XY* xy = cornerdetection(image->pixels, epsilon, &N, fast_threshold, FAST_METHOD_9, image->height, image->width);
+					COORDINATE_XY* xy = cornerdetection(image->pixels, epsilon, &N, fast_threshold, FAST_METHOD_9, image->height, image->width);
 					for (int i = 0; i < N; i++) {
 						draw_list->AddCircle(ImVec2(imageCoordinates.x + xy[i].x, imageCoordinates.y + xy[i].y), 5.0f, ImColor(0.0f, 1.0f, 0.0f));
 					}
@@ -142,7 +144,7 @@ void Windows_Dialogs_UtilDialogs_ImageDialogs_LandmarkDialog_showLandmarkDialog(
 				// Check if mouse is clicked
 				if (ImGui::IsMouseClicked(ImGuiMouseButton_Left) && isInsideRegionX && isInsideRegionY) {
 					// Get a descriptor 
-					uint32_t descriptor = landmarkdetection_analyze(image->pixels, image->height, image->width, (int)x, (int)y);
+					uint32_t descriptor = featuredetection(image->pixels, total_descriptors, fast_threshold, fast_method, image->height, image->width);
 
 					// Save
 					if (*total_descriptors < 255) {
@@ -154,7 +156,7 @@ void Windows_Dialogs_UtilDialogs_ImageDialogs_LandmarkDialog_showLandmarkDialog(
 					}
 				}
 
-				/* Show table */
+				/* Show table *
 				if (*is_descriptors_available) {
 					// Create table header
 					std::vector<std::vector<std::string>> table;
@@ -171,7 +173,7 @@ void Windows_Dialogs_UtilDialogs_ImageDialogs_LandmarkDialog_showLandmarkDialog(
 				imfree(image);
 			}
 		}
-
+		*/
 		// End window 
 		ImGui::End();
 	}

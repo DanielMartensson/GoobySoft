@@ -12,6 +12,11 @@
 #include <Windows.h>
 
 size_t scan_file_names(const char folder_path[], char** file_names[], const char ending[]) {
+	/* Check if null */
+	if (folder_path == NULL) {
+		return 0;
+	}
+	
 	/* Information about how many counted files */
 	char search_path[MAX_PATH];
 	concatenate_paths(search_path, folder_path, "*");
@@ -56,7 +61,8 @@ size_t scan_file_names(const char folder_path[], char** file_names[], const char
 	return file_count;
 }
 #else
-size_t scan_file_names(const char folder_path[], char** file_names[]) {
+size_t scan_file_names(const char folder_path[], char** file_names[], const char ending[]) {
+	printf("scan_file_names.c not implemented for your operative system!\n");
 	return 0;
 }
 #endif

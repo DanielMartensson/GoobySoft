@@ -8,15 +8,18 @@
 #ifndef HARDWARE_HARDWARE_H_
 #define HARDWARE_HARDWARE_H_
 
-/* Select your processor choice here */
-#define NO_PROCESSOR 0
+/* Select your target platform here */
+#define NO_PLATFORM 0
 #define STM32 1
 #define ARDUINO 2
 #define PIC 3
 #define AVR 4
 #define QT_USB 5
 #define INTERNAL_CALLBACK 6
-#define PROCESSOR_CHOICE NO_PROCESSOR
+#define SOCKETCAN 7
+#ifndef OPENSAE_J1939_TARGET_PLATFORM
+#define OPENSAE_J1939_TARGET_PLATFORM NO_PLATFORM
+#endif
 
 /* C Standard library */
 #include "../Open_SAE_J1939/C89_Library.h"

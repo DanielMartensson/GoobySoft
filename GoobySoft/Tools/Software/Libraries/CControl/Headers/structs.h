@@ -7,16 +7,9 @@
 
 #ifndef STRUCTS_H_
 #define STRUCTS_H_
-#include <stdint.h>
 
- /* For landmarkdetection.c */
-typedef struct {
-	uint32_t id_descriptors[256];
-	uint16_t x_descriptors[256];
-	uint16_t y_descriptors[256];
-	uint8_t total_descriptors;
-	bool is_descriptors_available;
-}DESCRIPTORS_BINARY_32;
+ /* For C++ only */
+#include <stdint.h>
 
 /* For imshow.c and imread.c */
 typedef struct {
@@ -46,7 +39,6 @@ typedef struct {
 /* Model holder */
 typedef struct {
 	MODEL_NN fisherfaces_model;
-	DESCRIPTORS_BINARY_32 landmark_model;
 	MODEL_CHOICE model_choice;
 }MODEL;
 
@@ -85,7 +77,7 @@ typedef struct {
 typedef struct {
 	int x;
 	int y;
-} FAST_XY;
+} COORDINATE_XY;
 
 /* For generalizedhough.c */
 typedef struct {
@@ -99,5 +91,96 @@ typedef struct {
 	GENERALIZED_HOUGH_VOTE* vote;
 	size_t votes_active;
 }GENERALIZED_HOUGH_MODEL;
+
+/* For adaboost.c */
+typedef struct {
+	float polarity;
+	size_t feature_index;
+	float threshold;
+	float alpha;
+}ADABOOST_MODEL;
+
+/* For haarlike.c */
+typedef struct {
+	HAARLIKE_FEATURE_CHOICE haarlike_feature_choice;
+	uint8_t x1, x2, x3, x4, y1, y2, y3, y4;
+	int8_t value;
+}HAARLIKE_FEATURE;
+
+/* For violajones.c */
+typedef struct {
+	HAARLIKE_FEATURE haarlike_feature;
+	ADABOOST_MODEL adaboost_model;
+}VIOLAJONES_MODEL;
+
+/* For mpc.c */
+typedef struct {
+	/* Flag */
+	bool is_initlized; /* Flag of initialization */
+
+	size_t row_a;      /* Constant dimension of A matrix */
+	size_t column_b;   /* Constant columns of B matrix */
+	size_t row_c;      /* Constant dimension of C matrix */
+	size_t column_e;   /* Constant columns of E matrix */
+	size_t N;          /* Constant horizon */
+
+	/* Discrete model for MPC */
+	float* Ad;         /* [row_a * row_a] */
+	float* Bd;         /* [row_a * column_b] */
+	float* Cd;         /* [row_c * row_a] */
+	float* Ed;         /* [row_a * column_e] */
+
+	/* Discrete model for KF */
+	float* Adkf;       /* [row_a * row_a] */
+	float* Bdkf;       /* [row_a * column_b] */
+	float* Cdkf;       /* [row_c * row_a] */
+	float* Edkf;       /* [row_a * column_e] */
+
+	/* Kalman Filter */
+	float* K;          /* [row_a * row_c] */
+
+	/* Phi matrix */
+	float* Phi;        /* [(N * row_c) * row_a] */
+
+	/* Disturbance */
+	float* Gammad;     /* [(N * row_c) * (N * column_e)] */
+
+	/* Gradient */
+	float* Mx0;        /* [(N * column_b) * row_a] */
+	float* Mum1;       /* [(N * column_b) * column_b] */
+	float* MR;         /* [(N * column_b) * (N * row_c)] */
+	float* MD;         /* [(N * column_b) * (N * column_e)] */
+
+	/* Constraints on movement */
+	float* deltaUmin;  /* [(N - 1) * column_b] */
+	float* deltaUmax;  /* [(N - 1) * column_b] */
+	float* deltaumin;  /* [column_b] */
+	float* deltaumax;  /* [column_b] */
+
+	/* Constraints on output */
+	float* Zmin;       /* [N * row_c] */
+	float* Zmax;       /* [N * row_c] */
+
+	/* Constraints on inputs */
+	float* umin;       /* [column_b] */
+	float* umax;       /* [column_b] */
+
+	/* Slack variables */
+	float* barspsi;    /* [N * column_b] */
+
+	/* QP Solver matrix */
+	float* barH;       /* [(2 * N * column_b) * (2 * N * column_b)] */
+
+	/* Inequality constraints */
+	float* AA;         /* [((N - 1) * column_b + 2 * N * row_c) * (2 * N * column_b)] */
+
+	/* Integral action */
+	float* eta;        /* [row_c] */
+	float alpha;       /* Constant for integration rate */
+	float antiwindup;  /* Constant for integral limitation */
+
+	/* State */
+	float* x;          /* [row_a] */
+}MPC;
 
 #endif /* !STRUCTS_H_ */

@@ -5,7 +5,7 @@
  *      Author: Daniel Mårtensson
  */
 
-#include "machinelearning.h"
+#include "computervision.h"
 
 MODEL* fisherfaces(MODEL_SETTINGS* model_settings) {
 	/* Header */
