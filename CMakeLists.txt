@@ -19,9 +19,9 @@ add_executable(GoobySoft ${SOURCES})
 include_directories(${INCLUDES})
 
 # Hitta och länka mot MySQL C++ Connector
-find_library(LIBMYSQLCPPCONN_LIBRARY NAMES mysqlcppconn8)
+find_library(LIBMYSQLCPPCONN_LIBRARY NAMES mysqlcppconn)
 if (LIBMYSQLCPPCONN_LIBRARY)
-    message("MySQL C++ Connector 8 library found")
+    message("MySQL C++ Connector library found")
     target_link_libraries(GoobySoft PRIVATE ${LIBMYSQLCPPCONN_LIBRARY})
 else()
     message(FATAL_ERROR "MySQL C++ Connector library not found")
@@ -36,13 +36,13 @@ else()
     message(FATAL_ERROR "libdl library not found")
 endif()
 
-# Hitta och länka mot SDL2
-find_library(LIBSDL2_LIBRARY NAMES SDL2)
+# Hitta och länka mot SDL3
+find_library(LIBSDL2_LIBRARY NAMES SDL3)
 if (LIBSDL2_LIBRARY)
-    message("SDL2 library found")
+    message("SDL3 library found")
     target_link_libraries(GoobySoft PRIVATE ${LIBSDL2_LIBRARY})
 else()
-    message(FATAL_ERROR "SDL2 library not found")
+    message(FATAL_ERROR "SDL3 library not found")
 endif()
 
 # Hitta och länka mot Pthreads
