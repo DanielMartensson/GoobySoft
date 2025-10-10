@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <filesystem>
+#include <cstring>
 #include "Communications/Communications.h"
 #include "Hardware/Hardware.h"
 #include "Gui/Gui.h"
