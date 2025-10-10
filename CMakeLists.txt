@@ -36,13 +36,13 @@ else()
     message(FATAL_ERROR "libdl library not found")
 endif()
 
-# Hitta och länka mot SDL2
-find_library(LIBSDL2_LIBRARY NAMES SDL2)
-if (LIBSDL2_LIBRARY)
-    message("SDL2 library found")
-    target_link_libraries(GoobySoft PRIVATE ${LIBSDL2_LIBRARY})
+# Hitta och länka mot SDL3
+find_library(LIBSDL3_LIBRARY NAMES SDL3)
+if (LIBSDL3_LIBRARY)
+    message("SDL3 library found")
+    target_link_libraries(GoobySoft PRIVATE ${LIBSDL3_LIBRARY})
 else()
-    message(FATAL_ERROR "SDL2 library not found")
+    message(FATAL_ERROR "SDL3 library not found")
 endif()
 
 # Hitta och länka mot Pthreads
