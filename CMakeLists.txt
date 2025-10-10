@@ -80,3 +80,25 @@ if (OpenGL_FOUND)
 else()
     message(FATAL_ERROR "OpenGL library not found")
 endif()
+
+# Hitta och länka mot OpenCV
+find_package(OpenCV REQUIRED)
+if (OpenCV_FOUND)
+    message("OpenCV library found")
+    target_link_libraries(GoobySoft PRIVATE ${OpenCV_LIBS})
+else()
+    message(FATAL_ERROR "OpenCV library not found")
+endif()
+
+
+# Hitta och länka mot CSerialPort
+set(CSerialPortRootPath "${CMAKE_CURRENT_SOURCE_DIR}/../CSerialPort/")
+include_directories(${CSerialPortRootPath}/include)
+list(APPEND CSerialPortSourceFiles ${CSerialPortRootPath}/src/SerialPort.cpp ${CSerialPortRootPath}/src/SerialPortBase.cpp ${CSerialPortRootPath}/src/SerialPortInfo.cpp ${CSerialPortRootPath}/src/SerialPortInfoBase.cpp)
+if(WIN32)
+    message("CSerialPort library not found for Win32")
+    list(APPEND CSerialPortSourceFiles ${CSerialPortRootPath}/src/SerialPortInfoWinBase.cpp ${CSerialPortRootPath}/src/SerialPortWinBase.cpp)
+elseif(UNIX)
+    message("CSerialPort library not found for Unix")
+    list(APPEND CSerialPortSourceFiles ${CSerialPortRootPath}/src/SerialPortInfoUnixBase.cpp ${CSerialPortRootPath}/src/SerialPortUnixBase.cpp)
+endif()

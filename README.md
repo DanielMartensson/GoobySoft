@@ -257,19 +257,40 @@ The folders `x64/Debug` and `x64/Release` contains prebuilt 64-bit Windows binar
 
 ## Ubuntu/Debian - Compile from source
 
- 1. Download and Configure [Oracle APT Repository](https://dev.mysql.com/downloads/repo/apt/)
- 2. Update APT `sudo apt-get update`
- 3. Install software `sudo apt-get install build-essential cmake libsdl3-dev libopencv-dev intel-oneapi-mkl libopengl-dev libboost-all-dev libmysqlcppconn-dev`
- 4. Download `GoobySoft` repository and extract the `.zip` file.
- 5. Make sure you are standing inside the `GoobySoft` folder.
- 5. Run CMake `cmake -B build .`
- 6. Compile `cmake --build build` 
- 7. Go to the `build` folder inside `GoobySoft` and run `./GoobySoft`  
-
-Or your could just run the script `installForUbuntuDebian.sh`
-
 ```bash
-./installForUbuntuDebian.sh
+# Update
+sudo apt-get update 
+
+# Install tools
+sudo apt-get install g++ build-essential cmake libopengl-dev libboost-all-dev libmysqlcppconn-dev wget git -y
+
+# Install MySQL APT Config
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.34-1_all.deb
+sudo dpkg -i mysql-apt-config_0.8.34-1_all.deb
+
+# Clone gits
+git clone https://github.com/DanielMartensson/GoobySoft.git
+git clone https://github.com/itas109/CSerialPort.git
+git clone https://github.com/libsdl-org/SDL.git
+
+# Build SDL
+cd SDL
+cmake -S . -B build
+cmake --build build
+sudo cmake --install build --prefix /usr/local
+cd ..
+
+# Build CSerialPort
+cd CSerialPort
+mkdir bin && cd bin
+cmake ..
+cmake --build .
+cd ..
+
+# Build GoobySoft
+cd GoobySoft
+cmake -B build .
+cmake --build build
 ```
 
 ## Raspberry Pi - Compile from source
