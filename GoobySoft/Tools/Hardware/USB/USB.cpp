@@ -1,7 +1,7 @@
 #include "USB.h"
 #include "../../Tools.h"
-//#include <CSerialPort/SerialPort.h>
-//#include <CSerialPort/SerialPortInfo.h>
+#include <CSerialPort/SerialPort.h>
+#include <CSerialPort/SerialPortInfo.h>
 
 // Map for all connections
 static std::map<std::string, std::shared_ptr<itas109::CSerialPort>> connections;
