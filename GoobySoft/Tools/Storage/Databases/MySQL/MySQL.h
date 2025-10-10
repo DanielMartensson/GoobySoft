@@ -2,6 +2,7 @@
 #define MySQL
 #include <string>
 #include <vector>
+#include <cstdint>
 
 typedef enum {
 	MYSQL_STATUS_OK = 1,
