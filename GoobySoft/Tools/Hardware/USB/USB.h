@@ -2,6 +2,7 @@
 #define USB
 #include <string>
 #include <vector>
+#include <cstdint>
 
 typedef enum {
 	USB_STATUS_FAIL,
