@@ -2,6 +2,7 @@
 #define Algorithms
 #include <vector>
 #include <string>
+#include <cstdint>
 
 std::string Tools_Software_Algorithms_getISO8601Time();
 long long Tools_Software_Algorithms_getMicroSeconds();
