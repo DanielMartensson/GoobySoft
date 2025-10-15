@@ -255,41 +255,26 @@ The folders `x64/Debug` and `x64/Release` contains prebuilt 64-bit Windows binar
  5. Install the following vcpkg packages: `sdl3`, `opengl`, `opencv`, `mysql-connector-cpp`, `cserialport`, `boost-date-time`, `boost-filesystem`, `boost-chrono`
  6. Run the `GoobySoft.sln` file with `Visual Studio Community` and press the compile button.
 
-## Ubuntu/Debian - Compile from source
+## Windows/Linux
 
 ```bash
-# Update
-sudo apt-get update 
-
-# Install tools
-sudo apt-get install g++ build-essential cmake libopengl-dev libboost-all-dev libmysqlcppconn-dev wget git -y
-
-# Install MySQL APT Config
-wget https://dev.mysql.com/get/mysql-apt-config_0.8.34-1_all.deb
-sudo dpkg -i mysql-apt-config_0.8.34-1_all.deb
-
-# Clone gits
+# Clone
+git clone https://github.com/microsoft/vcpkg.git
 git clone https://github.com/DanielMartensson/GoobySoft.git
-git clone https://github.com/itas109/CSerialPort.git
-git clone https://github.com/libsdl-org/SDL.git
+git clone https://github.com/DanielMartensson/CControl.git
+git clone https://github.com/DanielMartensson/Open-SAE-J1939.git
 
-# Build SDL
-cd SDL
-cmake -S . -B build
-cmake --build build
-sudo cmake --install build --prefix /usr/local
+# Install 
+cd vcpkg
+./bootstrap-vcpkg
+./vcpkg install mysql-connector-cpp boost-filesystem sdl3 pthreads boost-system opengl opencv cserialport intel-mkl --classic
 cd ..
 
-# Build CSerialPort
-cd CSerialPort
-mkdir bin && cd bin
-cmake ..
-cmake --build .
-cd ..
-
-# Build GoobySoft
+# Tool chain
 cd GoobySoft
-cmake -B build .
+cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=path/to/vcpkg/scripts/buildsystems/vcpkg.cmake
+
+# Build
 cmake --build build
 ```
 
