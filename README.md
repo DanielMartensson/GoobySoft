@@ -267,7 +267,7 @@ git clone https://github.com/DanielMartensson/Open-SAE-J1939.git
 # Install 
 cd vcpkg
 ./bootstrap-vcpkg
-./vcpkg install mysql-connector-cpp boost-filesystem sdl3 pthreads boost-system opengl opencv cserialport intel-mkl --classic
+./vcpkg install mysql-connector-cpp boost-filesystem sdl3 pthreads boost-system opengl opencv cserialport intel-mkl boost-date-time
 cd ..
 
 # Tool chain
