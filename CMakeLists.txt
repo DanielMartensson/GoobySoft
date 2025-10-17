@@ -16,10 +16,10 @@ add_executable(GoobySoft ${SOURCES})
 include_directories(${INCLUDES})
 
 # Hitta och länka mot MySQL C++ Connector
-find_package(unofficial-mysql-connector-cpp CONFIG REQUIRED)
-if(unofficial-mysql-connector-cpp_FOUND)
+find_package(mysql-concpp CONFIG REQUIRED)
+if(mysql-concpp_FOUND)
     message(STATUS "MySQL C++ Connector library found")
-    target_link_libraries(GoobySoft PRIVATE unofficial::mysql-connector-cpp::connector)
+    target_link_libraries(GoobySoft PRIVATE mysqlcppconn)
 else()
     message(FATAL_ERROR "MySQL C++ Connector library not found")
 endif()
