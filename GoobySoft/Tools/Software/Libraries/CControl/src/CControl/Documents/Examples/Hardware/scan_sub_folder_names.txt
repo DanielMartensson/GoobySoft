@@ -1,0 +1,42 @@
+/*
+ ============================================================================
+ Name        : scan_sub_folder_names.c
+ Author      : <Your Name Here>
+ Version     : 1.0
+ Copyright   : MIT
+ Description : Get name of sub folders
+ ============================================================================
+ */
+
+#include "CControl/ccontrol.h"
+
+int main() {
+	clock_t start, end;
+	float cpu_time_used;
+	start = clock();
+
+	/*
+	 * Start counting folders and its names
+	 * Enter your folder path, in this case, it's Windows folder path for me
+	 */
+	char** sub_folder_names = NULL;
+	size_t sub_folder_count = scan_sub_folder_names("C:\\Users\\dmn\\VS", &sub_folder_names);
+
+	/* Print the folders */
+	size_t i;
+	for (i = 0; i < sub_folder_count; i++) {
+		printf("Mapp %d: %s\n", i + 1, sub_folder_names[i]);
+	}
+
+	/* Free */
+	for (i = 0; i < sub_folder_count; i++) {
+		free(sub_folder_names[i]);
+	}
+	free(sub_folder_names);
+
+	end = clock();
+	cpu_time_used = ((float)(end - start)) / CLOCKS_PER_SEC;
+	printf("\nTotal speed  was %f\n", cpu_time_used);
+
+	return EXIT_SUCCESS;
+}

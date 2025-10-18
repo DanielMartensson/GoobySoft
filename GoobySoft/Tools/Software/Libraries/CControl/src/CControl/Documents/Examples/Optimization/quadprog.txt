@@ -1,0 +1,114 @@
+/*
+ ============================================================================
+ Name        : quadprog.c
+ Author      : Daniel Mårtensson
+ Version     : 1.0
+ Copyright   : MIT
+ Description : Optimize a quadrtic problem with constraints by using Hildreth's method
+ ============================================================================
+ */
+
+#include "CControl/ccontrol.h"
+
+int main() {
+	clock_t start, end;
+	float cpu_time_used;
+	start = clock();
+
+	/* Objective function - Q MUST be symmetric */
+	float Q[2 * 2] = { 12.200, -5.1000,
+					-5.1000,   26.0000 };
+
+	float c[2] = { -2,
+				  -6 };
+
+	/* Inequality constraints */
+	float A[3 * 2] = { 1, 1,
+				   -1, 2,
+					2, 1 };
+
+	float b[3] = { 2,
+				  2,
+				  3 };
+
+	/* Equality constraints */
+	float G[2 * 2] = { 3, 6,
+					   3, 1 };
+
+	float h[2] = { 5,
+				   1 };
+
+	/* Solution */
+	float x[2] = { 0 };
+
+	/*
+	 * Do quadratic programming with Hildreth's method
+	 *  	Min 1/2x^TQx + c^Tx
+	 * 		S.t Ax <= b
+	 *      	Gx = h
+	 *
+	 */
+	bool equality_constraints_are_used = true;
+	STATUS_CODES solution = quadprog(Q, c, A, b, G, h, x, 3, 2, 2, equality_constraints_are_used);
+	end = clock();
+	cpu_time_used = ((float)(end - start)) / CLOCKS_PER_SEC;
+	printf("\nTotal speed  was %f\n", cpu_time_used);
+
+	printf("Solution:\n");
+	print(x, 2, 1);
+	printf("Solution was found: %s\n", solution == STATUS_OK ? "yes" : "no");
+
+	/* Detect */
+	detectmemoryleak();
+
+	return EXIT_SUCCESS;
+}
+
+/*
+ * GNU Octave code:
+	Q = [12.200 -5.1000; -5.1000 26.0000];
+	c = [-2; -6];
+
+	% Inequality constraints
+	A = [1 1; -1 2; 2 1];
+	b = [2; 2; 3];
+
+	% "Equality" constraints
+	G = [3 6; 3 1];
+	h = [5; 1];
+
+	% Internal QP-solver for GNU Octave
+	[x, ~, info] = qp([], Q, c, G, h, [], [], [], A, b)
+
+	% Internal QP-solver for GNU Octave
+	[x, ~, info] = qp([], Q, c, [], [], [], [], [], [A;G;-G], [b;h;-h])
+
+
+	Output is:
+
+	x =
+
+	   0.066667
+	   0.800000
+
+	info =
+
+	  scalar structure containing the fields:
+
+		solveiter = 1
+		info = 0
+
+	x =
+
+	   0.066667
+	   0.800000
+
+	info =
+
+	  scalar structure containing the fields:
+
+		solveiter = 3
+		info = 0
+
+	>>
+ */

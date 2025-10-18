@@ -1,0 +1,131 @@
+/*
+ ============================================================================
+ Name        : kernel.c
+ Author      : <Your Name Here>
+ Version     : 1.0
+ Copyright   : MIT
+ Description : Apply a kernel onto matrix X
+ ============================================================================
+ */
+
+#include "CControl/ccontrol.h"
+
+#define row 4
+#define column 3
+
+int main() {
+	clock_t start, end;
+	float cpu_time_used;
+	start = clock();
+
+	/* Create X */
+	float X[row * column] = { 1.0, 2.0, 3.0,
+							  4.0, 5.0, 6.0,
+							  7.0, 8.0, 9.0,
+							  10.0, 11.0, 12.0 };
+
+	/* Create K matrix */
+	float K[row * row];
+
+	/* Parameters */
+	float kernel_parameters[2];
+
+	/* Linear kernel */
+	kernel(X, K, row, column, NULL, KERNEL_METHOD_LINEAR);
+	print(K, row, row);
+
+	/* RFB kernel */
+	kernel_parameters[0] = 0.1; /* Gamma */
+	kernel(X, K, row, column, kernel_parameters, KERNEL_METHOD_RBF);
+	print(K, row, row);
+
+	/* Polynomial kernel */
+	kernel_parameters[0] = 2; /* Degree */
+	kernel(X, K, row, column, kernel_parameters, KERNEL_METHOD_POLY);
+	print(K, row, row);
+
+	/* Sigmoid kernel */
+	kernel_parameters[0] = 0.5; /* Alpha */
+	kernel_parameters[1] = 1.5; /* Beta */
+	kernel(X, K, row, column, kernel_parameters, KERNEL_METHOD_SIGMOID);
+	print(K, row, row);
+
+	/* Gaussian kernel */
+	kernel_parameters[0] = 343.23; /* Sigma */
+	kernel(X, K, row, column, kernel_parameters, KERNEL_METHOD_GAUSSIAN);
+	print(K, row, row);
+
+	/* Exponential kernel */
+	kernel_parameters[0] = 10.23; /* Sigma */
+	kernel(X, K, row, column, kernel_parameters, KERNEL_METHOD_EXPONENTIAL);
+	print(K, row, row);
+
+	end = clock();
+	cpu_time_used = ((float)(end - start)) / CLOCKS_PER_SEC;
+	printf("\nTotal speed  was %f\n", cpu_time_used);
+
+	return EXIT_SUCCESS;
+}
+
+/*
+ GNU Octave code:
+	function test6
+	  X = [1.0, 2.0, 3.0,
+		   4.0, 5.0, 6.0,
+		   7.0, 8.0, 9.0,
+		  10.0, 11.0, 12.0];
+	  K = create_kernel(X, 'linear', [0])
+	  K = create_kernel(X, 'rbf', [0.1])
+	  K = create_kernel(X, 'polynomial', [2])
+	  K = create_kernel(X, 'sigmoid', [0.5 1.5])
+	  K = create_kernel(X, 'gaussian', [343.23])
+	  K = create_kernel(X, 'exponential', [10.23])
+
+	end
+
+	function K = create_kernel(X, kernel_type, kernel_parameters)
+	  % Select kernel type
+	  switch kernel_type
+		case 'gaussian'
+		% Compute the euclidean distanses
+		D = sqrt(distEucSq(X, X));
+		sigma = kernel_parameters(1);
+		K = exp(-D.^2 / (2 * sigma^2));
+
+		case 'exponential'
+		% Compute the euclidean distanses
+		D = sqrt(distEucSq(X, X));
+		sigma = kernel_parameters(1);
+		K = exp(-D / (2 * sigma^2));
+
+		case 'polynomial'
+		degree = kernel_parameters(1);
+		K = (X*X').^degree;
+
+		case 'linear'
+		K = X * X';
+
+		case 'sigmoid'
+		alpha = kernel_parameters(1);
+		beta = kernel_parameters(2);
+		K = tanh(alpha * X * X' + beta);
+
+		case 'rbf'
+		% Compute the euclidean distanses
+		D = sqrt(distEucSq(X, X));
+		gamma = kernel_parameters(1);
+		K = exp(-gamma*D.^2);
+
+		otherwise
+		  error('Kernel type does not exist!');
+		end
+	end
+
+	function D = distEucSq(X, Y)
+	  Yt = Y';
+	  XX = sum(X.*X,2);
+	  YY = sum(Yt.*Yt,1);
+	  D = abs(bsxfun(@plus,XX,YY)-2*X*Yt);
+	end
+
+*/

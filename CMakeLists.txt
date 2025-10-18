@@ -109,3 +109,8 @@ if (OpenCV_FOUND)
 else()
     message(FATAL_ERROR "OpenCV library not found")
 endif()
+
+# Inkludera externa bibliotek från Libraries-mappen
+add_subdirectory(GoobySoft/Tools/Software/Libraries/Open-SAE-J1939)
+add_subdirectory(GoobySoft/Tools/Software/Libraries/CControl)
+# Lägg till fler beroenden här vid behov, t.ex. ImGui, ImPlot etc.

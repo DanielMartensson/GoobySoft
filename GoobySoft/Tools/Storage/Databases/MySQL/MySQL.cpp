@@ -1,9 +1,5 @@
 #include "MySQL.h"
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
 #include <mysqlx/xdevapi.h>
-#else
-#include <mysql-cppconn/mysqlx/xdevapi.h>
-#endif
 #include <cstdio>
 
 static mysqlx::Session* connection = nullptr;
