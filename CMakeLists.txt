@@ -9,17 +9,24 @@ set(CMAKE_BUILD_TYPE "Release")
 add_subdirectory(GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939)
 add_subdirectory(GoobySoft/Tools/Software/Libraries/CControl)
 
-# Hämta alla .cpp-filer
+# Hämta alla .cpp-filer i GoobySoft mappen
 file(GLOB_RECURSE ALL_SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/*.cpp")
+
+# Exkludera main.c från CControl och OpenSAEJ1939 om de hamnat med (fast du har cpp-filer, men bra att ha som exempel)
+set(MAIN_SRC_CControl "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/Tools/Software/Libraries/CControl/src/Main.c")
+set(MAIN_SRC_Open_SAE_J1939 "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/Main.c")
+
+list(REMOVE_ITEM ALL_SOURCE_FILES ${MAIN_SRC_CControl})
+list(REMOVE_ITEM ALL_SOURCE_FILES ${MAIN_SRC_Open_SAE_J1939})
 
 # Skapa körbar fil
 add_executable(GoobySoftRun ${ALL_SOURCE_FILES})
 
-# Ta bort main
-set(MAIN_SRC_CControl "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/Tools/Software/Libraries/CControl/src/Main.c")
-set(MAIN_SRC_Open_SAE_J1939 "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/Main.c")
-list(REMOVE_ITEM SOURCES ${MAIN_SRC_CControl})
-list(REMOVE_ITEM SOURCES ${MAIN_SRC_Open_SAE_J1939})
+# Inkludera egna headers (kan justeras efter behov)
+target_include_directories(GoobySoftRun PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft")
+
+# Länka mot dina egna bibliotek från add_subdirectory (de måste byggas som bibliotek, inte exekverbara)
+target_link_libraries(GoobySoftRun PRIVATE CControl opensaej1939)
 
 # Länka mot MySQL C++ Connector
 find_package(mysql-concpp CONFIG REQUIRED)
