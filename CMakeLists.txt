@@ -44,6 +44,17 @@ else()
     message(FATAL_ERROR "MySQL C++ Connector library not found")
 endif()
 
+# Länka mot Resolv
+if(UNIX)
+    find_library(RESOLV_LIB resolv)
+    if (RESOLV_LIB)
+        message(STATUS "libresolv found: ${RESOLV_LIB}")
+        target_link_libraries(GoobySoftRun PRIVATE ${RESOLV_LIB})
+    else()
+        message(FATAL_ERROR "libresolv not found")
+    endif()
+endif()
+
 # Länka mot libdl
 if(UNIX)
     find_library(LIBDL_LIBRARY NAMES dl)
