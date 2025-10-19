@@ -6,7 +6,7 @@ set(CMAKE_BUILD_TYPE "Release")
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Inkludera externa bibliotek från Libraries-mappen
-add_subdirectory(GoobySoft/Tools/Software/Libraries/Open-SAE-J1939)
+add_subdirectory(GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939)
 add_subdirectory(GoobySoft/Tools/Software/Libraries/CControl)
 
 # CPP filer
