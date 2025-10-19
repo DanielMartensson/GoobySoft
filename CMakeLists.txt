@@ -2,25 +2,33 @@ cmake_minimum_required(VERSION 3.28.3)
 project(GoobySoft)
 
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_BUILD_TYPE "Release")
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_BUILD_TYPE "Release")
 
 # Inkludera externa bibliotek från Libraries-mappen
 add_subdirectory(GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939)
 add_subdirectory(GoobySoft/Tools/Software/Libraries/CControl)
 
-# CPP-filer
+# Hämta alla .cpp-filer
 file(GLOB_RECURSE ALL_SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/*.cpp")
 
-# Ändra namn på den körbara filen till GoobySoftRun
+# Filtrera bort CMakeCompilerId och andra temporära testfiler som innehåller main()
+foreach(source ${ALL_SOURCE_FILES})
+    if(source MATCHES ".*CMakeCXXCompilerId\\.cpp$")
+        list(REMOVE_ITEM ALL_SOURCE_FILES ${source})
+    endif()
+endforeach()
+
+# Skapa körbar fil
 add_executable(GoobySoftRun ${ALL_SOURCE_FILES})
 
-# Inkludera headers
+# Inkludera header-mappar
 target_include_directories(GoobySoftRun PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft")
 
-# Länka externa bibliotek
+# Länka mot det interna CControl-biblioteket
+target_link_libraries(GoobySoftRun PRIVATE CControl)
 
-# MySQL C++ Connector
+# Länka mot MySQL C++ Connector
 find_package(mysql-concpp CONFIG REQUIRED)
 if(mysql-concpp_FOUND)
     message(STATUS "MySQL C++ Connector library found")
@@ -29,7 +37,7 @@ else()
     message(FATAL_ERROR "MySQL C++ Connector library not found")
 endif()
 
-# libdl
+# Länka mot libdl
 if(UNIX)
     find_library(LIBDL_LIBRARY NAMES dl)
     if (LIBDL_LIBRARY)
@@ -40,7 +48,7 @@ if(UNIX)
     endif()
 endif()
 
-# SDL3
+# Länka mot SDL3
 find_library(LIBSDL3_LIBRARY NAMES SDL3)
 if (LIBSDL3_LIBRARY)
     message(STATUS "SDL3 library found")
@@ -49,7 +57,7 @@ else()
     message(FATAL_ERROR "SDL3 library not found")
 endif()
 
-# Threads
+# Länka mot Threads
 if(UNIX)
     find_package(Threads REQUIRED)
     if(Threads_FOUND)
@@ -68,7 +76,7 @@ else()
     endif()
 endif()
 
-# Boost filesystem
+# Länka mot Boost filesystem
 find_package(Boost CONFIG REQUIRED COMPONENTS filesystem)
 if (Boost_FOUND)
     message(STATUS "Boost filesystem library found")
@@ -77,7 +85,7 @@ else()
     message(FATAL_ERROR "Boost filesystem library not found")
 endif()
 
-# Boost system
+# Länka mot Boost system
 find_package(Boost CONFIG REQUIRED COMPONENTS system)
 if (Boost_FOUND)
     message(STATUS "Boost system library found")
@@ -86,17 +94,16 @@ else()
     message(FATAL_ERROR "Boost system library not found")
 endif()
 
-# Boost date_time
+# Länka mot Boost date_time
 find_package(Boost CONFIG REQUIRED COMPONENTS date_time)
 if (Boost_FOUND)
     message(STATUS "Boost date time library found")
     target_link_libraries(GoobySoftRun PRIVATE Boost::date_time)
-    #target_include_directories(GoobySoftRun PRIVATE ${Boost_INCLUDE_DIRS})
 else()
     message(FATAL_ERROR "Boost date time library not found")
 endif()
 
-# OpenGL
+# Länka mot OpenGL
 find_package(OpenGL REQUIRED)
 if (OpenGL_FOUND)
     message(STATUS "OpenGL library found")
@@ -106,7 +113,7 @@ else()
     message(FATAL_ERROR "OpenGL library not found")
 endif()
 
-# OpenCV
+# Länka mot OpenCV
 find_package(OpenCV REQUIRED)
 if (OpenCV_FOUND)
     message(STATUS "OpenCV library found")
