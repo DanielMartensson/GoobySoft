@@ -1,7 +1,7 @@
 #ifndef Parameters_H
 #define Parameters_H
 #include "../../Software/Libraries/CControl/src/CControl/ccontrol.h"
-#include "../../Software/Libraries/Open-SAE-J1939/Src/Open_SAE_J1939/OpenSAEJ1939.h"
+#include "../../Software/Libraries/Open-SAE-J1939/Src/Open_SAE_J1939/Open_SAE_J1939.h"
 
 #define MAX_PROTOCOLS 5					// How many protocols can be used, CDC, Modbus RTU, Modbus TCP etc..
 #define MAX_DEVICES 10					// How many devices per protocol
