@@ -13,8 +13,8 @@ add_subdirectory(GoobySoft/Tools/Software/Libraries/CControl)
 file(GLOB_RECURSE ALL_SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/*.cpp")
 
 # Exkludera main.c från CControl och OpenSAEJ1939 om de hamnat med (fast du har cpp-filer, men bra att ha som exempel)
-set(MAIN_SRC_CControl "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/Tools/Software/Libraries/CControl/src/Main.c")
-set(MAIN_SRC_Open_SAE_J1939 "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/Main.c")
+file(MAIN_SRC_CControl "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/Tools/Software/Libraries/CControl/src/Main.c")
+file(MAIN_SRC_Open_SAE_J1939 "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/Main.c")
 
 list(REMOVE_ITEM ALL_SOURCE_FILES ${MAIN_SRC_CControl})
 list(REMOVE_ITEM ALL_SOURCE_FILES ${MAIN_SRC_Open_SAE_J1939})
