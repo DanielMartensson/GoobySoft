@@ -10,6 +10,8 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include "modbusclient.h"
+#include "modbusserver.h"
 
 #ifdef __cplusplus
 extern "C" {
