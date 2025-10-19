@@ -9,7 +9,7 @@
 #include "ImGui/backends/imgui_impl_opengl3.h"
 #include "CControl/src/CControl/ccontrol.h"
 #include "modbus/modbus.h"
-#include "Open-SAE-J1939/Src/Open_SAE_J1939/Open_SAE_J1939.h"
+#include "OpenSAEJ1939/OpenSAEJ1939.h"
 #include "conversions/conversions.h"
 
 #endif // !Libraries
