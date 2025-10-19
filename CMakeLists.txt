@@ -12,21 +12,14 @@ add_subdirectory(GoobySoft/Tools/Software/Libraries/CControl)
 # Hämta alla .cpp-filer
 file(GLOB_RECURSE ALL_SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/*.cpp")
 
-# Filtrera bort CMakeCompilerId och andra temporära testfiler som innehåller main()
-foreach(source ${ALL_SOURCE_FILES})
-    if(source MATCHES ".*CMakeCXXCompilerId\\.cpp$")
-        list(REMOVE_ITEM ALL_SOURCE_FILES ${source})
-    endif()
-endforeach()
-
 # Skapa körbar fil
 add_executable(GoobySoftRun ${ALL_SOURCE_FILES})
 
-# Inkludera header-mappar
-target_include_directories(GoobySoftRun PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft")
-
-# Länka mot det interna CControl-biblioteket
-target_link_libraries(GoobySoftRun PRIVATE CControl)
+# Ta bort main
+set(MAIN_SRC_CControl "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/Tools/Software/Libraries/CControl/src/Main.c")
+set(MAIN_SRC_Open_SAE_J1939 "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/Main.c")
+list(REMOVE_ITEM SOURCES ${MAIN_SRC_CControl})
+list(REMOVE_ITEM SOURCES ${MAIN_SRC_Open_SAE_J1939})
 
 # Länka mot MySQL C++ Connector
 find_package(mysql-concpp CONFIG REQUIRED)
