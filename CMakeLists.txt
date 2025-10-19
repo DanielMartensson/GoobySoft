@@ -31,9 +31,9 @@ target_include_directories(GoobySoftRun PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Goob
 # Länka mot MySQL C++ Connector
 find_package(mysql-concpp CONFIG REQUIRED)
 if(mysql-concpp_FOUND)
-    message(STATUS "MySQL C++ Connector library found")
     # Lägg till sökvägen där libmysqlcppconnx-static.a ligger
     if(UNIX)
+        message(STATUS "MySQL C++ Connector library found - Unix")
         target_link_directories(GoobySoftRun PRIVATE "${CMAKE_SOURCE_DIR}/../vcpkg/installed/x64-linux/lib")
         target_link_libraries(GoobySoftRun PRIVATE mysqlcppconnx-static)
     else()
