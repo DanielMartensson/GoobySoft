@@ -32,7 +32,7 @@ target_include_directories(GoobySoftRun PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Goob
 find_package(mysql-concpp CONFIG REQUIRED)
 if(mysql-concpp_FOUND)
     message(STATUS "MySQL C++ Connector library found")
-    target_link_libraries(GoobySoftRun PRIVATE mysqlcppconn)
+    target_link_libraries(GoobySoftRun PRIVATE mysqlcppconn-static)
 else()
     message(FATAL_ERROR "MySQL C++ Connector library not found")
 endif()
