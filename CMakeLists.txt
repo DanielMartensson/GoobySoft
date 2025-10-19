@@ -5,15 +5,14 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_BUILD_TYPE "Release")
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# optimeringsflaggor
+# Inkludera externa bibliotek från Libraries-mappen
+add_subdirectory(GoobySoft/Tools/Software/Libraries/Open-SAE-J1939)
+add_subdirectory(GoobySoft/Tools/Software/Libraries/CControl)
 
-file(GLOB_RECURSE SOURCES "GoobySoft/*.cpp" "GoobySoft/*.c")
-
-file(GLOB_RECURSE INCLUDES "GoobySoft/*.h")
-
-add_executable(GoobySoft ${SOURCES})
-
-include_directories(${INCLUDES})
+# CPP filer
+file(GLOB_RECURSE ALL_SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/*.cpp")
+add_library(GoobySoft STATIC ${ALL_SOURCE_FILES})
+target_include_directories(GoobySoft PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft")
 
 # Hitta och länka mot MySQL C++ Connector
 find_package(mysql-concpp CONFIG REQUIRED)
@@ -64,31 +63,31 @@ else()
 endif()
 
 # Hitta och länka mot Boost filesystem
-#find_package(Boost CONFIG REQUIRED COMPONENTS filesystem)
-#if (Boost_FOUND)
-#    message(STATUS "Boost filesystem library found")
-#    target_link_libraries(GoobySoft PRIVATE Boost::filesystem)
-#else()
-#    message(FATAL_ERROR "Boost filesystem library not found")
-#endif()
+find_package(Boost CONFIG REQUIRED COMPONENTS filesystem)
+if (Boost_FOUND)
+    message(STATUS "Boost filesystem library found")
+    target_link_libraries(GoobySoft PRIVATE Boost::filesystem)
+else()
+    message(FATAL_ERROR "Boost filesystem library not found")
+endif()
 
 # Hitta och länka mot Boost system
-#find_package(Boost CONFIG REQUIRED COMPONENTS system)
-#if (Boost_FOUND)
-#    message(STATUS "Boost system library found")
-#    target_link_libraries(GoobySoft PRIVATE Boost::system)
-#else()
-#    message(FATAL_ERROR "Boost system library not found")
-#endif()
-
-# Hitta och länka mot Boost
-find_package(Boost CONFIG REQUIRED)
+find_package(Boost CONFIG REQUIRED COMPONENTS system)
 if (Boost_FOUND)
-    message(STATUS "Boost library found")
-    target_link_libraries(GoobySoft PRIVATE Boost)
-    target_include_directories(GoobySoft PRIVATE ${Boost_INCLUDE_DIRS})
+    message(STATUS "Boost system library found")
+    target_link_libraries(GoobySoft PRIVATE Boost::system)
 else()
-    message(FATAL_ERROR "Boost library not found")
+    message(FATAL_ERROR "Boost system library not found")
+endif()
+
+# Hitta och länka mot Boost date time
+find_package(Boost CONFIG REQUIRED COMPONENTS date_time)
+if (Boost_FOUND)
+    message(STATUS "Boost date time library found")
+    target_link_libraries(GoobySoft PRIVATE Boost::date_time)
+    #target_include_directories(GoobySoft PRIVATE ${Boost_INCLUDE_DIRS})
+else()
+    message(FATAL_ERROR "Boost date time library not found")
 endif()
 
 # Hitta och länka mot OpenGL
@@ -109,8 +108,3 @@ if (OpenCV_FOUND)
 else()
     message(FATAL_ERROR "OpenCV library not found")
 endif()
-
-# Inkludera externa bibliotek från Libraries-mappen
-add_subdirectory(GoobySoft/Tools/Software/Libraries/Open-SAE-J1939)
-add_subdirectory(GoobySoft/Tools/Software/Libraries/CControl)
-# Lägg till fler beroenden här vid behov, t.ex. ImGui, ImPlot etc.
