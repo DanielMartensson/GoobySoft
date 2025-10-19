@@ -11,7 +11,7 @@ add_subdirectory(GoobySoft/Tools/Software/Libraries/CControl)
 
 # CPP filer
 file(GLOB_RECURSE ALL_SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/*.cpp")
-add_executable(GoobySoft STATIC ${ALL_SOURCE_FILES})
+add_executable(GoobySoft ${ALL_SOURCE_FILES})
 target_include_directories(GoobySoft PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft")
 
 # Hitta och länka mot MySQL C++ Connector
