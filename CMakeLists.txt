@@ -11,6 +11,7 @@ add_subdirectory(GoobySoft/Tools/Software/Libraries/CControl)
 
 # Hämta alla .cpp-filer i GoobySoft mappen
 file(GLOB_RECURSE ALL_SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/*.cpp")
+file(GLOB_RECURSE HEADERS CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/*.h")
 
 # Exkludera main.c från CControl och OpenSAEJ1939 om de hamnat med (fast du har cpp-filer, men bra att ha som exempel)
 set(MAIN_SRC_CControl "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/Tools/Software/Libraries/CControl/src/Main.c")
@@ -52,6 +53,15 @@ if(UNIX)
     else()
         message(FATAL_ERROR "libdl library not found")
     endif()
+endif()
+
+# Länka mot OpenSSL
+find_package(OpenSSL REQUIRED)
+if(OpenSSL_FOUND)
+    message(STATUS "OpenSSL found!")
+    target_link_libraries(GoobySoftRun PRIVATE OpenSSL::SSL OpenSSL::Crypto)
+else()
+    message(FATAL_ERROR "OpenSSL not found!")
 endif()
 
 # Länka mot SDL3
