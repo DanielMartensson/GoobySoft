@@ -137,3 +137,30 @@ if (OpenCV_FOUND)
 else()
     message(FATAL_ERROR "OpenCV library not found")
 endif()
+
+# Länka mot CSerialPort
+find_package(CSerialPort REQUIRED)
+if (CSerialPort_FOUND)
+    message(STATUS "CSerialPort library found")
+    target_link_libraries(GoobySoftRun PRIVATE cserialport)
+else()
+    message(FATAL_ERROR "CSerialPort library not found")
+endif()
+
+# Länka mot zstd
+find_package(zstd CONFIG REQUIRED)
+if (zstd_FOUND)
+    message(STATUS "zstd library found")
+    target_link_libraries(GoobySoftRun PRIVATE zstd::libzstd)
+else()
+    message(FATAL_ERROR "zstd library not found")
+endif()
+
+# Länka mot lz4
+find_package(lz4 CONFIG REQUIRED)
+if (lz4_FOUND)
+    message(STATUS "lz4 library found")
+    target_link_libraries(GoobySoftRun PRIVATE lz4::lz4)
+else()
+    message(FATAL_ERROR "lz4 library not found")
+endif()

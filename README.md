@@ -266,7 +266,7 @@ git submodule update --init --recursive
 # Install 
 cd vcpkg
 ./bootstrap-vcpkg
-./vcpkg install mysql-connector-cpp boost-filesystem sdl3 pthreads boost-system opengl opencv cserialport intel-mkl boost-date-time openssl
+./vcpkg install mysql-connector-cpp boost-filesystem sdl3 pthreads boost-system opengl opencv cserialport intel-mkl boost-date-time openssl lz4 zstd
 cd ..
 
 # Tool chain
