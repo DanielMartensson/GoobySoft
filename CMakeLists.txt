@@ -10,7 +10,7 @@ add_subdirectory(GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939)
 add_subdirectory(GoobySoft/Tools/Software/Libraries/CControl)
 
 # Hämta alla .cpp-filer i GoobySoft mappen
-file(GLOB_RECURSE ALL_SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/*.cpp")
+file(GLOB_RECURSE ALL_SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/*.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/*.c")
 file(GLOB_RECURSE HEADERS CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/*.h")
 
 # Exkludera main.c från CControl och OpenSAEJ1939 om de hamnat med (fast du har cpp-filer, men bra att ha som exempel)
