@@ -261,8 +261,7 @@ The folders `x64/Debug` and `x64/Release` contains prebuilt 64-bit Windows binar
 # Clone
 git clone https://github.com/microsoft/vcpkg.git
 git clone https://github.com/DanielMartensson/GoobySoft.git
-git clone https://github.com/DanielMartensson/CControl.git
-git clone https://github.com/DanielMartensson/Open-SAE-J1939.git
+git submodule update --init --recursive
 
 # Install 
 cd vcpkg
