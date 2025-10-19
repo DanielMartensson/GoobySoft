@@ -26,7 +26,7 @@ add_executable(GoobySoftRun ${ALL_SOURCE_FILES})
 target_include_directories(GoobySoftRun PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft")
 
 # Länka mot dina egna bibliotek från add_subdirectory (de måste byggas som bibliotek, inte exekverbara)
-target_link_libraries(GoobySoftRun PRIVATE CControl opensaej1939)
+#target_link_libraries(GoobySoftRun PRIVATE CControl opensaej1939)
 
 # Länka mot MySQL C++ Connector
 find_package(mysql-concpp CONFIG REQUIRED)
