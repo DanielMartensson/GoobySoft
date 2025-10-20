@@ -246,15 +246,6 @@ If you got some issues with the combo boxes e.g for `Functions` or want to add m
 The folders `Debug` and `Release` contains prebuilt 32-bit Windows binaries for `GoobySoft`.
 The folders `x64/Debug` and `x64/Release` contains prebuilt 64-bit Windows binaries for `GoobySoft`.
 
-## Windows - Compile from source
-
- 1. Install `Visual Studio Community`
- 2. Install `Vcpkg`
- 3. Install `Intel Math Kernel Library` manually from Intel.
- 4. Configure `vcpkg` with `Visual Studio Community`
- 5. Install the following vcpkg packages: `sdl3`, `opengl`, `opencv`, `mysql-connector-cpp`, `cserialport`, `boost-date-time`, `boost-filesystem`, `boost-chrono`
- 6. Run the `GoobySoft.sln` file with `Visual Studio Community` and press the compile button.
-
 ## Windows/Linux
 
 ```bash
@@ -272,6 +263,9 @@ cd ..
 # Tool chain
 cd GoobySoft
 cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=path/to/vcpkg/scripts/buildsystems/vcpkg.cmake
+
+# Or if you got some issues with MKL or MySQL
+cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=../vcpkg/scripts/buildsystems/vcpkg.cmake  -DCMAKE_PREFIX_PATH="C:/path/to/../../vcpkg/installed/x64-<windows or linux>"
 
 # Build
 cmake --build build
