@@ -45,24 +45,33 @@ void Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasuremen
 		static size_t rowCount = 0;
 		static size_t columnCount = 0;
 		static rapidcsv::Document doc;
+		static size_t filePathNameCSVIndex = 0;
 		ImGui::SameLine();
 		if (ImGui::Button("Load file")) {
 			// Load the CSV file
-			doc.Load(Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName);
-			columnCount = doc.GetColumnCount();
-			rowCount = doc.GetRowCount();
-
-			// Check
-			if (from > rowCount) {
-				from = rowCount;
-			}
-			if (to > rowCount) {
-				to = rowCount;
-			}
-			if (withStep > rowCount) {
-				withStep = rowCount;
+			const char* filePathName = Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName;
+			filePathNameCSVIndex = std::string(filePathName).find(".csv");
+			if(filePathNameCSVIndex != std::string::npos){
+				doc.Load(filePathName);
+				columnCount = doc.GetColumnCount();
+				rowCount = doc.GetRowCount();
+				// Check
+				if (from > rowCount) {
+					from = rowCount;
+				}
+				if (to > rowCount) {
+					to = rowCount;
+				}
+				if (withStep > rowCount) {
+					withStep = rowCount;
+				}
+			}else{
+				ImGui::OpenPopup("No .csv selected!");
 			}
 		}
+
+		// Inform the user that the user has forgotten to select the .csv file
+		Tools_Gui_CreateDialogs_showPopUpInformationDialogOK("No .csv selected!", "You need to select a .csv first!");
 
 		if (ImGui::InputInt("From", (int*)&from)) {
 			if (from < 1) {
@@ -91,7 +100,7 @@ void Windows_Dialogs_MeasurementDialogs_ViewMeasurementDialog_showViewMeasuremen
 		ImGui::Separator();
 
 		// Get the column names
-		if (columnCount > 0) {
+		if (columnCount > 0 && filePathNameCSVIndex != std::string::npos) {
 			// Get column names
 			std::vector<std::string> columnNames = doc.GetColumnNames();
 
