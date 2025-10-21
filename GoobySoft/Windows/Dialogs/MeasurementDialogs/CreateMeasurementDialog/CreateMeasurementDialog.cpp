@@ -126,7 +126,7 @@ void Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasur
 			// Open new file
             const char* filePathName = Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName;
             if(filePathName != nullptr){
-              measurementFile.open();
+              measurementFile.open(filePathName);
               isStarted = measurementFile.is_open();
             }
 
