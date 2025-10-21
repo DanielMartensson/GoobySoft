@@ -124,11 +124,11 @@ void Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasur
 			Tools_Communications_Devices_clear();
 
 			// Open new file
-    const char* filePathName = Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName;
-    if(filePathName != nullptr){
-      measurementFile.open();
-      isStarted = measurementFile.is_open();
-    }
+        const char* filePathName = Tools_Hardware_ParameterStore_getParameterHolder()->fileSettings.filePathName;
+        if(filePathName != nullptr){
+          measurementFile.open();
+          isStarted = measurementFile.is_open();
+        }
 
 			if (isStarted) {
 				// Write the header - Begin with time
