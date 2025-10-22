@@ -265,7 +265,7 @@ cd GoobySoft
 cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=path/to/vcpkg/scripts/buildsystems/vcpkg.cmake
 
 # Or if you got some issues with MKL or MySQL
-cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=../vcpkg/scripts/buildsystems/vcpkg.cmake  -DCMAKE_PREFIX_PATH="C:/path/to/../../vcpkg/installed/x64-<windows or linux>"
+cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=../vcpkg/scripts/buildsystems/vcpkg.cmake  -DCMAKE_PREFIX_PATH="C:/path/to/../../vcpkg/<vcpkg_ or not>installed/x64-<windows or linux>"
 
 # Build
 cmake --build build

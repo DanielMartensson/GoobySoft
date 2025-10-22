@@ -10,8 +10,6 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include "modbusclient.h"
-#include "modbusserver.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -20,7 +18,7 @@ extern "C" {
 /* Uncomment if client */
 #define IS_MODBUS_CLIENT 
 
-/* Uncomment if server
+/* Uncomment if server 
 #define IS_MODBUS_SERVER */
 
 /* For all */
@@ -55,6 +53,10 @@ bool modbus_client_set_parameters(const uint16_t parameters[], const uint16_t ad
 bool modbus_client_get_parameters(uint16_t parameters[], const uint16_t address, const uint16_t quantity);
 
 #endif
+
+/* Place these .h files here because of the defines IS_MODBUS_CLIENT and IS_MODBUS_SERVER */
+#include "modbusclient.h"
+#include "modbusserver.h"
 
 #ifdef __cplusplus
 }
