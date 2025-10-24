@@ -138,17 +138,17 @@ std::string Tools_Hardware_USB_getProtocolFromPort(const char port[]) {
 }
 
 int32_t Tools_Hardware_USB_write(const char port[], const uint8_t data[], const uint16_t size, const int32_t timeout_ms) {
-  if(!Tools_Hardware_USB_checkIfExist(port)){
-    return -1;
-  }
+    if(!Tools_Hardware_USB_checkIfExist(port)){
+      return -1;
+    }
 	const int32_t transmittedBytes = connections[port]->writeData(data, size);
 	return transmittedBytes;
 }
 
 int32_t Tools_Hardware_USB_read(const char port[], uint8_t data[], const uint16_t size, const int32_t timeout_ms) {
-  if(!Tools_Hardware_USB_checkIfExist(port)){
-    return -1;
-  }
+    if(!Tools_Hardware_USB_checkIfExist(port)){
+      return -1;
+    }
 	int32_t countedBytes = 0;
 	int32_t leftBytes = size;
 	long long endTime = Tools_Software_Algorithms_getMilliSeconds() + timeout_ms;
