@@ -161,6 +161,9 @@ int32_t Tools_Hardware_USB_read(const char port[], uint8_t data[], const uint16_
 }
 
 void Tools_Hardware_USB_flush(const char port[]) {
+    if(!Tools_Hardware_USB_checkIfExist(port)){
+      return;
+    }
 	connections[port]->flushBuffers();
 	connections[port]->flushReadBuffers();
 	connections[port]->flushWriteBuffers();
