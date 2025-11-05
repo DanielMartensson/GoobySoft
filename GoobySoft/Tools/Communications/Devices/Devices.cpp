@@ -104,7 +104,7 @@ void Tools_Communications_Devices_createDevices() {
 
 	// Create devices for protocols 
 	createProtocolTool(&protocols[0], PROTOCOL_STRING[PROTOCOL_ENUM_MODBUS_RTU], 3); // Modbus RTU, 3 device
-	createProtocolTool(&protocols[1], PROTOCOL_STRING[PROTOCOL_ENUM_CDC], 1); // CDC, 1 device
+	createProtocolTool(&protocols[1], PROTOCOL_STRING[PROTOCOL_ENUM_RAW_USB], 1); // Raw USB, 1 device
 	// Add new protocol here...
 
 	// Create modbus RTU devices
@@ -141,7 +141,7 @@ void Tools_Communications_Devices_updatePorts() {
 						// Check if the column is port column
 						if (tableColumns[l].tableColumnID.columnDefinition == COLUMN_DEFINITION_PORT) {
 							bool isUSB = (std::strcmp(PROTOCOL_STRING[PROTOCOL_ENUM_MODBUS_RTU].c_str(), protocols[i].protocolName) == 0) ||
-								         (std::strcmp(PROTOCOL_STRING[PROTOCOL_ENUM_CDC].c_str(), protocols[i].protocolName) == 0);
+								         (std::strcmp(PROTOCOL_STRING[PROTOCOL_ENUM_RAW_USB].c_str(), protocols[i].protocolName) == 0);
 							if (isUSB) {
 								// Copy over the USB ports
 								std::strcpy(tableColumns[l].functionValues, Tools_Hardware_USB_getConnectedPorts().c_str());
