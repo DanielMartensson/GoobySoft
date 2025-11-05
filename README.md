@@ -39,7 +39,7 @@ void Tools_Communications_Devices_createDevices() {
 
 	// Create devices for protocols 
 	createProtocolTool(&protocols[0], PROTOCOL_STRING[USB_PROTOCOL_ENUM_MODBUS_RTU], 1); // Modbus RTU, 1 device
-	createProtocolTool(&protocols[1], PROTOCOL_STRING[USB_PROTOCOL_ENUM_RAW_USB], 1); protocol), 1 device
+	createProtocolTool(&protocols[1], PROTOCOL_STRING[USB_PROTOCOL_ENUM_RAW_USB], 1); protocol), // 1 device
 	// Add new protocol here...
 
 	// Create devices
