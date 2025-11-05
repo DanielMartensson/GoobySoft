@@ -113,7 +113,7 @@ void Tools_Communications_Devices_createDevices() {
 	createDeviceTool(&protocols[0].devices[2], "WellerToJBC", Tools_Communications_Devices_WellerToJBC_getFunctionValues, Tools_Communications_Devices_WellerToJBC_getTableColumnIDs, Tools_Communications_Devices_WellerToJBC_getInput, Tools_Communications_Devices_WellerToJBC_setOutput, Tools_Communications_Devices_WellerToJBC_getColumnFunction);
 	// Add new device here...
 
-	// Create CDC devices
+	// Create Raw USB devices
 	createDeviceTool(&protocols[1].devices[0], "STM32 PLC", Tools_Communications_Devices_STM32PLC_getFunctionValues, Tools_Communications_Devices_STM32PLC_getTableColumnIDs, Tools_Communications_Devices_STM32PLC_getInput, Tools_Communications_Devices_STM32PLC_setOutput, Tools_Communications_Devices_STM32PLC_getColumnFunction);
 	// Add new device here...
 }
