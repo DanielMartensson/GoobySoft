@@ -210,12 +210,12 @@ It's very important to select right `COLUMN_FUNCTION` for a specific `IO` index.
 /* 
  * One protocol can contains multiple devices.
  * PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC] stands for USB communications device class e.g regular USB communication
- * Here I say that `CDC` can hold 10 devices.
+ * Here I say that `Raw USB` can hold 10 devices.
  */
-createProtocolTool(&protocols[1], PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC], 10); 
+createProtocolTool(&protocols[1], PROTOCOL_STRING[USB_PROTOCOL_ENUM_RAW_USB], 10); 
 
 
-/* Add your device to that protocol CDC. Here I say that my device is CDC and the device is at index 0 */
+/* Add your device to that protocol `Raw USB`. Here I say that my device is `Raw USB` and the device is at index 0 */
 createDeviceTool(&protocols[1].devices[0], "<NAME_OF_YOUR_DEVICE>", 
 Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_getFunctionValues, 
 Tools_Communications_Devices_<NAME_OF_YOUR_DEVICE>_getTableColumnIDs, 
@@ -230,7 +230,7 @@ Now you are done! For examples, head over to [Devices](https://github.com/Daniel
 If you got some issues with the combo boxes e.g for `Functions` or want to add more devices, check out the configuration inside `Parameters.h` file
 
 ```cpp
-#define MAX_PROTOCOLS 5			// How many protocols can be used, CDC, Modbus RTU, Modbus TCP etc..
+#define MAX_PROTOCOLS 5			// How many protocols can be used, Raw USB, Modbus RTU, Modbus TCP etc..
 #define MAX_DEVICES 10			// How many devices per protocol
 #define MAX_ROWS 10			// How many rows per device inside configuration window
 #define MAX_COLUMNS 10			// Max columns for each device inside configuration column
