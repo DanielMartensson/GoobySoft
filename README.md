@@ -209,7 +209,7 @@ It's very important to select right `COLUMN_FUNCTION` for a specific `IO` index.
 ```cpp
 /* 
  * One protocol can contains multiple devices.
- * PROTOCOL_STRING[USB_PROTOCOL_ENUM_CDC] stands for USB communications device class e.g regular USB communication
+ * PROTOCOL_STRING[USB_PROTOCOL_ENUM_RAW_USB] stands for USB communications device class e.g regular USB communication
  * Here I say that `Raw USB` can hold 10 devices.
  */
 createProtocolTool(&protocols[1], PROTOCOL_STRING[USB_PROTOCOL_ENUM_RAW_USB], 10); 
