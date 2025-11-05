@@ -4,11 +4,11 @@
 #include <string>
 
 // What protocol are the devices talking. Don't forget to update void Tools_Communications_Devices_updatePorts() as well!
-static const std::string PROTOCOL_STRING[] = { "Modbus RTU", "CDC", "Modbus TCP"};
+static const std::string PROTOCOL_STRING[] = { "Modbus RTU", "CDC", "Modbus TCP", Kvaser CAN"};
 typedef enum {
 	PROTOCOL_ENUM_MODBUS_RTU,
 	PROTOCOL_ENUM_CDC,
-	PROTOCOL_ENUM_MODBUS_TCP
+	PROTOCOL_ENUM_MODBUS_TCP,   PROTOCOL_ENUM_KVASER_CAN
 }PROTOCOL_ENUM;
 
 // Devices
