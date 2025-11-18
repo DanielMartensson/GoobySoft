@@ -31,8 +31,10 @@ static void createPlot(const char plotTitle[], Protocol* protocols, bool perform
 							// Find the function
 							if (tableColumns[l].tableColumnID.columnDefinition == COLUMN_DEFINITION_FUNCTION) {
 								// Check the function and get the address. If no address is available, then address is NULL
-								char* port = (char*)Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_PORT, &columnType);
-								int address = *(int*)Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_ADDRESS, &columnType);
+								void* ptr = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_PORT, &columnType);
+								const char* port = columnType == COLUMN_TYPE_UNKNOWN ? "ERROR" : (const char*)ptr;
+								ptr = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_ADDRESS, &columnType);
+								const int address = columnType == COLUMN_TYPE_UNKNOWN ? -1 : *(const int*)ptr;
 								
 								// Do measurement now
 								if (tableColumns[l].tableColumnID.columnFunction == COLUMN_FUNCTION_INPUT_SENSOR_NO_CALIBRATION) {
@@ -45,10 +47,14 @@ static void createPlot(const char plotTitle[], Protocol* protocols, bool perform
 									measurement = tableRows[k].getInput(port, tableColumns[l].functionValueIndex, address);
 								}
 								if (tableColumns[l].tableColumnID.columnFunction == COLUMN_FUNCTION_INPUT_SENSOR_ANALOG) {
-									float valueMin = *(float*)Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MIN_VALUE_REAL, &columnType);
-									float valueMax = *(float*)Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MAX_VALUE_REAL, &columnType);
-									int valueMinRaw = *(int*)Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MIN_VALUE_RAW, &columnType);
-									int valueMaxRaw = *(int*)Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MAX_VALUE_RAW, &columnType);
+									ptr = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MIN_VALUE_REAL, &columnType);
+									const float valueMin = columnType == COLUMN_TYPE_UNKNOWN ? -1.0f : *(const float*)ptr;
+									ptr = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MAX_VALUE_REAL, &columnType);
+									float valueMax = columnType == COLUMN_TYPE_UNKNOWN ? -1.0f : *(const float*)ptr;
+									ptr = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MIN_VALUE_RAW, &columnType);
+									const int valueMinRaw = columnType == COLUMN_TYPE_UNKNOWN ? -1 : *(const int*)ptr;
+									ptr = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MAX_VALUE_RAW, &columnType);
+									const int valueMaxRaw = columnType == COLUMN_TYPE_UNKNOWN ? -1 : *(const int*)ptr;
 									measurement = Tools_Software_Algorithms_calibration(valueMinRaw, valueMaxRaw, valueMin, valueMax, tableRows[k].getInput(port, tableColumns[l].functionValueIndex, address));
 								}
 								if (tableColumns[l].tableColumnID.columnFunction == COLUMN_FUNCTION_OUTPUT_ACTUATOR) {
@@ -79,7 +85,8 @@ static void createPlot(const char plotTitle[], Protocol* protocols, bool perform
 						}
 
 						// Plot data vector
-						char* displayName = (char*)Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_DISPLAY_NAME, &columnType);
+						void* ptr = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_DISPLAY_NAME, &columnType);
+						const char* displayName = columnType == COLUMN_TYPE_UNKNOWN ? "ERROR" : (const char*)ptr;
 						ImPlot::PlotLine(displayName, tableRows[k].xData, tableRows[k].yData, samplesShown);
 
 						// Add ,
@@ -247,17 +254,17 @@ void Windows_Dialogs_MeasurementDialogs_CreateMeasurementDialog_showCreateMeasur
 								if (tableColumns[l].tableColumnID.columnFunction == COLUMN_FUNCTION_OUTPUT_ACTUATOR || tableColumns[l].tableColumnID.columnFunction == COLUMN_FUNCTION_OUTPUT_ACTUATOR_ADDRESS) {
 									// Find important columns for creating a slider
 									COLUMN_TYPE columnType;
-									void* value = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_DISPLAY_NAME, &columnType);
-									const char* displayName = value == nullptr ? "ERROR" : (const char*)value;
-									value = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_PORT, &columnType);
-									const char* port = value == nullptr ? "ERROR" : (const char*)value;
-									value = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MIN_VALUE_RAW, &columnType);
-									int valueMinRaw = value == nullptr ? -1 : *(int*)value;
-									value = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MAX_VALUE_RAW, &columnType);
-									int valueMaxRaw = value == nullptr ? -1 : *(int*)value;
-									value = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_ADDRESS, &columnType);
-									int address = value == nullptr ? -1 : *(int*)value;
-									int outputIndex = tableColumns[l].functionValueIndex;
+									void* ptr = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_DISPLAY_NAME, &columnType);
+									const char* displayName = columnType == COLUMN_TYPE_UNKNOWN ? "ERROR" : (const char*)ptr;
+									ptr = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_PORT, &columnType);
+									const char* port = columnType == COLUMN_TYPE_UNKNOWN ? "ERROR" : (const char*)ptr;
+									ptr = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MIN_VALUE_RAW, &columnType);
+									const int valueMinRaw = columnType == COLUMN_TYPE_UNKNOWN ? -1 : *(const int*)ptr;
+									ptr = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_MAX_VALUE_RAW, &columnType);
+									const int valueMaxRaw = columnType == COLUMN_TYPE_UNKNOWN ? -1 : *(const int*)ptr;
+									ptr = Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(tableColumns, tableColumnCount, COLUMN_DEFINITION_ADDRESS, &columnType);
+									const int address = columnType == COLUMN_TYPE_UNKNOWN ? -1 : *(const int*)ptr;
+									const int outputIndex = tableColumns[l].functionValueIndex;
 
 									// Add slider
 									ImGui::SliderInt(displayName, &tableRows[k].sliderValue, valueMinRaw, valueMaxRaw);
