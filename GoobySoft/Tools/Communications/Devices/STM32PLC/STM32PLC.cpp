@@ -83,21 +83,21 @@ typedef enum {
 static uint8_t readInputUint8_t(const char port[], uint8_t messageType, uint8_t index) {
 	uint8_t data[2] = { messageType, index };
 	Tools_Hardware_USB_write(port, data, 2, 0);
-	const int32_t result = Tools_Hardware_USB_read(port, data, 1, 100);
+	const int32_t result = Tools_Hardware_USB_read_bytes(port, data, 1, 100);
 	return result > 0 ? data[0] : 0;
 }
 
 static uint16_t readInputUint16_t(const char port[], uint8_t messageType, uint8_t index) {
 	uint8_t data[2] = { messageType, index };
 	Tools_Hardware_USB_write(port, data, 2, 0);
-	const int32_t result = Tools_Hardware_USB_read(port, data, 2, 100);
+	const int32_t result = Tools_Hardware_USB_read_bytes(port, data, 2, 100);
 	return result > 0 ? (data[0] << 8) | data[1] : 0;
 }
 
 static bool writeOutputUint16_t(const char port[], uint8_t messageType, uint8_t index, uint16_t value) {
 	uint8_t data[4] = { messageType, index, value >> 8, value };
 	Tools_Hardware_USB_write(port, data, 4, 0);
-	const int32_t result = Tools_Hardware_USB_read(port, data, 1, 100);
+	const int32_t result = Tools_Hardware_USB_read_bytes(port, data, 1, 100);
 	return result > 0 ? true : false;
 }
 

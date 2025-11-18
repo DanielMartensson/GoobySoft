@@ -23,7 +23,7 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigurePWMDial
 		if (ImGui::Button("Receive PWM prescalers")) {
 			uint8_t data[4] = { STM32PLC_SEND_BACK_PWM_PRESCALERS_MESSAGE_TYPE };
 			Tools_Hardware_USB_write(port, data, 1, 0);
-			const int32_t result = Tools_Hardware_USB_read(port, data, 4, 100);
+			const int32_t result = Tools_Hardware_USB_read_bytes(port, data, 4, 100);
 			if (result > 0) {
 				prescaler_PWM0_to_PWM3 = (data[0] << 8) | data[1];
 				prescaler_PWM4_to_PWM7 = (data[2] << 8) | data[3];
@@ -34,7 +34,7 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigurePWMDial
 		if (ImGui::Button("Transmit PWM prescalers ")) {
 			uint8_t data[5] = { STM32PLC_WRITE_SET_PWM_PRESCALER_MESSAGE_TYPE, prescaler_PWM0_to_PWM3 >> 8, prescaler_PWM0_to_PWM3 & 0xFF, prescaler_PWM4_to_PWM7 >> 8, prescaler_PWM4_to_PWM7 & 0xFF};
 			Tools_Hardware_USB_write(port, data, 5, 0);
-			const int32_t result = Tools_Hardware_USB_read(port, data, 1, 100);
+			const int32_t result = Tools_Hardware_USB_read_bytes(port, data, 1, 100);
 			if (result > 0) {
 				Tools_Gui_CreateDialogs_showPopUpInformationDialogOK("Presecalers", "Presecalers transmitted");
 			}

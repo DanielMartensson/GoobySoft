@@ -24,7 +24,7 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureAnalogI
 			for (int adc = 0; adc < 3; adc++) {
 				uint8_t data[3] = { STM32PLC_SEND_BACK_ANALOG_GAINS_MESSAGE_TYPE , adc };
 				Tools_Hardware_USB_write(port, data, 2, 0);
-				const int32_t result = Tools_Hardware_USB_read(port, data, 3, 100);
+				const int32_t result = Tools_Hardware_USB_read_bytes(port, data, 3, 100);
 				if (result > 0) {
 					for (int configurationIndex = 0; configurationIndex < 3; configurationIndex++) {
 						inputGains[adc * 3 + configurationIndex] = data[configurationIndex];
@@ -42,7 +42,7 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigureAnalogI
 					data[2] = configurationIndex;
 					data[3] = inputGains[adc * 3 + configurationIndex];
 					Tools_Hardware_USB_write(port, data, 4, 0);
-					const int32_t result = Tools_Hardware_USB_read(port, data, 1, 100);
+					const int32_t result = Tools_Hardware_USB_read_bytes(port, data, 1, 100);
 					if (result > 0) {
 						count++;
 					}
