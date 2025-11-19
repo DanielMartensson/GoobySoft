@@ -3,6 +3,18 @@
 #include <vector>
 #include <string>
 #include <cstdint>
+#include <algorithm>
+
+template<typename T> void Tools_Software_Algorithms_circularCopy(const T arraySrc[], T arrayDest[], const int startIndexSrc, const size_t copyElements, const size_t arrarSizeSrc){
+    // Copy first segment
+    const size_t firstPart = std::min(copyElements, arrarSizeSrc - startIndexSrc);
+    std::copy(arraySrc + startIndexSrc, arraySrc + startIndexSrc + firstPart, arrayDest);
+
+    // Copy the rest
+    if (firstPart < copyElements) {
+        std::copy(arraySrc, arraySrc + (copyElements - firstPart), arrayDest + firstPart);
+    }
+}
 
 std::string Tools_Software_Algorithms_getISO8601Time();
 long long Tools_Software_Algorithms_getMicroSeconds();

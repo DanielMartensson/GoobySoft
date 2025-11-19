@@ -3,13 +3,14 @@
 #include <CSerialPort/SerialPort.h>
 #include <CSerialPort/SerialPortInfo.h>
 
-// Map for all connections of ports and collections of data
+// Map of port connections
 static std::map<std::string, std::shared_ptr<itas109::CSerialPort>> portConnections;
-static std::map<std::string, std::vector<uint8_t>> dataCollections;
-static std::map<std::string, std::vector<uint32_t>> packageSizes;
 
-// This is the total length and size of both dataCollections and packageSizes
-#define MAX_PACKAGE_LENGTH_SIZE 1024
+// Maps of the circular buffert
+#define MAX_DATA_COLLECTION 1024
+static std::map<std::string, std::array<uint8_t, MAX_DATA_COLLECTION>> dataCollections;
+static std::map<std::string, int> dataBeginIndexs;
+static std::map<std::string, bool> dataIsNew;
 
 class USB_Listener : public itas109::CSerialPortListener {
 	private:
@@ -20,44 +21,30 @@ class USB_Listener : public itas109::CSerialPortListener {
 
 	};
 
-    void onReadEvent(const char *port, unsigned int dataBuffer) {
-        if (dataBuffer == 0){
+    void onReadEvent(const char* port, unsigned int bytesAvailable) {
+        if (bytesAvailable == 0){
 			return;
 		}
-
-		// Store data
-		std::vector<uint8_t>& dataCollection = dataCollections[port];
 		
-		// Read the total data to \0 or let the timeout occur
-		uint8_t data[MAX_PACKAGE_LENGTH_SIZE];
-		uint32_t totalReceivedPackage = 0;
-		while(true){
-			int received = p_sp->readData(data, dataBuffer);
-			if(received > 0){
-				totalReceivedPackage += received;
-				dataCollection.insert(dataCollection.end(), data, data + received);
-				if(data[received - 1] == '\0'){
-					break; // Null termination reached! Raw USB operates here
-				}
-			}else if(received == 0){
-				break; // Timeout! MODBUS, CAN etc. operates here
-			}else{
-				break; // An error occurs
-			}
+		// Read the data
+		uint8_t bytesBuffer[MAX_DATA_COLLECTION];
+		const int receivedBytes = p_sp->readData(bytesBuffer, bytesAvailable);
+		if(receivedBytes < 0){
+			return; // Error
 		}
 
-		// Remember package size
-		std::vector<uint32_t>& packageSize = packageSizes[port];
-		if(packageSize.size() >= MAX_PACKAGE_LENGTH_SIZE){
-			// Overflow: Delete the first package and first data bytes in the data collection
-			const uint32_t sizeOfPackage = packageSize.front();
-			dataCollection.erase(dataCollection.begin(), dataCollection.begin() + sizeOfPackage);
-			packageSize.erase(packageSize.begin());
-		}
-		packageSize.push_back(totalReceivedPackage);
+		// Store the data from buffer in a circular way
+		Tools_Software_Algorithms_circularCopy(dataCollections[port].data(), bytesBuffer, dataBeginIndexs[port], receivedBytes, MAX_DATA_COLLECTION);
+
+		// Shift index to new beginning index in a circular way
+		dataBeginIndexs[port] = (dataBeginIndexs[port] + receivedBytes) % MAX_DATA_COLLECTION;
+
+		// Set flag that the data is new
+		dataIsNew[port] = true; 
     };
 };
 
+// Listener thread
 static std::map<std::string, std::shared_ptr<USB_Listener>> portListeners;
 
 bool Tools_Hardware_USB_checkIfExist(const char port[]) {
@@ -92,7 +79,8 @@ USB_STATUS Tools_Hardware_USB_closeConnection(const char port[]) {
 		portConnections.erase(port);
 		portListeners.erase(port);
 		dataCollections.erase(port);
-		packageSizes.erase(port);
+		dataBeginIndexs.erase(port);
+		dataIsNew.erase(port);
 		return USB_STATUS_DISCONNECTED;
 	}else {
 		return USB_STATUS_NOT_EXIST;
@@ -162,7 +150,8 @@ USB_STATUS Tools_Hardware_USB_openConnection(const char port[], const unsigned i
 		// Save
 		portConnections[port] = portConnection;
 		dataCollections[port] = {};
-		packageSizes[port] = {};
+		dataBeginIndexs[port] = 0;
+		dataIsNew[port] = false;
 
 		// Start a listener for the port
 		std::shared_ptr<USB_Listener> portListener = std::make_shared<USB_Listener>(portConnection.get());
@@ -226,50 +215,25 @@ uint32_t Tools_Hardware_USB_getTimeout(const char port[]){
 	return portConnections[port]->getReadIntervalTimeout();
 }
 
-int32_t Tools_Hardware_USB_read_bytes(const char port[], uint8_t data[], const uint16_t size, const int32_t timeout_ms) {
+int32_t Tools_Hardware_USB_read(const char port[], uint8_t data[], const uint16_t size, const int32_t timeout_ms) {
     if(!Tools_Hardware_USB_checkIfExist(port)){
       return -1;
     }
 	if(Tools_Hardware_USB_getTimeout(port) != timeout_ms){
 		Tools_Hardware_USB_setTimeout(port, timeout_ms);
 	}
-	const int32_t countedBytes = portConnections[port]->readData(data, size);
-	return countedBytes;
-
-	/*
-	int32_t countedBytes = 0;
-	int32_t leftBytes = size;
-	long long endTime = Tools_Software_Algorithms_getMilliSeconds() + timeout_ms;
-	while (countedBytes < size && endTime > Tools_Software_Algorithms_getMilliSeconds()) {
-		const int32_t received = portConnections[port]->readData(data + countedBytes, leftBytes);
-		countedBytes += received;
-		leftBytes -= received;
+	if(!dataIsNew[port]){
+		return 0; // No data available
 	}
-	return countedBytes;*/
-}
 
-int32_t Tools_Hardware_USB_read_packages(const char port[], uint8_t data[]) {
-    if(!Tools_Hardware_USB_checkIfExist(port)){
-      return -1;
-    }
-	
-	// Check available package size
-	std::vector<uint32_t>& packageSize = packageSizes[port];
-	if(packageSize.empty()){
-		return 0;
-	}
-	const uint32_t sizeOfPackage = packageSize.front();
+	// Store the data in a circular way with size elements backwards as starting index
+	Tools_Software_Algorithms_circularCopy(dataCollections[port].data(), data, dataBeginIndexs[port] - size, size, MAX_DATA_COLLECTION);
 
-	// Copy over
-	std::vector<uint8_t>& dataCollection = dataCollections[port];
-	std::copy(dataCollection.begin(), dataCollection.begin() + sizeOfPackage, data);
+	// Set flag that the data has been read
+	dataIsNew[port] = false;
 
-	// Delete
-	dataCollection.erase(dataCollection.begin(), dataCollection.begin() + sizeOfPackage);
-	packageSize.erase(packageSize.begin());
-
-	// Allways return the size of the package, even if it's empty
-	return sizeOfPackage;
+	// Return the size. It's up to the Devices to determine(use protocol) if this uint8_t data[] is complete or not
+	return size;
 }
 
 void Tools_Hardware_USB_flush(const char port[]) {
@@ -279,6 +243,7 @@ void Tools_Hardware_USB_flush(const char port[]) {
 	portConnections[port]->flushBuffers();
 	portConnections[port]->flushReadBuffers();
 	portConnections[port]->flushWriteBuffers();
-	dataCollections[port].clear();
-	packageSizes[port].clear();
+	dataCollections[port].fill(0);
+	dataBeginIndexs[port] = 0;
+	dataIsNew[port] = false;
 }

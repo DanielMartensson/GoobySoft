@@ -134,7 +134,7 @@ int main(int, char**)
 
     // Set the callback function for modbus
     modbus_set_serial_write(Tools_Hardware_USB_write);
-    modbus_set_serial_read(Tools_Hardware_USB_read_bytes);
+    modbus_set_serial_read(Tools_Hardware_USB_read);
 
     // Create modbus client with the initial address 1 (it will be changed later when logging, see ADL400 or Uponor-X-148 source files)
     modbus_client_create_RTU(1);

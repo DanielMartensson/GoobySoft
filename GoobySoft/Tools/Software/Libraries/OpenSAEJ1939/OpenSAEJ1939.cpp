@@ -35,7 +35,7 @@ void Tools_Software_Libraries_OpenSAEJ1939_callbackFunctionRead(uint32_t* ID, ui
 	// Ask for CAN message
 	uint8_t CAN[30] = { STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE };
 	Tools_Hardware_USB_write(port, CAN, 1, 0);
-	int32_t received = Tools_Hardware_USB_read_bytes(port, CAN, 30, 1000);
+	int32_t received = Tools_Hardware_USB_read(port, CAN, 30, 1000);
 	if (received <= 0) {
 		*is_new_data = false;
 		return;
