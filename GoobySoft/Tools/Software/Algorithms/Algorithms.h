@@ -7,7 +7,12 @@
 #include <algorithm>
 
 template<typename T> 
-void Tools_Software_Algorithms_circularCopy(const T arraySrc[], T arrayDest[], int startIndexSrc, int startIndexDest, int copyElements, const int arraySizeSrc, const int arraySizeDest) {
+bool Tools_Software_Algorithms_circularCopy(const T arraySrc[], T arrayDest[], int startIndexSrc, int startIndexDest, int copyElements, const int arraySizeSrc, const int arraySizeDest) {
+    /* Check if the sizes are zero */
+    if(arraySizeSrc <= 0 || arraySizeDest <= 0){
+        return false;
+    }
+   
     /* -----------------------------------------------------
        Internal lambda: normalize an index into [0, size)
        ----------------------------------------------------- */
@@ -38,7 +43,7 @@ void Tools_Software_Algorithms_circularCopy(const T arraySrc[], T arrayDest[], i
     }
 
     if (copyElements <= 0) {
-        return;
+        return false;
     }
 
     /* -----------------------------------------------------
@@ -57,7 +62,7 @@ void Tools_Software_Algorithms_circularCopy(const T arraySrc[], T arrayDest[], i
 
     int remaining = copyElements - block1;
     if (remaining <= 0) {
-        return;
+        return true;
     }
 
     /* -----------------------------------------------------
@@ -78,7 +83,7 @@ void Tools_Software_Algorithms_circularCopy(const T arraySrc[], T arrayDest[], i
 
     remaining -= block2;
     if (remaining <= 0) {
-        return;
+        return true;
     }
 
     /* -----------------------------------------------------
@@ -88,6 +93,9 @@ void Tools_Software_Algorithms_circularCopy(const T arraySrc[], T arrayDest[], i
     int destIndex3 = (destIndex2 + block2) % arraySizeDest;
 
     copyBlock(arraySrc + srcIndex3, arrayDest + destIndex3, remaining);
+
+    /* It's working */
+    return true;
 }
 
 std::string Tools_Software_Algorithms_getISO8601Time();

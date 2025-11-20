@@ -22,13 +22,13 @@ class USB_Listener : public itas109::CSerialPortListener {
 	};
 
     void onReadEvent(const char* port, unsigned int bytesAvailable) {
-        if (bytesAvailable == 0){
+        if (bytesAvailable <= 0){
 			return;
 		}
 		
 		// Read the data
 		uint8_t bytesBuffer[MAX_DATA_COLLECTION];
-  const int bytesRead = MAX_DATA_COLLECTION < bytesAvailable ? MAX_DATA_COLLECTION : bytesAvailable;
+		const int bytesRead = MAX_DATA_COLLECTION < bytesAvailable ? MAX_DATA_COLLECTION : bytesAvailable;
 		const int receivedBytes = p_sp->readData(bytesBuffer, bytesRead);
 		if(receivedBytes <= 0){
 			return; 
@@ -198,6 +198,9 @@ int32_t Tools_Hardware_USB_write(const char port[], const uint8_t data[], const 
     if(!Tools_Hardware_USB_checkIfExist(port)){
       return -1;
     }
+	if(Tools_Hardware_USB_getTimeout(port) != timeout_ms){
+		Tools_Hardware_USB_setTimeout(port, timeout_ms);
+	}
 	const int32_t transmittedBytes = portConnections[port]->writeData(data, size);
 	return transmittedBytes;
 }
