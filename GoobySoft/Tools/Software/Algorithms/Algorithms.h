@@ -10,6 +10,7 @@ template<typename T> void Tools_Software_Algorithms_circularCopy(const T arraySr
     if(startIndexSrc < 0 || arraySizeSrc < startIndexSrc){
         startIndexSrc = (startIndexSrc % arraySizeSrc + arraySizeSrc) % arraySizeSrc;
     }
+
     // Copy first segment
     const size_t firstPart = std::min(copyElements, arraySizeSrc - startIndexSrc);
     std::copy(arraySrc + startIndexSrc, arraySrc + startIndexSrc + firstPart, arrayDest);
