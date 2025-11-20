@@ -34,7 +34,7 @@ class USB_Listener : public itas109::CSerialPortListener {
 		}
 
 		// Store the data from buffer in a circular way
-		Tools_Software_Algorithms_circularCopy(dataCollections[port].data(), bytesBuffer, dataBeginIndexs[port], receivedBytes, MAX_DATA_COLLECTION);
+		Tools_Software_Algorithms_circularCopy(bytesBuffer, dataCollections[port].data(), 0, dataBeginIndexs[port], receivedBytes, receivedBytes, MAX_DATA_COLLECTION);
 
 		// Shift index to new beginning index in a circular way
 		dataBeginIndexs[port] = (dataBeginIndexs[port] + receivedBytes) % MAX_DATA_COLLECTION;
@@ -227,7 +227,7 @@ int32_t Tools_Hardware_USB_read(const char port[], uint8_t data[], const uint16_
 	}
 
 	// Store the data in a circular way with size elements backwards as starting index
-	Tools_Software_Algorithms_circularCopy(dataCollections[port].data(), data, dataBeginIndexs[port] - size, size, MAX_DATA_COLLECTION);
+	Tools_Software_Algorithms_circularCopy(dataCollections[port].data(), data, dataBeginIndexs[port] - size, 0, size, MAX_DATA_COLLECTION, size);
 
 	// Set flag that the data has been read
 	dataIsNew[port] = false;

@@ -1,24 +1,93 @@
 #ifndef Algorithms
 #define Algorithms
 #include <vector>
+#include <cstring>
 #include <string>
 #include <cstdint>
 #include <algorithm>
 
-template<typename T> void Tools_Software_Algorithms_circularCopy(const T arraySrc[], T arrayDest[], int startIndexSrc, const int copyElements, const int arraySizeSrc){
-    // if startIndexSrc is negative or over or over arrarySizeSrc
-    if(startIndexSrc < 0 || arraySizeSrc < startIndexSrc){
-        startIndexSrc = (startIndexSrc % arraySizeSrc + arraySizeSrc) % arraySizeSrc;
+template<typename T> 
+void Tools_Software_Algorithms_circularCopy(const T arraySrc[], T arrayDest[], int startIndexSrc, int startIndexDest, int copyElements, const int arraySizeSrc, const int arraySizeDest) {
+    /* -----------------------------------------------------
+       Internal lambda: normalize an index into [0, size)
+       ----------------------------------------------------- */
+    auto normalizeIndex = [](int index, int size) {
+        return (index % size + size) % size;
+    };
+
+    /* -----------------------------------------------------
+       Internal lambda: optimized bulk copy (memcpy or std::copy)
+       ----------------------------------------------------- */
+    auto copyBlock = [](const T* src, T* dst, int count) {
+        if constexpr (std::is_trivially_copyable<T>::value) {
+            std::memcpy(dst, src, count * sizeof(T));
+        } else {
+            std::copy(src, src + count, dst);
+        }
+    };
+
+    /* -----------------------------------------------------
+       Step 1: Normalize indices
+       ----------------------------------------------------- */
+    startIndexSrc  = normalizeIndex(startIndexSrc,  arraySizeSrc);
+    startIndexDest = normalizeIndex(startIndexDest, arraySizeDest);
+
+    // Avoid overflow on destination
+    if (copyElements > arraySizeDest) {
+        copyElements = arraySizeDest;
     }
 
-    // Copy first segment
-    const size_t firstPart = std::min(copyElements, arraySizeSrc - startIndexSrc);
-    std::copy(arraySrc + startIndexSrc, arraySrc + startIndexSrc + firstPart, arrayDest);
-
-    // Copy the rest
-    if (firstPart < copyElements) {
-        std::copy(arraySrc, arraySrc + (copyElements - firstPart), arrayDest + firstPart);
+    if (copyElements <= 0) {
+        return;
     }
+
+    /* -----------------------------------------------------
+       Step 2: Determine available space to end of buffers
+       ----------------------------------------------------- */
+    int srcToEnd  = arraySizeSrc  - startIndexSrc;
+    int destToEnd = arraySizeDest - startIndexDest;
+
+    // First contiguous block
+    int block1 = std::min({copyElements, srcToEnd, destToEnd});
+
+    /* -----------------------------------------------------
+       Step 3: Copy block #1
+       ----------------------------------------------------- */
+    copyBlock(arraySrc + startIndexSrc, arrayDest + startIndexDest, block1);
+
+    int remaining = copyElements - block1;
+    if (remaining <= 0) {
+        return;
+    }
+
+    /* -----------------------------------------------------
+       Step 4: Compute new positions after block1
+       ----------------------------------------------------- */
+    int srcIndex2  = (startIndexSrc  + block1) % arraySizeSrc;
+    int destIndex2 = (startIndexDest + block1) % arraySizeDest;
+
+    int srcToEnd2  = arraySizeSrc  - srcIndex2;
+    int destToEnd2 = arraySizeDest - destIndex2;
+
+    int block2 = std::min({remaining, srcToEnd2, destToEnd2});
+
+    /* -----------------------------------------------------
+       Step 5: Copy block #2
+       ----------------------------------------------------- */
+    copyBlock(arraySrc + srcIndex2, arrayDest + destIndex2, block2);
+
+    remaining -= block2;
+    if (remaining <= 0) {
+        return;
+    }
+
+    /* -----------------------------------------------------
+       Step 6: Final wrap block (#3)
+       ----------------------------------------------------- */
+    int srcIndex3  = (srcIndex2  + block2) % arraySizeSrc;
+    int destIndex3 = (destIndex2 + block2) % arraySizeDest;
+
+    copyBlock(arraySrc + srcIndex3, arrayDest + destIndex3, remaining);
 }
 
 std::string Tools_Software_Algorithms_getISO8601Time();
