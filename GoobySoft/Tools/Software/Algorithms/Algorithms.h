@@ -5,9 +5,13 @@
 #include <cstdint>
 #include <algorithm>
 
-template<typename T> void Tools_Software_Algorithms_circularCopy(const T arraySrc[], T arrayDest[], const int startIndexSrc, const size_t copyElements, const size_t arrarSizeSrc){
+template<typename T> void Tools_Software_Algorithms_circularCopy(const T arraySrc[], T arrayDest[], int startIndexSrc, const int copyElements, const int arraySizeSrc){
+    // if startIndexSrc is negative or over or over arrarySizeSrc
+    if(startIndexSrc < 0 || arrarySizeSrc < startIndexSrc){
+        startIndexSrc = (startIndexSrc % arraySizeSrc + arraySizeSrc) % arraySizeSrc;
+    }
     // Copy first segment
-    const size_t firstPart = std::min(copyElements, arrarSizeSrc - startIndexSrc);
+    const size_t firstPart = std::min(copyElements, arraySizeSrc - startIndexSrc);
     std::copy(arraySrc + startIndexSrc, arraySrc + startIndexSrc + firstPart, arrayDest);
 
     // Copy the rest
