@@ -7,7 +7,7 @@
 
 template<typename T> void Tools_Software_Algorithms_circularCopy(const T arraySrc[], T arrayDest[], int startIndexSrc, const int copyElements, const int arraySizeSrc){
     // if startIndexSrc is negative or over or over arrarySizeSrc
-    if(startIndexSrc < 0 || arrarySizeSrc < startIndexSrc){
+    if(startIndexSrc < 0 || arraySizeSrc < startIndexSrc){
         startIndexSrc = (startIndexSrc % arraySizeSrc + arraySizeSrc) % arraySizeSrc;
     }
     // Copy first segment
