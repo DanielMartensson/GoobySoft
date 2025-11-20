@@ -28,9 +28,10 @@ class USB_Listener : public itas109::CSerialPortListener {
 		
 		// Read the data
 		uint8_t bytesBuffer[MAX_DATA_COLLECTION];
-		const int receivedBytes = p_sp->readData(bytesBuffer, bytesAvailable);
-		if(receivedBytes < 0){
-			return; // Error
+  const int bytesRead = MAX_DATA_COLLECTION < bytesAvailable ? MAX_DATA_COLLECTION : bytesAvailable;
+		const int receivedBytes = p_sp->readData(bytesBuffer, bytesRead);
+		if(receivedBytes <= 0){
+			return; 
 		}
 
 		// Store the data from buffer in a circular way
