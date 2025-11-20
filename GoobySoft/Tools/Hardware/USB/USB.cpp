@@ -22,7 +22,7 @@ class USB_Listener : public itas109::CSerialPortListener {
 	};
 
     void onReadEvent(const char* port, unsigned int bytesAvailable) {
-        if (bytesAvailable <= 0){
+        if (bytesAvailable == 0){
 			return;
 		}
 		
