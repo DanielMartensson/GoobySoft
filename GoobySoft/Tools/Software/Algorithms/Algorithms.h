@@ -6,6 +6,8 @@
 #include <cstdint>
 #include <algorithm>
 
+int Tools_Software_Algorithms_circularShift(const int index, const int shift, const bool reversed, const uint32_t size);
+
 template<typename T> 
 bool Tools_Software_Algorithms_circularCopy(const T arraySrc[], T arrayDest[], int startIndexSrc, int startIndexDest, int copyElements, const int arraySizeSrc, const int arraySizeDest) {
     /* Check if the sizes are zero */
@@ -15,10 +17,10 @@ bool Tools_Software_Algorithms_circularCopy(const T arraySrc[], T arrayDest[], i
    
     /* -----------------------------------------------------
        Internal lambda: normalize an index into [0, size)
-       ----------------------------------------------------- */
+       ----------------------------------------------------- 
     auto normalizeIndex = [](int index, int size) {
         return (index % size + size) % size;
-    };
+    };*/
 
     /* -----------------------------------------------------
        Internal lambda: optimized bulk copy (memcpy or std::copy)
@@ -34,8 +36,8 @@ bool Tools_Software_Algorithms_circularCopy(const T arraySrc[], T arrayDest[], i
     /* -----------------------------------------------------
        Step 1: Normalize indices
        ----------------------------------------------------- */
-    startIndexSrc  = normalizeIndex(startIndexSrc,  arraySizeSrc);
-    startIndexDest = normalizeIndex(startIndexDest, arraySizeDest);
+    startIndexSrc  = Tools_Software_Algorithms_circularShift(startIndexSrc, 0, false, arraySizeSrc); //normalizeIndex(startIndexSrc,  arraySizeSrc);
+    startIndexDest = Tools_Software_Algorithms_circularShift(startIndexDest, 0, false, arraySizeDest); //normalizeIndex(startIndexDest, arraySizeDest);
 
     // Avoid overflow on destination
     if (copyElements > arraySizeDest) {

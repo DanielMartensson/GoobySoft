@@ -5,6 +5,10 @@
 //#include <cstring>
 #include <thread>
 
+int Tools_Software_Algorithms_circularShift(const int index, const int shift, const bool backward, const uint32_t size){
+    return backward ? ((index - shift) % size + size) % size : ((index + shift) % size + size) % size;
+}
+
 std::string Tools_Software_Algorithms_getISO8601Time() {
 	boost::posix_time::ptime t = boost::posix_time::microsec_clock::local_time();
 	std::string time = to_iso_extended_string(t);
