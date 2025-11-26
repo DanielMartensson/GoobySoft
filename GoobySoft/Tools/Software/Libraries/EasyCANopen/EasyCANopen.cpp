@@ -8,7 +8,7 @@
 static std::vector<std::vector<std::string>> rows;
 static int allowed_rows = 10;
 
-void Tools_Software_Libraries_EasyCANOpen_callbackFunctionSend(uint32_t ID, uint8_t DLC, uint8_t data[]) {
+void Tools_Software_Libraries_EasyCANopen_callbackFunctionSend(uint32_t ID, uint8_t DLC, uint8_t data[]) {
 	// Load the data. 7 + largest value of DLC = 15 
 	uint8_t dataTX[15] = { 0 };
 	dataTX[0] = STM32PLC_WRITE_SET_CAN_BUS_MESSAGE_TYPE;
@@ -28,7 +28,7 @@ void Tools_Software_Libraries_EasyCANOpen_callbackFunctionSend(uint32_t ID, uint
 	Tools_Hardware_USB_write(port, dataTX, sizeof(dataTX), 1000);
 }
 
-void Tools_Software_Libraries_EasyCANOpen_callbackFunctionRead(uint32_t* ID, uint8_t data[], bool* is_new_data) {
+void Tools_Software_Libraries_EasyCANopen_callbackFunctionRead(uint32_t* ID, uint8_t data[], bool* is_new_data) {
 	// Get the port
 	const char* port = Tools_Communications_Devices_STM32PLC_getAddressPort();
 
@@ -55,7 +55,7 @@ void Tools_Software_Libraries_EasyCANOpen_callbackFunctionRead(uint32_t* ID, uin
 	}
 }
 
-void Tools_Software_Libraries_EasyCANOpen_callbackFunctionTraffic(uint32_t ID, uint8_t DLC, uint8_t data[], bool is_TX) {
+void Tools_Software_Libraries_EasyCANopen_callbackFunctionTraffic(uint32_t ID, uint8_t DLC, uint8_t data[], bool is_TX) {
 	// Add header 
 	if (rows.size() == 0) {
 		std::vector<std::string> header = { "TX/RX", "ID", "DLC", "D0", "D1", "D2", "D3", "D4", "D5", "D6", "D7" };
@@ -90,14 +90,14 @@ void Tools_Software_Libraries_EasyCANOpen_callbackFunctionTraffic(uint32_t ID, u
 	}
 }
 
-void Tools_Software_Libraries_EasyCANOpen_callbackDelay(uint8_t delay) {
+void Tools_Software_Libraries_EasyCANopen_callbackDelay(uint8_t delay) {
     
 }
 
-std::vector<std::vector<std::string>>& Tools_Software_Libraires_EasyCANOpen_getCANTrafficRows() {
+std::vector<std::vector<std::string>>& Tools_Software_Libraires_EasyCANopen_getCANTrafficRows() {
 	return rows;
 }
 
-int* Tools_Software_Libraires_EasyCANOpen_getCANTrafficAllowedRows() {
+int* Tools_Software_Libraires_EasyCANopen_getCANTrafficAllowedRows() {
 	return &allowed_rows;
 }

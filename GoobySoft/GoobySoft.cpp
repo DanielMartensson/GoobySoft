@@ -146,7 +146,10 @@ int main(int, char**)
                                Tools_Software_Libraries_OpenSAEJ1939_callbackDelay);
 
     // Set the callback function for Easy-CANopen
-    
+    Easy_CANopen_Hardware_Set_Callback_Functions(Tools_Software_Libraries_EasyCANopen_callbackFunctionSend, 
+                               Tools_Software_Libraries_EasyCANopen_callbackFunctionRead, 
+                               Tools_Software_Libraries_EasyCANopen_callbackFunctionTraffic, 
+                               Tools_Software_Libraries_EasyCANopen_callbackDelay);
 
 	// Load parameters 
 	Tools_Hardware_ParameterStore_loadParameters();
@@ -201,6 +204,7 @@ int main(int, char**)
 
         /* Read the CAN messages - if it exist */
         Open_SAE_J1939_Listen_For_Messages(Tools_Hardware_ParameterStore_getJ1939());
+        Easy_CANopen_Thread_Listen_Messages(Tools_Hardware_ParameterStore_getEasyCANopen());
 
         // Rendering
         ImGui::Render();

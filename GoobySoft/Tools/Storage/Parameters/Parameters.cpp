@@ -8,6 +8,7 @@
 
 static ParameterHolder parameters;
 static J1939 j1939;
+static CANopen canopen = {0};
 
 // This should be called at the beginning of the startup
 void Tools_Hardware_ParameterStore_loadParameters() {
@@ -81,6 +82,11 @@ COLUMN_FUNCTION Tools_Hardware_ParameterStore_readColumnFunctionAtColumnDefiniti
 ParameterHolder* Tools_Hardware_ParameterStore_getParameterHolder() {
 	return &parameters;
 }
+
 J1939* Tools_Hardware_ParameterStore_getJ1939() {
 	return &j1939;
+}
+
+CANopen* Tools_Hardware_ParameterStore_getEasyCANopen() {
+	return &canopen;
 }

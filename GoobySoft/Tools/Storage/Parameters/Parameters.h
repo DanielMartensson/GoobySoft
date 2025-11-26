@@ -2,8 +2,9 @@
 #define Parameters_H
 #include "../../Software/Libraries/CControl/src/CControl/ccontrol.h"
 #include "../../Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/Open_SAE_J1939/Open_SAE_J1939.h"
+#include "../../Software/Libraries/EasyCANopen/Easy-CANopen/Src/Easy_CANopen/Easy_CANopen.h"
 
-#define MAX_PROTOCOLS 5					// How many protocols can be used, CDC, Modbus RTU, Modbus TCP etc..
+#define MAX_PROTOCOLS 5					// How many protocols can be used, Raw USB, Modbus RTU, Modbus TCP etc..
 #define MAX_DEVICES 10					// How many devices per protocol
 #define MAX_ROWS 10						// How many rows per device inside configuration window
 #define MAX_COLUMNS 10					// Max columns for each device inside configuration column
@@ -142,5 +143,6 @@ void* Tools_Hardware_ParameterStore_readCellvalueAtColumnDefinition(TableColumn*
 COLUMN_FUNCTION Tools_Hardware_ParameterStore_readColumnFunctionAtColumnDefinition(TableColumn* tableColumns, int tableColumnCount, COLUMN_DEFINITION columnDefinition);
 ParameterHolder* Tools_Hardware_ParameterStore_getParameterHolder();
 J1939* Tools_Hardware_ParameterStore_getJ1939();
+CANopen* Tools_Hardware_ParameterStore_getEasyCANopen();
 
 #endif // !Parameters_H

@@ -4,6 +4,10 @@ project(GoobySoft)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Sätt defines
+set(EASY_CAN_OPEN_TARGET_PLATFORM INTERNAL_CALLBACK)
+set(OPEN_SAE_J1939_TARGET_PLATFORM INTERNAL_CALLBACK)
+
 # Inkludera externa bibliotek från Libraries-mappen
 add_subdirectory(GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939)
 add_subdirectory(GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen)
