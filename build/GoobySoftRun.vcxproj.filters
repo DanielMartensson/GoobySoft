@@ -1204,9 +1204,6 @@
     <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\EasyCANopen\Easy-CANopen\Src\CANopen\TIME\TIME_Internal\TIME_Protocol\CANopen_TIME_Protocol_Produce.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\EasyCANopen\Easy-CANopen\Src\Easy-CANopen.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\EasyCANopen\Easy-CANopen\Src\Easy_CANopen\Easy_CANopen_Other_Node.c">
       <Filter>Source Files</Filter>
     </ClCompile>

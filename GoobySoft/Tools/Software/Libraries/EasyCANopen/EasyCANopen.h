@@ -1,6 +1,7 @@
 #ifndef EasyCANOpen
 #define EasyCANOpen
 
+#include "Easy-CANopen/Src/Easy_CANopen/Easy_CANopen.h" 
 #include <vector>
 #include <string>
 
