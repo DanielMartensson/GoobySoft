@@ -4,5 +4,8 @@ C:/Users/danie/Documents/GitHub/GoobySoft/build/CMakeFiles/ZERO_CHECK.dir
 C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/CMakeFiles/opensaej1939.dir
 C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/CMakeFiles/main.dir
 C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/CMakeFiles/ALL_BUILD.dir
+C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/CMakeFiles/easycanopen.dir
+C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/CMakeFiles/easycanopenmain.dir
+C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/CMakeFiles/ALL_BUILD.dir
 C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/CMakeFiles/CControl.dir
 C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/CMakeFiles/ALL_BUILD.dir

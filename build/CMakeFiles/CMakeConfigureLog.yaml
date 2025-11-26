@@ -39774,3 +39774,1043 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.26100.0\\ucrt\\x64"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\\\lib\\10.0.26100.0\\\\um\\x64"
 ...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/cmake/mkl/MKLConfig.cmake:767 (find_library)"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
+      - "GoobySoft/Tools/Software/Libraries/CControl/CMakeLists.txt:16 (find_package)"
+    mode: "library"
+    variable: "mkl_scalapack_ilp64_file"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "LAST"
+      SearchAppBundle: "LAST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mkl_scalapack_ilp64.lib"
+    candidate_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    searched_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    found: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/mkl_scalapack_ilp64.lib"
+    search_context:
+      CMAKE_LIBRARY_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/lib/manual-link"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/manual-link"
+      CMAKE_PREFIX_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{PATH}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\VCPackages"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\bin\\Roslyn"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Team Tools\\DiagnosticsHub\\Collector"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\\\x86"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\\\MSBuild\\Current\\Bin\\amd64"
+        - "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\PuTTY\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\danie\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\danie\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\vcpkg"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "C:/Program Files/GoobySoft/bin"
+        - "C:/Program Files/CMake/bin"
+        - "/bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug;C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{LIB}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\ATLMFC\\lib\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\lib\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.26100.0\\ucrt\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\\\lib\\10.0.26100.0\\\\um\\x64"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/cmake/mkl/MKLConfig.cmake:767 (find_library)"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
+      - "GoobySoft/Tools/Software/Libraries/CControl/CMakeLists.txt:16 (find_package)"
+    mode: "library"
+    variable: "mkl_cdft_core_file"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "LAST"
+      SearchAppBundle: "LAST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mkl_cdft_core.lib"
+    candidate_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    searched_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    found: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/mkl_cdft_core.lib"
+    search_context:
+      CMAKE_LIBRARY_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/lib/manual-link"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/manual-link"
+      CMAKE_PREFIX_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{PATH}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\VCPackages"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\bin\\Roslyn"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Team Tools\\DiagnosticsHub\\Collector"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\\\x86"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\\\MSBuild\\Current\\Bin\\amd64"
+        - "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\PuTTY\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\danie\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\danie\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\vcpkg"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "C:/Program Files/GoobySoft/bin"
+        - "C:/Program Files/CMake/bin"
+        - "/bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug;C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{LIB}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\ATLMFC\\lib\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\lib\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.26100.0\\ucrt\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\\\lib\\10.0.26100.0\\\\um\\x64"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/cmake/mkl/MKLConfig.cmake:767 (find_library)"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
+      - "GoobySoft/Tools/Software/Libraries/CControl/CMakeLists.txt:16 (find_package)"
+    mode: "library"
+    variable: "mkl_intel_ilp64_file"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "LAST"
+      SearchAppBundle: "LAST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mkl_intel_ilp64.lib"
+    candidate_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    searched_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    found: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/mkl_intel_ilp64.lib"
+    search_context:
+      CMAKE_LIBRARY_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/lib/manual-link"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/manual-link"
+      CMAKE_PREFIX_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{PATH}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\VCPackages"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\bin\\Roslyn"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Team Tools\\DiagnosticsHub\\Collector"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\\\x86"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\\\MSBuild\\Current\\Bin\\amd64"
+        - "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\PuTTY\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\danie\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\danie\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\vcpkg"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "C:/Program Files/GoobySoft/bin"
+        - "C:/Program Files/CMake/bin"
+        - "/bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug;C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{LIB}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\ATLMFC\\lib\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\lib\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.26100.0\\ucrt\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\\\lib\\10.0.26100.0\\\\um\\x64"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/cmake/mkl/MKLConfig.cmake:767 (find_library)"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
+      - "GoobySoft/Tools/Software/Libraries/CControl/CMakeLists.txt:16 (find_package)"
+    mode: "library"
+    variable: "mkl_sequential_file"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "LAST"
+      SearchAppBundle: "LAST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mkl_sequential.lib"
+    candidate_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    searched_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    found: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/mkl_sequential.lib"
+    search_context:
+      CMAKE_LIBRARY_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/lib/manual-link"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/manual-link"
+      CMAKE_PREFIX_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{PATH}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\VCPackages"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\bin\\Roslyn"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Team Tools\\DiagnosticsHub\\Collector"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\\\x86"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\\\MSBuild\\Current\\Bin\\amd64"
+        - "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\PuTTY\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\danie\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\danie\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\vcpkg"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "C:/Program Files/GoobySoft/bin"
+        - "C:/Program Files/CMake/bin"
+        - "/bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug;C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{LIB}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\ATLMFC\\lib\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\lib\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.26100.0\\ucrt\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\\\lib\\10.0.26100.0\\\\um\\x64"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/cmake/mkl/MKLConfig.cmake:767 (find_library)"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
+      - "GoobySoft/Tools/Software/Libraries/CControl/CMakeLists.txt:16 (find_package)"
+    mode: "library"
+    variable: "mkl_core_file"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "LAST"
+      SearchAppBundle: "LAST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mkl_core.lib"
+    candidate_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    searched_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    found: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/mkl_core.lib"
+    search_context:
+      CMAKE_LIBRARY_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/lib/manual-link"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/manual-link"
+      CMAKE_PREFIX_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{PATH}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\VCPackages"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\bin\\Roslyn"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Team Tools\\DiagnosticsHub\\Collector"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\\\x86"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\\\MSBuild\\Current\\Bin\\amd64"
+        - "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\PuTTY\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\danie\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\danie\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\vcpkg"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "C:/Program Files/GoobySoft/bin"
+        - "C:/Program Files/CMake/bin"
+        - "/bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug;C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{LIB}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\ATLMFC\\lib\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\lib\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.26100.0\\ucrt\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\\\lib\\10.0.26100.0\\\\um\\x64"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/cmake/mkl/MKLConfig.cmake:767 (find_library)"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
+      - "GoobySoft/Tools/Software/Libraries/CControl/CMakeLists.txt:16 (find_package)"
+    mode: "library"
+    variable: "mkl_blacs_intelmpi_ilp64_file"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "LAST"
+      SearchAppBundle: "LAST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mkl_blacs_intelmpi_ilp64.lib"
+    candidate_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    searched_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    found: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/mkl_blacs_intelmpi_ilp64.lib"
+    search_context:
+      CMAKE_LIBRARY_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/lib/manual-link"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/manual-link"
+      CMAKE_PREFIX_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{PATH}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\VCPackages"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\bin\\Roslyn"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Team Tools\\DiagnosticsHub\\Collector"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\\\x86"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\\\MSBuild\\Current\\Bin\\amd64"
+        - "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\PuTTY\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\danie\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\danie\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\vcpkg"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "C:/Program Files/GoobySoft/bin"
+        - "C:/Program Files/CMake/bin"
+        - "/bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug;C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{LIB}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\ATLMFC\\lib\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\lib\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.26100.0\\ucrt\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\\\lib\\10.0.26100.0\\\\um\\x64"
+...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/cmake/mkl/MKLConfig.cmake:767 (find_library)"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
+      - "GoobySoft/Tools/Software/Libraries/CControl/CMakeLists.txt:16 (find_package)"
+    mode: "library"
+    variable: "mkl_scalapack_ilp64_file"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "LAST"
+      SearchAppBundle: "LAST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mkl_scalapack_ilp64.lib"
+    candidate_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    searched_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    found: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/mkl_scalapack_ilp64.lib"
+    search_context:
+      CMAKE_LIBRARY_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/lib/manual-link"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/manual-link"
+      CMAKE_PREFIX_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{PATH}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\VCPackages"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\bin\\Roslyn"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Team Tools\\DiagnosticsHub\\Collector"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\\\x86"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\\\MSBuild\\Current\\Bin\\amd64"
+        - "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\PuTTY\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\danie\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\danie\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\vcpkg"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "C:/Program Files/GoobySoft/bin"
+        - "C:/Program Files/CMake/bin"
+        - "/bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug;C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{LIB}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\ATLMFC\\lib\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\lib\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.26100.0\\ucrt\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\\\lib\\10.0.26100.0\\\\um\\x64"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/cmake/mkl/MKLConfig.cmake:767 (find_library)"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
+      - "GoobySoft/Tools/Software/Libraries/CControl/CMakeLists.txt:16 (find_package)"
+    mode: "library"
+    variable: "mkl_cdft_core_file"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "LAST"
+      SearchAppBundle: "LAST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mkl_cdft_core.lib"
+    candidate_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    searched_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    found: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/mkl_cdft_core.lib"
+    search_context:
+      CMAKE_LIBRARY_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/lib/manual-link"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/manual-link"
+      CMAKE_PREFIX_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{PATH}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\VCPackages"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\bin\\Roslyn"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Team Tools\\DiagnosticsHub\\Collector"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\\\x86"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\\\MSBuild\\Current\\Bin\\amd64"
+        - "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\PuTTY\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\danie\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\danie\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\vcpkg"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "C:/Program Files/GoobySoft/bin"
+        - "C:/Program Files/CMake/bin"
+        - "/bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug;C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{LIB}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\ATLMFC\\lib\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\lib\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.26100.0\\ucrt\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\\\lib\\10.0.26100.0\\\\um\\x64"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/cmake/mkl/MKLConfig.cmake:767 (find_library)"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
+      - "GoobySoft/Tools/Software/Libraries/CControl/CMakeLists.txt:16 (find_package)"
+    mode: "library"
+    variable: "mkl_intel_ilp64_file"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "LAST"
+      SearchAppBundle: "LAST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mkl_intel_ilp64.lib"
+    candidate_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    searched_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    found: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/mkl_intel_ilp64.lib"
+    search_context:
+      CMAKE_LIBRARY_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/lib/manual-link"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/manual-link"
+      CMAKE_PREFIX_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{PATH}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\VCPackages"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\bin\\Roslyn"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Team Tools\\DiagnosticsHub\\Collector"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\\\x86"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\\\MSBuild\\Current\\Bin\\amd64"
+        - "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\PuTTY\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\danie\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\danie\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\vcpkg"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "C:/Program Files/GoobySoft/bin"
+        - "C:/Program Files/CMake/bin"
+        - "/bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug;C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{LIB}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\ATLMFC\\lib\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\lib\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.26100.0\\ucrt\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\\\lib\\10.0.26100.0\\\\um\\x64"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/cmake/mkl/MKLConfig.cmake:767 (find_library)"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
+      - "GoobySoft/Tools/Software/Libraries/CControl/CMakeLists.txt:16 (find_package)"
+    mode: "library"
+    variable: "mkl_sequential_file"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "LAST"
+      SearchAppBundle: "LAST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mkl_sequential.lib"
+    candidate_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    searched_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    found: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/mkl_sequential.lib"
+    search_context:
+      CMAKE_LIBRARY_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/lib/manual-link"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/manual-link"
+      CMAKE_PREFIX_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{PATH}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\VCPackages"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\bin\\Roslyn"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Team Tools\\DiagnosticsHub\\Collector"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\\\x86"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\\\MSBuild\\Current\\Bin\\amd64"
+        - "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\PuTTY\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\danie\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\danie\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\vcpkg"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "C:/Program Files/GoobySoft/bin"
+        - "C:/Program Files/CMake/bin"
+        - "/bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug;C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{LIB}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\ATLMFC\\lib\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\lib\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.26100.0\\ucrt\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\\\lib\\10.0.26100.0\\\\um\\x64"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/cmake/mkl/MKLConfig.cmake:767 (find_library)"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
+      - "GoobySoft/Tools/Software/Libraries/CControl/CMakeLists.txt:16 (find_package)"
+    mode: "library"
+    variable: "mkl_core_file"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "LAST"
+      SearchAppBundle: "LAST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mkl_core.lib"
+    candidate_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    searched_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    found: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/mkl_core.lib"
+    search_context:
+      CMAKE_LIBRARY_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/lib/manual-link"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/manual-link"
+      CMAKE_PREFIX_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{PATH}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\VCPackages"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\bin\\Roslyn"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Team Tools\\DiagnosticsHub\\Collector"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\\\x86"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\\\MSBuild\\Current\\Bin\\amd64"
+        - "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\PuTTY\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\danie\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\danie\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\vcpkg"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "C:/Program Files/GoobySoft/bin"
+        - "C:/Program Files/CMake/bin"
+        - "/bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug;C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{LIB}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\ATLMFC\\lib\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\lib\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.26100.0\\ucrt\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\\\lib\\10.0.26100.0\\\\um\\x64"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/cmake/mkl/MKLConfig.cmake:767 (find_library)"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
+      - "GoobySoft/Tools/Software/Libraries/CControl/CMakeLists.txt:16 (find_package)"
+    mode: "library"
+    variable: "mkl_blacs_intelmpi_ilp64_file"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "LAST"
+      SearchAppBundle: "LAST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mkl_blacs_intelmpi_ilp64.lib"
+    candidate_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    searched_directories:
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+      - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/"
+    found: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/mkl_blacs_intelmpi_ilp64.lib"
+    search_context:
+      CMAKE_LIBRARY_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/lib/manual-link"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/lib/manual-link"
+      CMAKE_PREFIX_PATH:
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+        - "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{PATH}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\VCPackages"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\bin\\Roslyn"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Team Tools\\DiagnosticsHub\\Collector"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\\\x86"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\\\x86"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\\\MSBuild\\Current\\Bin\\amd64"
+        - "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\PuTTY\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\danie\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\danie\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\vcpkg"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files/GoobySoft"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "C:/Program Files/GoobySoft/bin"
+        - "C:/Program Files/CMake/bin"
+        - "/bin"
+      CMAKE_FIND_ROOT_PATH: "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug;C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows"
+      ENV{LIB}:
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\ATLMFC\\lib\\x64"
+        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\lib\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.26100.0\\ucrt\\x64"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\\\lib\\10.0.26100.0\\\\um\\x64"
+...

@@ -3,6 +3,7 @@
 	[
 		"C:/Users/danie/Documents/GitHub/GoobySoft/build/cmake_install.cmake",
 		"C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/cmake_install.cmake",
+		"C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/cmake_install.cmake",
 		"C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/cmake_install.cmake"
 	],
 	"Parallel" : false

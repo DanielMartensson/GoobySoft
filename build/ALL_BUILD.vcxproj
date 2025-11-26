@@ -182,6 +182,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{F89D1600-EDE1-3187-8C06-408EC26AFF24}</Project>
       <Name>GoobySoftRun</Name>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\danie\Documents\GitHub\GoobySoft\build\GoobySoft\Tools\Software\Libraries\EasyCANopen\Easy-CANopen\easycanopen.vcxproj">
+      <Project>{8B4A1565-1E7B-3BFC-9704-E9A456351162}</Project>
+      <Name>easycanopen</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\danie\Documents\GitHub\GoobySoft\build\GoobySoft\Tools\Software\Libraries\EasyCANopen\Easy-CANopen\easycanopenmain.vcxproj">
+      <Project>{0CC19572-8146-3A8A-85D9-FFA8A5ACB090}</Project>
+      <Name>easycanopenmain</Name>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\danie\Documents\GitHub\GoobySoft\build\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\main.vcxproj">
       <Project>{671E54CA-C06C-3783-BE09-AF45D73BF63E}</Project>
       <Name>main</Name>

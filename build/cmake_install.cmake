@@ -39,6 +39,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/cmake_install.cmake")
 endif()
 
