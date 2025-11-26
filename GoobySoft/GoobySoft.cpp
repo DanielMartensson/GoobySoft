@@ -145,6 +145,9 @@ int main(int, char**)
                                Tools_Software_Libraries_OpenSAEJ1939_callbackFunctionTraffic, 
                                Tools_Software_Libraries_OpenSAEJ1939_callbackDelay);
 
+    // Set the callback function for Easy-CANopen
+    
+
 	// Load parameters 
 	Tools_Hardware_ParameterStore_loadParameters();
 
