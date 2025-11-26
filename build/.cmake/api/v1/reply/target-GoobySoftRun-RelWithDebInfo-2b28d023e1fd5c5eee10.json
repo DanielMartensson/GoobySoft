@@ -1,0 +1,3958 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "RelWithDebInfo/GoobySoftRun.exe"
+		},
+		{
+			"path" : "RelWithDebInfo/GoobySoftRun.pdb"
+		}
+	],
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"_add_executable",
+			"add_executable",
+			"target_link_directories",
+			"target_link_libraries",
+			"set_target_properties",
+			"include",
+			"_find_package",
+			"find_package",
+			"find_dependency",
+			"boostcfg_find_component",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"C:/Users/danie/Documents/GitHub/vcpkg/scripts/buildsystems/vcpkg.cmake",
+			"CMakeLists.txt",
+			"C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/share/boost_lexical_cast/boost_lexical_cast-targets.cmake",
+			"C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/share/boost_lexical_cast/boost_lexical_cast-config.cmake",
+			"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake",
+			"C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/share/boost_date_time/boost_date_time-config.cmake",
+			"C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/share/boost/BoostConfig.cmake",
+			"C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/share/boost/vcpkg-cmake-wrapper.cmake",
+			"C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/share/zstd/zstdTargets.cmake",
+			"C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/share/zstd/zstdConfig.cmake",
+			"C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/share/lz4/lz4Config.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 23,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 608,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 35,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 50,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 87,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 97,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 99,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 122,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 140,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 149,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 159,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 180,
+				"parent" : 0
+			},
+			{
+				"command" : 7,
+				"file" : 1,
+				"line" : 137,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 858,
+				"parent" : 13
+			},
+			{
+				"file" : 7,
+				"parent" : 14
+			},
+			{
+				"command" : 6,
+				"file" : 7,
+				"line" : 3,
+				"parent" : 15
+			},
+			{
+				"file" : 6,
+				"parent" : 16
+			},
+			{
+				"command" : 9,
+				"file" : 6,
+				"line" : 128,
+				"parent" : 17
+			},
+			{
+				"command" : 7,
+				"file" : 6,
+				"line" : 67,
+				"parent" : 18
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 904,
+				"parent" : 19
+			},
+			{
+				"file" : 5,
+				"parent" : 20
+			},
+			{
+				"command" : 8,
+				"file" : 5,
+				"line" : 25,
+				"parent" : 21
+			},
+			{
+				"command" : 7,
+				"file" : 4,
+				"line" : 78,
+				"parent" : 22
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 904,
+				"parent" : 23
+			},
+			{
+				"file" : 3,
+				"parent" : 24
+			},
+			{
+				"command" : 5,
+				"file" : 3,
+				"line" : 25,
+				"parent" : 25
+			},
+			{
+				"file" : 2,
+				"parent" : 26
+			},
+			{
+				"command" : 4,
+				"file" : 2,
+				"line" : 60,
+				"parent" : 27
+			},
+			{
+				"command" : 7,
+				"file" : 1,
+				"line" : 188,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 904,
+				"parent" : 29
+			},
+			{
+				"file" : 9,
+				"parent" : 30
+			},
+			{
+				"command" : 5,
+				"file" : 9,
+				"line" : 32,
+				"parent" : 31
+			},
+			{
+				"file" : 8,
+				"parent" : 32
+			},
+			{
+				"command" : 4,
+				"file" : 8,
+				"line" : 67,
+				"parent" : 33
+			},
+			{
+				"command" : 7,
+				"file" : 1,
+				"line" : 197,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 904,
+				"parent" : 35
+			},
+			{
+				"file" : 10,
+				"parent" : 36
+			},
+			{
+				"command" : 4,
+				"file" : 10,
+				"line" : 30,
+				"parent" : 37
+			},
+			{
+				"command" : 10,
+				"file" : 1,
+				"line" : 26,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O2 /Ob1 /DNDEBUG -std:c++20 -MD -Zi"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 9,
+					"define" : "BOOST_CONTAINER_DYN_LINK"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "BOOST_CONTAINER_NO_LIB"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "BOOST_DATE_TIME_DYN_LINK"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "BOOST_DATE_TIME_NO_LIB"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "BOOST_FILESYSTEM_DYN_LINK=1"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "BOOST_FILESYSTEM_NO_LIB"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 39,
+					"path" : "C:/Users/danie/Documents/GitHub/GoobySoft/GoobySoft"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/include"
+				},
+				{
+					"backtrace" : 11,
+					"isSystem" : true,
+					"path" : "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/include/opencv4"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					8,
+					8,
+					8,
+					8,
+					8,
+					8,
+					8,
+					8,
+					8,
+					8,
+					8,
+					8,
+					8,
+					8
+				],
+				"standard" : "20"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				350,
+				351,
+				352,
+				353,
+				354,
+				355,
+				356,
+				357,
+				358,
+				390,
+				392,
+				397,
+				398,
+				399,
+				400,
+				401,
+				402,
+				403,
+				404,
+				405,
+				406,
+				407,
+				408,
+				409,
+				410,
+				411,
+				412,
+				413,
+				414,
+				415,
+				416,
+				417,
+				418,
+				419
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /O2 /Ob1 /DNDEBUG -MD -Zi"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 9,
+					"define" : "BOOST_CONTAINER_DYN_LINK"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "BOOST_CONTAINER_NO_LIB"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "BOOST_DATE_TIME_DYN_LINK"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "BOOST_DATE_TIME_NO_LIB"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "BOOST_FILESYSTEM_DYN_LINK=1"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "BOOST_FILESYSTEM_NO_LIB"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 39,
+					"path" : "C:/Users/danie/Documents/GitHub/GoobySoft/GoobySoft"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/include"
+				},
+				{
+					"backtrace" : 11,
+					"isSystem" : true,
+					"path" : "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/include/opencv4"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58,
+				59,
+				60,
+				61,
+				62,
+				63,
+				64,
+				65,
+				66,
+				67,
+				68,
+				69,
+				70,
+				71,
+				72,
+				73,
+				74,
+				75,
+				76,
+				77,
+				78,
+				79,
+				80,
+				81,
+				82,
+				83,
+				84,
+				85,
+				86,
+				87,
+				88,
+				89,
+				90,
+				91,
+				92,
+				93,
+				94,
+				95,
+				96,
+				97,
+				98,
+				99,
+				100,
+				101,
+				102,
+				103,
+				104,
+				105,
+				106,
+				107,
+				108,
+				109,
+				110,
+				111,
+				112,
+				113,
+				114,
+				115,
+				116,
+				117,
+				118,
+				119,
+				120,
+				121,
+				122,
+				123,
+				124,
+				125,
+				126,
+				127,
+				128,
+				129,
+				130,
+				131,
+				132,
+				133,
+				134,
+				135,
+				136,
+				137,
+				138,
+				139,
+				140,
+				141,
+				142,
+				143,
+				144,
+				145,
+				146,
+				147,
+				148,
+				149,
+				150,
+				151,
+				152,
+				153,
+				154,
+				155,
+				156,
+				157,
+				158,
+				159,
+				160,
+				161,
+				162,
+				163,
+				164,
+				165,
+				166,
+				167,
+				168,
+				169,
+				170,
+				171,
+				172,
+				173,
+				174,
+				175,
+				176,
+				177,
+				178,
+				179,
+				180,
+				181,
+				182,
+				183,
+				184,
+				185,
+				186,
+				187,
+				188,
+				189,
+				190,
+				191,
+				192,
+				193,
+				194,
+				195,
+				196,
+				197,
+				198,
+				199,
+				200,
+				201,
+				202,
+				203,
+				204,
+				205,
+				206,
+				207,
+				208,
+				209,
+				210,
+				211,
+				212,
+				213,
+				214,
+				215,
+				216,
+				217,
+				218,
+				219,
+				220,
+				221,
+				222,
+				223,
+				224,
+				225,
+				226,
+				227,
+				228,
+				229,
+				230,
+				231,
+				232,
+				233,
+				234,
+				235,
+				236,
+				237,
+				238,
+				239,
+				240,
+				241,
+				242,
+				243,
+				244,
+				245,
+				246,
+				247,
+				248,
+				249,
+				250,
+				251,
+				252,
+				253,
+				254,
+				255,
+				256,
+				257,
+				258,
+				259,
+				260,
+				261,
+				262,
+				263,
+				264,
+				265,
+				266,
+				267,
+				268,
+				269,
+				270,
+				271,
+				272,
+				273,
+				274,
+				275,
+				276,
+				277,
+				278,
+				279,
+				280,
+				281,
+				282,
+				283,
+				284,
+				285,
+				286,
+				287,
+				288,
+				289,
+				290,
+				291,
+				292,
+				293,
+				294,
+				295,
+				296,
+				297,
+				298,
+				299,
+				300,
+				301,
+				302,
+				303,
+				304,
+				305,
+				306,
+				307,
+				308,
+				309,
+				310,
+				311,
+				312,
+				313,
+				314,
+				315,
+				316,
+				317,
+				318,
+				319,
+				320,
+				321,
+				322,
+				323,
+				324,
+				325,
+				326,
+				327,
+				328,
+				329,
+				330,
+				331,
+				332,
+				333,
+				334,
+				335,
+				336,
+				337,
+				338,
+				339,
+				340,
+				341,
+				342,
+				343,
+				344,
+				345,
+				346,
+				347,
+				348,
+				349,
+				359,
+				360,
+				361,
+				362,
+				363,
+				364,
+				365,
+				366,
+				367,
+				368,
+				369,
+				370,
+				371,
+				372,
+				373,
+				374,
+				375,
+				376,
+				377,
+				378,
+				379,
+				380,
+				381,
+				382,
+				383,
+				384,
+				385,
+				386,
+				387,
+				388,
+				389,
+				391,
+				393,
+				394,
+				395,
+				396
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "GoobySoftRun::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O2 /Ob1 /DNDEBUG -MD -Zi",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "/machine:x64 /debug /INCREMENTAL",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "/subsystem:console",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-LIBPATH:C:\\Users\\danie\\Documents\\GitHub\\GoobySoft\\..\\vcpkg\\installed\\x64-windows\\lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "mysqlcppconnx.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\libssl.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\libcrypto.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\SDL3.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "imm32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "winmm.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "version.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 8,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\boost_filesystem-vc143-mt-x64-1_89.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 9,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\boost_date_time-vc143-mt-x64-1_89.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 10,
+				"fragment" : "opengl32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_highgui4.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_ml4.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_objdetect4.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_photo4.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_stitching4.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_video4.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_videoio4.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "libcserialport.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 28,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\boost_container-vc143-mt-x64-1_89.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_imgcodecs4.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_calib3d4.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_dnn4.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_features2d4.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_flann4.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_imgproc4.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_core4.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 34,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\zstd.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 38,
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\lz4.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "GoobySoftRun",
+	"nameOnDisk" : "GoobySoftRun.exe",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58,
+				59,
+				60,
+				61,
+				62,
+				63,
+				64,
+				65,
+				66,
+				67,
+				68,
+				69,
+				70,
+				71,
+				72,
+				73,
+				74,
+				75,
+				76,
+				77,
+				78,
+				79,
+				80,
+				81,
+				82,
+				83,
+				84,
+				85,
+				86,
+				87,
+				88,
+				89,
+				90,
+				91,
+				92,
+				93,
+				94,
+				95,
+				96,
+				97,
+				98,
+				99,
+				100,
+				101,
+				102,
+				103,
+				104,
+				105,
+				106,
+				107,
+				108,
+				109,
+				110,
+				111,
+				112,
+				113,
+				114,
+				115,
+				116,
+				117,
+				118,
+				119,
+				120,
+				121,
+				122,
+				123,
+				124,
+				125,
+				126,
+				127,
+				128,
+				129,
+				130,
+				131,
+				132,
+				133,
+				134,
+				135,
+				136,
+				137,
+				138,
+				139,
+				140,
+				141,
+				142,
+				143,
+				144,
+				145,
+				146,
+				147,
+				148,
+				149,
+				150,
+				151,
+				152,
+				153,
+				154,
+				155,
+				156,
+				157,
+				158,
+				159,
+				160,
+				161,
+				162,
+				163,
+				164,
+				165,
+				166,
+				167,
+				168,
+				169,
+				170,
+				171,
+				172,
+				173,
+				174,
+				175,
+				176,
+				177,
+				178,
+				179,
+				180,
+				181,
+				182,
+				183,
+				184,
+				185,
+				186,
+				187,
+				188,
+				189,
+				190,
+				191,
+				192,
+				193,
+				194,
+				195,
+				196,
+				197,
+				198,
+				199,
+				200,
+				201,
+				202,
+				203,
+				204,
+				205,
+				206,
+				207,
+				208,
+				209,
+				210,
+				211,
+				212,
+				213,
+				214,
+				215,
+				216,
+				217,
+				218,
+				219,
+				220,
+				221,
+				222,
+				223,
+				224,
+				225,
+				226,
+				227,
+				228,
+				229,
+				230,
+				231,
+				232,
+				233,
+				234,
+				235,
+				236,
+				237,
+				238,
+				239,
+				240,
+				241,
+				242,
+				243,
+				244,
+				245,
+				246,
+				247,
+				248,
+				249,
+				250,
+				251,
+				252,
+				253,
+				254,
+				255,
+				256,
+				257,
+				258,
+				259,
+				260,
+				261,
+				262,
+				263,
+				264,
+				265,
+				266,
+				267,
+				268,
+				269,
+				270,
+				271,
+				272,
+				273,
+				274,
+				275,
+				276,
+				277,
+				278,
+				279,
+				280,
+				281,
+				282,
+				283,
+				284,
+				285,
+				286,
+				287,
+				288,
+				289,
+				290,
+				291,
+				292,
+				293,
+				294,
+				295,
+				296,
+				297,
+				298,
+				299,
+				300,
+				301,
+				302,
+				303,
+				304,
+				305,
+				306,
+				307,
+				308,
+				309,
+				310,
+				311,
+				312,
+				313,
+				314,
+				315,
+				316,
+				317,
+				318,
+				319,
+				320,
+				321,
+				322,
+				323,
+				324,
+				325,
+				326,
+				327,
+				328,
+				329,
+				330,
+				331,
+				332,
+				333,
+				334,
+				335,
+				336,
+				337,
+				338,
+				339,
+				340,
+				341,
+				342,
+				343,
+				344,
+				345,
+				346,
+				347,
+				348,
+				349,
+				350,
+				351,
+				352,
+				353,
+				354,
+				355,
+				356,
+				357,
+				358,
+				359,
+				360,
+				361,
+				362,
+				363,
+				364,
+				365,
+				366,
+				367,
+				368,
+				369,
+				370,
+				371,
+				372,
+				373,
+				374,
+				375,
+				376,
+				377,
+				378,
+				379,
+				380,
+				381,
+				382,
+				383,
+				384,
+				385,
+				386,
+				387,
+				388,
+				389,
+				390,
+				391,
+				392,
+				393,
+				394,
+				395,
+				396,
+				397,
+				398,
+				399,
+				400,
+				401,
+				402,
+				403,
+				404,
+				405,
+				406,
+				407,
+				408,
+				409,
+				410,
+				411,
+				412,
+				413,
+				414,
+				415,
+				416,
+				417,
+				418,
+				419
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/GoobySoft.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Communications/Databases/ITHBetyg/ITHBetyg.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Communications/Devices/ADL400/ADL400.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Communications/Devices/Devices.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Communications/Devices/STM32PLC/STM32PLC.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Communications/Devices/Uponor-X-148/Uponor-X-148.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Communications/Devices/WellerToJCB/WellerToJCB.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Gui/CreateDialogs/CreateDialogs.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Gui/CreateItems/CreateItems.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Hardware/FileSystem/FileSystem.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Hardware/Network/Network.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Hardware/Network/Protocols/TCPIP/TCPIP.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Hardware/USB/USB.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Software/Algorithms/Algorithms.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ArtificialIntelligence/Astar.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ArtificialIntelligence/inpolygon.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ComputerVision/cornerdetection.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ComputerVision/featuredetection.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ComputerVision/fisherfaces.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ComputerVision/generalizedhough.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ComputerVision/hough.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ComputerVision/violajones.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ControlEngineering/c2d.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ControlEngineering/cab.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ControlEngineering/dare.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ControlEngineering/kf.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ControlEngineering/lqe.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ControlEngineering/lqr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ControlEngineering/mpc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ControlEngineering/obsv.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ControlEngineering/qmpc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ControlEngineering/ssint.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ControlEngineering/stability.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/DifferentialEquation/rk4.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/DifferentialEquation/rk4args.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Hardware/concatenate_paths.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Hardware/count_sub_folders.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Hardware/detectmemoryleak.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Hardware/saveload.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Hardware/scan_file_names.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Hardware/scan_sub_folder_names.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ImageProcessing/fspecial.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ImageProcessing/haarlike.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ImageProcessing/harris.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ImageProcessing/imcollect.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ImageProcessing/imfree.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ImageProcessing/imgaussfilt.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ImageProcessing/imread.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ImageProcessing/imresize.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ImageProcessing/imshow.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ImageProcessing/imwrite.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ImageProcessing/integralimage.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ImageProcessing/intensitycentroid.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ImageProcessing/lbp.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ImageProcessing/pooling.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ImageProcessing/rpca.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/ImageProcessing/sobel.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/ieeeck.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/iladlc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/iladlr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/ilaenv.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/ilaslc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/ilaslr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/iparmq.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/isamax.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/lsame.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/saxpy.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sbdsdc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sbdsqr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sceil.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/scopy.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sdot.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sgebak.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sgebal.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sgebd2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sgebrd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sgeev.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sgehd2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sgehrd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sgelq2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sgelqf.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sgemm.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sgemv.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sgeqr2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sgeqrf.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sger.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sgesdd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sgesvd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sgetrf.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sgetri.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sgetrs.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sggbak.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sggbal.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sggev.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sgghrd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/shgeqz.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/shseqr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sisnan.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slabad.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slabrd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slacpy.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sladiv.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slae2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaed0.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaed1.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaed2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaed3.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaed4.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaed5.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaed6.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaed7.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaed8.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaed9.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaeda.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaev2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaexc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slag2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slahqr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slahr2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaisnan.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaln2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slamch.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slamrg.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slange.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slanhs.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slanst.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slansy.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slanv2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slapy2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slapy3.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaqr0.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaqr1.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaqr2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaqr3.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaqr4.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaqr5.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slarf.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slarfb.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slarfg.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slarfp.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slarft.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slarfx.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slartg.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slas2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slascl.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasd0.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasd1.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasd2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasd3.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasd4.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasd5.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasd6.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasd7.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasd8.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasda.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasdq.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasdt.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaset.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasq1.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasq2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasq3.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasq4.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasq5.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasq6.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasrt.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slassq.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasv2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slaswp.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slasy2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/slatrd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/snrm2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sorg2r.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sorgbr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sorghr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sorgl2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sorglq.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sorgqr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sorm2l.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sorm2r.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sormbr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sormhr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sorml2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sormlq.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sormql.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sormqr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sormtr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sposv.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/spotf2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/spotrf.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/spotrs.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/srot.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sscal.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sstedc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/ssteqr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/ssterf.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/sswap.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/ssyevd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/ssygs2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/ssygst.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/ssygvd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/ssymm.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/ssymv.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/ssyr2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/ssyr2k.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/ssyrk.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/ssytd2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/ssytrd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/stgevc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/strevc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/strexc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/strmm.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/strmv.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/strsm.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/strsv.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/strti2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/strtri.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Routines/xerbla.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/close.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/endfile.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/err.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/exit_.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/f77_aloc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/fmt.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/fmtlib.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/i_len_trim.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/i_nint.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/open.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/pow_dd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/pow_ii.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/pow_ri.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/r_lg10.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/r_sign.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/s_cat.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/s_cmp.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/s_copy.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/s_stop.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/sfe.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/sig_die.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/util.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/wref.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/wrtfmt.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/CLapack/Tools/wsfe.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/balance.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/chol.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/cholupdate.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/conv.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/conv2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/conv2fft.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/convfft.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/det.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/dlyap.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/dot.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/eig.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/eig_generalized.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/expm.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/eye.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/hankel.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/inv.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/linsolve_chol.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/linsolve_gauss.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/linsolve_lower_triangular.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/linsolve_lup.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/linsolve_qr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/linsolve_upper_triangular.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/lup.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/mul.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/nonlinsolve.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/norm.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/pinv.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/qr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/rank.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/svd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/LinearAlgebra/tran.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/MachineLearning/adaboost.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/MachineLearning/dbscan.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/MachineLearning/kernel.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/MachineLearning/kmeans.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/MachineLearning/kpca.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/MachineLearning/kpca_lda_nn.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/MachineLearning/nn.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/MachineLearning/svm.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/anglevector.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/cat.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/cumsum.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/cut.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/deg2rad.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/find.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/float2uint.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/ind2sub.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/insert.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/issymmetric.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/normalize.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/pdist2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/popcount.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/print.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/rad2deg.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/radianvector.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/rot2d.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/saturation.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/scalar.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/shuffle.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/sign.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/sort.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/sum.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/uint2float.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/unique.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/unit.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/vmax.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Miscellaneous/vmin.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Optimization/linprog.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Optimization/lsqnonneg.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Optimization/quadprog.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Optimization/quadprogslim.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/SignalProcessing/FFTpack/fftpack.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/SignalProcessing/clusterfilter.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/SignalProcessing/fft.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/SignalProcessing/fft2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/SignalProcessing/fftshift.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/SignalProcessing/filtfilt.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/SignalProcessing/ifft.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/SignalProcessing/ifft2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/SignalProcessing/ifftshift.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/SignalProcessing/pf.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/SignalProcessing/sr_ukf_state_estimation.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/amax.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/amin.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/area.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/center.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/centroid.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/clusterratio.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/clustersdistance.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/cov.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/covm.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/giniimpurity.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/lda.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/mean.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/normpdf.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/opa.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/pca.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/randi.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/randn.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/randperm.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/stddev.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/Statistics/var.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/SystemIdentification/era.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/SystemIdentification/okid.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/SystemIdentification/rls.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/SystemIdentification/sr_ukf_parameter_estimation.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/CControl/src/CControl/Sources/SystemIdentification/theta2ss.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Software/Libraries/ImGui/backends/imgui_impl_opengl3.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Software/Libraries/ImGui/backends/imgui_impl_sdl3.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Software/Libraries/ImGui/imgui.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Software/Libraries/ImGui/imgui_draw.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Software/Libraries/ImGui/imgui_tables.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Software/Libraries/ImGui/imgui_widgets.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Software/Libraries/ImGuiFileDialog/ImGuiFileDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Software/Libraries/ImPlot/implot.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Software/Libraries/ImPlot/implot_items.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/Hardware/CAN_Transmit_Receive.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/Hardware/FLASH_EEPROM_RAM_Memory.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/Hardware/Save_Load_Struct.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/ISO_11783/ISO_11783-7_Application_Layer/Auxiliary_Valve_Command.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/ISO_11783/ISO_11783-7_Application_Layer/Auxiliary_Valve_Estimated_Flow.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/ISO_11783/ISO_11783-7_Application_Layer/Auxiliary_Valve_Measured_Position.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/ISO_11783/ISO_11783-7_Application_Layer/General_Purpose_Valve_Command.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/ISO_11783/ISO_11783-7_Application_Layer/General_Purpose_Valve_Estimated_Flow.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/Open_SAE_J1939/Closedown_ECU.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/Open_SAE_J1939/Listen_For_Messages.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/Open_SAE_J1939/Startup_ECU.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-21_Transport_Layer/Acknowledgement.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-21_Transport_Layer/Request.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-21_Transport_Layer/Transport_Protocol_Connection_Management.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-21_Transport_Layer/Transport_Protocol_Data_Transfer.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-71_Application_Layer/Application_Layer.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-71_Application_Layer/Request_Component_Identification.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-71_Application_Layer/Request_ECU_Identification.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-71_Application_Layer/Request_Proprietary.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-71_Application_Layer/Request_Proprietary_B.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-71_Application_Layer/Request_Software_Identification.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-73_Diagnostics_Layer/DM1.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-73_Diagnostics_Layer/DM14.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-73_Diagnostics_Layer/DM15.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-73_Diagnostics_Layer/DM16.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-73_Diagnostics_Layer/DM2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-73_Diagnostics_Layer/DM3.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-81_Network_Management_Layer/Address_Claimed.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-81_Network_Management_Layer/Address_Delete.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-81_Network_Management_Layer/Address_Not_Claimed.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/SAE_J1939/SAE_J1939-81_Network_Management_Layer/Commanded_Address.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/OpenSAEJ1939.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/conversions/conversions.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Software/Libraries/conversions/conversions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/modbus/modbus.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/modbus/modbusclient.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/modbus/modbusserver.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/modbus/nanomodbus/nanomodbus.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Storage/Databases/Databases.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Storage/Databases/MySQL/MySQL.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Tools/Storage/Parameters/Parameters.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Dialogs/AnalyzeDialogs/CANTrafficDialog/CANTrafficDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Dialogs/ConfigurationDialogs/ConfigurationSAEJ1939/ConfigureDiagnosticMessageDialog/ConfigureDiagnosticMessageDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Dialogs/ConfigurationDialogs/ConfigurationSAEJ1939/ConfigureIdentificationsDialog/ConfigureIdentificationsDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Dialogs/ConfigurationDialogs/ConfigurationSAEJ1939/ConfigureNameDialog/ConfigureNameDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Dialogs/ConfigurationDialogs/ConfigurationSTM32PLC/ConfigureAnalogInputDialog/ConfigureAnalogInputDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Dialogs/ConfigurationDialogs/ConfigurationSTM32PLC/ConfigureDateTimeDialog/ConfigureDateTimeDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Dialogs/ConfigurationDialogs/ConfigurationSTM32PLC/ConfigurePWMDialog/ConfigurePWMDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Dialogs/ConfigurationDialogs/ConfigurationWellerToJBC/ConfigureParametersDialog/ConfigureParametersDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Dialogs/ConnectionDialogs/DatabaseConnectionDialog/DatabaseConnectionDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Dialogs/ConnectionDialogs/NetworkConnectionDialog/NetworkConnectionDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Dialogs/ConnectionDialogs/USBConnectionDialog/USBConnectionDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Dialogs/FileDialogs/LogFilePathDialog/LogFilePathDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Dialogs/MeasurementDialogs/ConfigureMeasurementDialog/ConfigureMeasurementDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Dialogs/MeasurementDialogs/CreateMeasurementDialog/CreateMeasurementDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Dialogs/MeasurementDialogs/ViewMeasurementDialog/ViewMeasurementDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Dialogs/UtilDialogs/DatabaseDialogs/GradesDialog/GradesDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Dialogs/UtilDialogs/ImageDialogs/CameraDialog/CameraDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Dialogs/UtilDialogs/ImageDialogs/FisherFacesDialog/FisherFacesDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Dialogs/UtilDialogs/ImageDialogs/LandmarkDialog/LandmarkDialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "GoobySoft/Windows/Windows.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

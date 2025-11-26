@@ -1,0 +1,13 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "GoobySoftRun.dir\\Release\\Windows.obj",
+            "outputs": [
+                "GoobySoftRun.dir\\Release\\"
+            ],
+            "requires": []
+        }
+    ]
+}

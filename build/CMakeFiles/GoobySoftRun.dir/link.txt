@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\GoobySoftRun.dir/objects.a
+C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\GoobySoftRun.dir/objects.a @CMakeFiles\GoobySoftRun.dir\objects1.rsp
+C:\msys64\ucrt64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\GoobySoftRun.dir/objects.a -Wl,--no-whole-archive -o GoobySoftRun.exe -Wl,--out-implib,libGoobySoftRun.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\GoobySoftRun.dir\linkLibs.rsp
