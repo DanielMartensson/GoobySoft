@@ -172,9 +172,6 @@
     <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\EasyCANopen\Easy-CANopen\Src\Hardware\Hardware_Time.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\EasyCANopen\Easy-CANopen\Src\main.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\EasyCANopen\Easy-CANopen\CMakeLists.txt" />

@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "RelWithDebInfo/GoobySoftRun.exe"
+			"path" : "Debug/GoobySoftRun.exe"
 		},
 		{
-			"path" : "RelWithDebInfo/GoobySoftRun.pdb"
+			"path" : "Debug/GoobySoftRun.pdb"
 		}
 	],
 	"backtrace" : 2,
@@ -270,7 +270,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O2 /Ob1 /DNDEBUG -std:c++20 -MD -Zi"
+					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++20 -MDd -Zi"
 				}
 			],
 			"defines" : 
@@ -396,7 +396,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /O2 /Ob1 /DNDEBUG -MD -Zi"
+					"fragment" : "/DWIN32 /D_WINDOWS /Ob0 /Od /RTC1 -MDd -Zi"
 				}
 			],
 			"defines" : 
@@ -891,7 +891,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O2 /Ob1 /DNDEBUG -MD -Zi",
+				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi",
 				"role" : "flags"
 			},
 			{
@@ -914,12 +914,12 @@
 			},
 			{
 				"backtrace" : 5,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\libssl.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\libssl.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 5,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\libcrypto.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\libcrypto.lib",
 				"role" : "libraries"
 			},
 			{
@@ -944,12 +944,12 @@
 			},
 			{
 				"backtrace" : 8,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\boost_filesystem-vc143-mt-x64-1_89.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\boost_filesystem-vc143-mt-gd-x64-1_89.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 9,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\boost_date_time-vc143-mt-x64-1_89.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\boost_date_time-vc143-mt-gd-x64-1_89.lib",
 				"role" : "libraries"
 			},
 			{
@@ -959,37 +959,37 @@
 			},
 			{
 				"backtrace" : 11,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_highgui4.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\opencv_highgui4d.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 11,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_ml4.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\opencv_ml4d.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 11,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_objdetect4.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\opencv_objdetect4d.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 11,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_photo4.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\opencv_photo4d.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 11,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_stitching4.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\opencv_stitching4d.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 11,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_video4.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\opencv_video4d.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 11,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_videoio4.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\opencv_videoio4d.lib",
 				"role" : "libraries"
 			},
 			{
@@ -999,52 +999,52 @@
 			},
 			{
 				"backtrace" : 28,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\boost_container-vc143-mt-x64-1_89.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\boost_container-vc143-mt-gd-x64-1_89.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 11,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_imgcodecs4.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\opencv_imgcodecs4d.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 11,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_calib3d4.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\opencv_calib3d4d.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 11,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_dnn4.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\opencv_dnn4d.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 11,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_features2d4.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\opencv_features2d4d.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 11,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_flann4.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\opencv_flann4d.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 11,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_imgproc4.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\opencv_imgproc4d.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 11,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\opencv_core4.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\opencv_core4d.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 34,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\zstd.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\zstd.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 38,
-				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\lib\\lz4.lib",
+				"fragment" : "C:\\Users\\danie\\Documents\\GitHub\\vcpkg\\installed\\x64-windows\\debug\\lib\\lz4d.lib",
 				"role" : "libraries"
 			},
 			{
@@ -3960,6 +3960,12 @@
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/Src/Easy-CANopen.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
 			"path" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/Src/Easy_CANopen/Easy_CANopen_Other_Node.c",
 			"sourceGroupIndex" : 0
 		},
@@ -3991,12 +3997,6 @@
 			"backtrace" : 2,
 			"compileGroupIndex" : 1,
 			"path" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/Src/Hardware/Hardware_Time.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 2,
-			"compileGroupIndex" : 1,
-			"path" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/Src/main.c",
 			"sourceGroupIndex" : 0
 		},
 		{

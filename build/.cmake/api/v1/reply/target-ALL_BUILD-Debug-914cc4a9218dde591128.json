@@ -17,19 +17,19 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "easycanopenmain::@beb224345125dd571373"
-		},
-		{
-			"id" : "GoobySoftRun::@6890427a1f51a3e7e1df"
-		},
-		{
-			"id" : "opensaej1939::@776f167af522b136273e"
+			"id" : "easycanopen::@beb224345125dd571373"
 		},
 		{
 			"id" : "main::@776f167af522b136273e"
 		},
 		{
-			"id" : "easycanopen::@beb224345125dd571373"
+			"id" : "opensaej1939::@776f167af522b136273e"
+		},
+		{
+			"id" : "GoobySoftRun::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "easycanopenmain::@beb224345125dd571373"
 		},
 		{
 			"id" : "CControl::@a5086f634a25ad8eff74"

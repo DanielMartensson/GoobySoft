@@ -17,10 +17,10 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "opensaej1939::@776f167af522b136273e"
+			"id" : "main::@776f167af522b136273e"
 		},
 		{
-			"id" : "main::@776f167af522b136273e"
+			"id" : "opensaej1939::@776f167af522b136273e"
 		},
 		{
 			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"

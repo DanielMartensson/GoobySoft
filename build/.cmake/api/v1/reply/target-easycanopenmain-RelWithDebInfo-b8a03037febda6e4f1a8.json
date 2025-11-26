@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/Release/easycanopenmain.exe"
+			"path" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/RelWithDebInfo/easycanopenmain.exe"
 		},
 		{
-			"path" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/Release/easycanopenmain.pdb"
+			"path" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/RelWithDebInfo/easycanopenmain.pdb"
 		}
 	],
 	"backtrace" : 2,
@@ -67,7 +67,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /O2 /Ob2 /DNDEBUG -MD"
+					"fragment" : "/DWIN32 /D_WINDOWS /O2 /Ob1 /DNDEBUG -MD -Zi"
 				}
 			],
 			"defines" : 
@@ -107,11 +107,11 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /O2 /Ob2 /DNDEBUG -MD",
+				"fragment" : "/DWIN32 /D_WINDOWS /O2 /Ob1 /DNDEBUG -MD -Zi",
 				"role" : "flags"
 			},
 			{
-				"fragment" : "/machine:x64 /INCREMENTAL:NO",
+				"fragment" : "/machine:x64 /debug /INCREMENTAL",
 				"role" : "flags"
 			},
 			{
@@ -120,7 +120,7 @@
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "Release\\easycanopen.lib",
+				"fragment" : "RelWithDebInfo\\easycanopen.lib",
 				"role" : "libraries"
 			},
 			{
@@ -152,7 +152,7 @@
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/Src/main.c",
+			"path" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/Src/Easy-CANopen.c",
 			"sourceGroupIndex" : 0
 		}
 	],

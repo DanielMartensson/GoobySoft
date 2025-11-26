@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Release/GoobySoftRun.exe"
+			"path" : "RelWithDebInfo/GoobySoftRun.exe"
 		},
 		{
-			"path" : "Release/GoobySoftRun.pdb"
+			"path" : "RelWithDebInfo/GoobySoftRun.pdb"
 		}
 	],
 	"backtrace" : 2,
@@ -270,7 +270,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O2 /Ob2 /DNDEBUG -std:c++20 -MD"
+					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O2 /Ob1 /DNDEBUG -std:c++20 -MD -Zi"
 				}
 			],
 			"defines" : 
@@ -396,7 +396,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /O2 /Ob2 /DNDEBUG -MD"
+					"fragment" : "/DWIN32 /D_WINDOWS /O2 /Ob1 /DNDEBUG -MD -Zi"
 				}
 			],
 			"defines" : 
@@ -891,11 +891,11 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O2 /Ob2 /DNDEBUG -MD",
+				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O2 /Ob1 /DNDEBUG -MD -Zi",
 				"role" : "flags"
 			},
 			{
-				"fragment" : "/machine:x64 /INCREMENTAL:NO",
+				"fragment" : "/machine:x64 /debug /INCREMENTAL",
 				"role" : "flags"
 			},
 			{
@@ -3960,6 +3960,12 @@
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 1,
+			"path" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/Src/Easy-CANopen.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
 			"path" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/Src/Easy_CANopen/Easy_CANopen_Other_Node.c",
 			"sourceGroupIndex" : 0
 		},
@@ -3991,12 +3997,6 @@
 			"backtrace" : 2,
 			"compileGroupIndex" : 1,
 			"path" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/Src/Hardware/Hardware_Time.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 2,
-			"compileGroupIndex" : 1,
-			"path" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/Src/main.c",
 			"sourceGroupIndex" : 0
 		},
 		{

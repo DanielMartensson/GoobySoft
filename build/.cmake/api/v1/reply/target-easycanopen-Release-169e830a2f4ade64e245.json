@@ -12,7 +12,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/RelWithDebInfo/easycanopen.lib"
+			"path" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/Release/easycanopen.lib"
 		}
 	],
 	"backtrace" : 2,
@@ -67,7 +67,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /O2 /Ob1 /DNDEBUG -MD -Zi"
+					"fragment" : "/DWIN32 /D_WINDOWS /O2 /Ob2 /DNDEBUG -MD"
 				}
 			],
 			"defines" : 
@@ -143,8 +143,7 @@
 				53,
 				54,
 				55,
-				56,
-				57
+				56
 			]
 		}
 	],
@@ -224,8 +223,7 @@
 				53,
 				54,
 				55,
-				56,
-				57
+				56
 			]
 		}
 	],
@@ -571,12 +569,6 @@
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
 			"path" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/Src/Hardware/Hardware_Time.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 2,
-			"compileGroupIndex" : 0,
-			"path" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/Src/main.c",
 			"sourceGroupIndex" : 0
 		}
 	],
