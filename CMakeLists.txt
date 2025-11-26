@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Inkludera externa bibliotek från Libraries-mappen
 add_subdirectory(GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939)
+add_subdirectory(GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen)
 add_subdirectory(GoobySoft/Tools/Software/Libraries/CControl)
 
 # Hämta alla .cpp-filer i GoobySoft mappen
@@ -15,9 +16,11 @@ file(GLOB_RECURSE HEADERS CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/GoobySo
 # Exkludera main.c från CControl och OpenSAEJ1939 om de hamnat med (fast du har cpp-filer, men bra att ha som exempel)
 set(MAIN_SRC_CControl "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/Tools/Software/Libraries/CControl/src/Main.c")
 set(MAIN_SRC_Open_SAE_J1939 "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/Main.c")
+set(MAIN_SRC_Easy_CANopen "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/Src/main.c")
 list(REMOVE_ITEM ALL_SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939/Src/Hardware/SocketCAN_Transmit_Receive.c")
 list(REMOVE_ITEM ALL_SOURCE_FILES ${MAIN_SRC_CControl})
 list(REMOVE_ITEM ALL_SOURCE_FILES ${MAIN_SRC_Open_SAE_J1939})
+list(REMOVE_ITEM ALL_SOURCE_FILES ${MAIN_SRC_Easy_CANopen})
 
 # Skapa körbar fil
 add_executable(GoobySoftRun ${ALL_SOURCE_FILES})

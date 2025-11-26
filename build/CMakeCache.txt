@@ -237,6 +237,15 @@ ENABLE_SCALAPACK:BOOL=OFF
 ENABLE_TRY_SYCL_COMPILE:BOOL=OFF
 
 //Value Computed by CMake
+Easy-CANopen_BINARY_DIR:STATIC=C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen
+
+//Value Computed by CMake
+Easy-CANopen_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+Easy-CANopen_SOURCE_DIR:STATIC=C:/Users/danie/Documents/GitHub/GoobySoft/GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen
+
+//Value Computed by CMake
 GoobySoft_BINARY_DIR:STATIC=C:/Users/danie/Documents/GitHub/GoobySoft/build
 
 //Value Computed by CMake
