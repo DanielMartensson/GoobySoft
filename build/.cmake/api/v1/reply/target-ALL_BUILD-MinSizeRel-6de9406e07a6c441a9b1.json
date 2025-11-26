@@ -17,10 +17,10 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "easycanopen::@beb224345125dd571373"
+			"id" : "easycanopenmain::@beb224345125dd571373"
 		},
 		{
-			"id" : "easycanopenmain::@beb224345125dd571373"
+			"id" : "easycanopen::@beb224345125dd571373"
 		},
 		{
 			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
