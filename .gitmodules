@@ -4,3 +4,6 @@
 [submodule "GoobySoft/Tools/Software/Libraries/CControl"]
 	path = GoobySoft/Tools/Software/Libraries/CControl
 	url = https://github.com/DanielMartensson/CControl.git
+[submodule "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen"]
+	path = GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen
+	url = https://github.com/DanielMartensson/Easy-CANopen.git
