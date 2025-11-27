@@ -34,7 +34,7 @@ class USB_Listener : public itas109::CSerialPortListener {
 
 		// Store the data from buffer in a vector
 		std::vector<uint8_t>& dataCollection = dataCollections[port];
-		dataCollection.assign(bytesBuffer, bytesBuffer + receivedBytes);
+		dataCollection.insert(dataCollection.end(),bytesBuffer, bytesBuffer + receivedBytes);
 
 		// If the collection is to large, remove the first part
 		if(dataCollection.size() > MAX_DATA_COLLECTION){
