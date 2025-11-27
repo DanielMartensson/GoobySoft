@@ -8,9 +8,7 @@ static std::map<std::string, std::shared_ptr<itas109::CSerialPort>> portConnecti
 
 // Maps of the circular buffert
 #define MAX_DATA_COLLECTION 1024
-static std::map<std::string, std::array<uint8_t, MAX_DATA_COLLECTION>> dataCollections;
-static std::map<std::string, int> dataBeginIndexs;
-static std::map<std::string, int> dataBytesAvailable;
+static std::map<std::string, std::vector<uint8_t>> dataCollections;
 
 class USB_Listener : public itas109::CSerialPortListener {
 	private:
@@ -34,14 +32,15 @@ class USB_Listener : public itas109::CSerialPortListener {
 			return; 
 		}
 
-		// Store the data from buffer in a circular way
-		Tools_Software_Algorithms_circularCopy(bytesBuffer, dataCollections[port].data(), 0, dataBeginIndexs[port], receivedBytes, receivedBytes, MAX_DATA_COLLECTION);
+		// Store the data from buffer in a vector
+		std::vector<uint8_t>& dataCollection = dataCollections[port];
+		dataCollection.assign(bytesBuffer, bytesBuffer + receivedBytes);
 
-		// Circular shift forwards
-		dataBeginIndexs[port] = Tools_Software_Algorithms_circularShift(dataBeginIndexs[port], receivedBytes, false, MAX_DATA_COLLECTION); //(dataBeginIndexs[port] + receivedBytes) % MAX_DATA_COLLECTION;
-
-		// Count how many bytes are available
-		dataBytesAvailable[port] = dataBytesAvailable[port] > MAX_DATA_COLLECTION ? MAX_DATA_COLLECTION : dataBytesAvailable[port] + receivedBytes; 
+		// If the collection is to large, remove the first part
+		if(dataCollection.size() > MAX_DATA_COLLECTION){
+    		const size_t difference = dataCollection.size() - MAX_DATA_COLLECTION;
+			dataCollection.erase(dataCollection.begin(), dataCollection.begin() + difference);
+		}
     };
 };
 
@@ -80,8 +79,6 @@ USB_STATUS Tools_Hardware_USB_closeConnection(const char port[]) {
 		portConnections.erase(port);
 		portListeners.erase(port);
 		dataCollections.erase(port);
-		dataBeginIndexs.erase(port);
-		dataBytesAvailable.erase(port);
 		return USB_STATUS_DISCONNECTED;
 	}else {
 		return USB_STATUS_NOT_EXIST;
@@ -151,8 +148,6 @@ USB_STATUS Tools_Hardware_USB_openConnection(const char port[], const unsigned i
 		// Save
 		portConnections[port] = portConnection;
 		dataCollections[port] = {};
-		dataBeginIndexs[port] = 0;
-		dataBytesAvailable[port] = 0;
 
 		// Start a listener for the port
 		std::shared_ptr<USB_Listener> portListener = std::make_shared<USB_Listener>(portConnection.get());
@@ -194,14 +189,14 @@ std::string Tools_Hardware_USB_getProtocolFromPort(const char port[]) {
 	return PROTOCOL_STRING[Tools_Hardware_ParameterStore_getParameterHolder()->usbSettings[index].protocolIndex];
 }
 
-int32_t Tools_Hardware_USB_write(const char port[], const uint8_t data[], const uint16_t size, const int32_t timeout_ms) {
+int32_t Tools_Hardware_USB_write(const char port[], const uint8_t data[], const uint16_t elements, const int32_t timeout_ms) {
     if(!Tools_Hardware_USB_checkIfExist(port)){
       return -1;
     }
 	if(Tools_Hardware_USB_getTimeout(port) != timeout_ms){
 		Tools_Hardware_USB_setTimeout(port, timeout_ms);
 	}
-	const int32_t transmittedBytes = portConnections[port]->writeData(data, size);
+	const int32_t transmittedBytes = portConnections[port]->writeData(data, elements);
 	return transmittedBytes;
 }
 
@@ -219,28 +214,43 @@ uint32_t Tools_Hardware_USB_getTimeout(const char port[]){
 	return portConnections[port]->getReadIntervalTimeout();
 }
 
-int32_t Tools_Hardware_USB_read(const char port[], uint8_t data[], const uint16_t size, const int32_t timeout_ms) {
+int32_t Tools_Hardware_USB_read(const char port[], uint8_t data[], const uint16_t elements, const int32_t timeout_ms) {
     if(!Tools_Hardware_USB_checkIfExist(port)){
       return -1;
     }
 	if(Tools_Hardware_USB_getTimeout(port) != timeout_ms){
 		Tools_Hardware_USB_setTimeout(port, timeout_ms);
 	}
-	if(dataBytesAvailable[port] < size){
+
+	// Check data
+	std::vector<uint8_t>& dataCollection = dataCollections[port];
+	if(dataCollection.size() < elements){
 		return 0; // No data available
 	}
 
-	// Circular shift backwards
-	dataBeginIndexs[port] = Tools_Software_Algorithms_circularShift(dataBeginIndexs[port], size, true, MAX_DATA_COLLECTION);
-
-	// Store the data in a circular way with size elements backwards as starting index
-	Tools_Software_Algorithms_circularCopy(dataCollections[port].data(), data, dataBeginIndexs[port], 0, size, MAX_DATA_COLLECTION, size);
-
-	// Decrement the available bytes
-	dataBytesAvailable[port] -= size;
+	// Copy data from the last element
+	std::copy(dataCollection.end() - elements, dataCollection.end(), data);
 
 	// Return the size. It's up to the Devices to determine(use protocol) if this uint8_t data[] is complete or not
-	return size;
+	return elements;
+}
+
+bool Tools_Hardware_USB_eraseData(const char port[], const uint16_t startIndex, const uint16_t elements){
+	if(!Tools_Hardware_USB_checkIfExist(port)){
+		return false;
+    }
+
+	// Check data
+	std::vector<uint8_t>& dataCollection = dataCollections[port];
+	if(startIndex + elements >= dataCollection.size()) {
+		return false;
+    }
+
+	// Delete data
+	dataCollection.erase(dataCollection.begin() + startIndex, dataCollection.begin() + startIndex + elements);
+
+	// OK
+	return true;
 }
 
 void Tools_Hardware_USB_flush(const char port[]) {

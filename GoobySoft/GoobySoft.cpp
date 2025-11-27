@@ -205,6 +205,8 @@ int main(int, char**)
         /* Read the CAN messages - if it exist */
         Open_SAE_J1939_Listen_For_Messages(Tools_Hardware_ParameterStore_getJ1939());
         Easy_CANopen_Thread_Listen_Messages(Tools_Hardware_ParameterStore_getEasyCANopen());
+        Easy_CANopen_Thread_Transmit_Messages(Tools_Hardware_ParameterStore_getEasyCANopen());
+
 
         // Rendering
         ImGui::Render();
