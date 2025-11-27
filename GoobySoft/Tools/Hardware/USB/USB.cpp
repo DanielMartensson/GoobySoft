@@ -260,7 +260,5 @@ void Tools_Hardware_USB_flush(const char port[]) {
 	portConnections[port]->flushBuffers();
 	portConnections[port]->flushReadBuffers();
 	portConnections[port]->flushWriteBuffers();
-	dataCollections[port].fill(0);
-	dataBeginIndexs[port] = 0;
-	dataBytesAvailable[port] = 0;
+	dataCollections[port].clear();
 }
