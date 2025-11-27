@@ -12,6 +12,7 @@ bool configureMeasurement = false;
 bool createMeasurement = false;
 bool viewMeasurement = false;
 bool configureSAEJ1939Name = false;
+bool configureCANopenUSBportDialog = false;
 bool configureSAEJ1939Identifications = false;
 bool configureSAEJ1939DiagnosticMessage = false;
 bool configureAnalogInputSTM32PLC = false;
@@ -53,6 +54,10 @@ void showMainWindow(bool* done) {
 				ImGui::MenuItem("Name", nullptr, &configureSAEJ1939Name);
 				ImGui::MenuItem("Identifications", nullptr, &configureSAEJ1939Identifications);
 				ImGui::MenuItem("Diagnostics messages", nullptr, &configureSAEJ1939DiagnosticMessage);
+				ImGui::EndMenu();
+			}
+			if (ImGui::BeginMenu("CANopen")) {
+				ImGui::MenuItem("Select connected USB port", nullptr, &configureCANopenUSBportDialog);
 				ImGui::EndMenu();
 			}
 			if (ImGui::BeginMenu("STM32 PLC")) {
@@ -163,6 +168,9 @@ void showMainWindow(bool* done) {
 		}
 		if (viewGradesDialog) {
 			Windows_Dialogs_UtilDialogs_DatabaseDialogs_GradesDialog_showViewGradesDialog(&viewGradesDialog);
+		}
+		if(configureCANopenUSBportDialog){
+			Windows_Dialogs_ConfigurationiDialogs_ConfigurationCANopen_ConfigureUSBportDialog_showConfigureUSBportDialog(&configureCANopenUSBportDialog);
 		}
 
 		ImGui::EndMainMenuBar();

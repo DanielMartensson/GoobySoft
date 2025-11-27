@@ -91,13 +91,13 @@ void Windows_Dialogs_ConfigurationDialogs_ConfigurationWellerToJBC_ConfigurePara
         std::string connectedPorts = Tools_Hardware_USB_getConnectedPorts();
 
         // Create combo box
-        static int cdcIndex = 0;
+        static int portIndex = 0;
         ImGui::PushItemWidth(60);
-        ImGui::Combo("Connected USB ports", &cdcIndex, connectedPorts.c_str());
+        ImGui::Combo("Connected USB ports", &portIndex, connectedPorts.c_str());
 
         // Get selected port
         char port[20];
-        Tools_Software_Algorithms_extractElementFromCharArray(connectedPorts.c_str(), cdcIndex, port);
+        Tools_Software_Algorithms_extractElementFromCharArray(connectedPorts.c_str(), portIndex, port);
 
         // The address is fixed for the RTU device
         const int address = 1;

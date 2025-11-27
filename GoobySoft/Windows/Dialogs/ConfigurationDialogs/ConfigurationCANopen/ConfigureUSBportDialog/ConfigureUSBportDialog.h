@@ -1,0 +1,6 @@
+#ifndef ConfigureCANopenUSBportDialog
+#define ConfigureCANopenUSBportDialog
+
+void Windows_Dialogs_ConfigurationiDialogs_ConfigurationCANopen_ConfigureUSBportDialog_showConfigureUSBportDialog(bool* configureCANopenUSBportDialog);
+
+#endif // !ConfigureCANopenUSBportDialog

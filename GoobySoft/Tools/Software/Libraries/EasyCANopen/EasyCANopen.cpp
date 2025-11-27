@@ -2,60 +2,59 @@
 #include "../../../Tools.h"
 
 /* IDE in STM32 */
-#define CAN_ID_STD                  (0x00000000U)  /*!< Standard Id */
-#define CAN_ID_EXT                  (0x00000004U)  /*!< Extended Id */
+#define dSTANDARD_CAN_MSG_ID_2_0B 1
+#define dEXTENDED_CAN_MSG_ID_2_0B 2
+#define dataTXSize 14
+#define dataRXsize 40
+#define CANmessageSize 20
 
 static std::vector<std::vector<std::string>> rows;
 static int allowed_rows = 10;
+static char _port[20] = {0};
 
-void Tools_Software_Libraries_EasyCANopen_callbackFunctionSend(uint32_t ID, uint8_t DLC, uint8_t data[]) {
-	// Load the data. 7 + largest value of DLC = 15 
-	uint8_t dataTX[15] = { 0 };
-	dataTX[0] = STM32PLC_WRITE_SET_CAN_BUS_MESSAGE_TYPE;
-	dataTX[1] = CAN_ID_EXT;
-	dataTX[2] = ID >> 24;
-	dataTX[3] = ID >> 16;
-	dataTX[4] = ID >> 8;
-	dataTX[5] = ID;
-	dataTX[6] = DLC;
+void Tools_Software_Libraries_EasyCANopen_callbackFunctionSend(uint16_t COB_ID, uint8_t DLC, uint8_t data[]) {
+	uint8_t dataTX[dataTXSize] = { 0 };
+	dataTX[0] = dSTANDARD_CAN_MSG_ID_2_0B;
+	dataTX[1] = 0;
+	dataTX[2] = 0;
+	dataTX[3] = COB_ID >> 8;
+	dataTX[4] = COB_ID;
+	dataTX[5] = DLC;
 	for (uint8_t i = 0; i < DLC; i++) {
-		dataTX[7 + i] = data[i];
+		dataTX[6 + i] = data[i];
 	}
-
-	// Get the port
-	const char* port = Tools_Communications_Devices_STM32PLC_getAddressPort();
-
-	Tools_Hardware_USB_write(port, dataTX, sizeof(dataTX), 1000);
+	Tools_Hardware_USB_write(_port, dataTX, 6 + DLC, 100);
 }
 
-void Tools_Software_Libraries_EasyCANopen_callbackFunctionRead(uint32_t* ID, uint8_t data[], bool* is_new_data) {
-	// Get the port
-	const char* port = Tools_Communications_Devices_STM32PLC_getAddressPort();
-
-	// Ask for CAN message
-	uint8_t CAN[30] = { STM32PLC_SEND_BACK_CAN_MESSAGE_TYPE };
-	Tools_Hardware_USB_write(port, CAN, 1, 0);
-	int32_t received = Tools_Hardware_USB_read(port, CAN, 30, 1000);
+void Tools_Software_Libraries_EasyCANopen_callbackFunctionRead(uint16_t* COB_ID, uint8_t data[], bool* is_new_data) {
+	uint8_t dataRX[dataRXsize] = { 0 }; 
+	int32_t received = Tools_Hardware_USB_read(_port, dataRX, dataRXsize, 100);
+	printf("Data received = %i\n",received );
 	if (received <= 0) {
 		*is_new_data = false;
 		return;
 	}
 
-	// Check if the CAN message back has extended ID
-	if (data[0] == CAN_ID_STD) {
-		*is_new_data = false;
-	}
-	else {
-		*ID = (CAN[1] << 24) | (CAN[2] << 16) | (CAN[3] << 8) | CAN[4];
-		uint8_t DLC = CAN[5];
-		for (int i = 0; i < DLC; i++) {
-			data[i] = CAN[6 + i];
+	uint8_t index;
+	for(index = 0; index < dataRXsize - CANmessageSize; index++){
+		if(dataRX[0 + index] == dSTANDARD_CAN_MSG_ID_2_0B && dataRX[14 + index] == 'S' && dataRX[15 + index] == 'T' && dataRX[16 + index] == 'M' && dataRX[17 + index] == '2' && dataRX[18 + index] == '3' && dataRX[19 + index] == '\0'){
+			*is_new_data = true;
+			break;
 		}
-		*is_new_data = true;
+	}
+
+	if(*is_new_data){
+		*COB_ID = (dataRX[3 + index] << 8) | dataRX[4 + index];
+		uint8_t DLC = dataRX[5 + index];
+		for (int i = 0; i < DLC; i++) {
+			data[i] = dataRX[i + 6 + index];
+		}
+	}else{
+		*is_new_data = false;
 	}
 }
 
-void Tools_Software_Libraries_EasyCANopen_callbackFunctionTraffic(uint32_t ID, uint8_t DLC, uint8_t data[], bool is_TX) {
+void Tools_Software_Libraries_EasyCANopen_callbackFunctionTraffic(uint16_t ID, uint8_t DLC, uint8_t data[], bool is_TX) {
 	// Add header 
 	if (rows.size() == 0) {
 		std::vector<std::string> header = { "TX/RX", "ID", "DLC", "D0", "D1", "D2", "D3", "D4", "D5", "D6", "D7" };
@@ -100,4 +99,9 @@ std::vector<std::vector<std::string>>& Tools_Software_Libraires_EasyCANopen_getC
 
 int* Tools_Software_Libraires_EasyCANopen_getCANTrafficAllowedRows() {
 	return &allowed_rows;
+}
+
+
+void Tools_Software_Libraries_EasyCANopen_setPort(const char port[]){
+	std::strcpy(_port, port);
 }
