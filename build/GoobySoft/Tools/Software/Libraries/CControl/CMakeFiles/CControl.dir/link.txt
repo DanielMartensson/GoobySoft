@@ -1,3 +1,0 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\CControl.dir/objects.a
-C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\CControl.dir/objects.a @CMakeFiles\CControl.dir\objects1.rsp
-C:\msys64\ucrt64\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\CControl.dir/objects.a -Wl,--no-whole-archive -o CControl.exe -Wl,--out-implib,libCControl.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\CControl.dir\linkLibs.rsp
