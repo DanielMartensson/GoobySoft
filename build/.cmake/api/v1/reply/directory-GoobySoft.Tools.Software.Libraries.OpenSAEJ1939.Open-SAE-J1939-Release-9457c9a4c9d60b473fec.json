@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939",
+		"source" : "GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939"
+	}
+}

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\Hardware\CAN_Transmit_Receive.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\Hardware\FLASH_EEPROM_RAM_Memory.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\Hardware\Save_Load_Struct.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\ISO_11783\ISO_11783-7_Application_Layer\Auxiliary_Valve_Command.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\ISO_11783\ISO_11783-7_Application_Layer\Auxiliary_Valve_Estimated_Flow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\ISO_11783\ISO_11783-7_Application_Layer\Auxiliary_Valve_Measured_Position.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\ISO_11783\ISO_11783-7_Application_Layer\General_Purpose_Valve_Command.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\ISO_11783\ISO_11783-7_Application_Layer\General_Purpose_Valve_Estimated_Flow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\Open_SAE_J1939\Closedown_ECU.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\Open_SAE_J1939\Listen_For_Messages.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\Open_SAE_J1939\Startup_ECU.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-21_Transport_Layer\Acknowledgement.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-21_Transport_Layer\Request.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-21_Transport_Layer\Transport_Protocol_Connection_Management.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-21_Transport_Layer\Transport_Protocol_Data_Transfer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-71_Application_Layer\Application_Layer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-71_Application_Layer\Request_Component_Identification.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-71_Application_Layer\Request_ECU_Identification.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-71_Application_Layer\Request_Proprietary.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-71_Application_Layer\Request_Proprietary_B.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-71_Application_Layer\Request_Software_Identification.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM14.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM15.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM16.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-73_Diagnostics_Layer\DM3.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-81_Network_Management_Layer\Address_Claimed.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-81_Network_Management_Layer\Address_Delete.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-81_Network_Management_Layer\Address_Not_Claimed.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Src\SAE_J1939\SAE_J1939-81_Network_Management_Layer\Commanded_Address.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{E39CED28-6547-362C-AD24-97E0D3E10AC9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
