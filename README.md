@@ -273,19 +273,21 @@ In order to let 'GoobySoft' communicate over CAN through the USB. A CAN to USB m
 
 When reading `CAN -> USB`, the read data frame must be:
 
-| STD/EXT | ID MSB | ID | ID | ID LSB | DLC | DATA 0 | DATA 1 | DATA 2 | DATA 3 | DATA 4 | DATA 5 | DATA 6 | DATA 7 | 'S' | 'T' | 'M' | '3' | '2' | '\0' |
-|--------:|:------:|:--:|:--:|:------:|:---:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:--:|:--:|:--:|:--:|:--:|:---:|
-|         |        |    |    |        |     |        |        |        |        |        |        |        |        |    |    |    |    |    |     |
+| Byte 0  | Byte 1 | Byte 2 | Byte 3 | Byte 4 | Byte 5 | Byte 6 | Byte 7 | Byte 8 | Byte 9 | Byte 10 | Byte 11 | Byte 12 | Byte 13 | Byte 14 | Byte 15 | Byte 16 | Byte 17 | Byte 18 | Byte 19 |
+|--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+| STD/EXT | ID MSB | ID     | ID     | ID LSB | DLC    | DATA 0 | DATA 1 | DATA 2 | DATA 3 | DATA 4  | DATA 5  | DATA 6  | DATA 7  | 'S'     | 'T'     | 'M'     | '3'     | '2'     | '\0'    |
+
+
 
 When writing `USB -> CAN`, the write data fram must be:
 
-| STD/EXT | ID MSB | ID | ID | ID LSB | DLC | DATA 0 | DATA 1 | DATA 2 | DATA 3 | DATA 4 | DATA 5 | DATA 6 | DATA 7 |
-|--------:|:------:|:--:|:--:|:------:|:---:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
-|         |        |    |    |        |     |        |        |        |        |        |        |        |        |
+| Byte 0  | Byte 1 | Byte 2 | Byte 3 | Byte 4 | Byte 5 | Byte 6 | Byte 7 | Byte 8 | Byte 9 | Byte 10 | Byte 11 | Byte 12 | Byte 13 | Byte 14 | Byte 15 | Byte 16 | Byte 17 | Byte 18 | Byte 19 |
+|--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+| STD/EXT | ID MSB | ID     | ID     | ID LSB | DLC    | DATA 0 | DATA 1 | DATA 2 | DATA 3 | DATA 4  | DATA 5  | DATA 6  | DATA 7  |         |         |         |         |         |         |
 
 The total read data frame is 20 bytes in total.
 The total write data frame is 14 bytes in total.
-The `STD/EXT` can be `1 (STD)` or `2 (EXT)`. This is very important for the SAE J1939 and CANopen protocols. The ending `STM32\0` is just for `GoobySoft` to know the end of the USB message.
+The CAN type `STD/EXT` can be `1 (STD)` or `2 (EXT)`. This is very important for the SAE J1939 and CANopen protocols. The ending `STM32\0` is just for `GoobySoft` to know the end of the USB message.
 
 I recommend this CAN to USB module: [STM32 CAN to USB](https://github.com/DanielMartensson/STM32-CAN-to-USB)
 
