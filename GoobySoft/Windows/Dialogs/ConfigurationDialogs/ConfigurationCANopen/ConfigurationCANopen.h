@@ -1,6 +1,6 @@
 #ifndef ConfigurationCANopen
 #define ConfigurationCANopen
 
-#include "ConfigureUSBportDialog/ConfigureUSBportDialog.h"
+#include "ConfigureCANopenDialog/ConfigureCANopenDialog.h"
 
 #endif // !ConfigurationCANopen

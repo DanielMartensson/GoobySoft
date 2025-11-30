@@ -1,0 +1,6 @@
+#ifndef ConfigureCANopenDialog
+#define ConfigureCANopenDialog
+
+void Windows_Dialogs_ConfigurationiDialogs_ConfigurationCANopen_ConfigureCANopenDialog_showConfigureDialog(bool* configureCANopenDialog);
+
+#endif // !ConfigureCANopenDialog
