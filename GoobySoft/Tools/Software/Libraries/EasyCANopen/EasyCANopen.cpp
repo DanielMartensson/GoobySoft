@@ -3,13 +3,12 @@
 
 /* IDE in STM32 */
 #define dSTANDARD_CAN_MSG_ID_2_0B 1
-#define dEXTENDED_CAN_MSG_ID_2_0B 2
 #define dataTXSize 14
 #define dataRXsize 40
 #define CANmessageSize 20
 
 static std::vector<std::vector<std::string>> rows;
-static int allowed_rows = 10;
+static int allowed_rows = 20;
 static char _port[20] = {0};
 
 void Tools_Software_Libraries_EasyCANopen_callbackFunctionSend(uint16_t COB_ID, uint8_t DLC, uint8_t data[]) {
@@ -29,26 +28,28 @@ void Tools_Software_Libraries_EasyCANopen_callbackFunctionSend(uint16_t COB_ID, 
 void Tools_Software_Libraries_EasyCANopen_callbackFunctionRead(uint16_t* COB_ID, uint8_t data[], bool* is_new_data) {
 	uint8_t dataRX[dataRXsize] = { 0 }; 
 	int32_t received = Tools_Hardware_USB_read(_port, dataRX, dataRXsize, 100);
-	printf("Data received = %i\n",received );
 	if (received <= 0) {
 		*is_new_data = false;
 		return;
 	}
 
-	uint8_t index;
-	for(index = 0; index < dataRXsize - CANmessageSize; index++){
-		if(dataRX[0 + index] == dSTANDARD_CAN_MSG_ID_2_0B && dataRX[14 + index] == 'S' && dataRX[15 + index] == 'T' && dataRX[16 + index] == 'M' && dataRX[17 + index] == '2' && dataRX[18 + index] == '3' && dataRX[19 + index] == '\0'){
+	uint8_t startIndex;
+	for(startIndex = 0; startIndex < dataRXsize - CANmessageSize; startIndex++){
+		if(dataRX[0 + startIndex] == dSTANDARD_CAN_MSG_ID_2_0B && dataRX[14 + startIndex] == 'S' && dataRX[15 + startIndex] == 'T' && dataRX[16 + startIndex] == 'M' && dataRX[17 + startIndex] == '2' && dataRX[18 + startIndex] == '3' && dataRX[19 + startIndex] == '\0'){
 			*is_new_data = true;
 			break;
 		}
 	}
 
 	if(*is_new_data){
-		*COB_ID = (dataRX[3 + index] << 8) | dataRX[4 + index];
-		uint8_t DLC = dataRX[5 + index];
+		*COB_ID = (dataRX[3 + startIndex] << 8) | dataRX[4 + startIndex];
+		uint8_t DLC = dataRX[5 + startIndex];
 		for (int i = 0; i < DLC; i++) {
-			data[i] = dataRX[i + 6 + index];
+			data[i] = dataRX[i + 6 + startIndex];
 		}
+
+		/* The message was successfully read - Remove it then */
+		Tools_Hardware_USB_eraseData(_port, startIndex, CANmessageSize);
 	}else{
 		*is_new_data = false;
 	}
@@ -97,10 +98,9 @@ std::vector<std::vector<std::string>>& Tools_Software_Libraires_EasyCANopen_getC
 	return rows;
 }
 
-int* Tools_Software_Libraires_EasyCANopen_getCANTrafficAllowedRows() {
+int* Tools_Software_Libraires_EasyCANopen_getCANTrafficAllowedRowsPtr() {
 	return &allowed_rows;
 }
-
 
 void Tools_Software_Libraries_EasyCANopen_setPort(const char port[]){
 	std::strcpy(_port, port);

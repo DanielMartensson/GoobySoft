@@ -12,14 +12,17 @@ bool configureMeasurement = false;
 bool createMeasurement = false;
 bool viewMeasurement = false;
 bool configureSAEJ1939Name = false;
-bool configureCANopenDialog = false;
+bool configureCANopenOtherNodeDialog = false;
+bool configureCANopenThisNodeDialog = false;
+bool configureCANopenUSBportDialog = false;
 bool configureSAEJ1939Identifications = false;
 bool configureSAEJ1939DiagnosticMessage = false;
 bool configureAnalogInputSTM32PLC = false;
 bool configureParametersWellerToJBC = false;
 bool configureDateTimeSTM32PLC = false;
 bool configurePWMSTM32PLC = false;
-bool canTrafficDialog = false;
+bool canTrafficSAEJ1939Dialog = false;
+bool canTrafficCANopenDialog = false;
 bool fisherFacesDialog = false;
 bool landmarkDialog = false;
 bool cameraDialog = false;
@@ -57,7 +60,9 @@ void showMainWindow(bool* done) {
 				ImGui::EndMenu();
 			}
 			if (ImGui::BeginMenu("CANopen")) {
-				ImGui::MenuItem("Configure CANopen", nullptr, &configureCANopenDialog);
+				ImGui::MenuItem("Configure CANopen USB port", nullptr, &configureCANopenUSBportDialog);
+				ImGui::MenuItem("Configure CANopen this node", nullptr, &configureCANopenThisNodeDialog);
+				ImGui::MenuItem("Configure CANopen other node", nullptr, &configureCANopenOtherNodeDialog);
 				ImGui::EndMenu();
 			}
 			if (ImGui::BeginMenu("STM32 PLC")) {
@@ -73,8 +78,9 @@ void showMainWindow(bool* done) {
 			ImGui::EndMenu();
 		}
 		if (ImGui::BeginMenu("Analyze")) {
-			if (ImGui::BeginMenu("STM32 PLC")) {
-				ImGui::MenuItem("CAN traffic", nullptr, &canTrafficDialog);
+			if (ImGui::BeginMenu("CAN <---> USB module")) {
+				ImGui::MenuItem("CAN traffic SAE J1939", nullptr, &canTrafficSAEJ1939Dialog);
+				ImGui::MenuItem("CAN traffic CANopen", nullptr, &canTrafficCANopenDialog);
 				ImGui::EndMenu();
 			}
 			ImGui::EndMenu();
@@ -154,8 +160,11 @@ void showMainWindow(bool* done) {
 		if (configurePWMSTM32PLC) {
 			Windows_Dialogs_ConfigurationDialogs_ConfigurationSTM32PLC_ConfigurePWMDialog_showConfigurePWMDialog(&configurePWMSTM32PLC);
 		}
-		if (canTrafficDialog) {
-			Windows_Dialogs_AnalyzeDialogs_CANTrafficDialog_showCANTrafficDialog(&canTrafficDialog);
+		if (canTrafficSAEJ1939Dialog) {
+			Windows_Dialogs_AnalyzeDialogs_CANtrafficSAEJ1939Dialog_showCANtrafficDialog(&canTrafficSAEJ1939Dialog);
+		}
+		if (canTrafficCANopenDialog) {
+			Windows_Dialogs_AnalyzeDialogs_CANtrafficCANopenDialog_showCANtrafficDialog(&canTrafficCANopenDialog);
 		}
 		if (fisherFacesDialog) {
 			Windows_Dialogs_UtilDialogs_ImageDialogs_FisherFacesDialog_showFisherFacesDialog(&fisherFacesDialog);
@@ -169,8 +178,14 @@ void showMainWindow(bool* done) {
 		if (viewGradesDialog) {
 			Windows_Dialogs_UtilDialogs_DatabaseDialogs_GradesDialog_showViewGradesDialog(&viewGradesDialog);
 		}
-		if(configureCANopenDialog){
-			Windows_Dialogs_ConfigurationiDialogs_ConfigurationCANopen_ConfigureCANopenDialog_showConfigureDialog(&configureCANopenDialog);
+		if(configureCANopenThisNodeDialog){
+			Windows_Dialogs_ConfigurationiDialogs_ConfigurationCANopen_ConfigureCANopenThisNodeDialog_showConfigureDialog(&configureCANopenThisNodeDialog);
+		}
+		if(configureCANopenOtherNodeDialog){
+			Windows_Dialogs_ConfigurationiDialogs_ConfigurationCANopen_ConfigureCANopenOtherNodeDialog_showConfigureDialog(&configureCANopenOtherNodeDialog);
+		}
+		if(configureCANopenUSBportDialog){
+			Windows_Dialogs_ConfigurationiDialogs_ConfigurationCANopen_ConfigureCANopenUSBportDialog_showConfigureDialog(&configureCANopenUSBportDialog);
 		}
 
 		ImGui::EndMainMenuBar();

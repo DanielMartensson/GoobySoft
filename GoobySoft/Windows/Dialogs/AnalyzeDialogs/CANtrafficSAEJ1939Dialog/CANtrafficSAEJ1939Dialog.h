@@ -1,0 +1,6 @@
+#ifndef CANtrafficSAEJ1939Dialog
+#define CANtrafficSAEJ1939Dialog
+
+void Windows_Dialogs_AnalyzeDialogs_CANtrafficSAEJ1939Dialog_showCANtrafficDialog(bool* canTrafficSAEJ1939Dialog);
+
+#endif // !CANtrafficSAEJ1939Dialog

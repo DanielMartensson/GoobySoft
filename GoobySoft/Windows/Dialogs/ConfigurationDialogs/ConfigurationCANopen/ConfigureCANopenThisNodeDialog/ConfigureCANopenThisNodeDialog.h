@@ -1,0 +1,6 @@
+#ifndef ConfigureCANopenThisNodeDialog
+#define ConfigureCANopenThisNodeDialog
+
+void Windows_Dialogs_ConfigurationiDialogs_ConfigurationCANopen_ConfigureCANopenThisNodeDialog_showConfigureDialog(bool* configureCANopenThisNodeDialog);
+
+#endif // !ConfigureCANopenThisNodeDialog

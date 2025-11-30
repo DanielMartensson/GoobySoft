@@ -11,6 +11,7 @@ void Tools_Software_Libraries_OpenSAEJ1939_callbackFunctionRead(uint32_t* ID, ui
 void Tools_Software_Libraries_OpenSAEJ1939_callbackFunctionTraffic(uint32_t ID, uint8_t DLC, uint8_t data[], bool is_TX);
 void Tools_Software_Libraries_OpenSAEJ1939_callbackDelay(uint8_t delay);
 std::vector<std::vector<std::string>>& Tools_Software_Libraires_OpenSAEJ1939_getCANTrafficRows();
-int* Tools_Software_Libraires_OpenSAEJ1939_getCANTrafficAllowedRows();
+int* Tools_Software_Libraires_OpenSAEJ1939_getCANTrafficAllowedRowsPtr();
+void Tools_Software_Libraries_OpenSAEJ1939_setPort(const char port[]);
 
 #endif // !OpenSAEJ1939

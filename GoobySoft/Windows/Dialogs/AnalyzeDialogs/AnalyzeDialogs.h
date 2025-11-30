@@ -1,7 +1,9 @@
 #ifndef AnalyzeDialogs
 #define AnalyzeDialogs
 
-#include "CANTrafficDialog/CANTrafficDialog.h"
+#include "CANtrafficSAEJ1939Dialog/CANtrafficSAEJ1939Dialog.h"
+#include "CANtrafficCANopenDialog/CANtrafficCANopenDialog.h"
+
 
 #endif // !AnalyzeDialogs
 
