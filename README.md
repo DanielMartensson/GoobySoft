@@ -287,7 +287,7 @@ The total read data frame is 20 bytes in total.
 The total write data frame is 14 bytes in total.
 The `STD/EXT` can be `1 (STD)` or `2 (EXT)`. This is very important for the SAE J1939 and CANopen protocols. The ending `STM32\0` is just for `GoobySoft` to know the end of the USB message.
 
-I recommend this example: [STM32 CAN to USB](https://github.com/DanielMartensson/STM32-CAN-to-USB)
+I recommend this CAN to USB module: [STM32 CAN to USB](https://github.com/DanielMartensson/STM32-CAN-to-USB)
 
 # Pictures
 
