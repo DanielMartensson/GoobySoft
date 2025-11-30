@@ -1,0 +1,1335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x86</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E05BC904-87E5-30D8-94FA-08D6D95400A0}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <VcpkgEnabled>false</VcpkgEnabled>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>CControl</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="do_not_import_user.props" Condition="exists('do_not_import_user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\danie\Documents\GitHub\GoobySoft\build\GoobySoft\Tools\Software\Libraries\CControl\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CControl.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CControl</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\danie\Documents\GitHub\GoobySoft\build\GoobySoft\Tools\Software\Libraries\CControl\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CControl.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CControl</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\danie\Documents\GitHub\GoobySoft\build\GoobySoft\Tools\Software\Libraries\CControl\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CControl.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CControl</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\danie\Documents\GitHub\GoobySoft\build\GoobySoft\Tools\Software\Libraries\CControl\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CControl.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CControl</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Documents\Data\objects;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Headers;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ArtificialIntelligence;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ComputerVision;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\DifferentialEquation;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Hardware;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Routines;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Tools;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Optimization;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\FFTpack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SystemIdentification;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;MKL_ILP64;MKL_LAPACK_USED;MKL_FFT_USED;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;MKL_ILP64;MKL_LAPACK_USED;MKL_FFT_USED;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Documents\Data\objects;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Headers;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ArtificialIntelligence;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ComputerVision;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\DifferentialEquation;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Hardware;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Routines;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Tools;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Optimization;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\FFTpack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SystemIdentification;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Documents\Data\objects;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Headers;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ArtificialIntelligence;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ComputerVision;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\DifferentialEquation;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Hardware;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Routines;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Tools;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Optimization;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\FFTpack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SystemIdentification;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/danie/Documents/GitHub/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/Debug/CControl.exe -installedDir C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/debug/bin -OutVariable out
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\mkl_intel_ilp64.lib;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\mkl_sequential.lib;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\mkl_core.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/Debug/CControl.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/Debug/CControl.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Documents\Data\objects;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Headers;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ArtificialIntelligence;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ComputerVision;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\DifferentialEquation;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Hardware;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Routines;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Tools;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Optimization;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\FFTpack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SystemIdentification;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;MKL_ILP64;MKL_LAPACK_USED;MKL_FFT_USED;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;MKL_ILP64;MKL_LAPACK_USED;MKL_FFT_USED;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Documents\Data\objects;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Headers;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ArtificialIntelligence;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ComputerVision;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\DifferentialEquation;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Hardware;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Routines;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Tools;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Optimization;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\FFTpack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SystemIdentification;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Documents\Data\objects;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Headers;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ArtificialIntelligence;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ComputerVision;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\DifferentialEquation;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Hardware;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Routines;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Tools;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Optimization;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\FFTpack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SystemIdentification;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/danie/Documents/GitHub/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/Release/CControl.exe -installedDir C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/bin -OutVariable out
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\mkl_intel_ilp64.lib;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\mkl_sequential.lib;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\mkl_core.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/Release/CControl.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/Release/CControl.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Documents\Data\objects;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Headers;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ArtificialIntelligence;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ComputerVision;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\DifferentialEquation;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Hardware;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Routines;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Tools;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Optimization;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\FFTpack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SystemIdentification;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;MKL_ILP64;MKL_LAPACK_USED;MKL_FFT_USED;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;MKL_ILP64;MKL_LAPACK_USED;MKL_FFT_USED;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Documents\Data\objects;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Headers;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ArtificialIntelligence;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ComputerVision;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\DifferentialEquation;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Hardware;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Routines;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Tools;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Optimization;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\FFTpack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SystemIdentification;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Documents\Data\objects;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Headers;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ArtificialIntelligence;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ComputerVision;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\DifferentialEquation;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Hardware;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Routines;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Tools;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Optimization;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\FFTpack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SystemIdentification;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/danie/Documents/GitHub/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/MinSizeRel/CControl.exe -installedDir C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/bin -OutVariable out
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\mkl_intel_ilp64.lib;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\mkl_sequential.lib;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\mkl_core.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/MinSizeRel/CControl.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/MinSizeRel/CControl.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Documents\Data\objects;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Headers;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ArtificialIntelligence;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ComputerVision;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\DifferentialEquation;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Hardware;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Routines;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Tools;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Optimization;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\FFTpack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SystemIdentification;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;MKL_ILP64;MKL_LAPACK_USED;MKL_FFT_USED;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;MKL_ILP64;MKL_LAPACK_USED;MKL_FFT_USED;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Documents\Data\objects;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Headers;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ArtificialIntelligence;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ComputerVision;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\DifferentialEquation;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Hardware;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Routines;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Tools;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Optimization;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\FFTpack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SystemIdentification;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Documents\Data\objects;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Headers;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ArtificialIntelligence;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ComputerVision;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\DifferentialEquation;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Hardware;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Routines;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack\Tools;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\CLapack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Optimization;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\FFTpack;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SystemIdentification;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources;C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/danie/Documents/GitHub/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/RelWithDebInfo/CControl.exe -installedDir C:/Users/danie/Documents/GitHub/vcpkg/installed/x64-windows/bin -OutVariable out
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\mkl_intel_ilp64.lib;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\mkl_sequential.lib;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\mkl_core.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/RelWithDebInfo/CControl.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/RelWithDebInfo/CControl.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/danie/Documents/GitHub/GoobySoft/GoobySoft/Tools/Software/Libraries/CControl/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/danie/Documents/GitHub/GoobySoft -BC:/Users/danie/Documents/GitHub/GoobySoft/build --check-stamp-file C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\danie\Documents\GitHub\GoobySoft\build\CMakeFiles\cmake.verify_globs;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\cmake\mkl\MKLConfig.cmake;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\cmake\mkl\MKLConfigVersion.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\danie\Documents\GitHub\GoobySoft\build\GoobySoft\Tools\Software\Libraries\CControl\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/danie/Documents/GitHub/GoobySoft/GoobySoft/Tools/Software/Libraries/CControl/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/danie/Documents/GitHub/GoobySoft -BC:/Users/danie/Documents/GitHub/GoobySoft/build --check-stamp-file C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\danie\Documents\GitHub\GoobySoft\build\CMakeFiles\cmake.verify_globs;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\cmake\mkl\MKLConfig.cmake;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\cmake\mkl\MKLConfigVersion.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\danie\Documents\GitHub\GoobySoft\build\GoobySoft\Tools\Software\Libraries\CControl\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/danie/Documents/GitHub/GoobySoft/GoobySoft/Tools/Software/Libraries/CControl/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/danie/Documents/GitHub/GoobySoft -BC:/Users/danie/Documents/GitHub/GoobySoft/build --check-stamp-file C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\danie\Documents\GitHub\GoobySoft\build\CMakeFiles\cmake.verify_globs;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\cmake\mkl\MKLConfig.cmake;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\cmake\mkl\MKLConfigVersion.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\danie\Documents\GitHub\GoobySoft\build\GoobySoft\Tools\Software\Libraries\CControl\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/danie/Documents/GitHub/GoobySoft/GoobySoft/Tools/Software/Libraries/CControl/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/danie/Documents/GitHub/GoobySoft -BC:/Users/danie/Documents/GitHub/GoobySoft/build --check-stamp-file C:/Users/danie/Documents/GitHub/GoobySoft/build/GoobySoft/Tools/Software/Libraries/CControl/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\danie\Documents\GitHub\GoobySoft\build\CMakeFiles\cmake.verify_globs;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\cmake\mkl\MKLConfig.cmake;C:\Users\danie\Documents\GitHub\vcpkg\installed\x64-windows\lib\cmake\mkl\MKLConfigVersion.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\danie\Documents\GitHub\GoobySoft\build\GoobySoft\Tools\Software\Libraries\CControl\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ArtificialIntelligence\Astar.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ArtificialIntelligence\inpolygon.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ComputerVision\cornerdetection.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ComputerVision\featuredetection.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ComputerVision\fisherfaces.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ComputerVision\generalizedhough.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ComputerVision\hough.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ComputerVision\violajones.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering\c2d.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering\cab.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering\dare.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering\kf.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering\lqe.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering\lqr.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering\mpc.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering\obsv.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering\qmpc.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering\ssint.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ControlEngineering\stability.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\DifferentialEquation\rk4.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\DifferentialEquation\rk4args.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Hardware\concatenate_paths.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Hardware\count_sub_folders.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Hardware\detectmemoryleak.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Hardware\saveload.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Hardware\scan_file_names.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Hardware\scan_sub_folder_names.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing\fspecial.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing\haarlike.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing\harris.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing\imcollect.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing\imfree.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing\imgaussfilt.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing\imread.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing\imresize.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing\imshow.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing\imwrite.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing\integralimage.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing\intensitycentroid.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing\lbp.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing\pooling.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing\rpca.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\ImageProcessing\sobel.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\balance.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\chol.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\cholupdate.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\conv.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\conv2.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\conv2fft.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\convfft.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\det.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\dlyap.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\dot.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\eig.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\eig_generalized.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\expm.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\eye.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\hankel.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\inv.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\linsolve_chol.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\linsolve_gauss.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\linsolve_lower_triangular.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\linsolve_lup.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\linsolve_qr.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\linsolve_upper_triangular.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\lup.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\mul.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\nonlinsolve.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\norm.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\pinv.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\qr.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\rank.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\svd.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\LinearAlgebra\tran.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning\adaboost.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning\dbscan.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning\kernel.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning\kmeans.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning\kpca.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning\kpca_lda_nn.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning\nn.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\MachineLearning\svm.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\anglevector.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\cat.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\cumsum.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\cut.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\deg2rad.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\find.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\float2uint.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\ind2sub.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\insert.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\issymmetric.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\normalize.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\pdist2.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\popcount.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\print.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\rad2deg.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\radianvector.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\rot2d.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\saturation.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\scalar.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\shuffle.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\sign.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\sort.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\sum.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\uint2float.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\unique.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\unit.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\vmax.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Miscellaneous\vmin.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Optimization\linprog.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Optimization\lsqnonneg.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Optimization\quadprog.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Optimization\quadprogslim.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\FFTpack\fftpack.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\clusterfilter.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\fft.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\fft2.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\fftshift.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\filtfilt.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\ifft.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\ifft2.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\ifftshift.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\pf.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SignalProcessing\sr_ukf_state_estimation.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\amax.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\amin.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\area.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\center.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\centroid.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\clusterratio.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\clustersdistance.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\cov.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\covm.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\giniimpurity.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\lda.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\mean.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\normpdf.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\opa.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\pca.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\randi.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\randn.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\randperm.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\stddev.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\Statistics\var.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SystemIdentification\era.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SystemIdentification\okid.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SystemIdentification\rls.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SystemIdentification\sr_ukf_parameter_estimation.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\CControl\Sources\SystemIdentification\theta2ss.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ClCompile Include="C:\Users\danie\Documents\GitHub\GoobySoft\GoobySoft\Tools\Software\Libraries\CControl\src\Main.c">
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</ScanSourceForModuleDependencies>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\danie\Documents\GitHub\GoobySoft\build\ZERO_CHECK.vcxproj">
+      <Project>{F0E26FA8-CD42-397E-A2F3-4F45D7826F7F}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

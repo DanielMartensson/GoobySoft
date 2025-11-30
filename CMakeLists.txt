@@ -4,22 +4,10 @@ project(GoobySoft)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Sätt defines
-set(EASY_CAN_OPEN_TARGET_PLATFORM INTERNAL_CALLBACK CACHE STRING "Easy CANopen platform")
-set(OPEN_SAE_J1939_TARGET_PLATFORM INTERNAL_CALLBACK CACHE STRING "Open SAE J1939 platform")
-
 # Inkludera externa bibliotek från Libraries-mappen
 add_subdirectory(GoobySoft/Tools/Software/Libraries/OpenSAEJ1939/Open-SAE-J1939)
 add_subdirectory(GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen)
 add_subdirectory(GoobySoft/Tools/Software/Libraries/CControl)
-
-target_compile_definitions(easycanopenmain PUBLIC
-    EASY_CAN_OPEN_TARGET_PLATFORM=INTERNAL_CALLBACK
-)
-
-target_compile_definitions(opensaej1939 PUBLIC
-    OPEN_SAE_J1939_TARGET_PLATFORM=INTERNAL_CALLBACK
-)
 
 # Hämta alla .cpp-filer i GoobySoft mappen
 file(GLOB_RECURSE ALL_SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/*.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft/*.c")
@@ -36,6 +24,13 @@ list(REMOVE_ITEM ALL_SOURCE_FILES ${MAIN_SRC_Easy_CANopen})
 
 # Skapa körbar fil
 add_executable(GoobySoftRun ${ALL_SOURCE_FILES})
+
+# Sätt defintioner
+target_compile_definitions(GoobySoftRun PUBLIC
+    EASY_CAN_OPEN_TARGET_PLATFORM=INTERNAL_CALLBACK
+    OPEN_SAE_J1939_TARGET_PLATFORM=INTERNAL_CALLBACK
+)
+
 
 # Inkludera egna headers (kan justeras efter behov)
 target_include_directories(GoobySoftRun PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/GoobySoft")

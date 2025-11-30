@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>C:\Users\danie\Documents\GitHub\GoobySoft\build\x64\Release\ZERO_CHECK</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\danie\Documents\GitHub\GoobySoft\build\GoobySoft\Tools\Software\Libraries\CControl\Release\CControl.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\danie\Documents\GitHub\GoobySoft\build\Release\GoobySoftRun.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\danie\Documents\GitHub\GoobySoft\build\GoobySoft\Tools\Software\Libraries\EasyCANopen\Easy-CANopen\Release\easycanopenmain.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\danie\Documents\GitHub\GoobySoft\build\GoobySoft\Tools\Software\Libraries\OpenSAEJ1939\Open-SAE-J1939\Release\main.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\danie\Documents\GitHub\GoobySoft\build\x64\Release\ALL_BUILD</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

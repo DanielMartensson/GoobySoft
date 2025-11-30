@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "GoobySoft/Tools/Software/Libraries/CControl",
+		"source" : "GoobySoft/Tools/Software/Libraries/CControl"
+	}
+}

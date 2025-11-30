@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen",
+		"source" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen"
+	}
+}

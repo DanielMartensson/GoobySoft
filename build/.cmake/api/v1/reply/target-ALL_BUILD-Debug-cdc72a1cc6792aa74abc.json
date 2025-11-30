@@ -1,0 +1,43 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "easycanopen::@beb224345125dd571373"
+		},
+		{
+			"id" : "easycanopenmain::@beb224345125dd571373"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "CMakePredefinedTargets"
+	},
+	"id" : "ALL_BUILD::@beb224345125dd571373",
+	"isGeneratorProvided" : true,
+	"name" : "ALL_BUILD",
+	"paths" : 
+	{
+		"build" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen",
+		"source" : "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

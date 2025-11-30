@@ -1,1 +1,0 @@
-C:\Users\dmn\GitHub\ModBusReader\ModBusReader\x64\Debug\ModBusReader.vcxproj.CopyComplete
