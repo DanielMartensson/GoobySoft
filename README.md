@@ -277,13 +277,12 @@ When reading `CAN -> USB`, the read data frame must be:
 |--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
 | STD/EXT | ID MSB | ID     | ID     | ID LSB | DLC    | DATA 0 | DATA 1 | DATA 2 | DATA 3 | DATA 4  | DATA 5  | DATA 6  | DATA 7  | 'S'     | 'T'     | 'M'     | '3'     | '2'     | '\0'    |
 
-
-
 When writing `USB -> CAN`, the write data fram must be:
 
-| Byte 0  | Byte 1 | Byte 2 | Byte 3 | Byte 4 | Byte 5 | Byte 6 | Byte 7 | Byte 8 | Byte 9 | Byte 10 | Byte 11 | Byte 12 | Byte 13 | Byte 14 | Byte 15 | Byte 16 | Byte 17 | Byte 18 | Byte 19 |
-|--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
-| STD/EXT | ID MSB | ID     | ID     | ID LSB | DLC    | DATA 0 | DATA 1 | DATA 2 | DATA 3 | DATA 4  | DATA 5  | DATA 6  | DATA 7  |         |         |         |         |         |         |
+| Byte 0  | Byte 1 | Byte 2 | Byte 3 | Byte 4 | Byte 5 | Byte 6 | Byte 7 | Byte 8 | Byte 9 | Byte 10 | Byte 11 | Byte 12 | Byte 13 |
+|--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:-------:|:-------:|:-------:|:-------:|
+| STD/EXT | ID MSB | ID     | ID     | ID LSB | DLC    | DATA 0 | DATA 1 | DATA 2 | DATA 3 | DATA 4  | DATA 5  | DATA 6  | DATA 7  |
+
 
 The total read data frame is 20 bytes in total.
 The total write data frame is 14 bytes in total.
