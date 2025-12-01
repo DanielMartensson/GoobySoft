@@ -15,6 +15,7 @@ bool configureSAEJ1939Name = false;
 bool configureCANopenOtherNodeDialog = false;
 bool configureCANopenThisNodeDialog = false;
 bool configureCANopenUSBportDialog = false;
+bool configureSAEJ1939USBportDialog = false;
 bool configureSAEJ1939Identifications = false;
 bool configureSAEJ1939DiagnosticMessage = false;
 bool configureAnalogInputSTM32PLC = false;
@@ -54,6 +55,7 @@ void showMainWindow(bool* done) {
 		}
 		if (ImGui::BeginMenu("Configure")) {
 			if (ImGui::BeginMenu("SAE J1939")) {
+				ImGui::MenuItem("Configure SAE J1939 USB port", nullptr, &configureSAEJ1939USBportDialog);
 				ImGui::MenuItem("Name", nullptr, &configureSAEJ1939Name);
 				ImGui::MenuItem("Identifications", nullptr, &configureSAEJ1939Identifications);
 				ImGui::MenuItem("Diagnostics messages", nullptr, &configureSAEJ1939DiagnosticMessage);
@@ -186,6 +188,9 @@ void showMainWindow(bool* done) {
 		}
 		if(configureCANopenUSBportDialog){
 			Windows_Dialogs_ConfigurationiDialogs_ConfigurationCANopen_ConfigureCANopenUSBportDialog_showConfigureDialog(&configureCANopenUSBportDialog);
+		}
+		if(configureSAEJ1939USBportDialog){
+			Windows_Dialogs_ConfigurationiDialogs_ConfigurationSAEJ1939_ConfigureSAEJ1939USBportDialog_showConfigureDialog(&configureSAEJ1939USBportDialog);
 		}
 
 		ImGui::EndMainMenuBar();

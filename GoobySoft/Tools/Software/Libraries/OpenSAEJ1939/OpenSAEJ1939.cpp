@@ -3,16 +3,15 @@
 
 /* IDE in STM32 */
 #define dEXTENDED_CAN_MSG_ID_2_0B 2
-#define dataTXSize 14
-#define dataRXsize 40
-#define CANmessageSize 20
+#define TX_CAN_MESSAGE_SIZE 14
+#define RX_CAN_MESSAGE_SIZE 20
 
 static std::vector<std::vector<std::string>> rows;
 static int allowed_rows = 20;
 static char _port[20] = {0};
 
 void Tools_Software_Libraries_OpenSAEJ1939_callbackFunctionSend(uint32_t ID, uint8_t DLC, uint8_t data[]) {
-	uint8_t dataTX[dataTXSize] = { 0 };
+	uint8_t dataTX[TX_CAN_MESSAGE_SIZE] = { 0 };
 	dataTX[0] = dEXTENDED_CAN_MSG_ID_2_0B;
 	dataTX[1] = ID >> 24;
 	dataTX[2] = ID >> 16;
@@ -26,30 +25,38 @@ void Tools_Software_Libraries_OpenSAEJ1939_callbackFunctionSend(uint32_t ID, uin
 }
 
 void Tools_Software_Libraries_OpenSAEJ1939_callbackFunctionRead(uint32_t* ID, uint8_t data[], bool* is_new_data) {
-	uint8_t dataRX[dataRXsize] = { 0 }; 
-	int32_t received = Tools_Hardware_USB_read(_port, dataRX, dataRXsize, 100);
+	// Check available bytes
+	int32_t availableBytes = Tools_Hardware_USB_availableBytes(_port);
+	if(availableBytes <= 0){
+		return;
+	}
+
+	// Read 
+	std::vector<uint8_t> dataRX = std::vector<uint8_t>(availableBytes);
+	int32_t received = Tools_Hardware_USB_read(_port, dataRX.data(), availableBytes, 100);
 	if (received <= 0) {
 		*is_new_data = false;
 		return;
 	}
 
+	// Search
 	uint8_t startIndex;
-	for(startIndex = 0; startIndex < dataRXsize - CANmessageSize; startIndex++){
-		if(dataRX[0 + startIndex] == dEXTENDED_CAN_MSG_ID_2_0B && dataRX[14 + startIndex] == 'S' && dataRX[15 + startIndex] == 'T' && dataRX[16 + startIndex] == 'M' && dataRX[17 + startIndex] == '2' && dataRX[18 + startIndex] == '3' && dataRX[19 + startIndex] == '\0'){
+	for(startIndex = 0; startIndex < received - RX_CAN_MESSAGE_SIZE; startIndex++){
+		if(dataRX.at(0 + startIndex) == dEXTENDED_CAN_MSG_ID_2_0B && dataRX.at(14 + startIndex) == 'S' && dataRX.at(15 + startIndex) == 'T' && dataRX.at(16 + startIndex) == 'M' && dataRX.at(17 + startIndex) == '2' && dataRX.at(18 + startIndex) == '3' && dataRX.at(19 + startIndex) == '\0'){
 			*is_new_data = true;
 			break;
 		}
 	}
 
 	if(*is_new_data){
-		*ID = (dataRX[3 + startIndex] << 8) | dataRX[4 + startIndex];
-		uint8_t DLC = dataRX[5 + startIndex];
+		*ID = (dataRX.at(1 + startIndex) << 24) | (dataRX.at(2 + startIndex) << 16) | (dataRX.at(3 + startIndex) << 8) | dataRX.at(4 + startIndex);
+		uint8_t DLC = dataRX.at(5 + startIndex);
 		for (int i = 0; i < DLC; i++) {
-			data[i] = dataRX[i + 6 + startIndex];
+			data[i] = dataRX.at(i + 6 + startIndex);
 		}
 
 		/* The message was successfully read - Remove it then */
-		Tools_Hardware_USB_eraseData(_port, startIndex, CANmessageSize);
+		Tools_Hardware_USB_eraseData(_port, startIndex, RX_CAN_MESSAGE_SIZE);
 	}else{
 		*is_new_data = false;
 	}

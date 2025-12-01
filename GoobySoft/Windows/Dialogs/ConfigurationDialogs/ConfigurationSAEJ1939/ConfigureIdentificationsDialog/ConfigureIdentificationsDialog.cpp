@@ -3,8 +3,7 @@
 
 void Windows_Dialogs_ConfigurationDialogs_ConfigurationSAEJ1939_ConfigureIdentificationsDialog_showConfigureIdentificationsDialog(bool* configureSAEJ1939Identifications) {
 	// Display
-	ImGui::SetNextWindowSize(ImVec2(500, 450));
-	if (ImGui::Begin("Configure SAE J1939 identifications", configureSAEJ1939Identifications, ImGuiWindowFlags_NoResize)) {
+	if (ImGui::Begin("Configure SAE J1939 identifications", configureSAEJ1939Identifications, ImGuiWindowFlags_AlwaysAutoResize)) {
 		// Get the J1939 struct
 		J1939* j1939 = Tools_Hardware_ParameterStore_getJ1939();
 

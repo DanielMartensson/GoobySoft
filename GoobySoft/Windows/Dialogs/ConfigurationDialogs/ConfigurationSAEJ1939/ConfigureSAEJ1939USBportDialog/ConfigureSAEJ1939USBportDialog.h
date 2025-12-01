@@ -1,0 +1,6 @@
+#ifndef ConfigureSAEJ1939USBportDialog
+#define ConfigureSAEJ1939USBportDialog
+
+void Windows_Dialogs_ConfigurationiDialogs_ConfigurationSAEJ1939_ConfigureSAEJ1939USBportDialog_showConfigureDialog(bool* configureSAEJ1939USBportDialog);
+
+#endif // !ConfigureSAEJ1939USBportDialog

@@ -3,8 +3,7 @@
 
 void Windows_Dialogs_ConfigurationiDialogs_ConfigurationSAEJ1939_ConfigureDiagnosticMessageDialog_showConfigureDiagnosticMessageDialog(bool* configureSAEJ1939DiagnosticMessage) {
 	// Display
-	ImGui::SetNextWindowSize(ImVec2(500, 480));
-	if (ImGui::Begin("Configure SAE J1939 diagnostic messages", configureSAEJ1939DiagnosticMessage, ImGuiWindowFlags_NoResize)) {
+	if (ImGui::Begin("Configure SAE J1939 diagnostic messages", configureSAEJ1939DiagnosticMessage, ImGuiWindowFlags_AlwaysAutoResize)) {
 		// Get the J1939 struct
 		J1939* j1939 = Tools_Hardware_ParameterStore_getJ1939();
 

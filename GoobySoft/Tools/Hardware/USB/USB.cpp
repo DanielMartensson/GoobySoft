@@ -37,8 +37,9 @@ class USB_Listener : public itas109::CSerialPortListener {
 		dataCollection.insert(dataCollection.end(),bytesBuffer, bytesBuffer + receivedBytes);
 
 		// If the collection is to large, remove the first part
-		if(dataCollection.size() > MAX_DATA_COLLECTION){
-    		const size_t difference = dataCollection.size() - MAX_DATA_COLLECTION;
+		int32_t dataDollectionSize = Tools_Hardware_USB_availableBytes(port);
+		if(dataDollectionSize > MAX_DATA_COLLECTION){
+    		const size_t difference = dataDollectionSize - MAX_DATA_COLLECTION;
 			dataCollection.erase(dataCollection.begin(), dataCollection.begin() + difference);
 		}
     };
@@ -223,12 +224,12 @@ int32_t Tools_Hardware_USB_read(const char port[], uint8_t data[], const uint16_
 	}
 
 	// Check data
-	std::vector<uint8_t>& dataCollection = dataCollections[port];
-	if(dataCollection.size() < elements){
+	if(Tools_Hardware_USB_availableBytes(port) < elements){
 		return 0; // No data available
 	}
 
 	// Copy data from the last element
+	std::vector<uint8_t>& dataCollection = dataCollections[port];
 	std::copy(dataCollection.end() - elements, dataCollection.end(), data);
 
 	// Return the size. It's up to the Devices to determine(use protocol) if this uint8_t data[] is complete or not
@@ -241,12 +242,12 @@ bool Tools_Hardware_USB_eraseData(const char port[], const uint16_t startIndex, 
     }
 
 	// Check data
-	std::vector<uint8_t>& dataCollection = dataCollections[port];
-	if(startIndex + elements >= dataCollection.size()) {
+	if(startIndex + elements >= Tools_Hardware_USB_availableBytes(port)) {
 		return false;
     }
 
 	// Delete data
+	std::vector<uint8_t>& dataCollection = dataCollections[port];
 	dataCollection.erase(dataCollection.begin() + startIndex, dataCollection.begin() + startIndex + elements);
 
 	// OK
@@ -261,4 +262,11 @@ void Tools_Hardware_USB_flush(const char port[]) {
 	portConnections[port]->flushReadBuffers();
 	portConnections[port]->flushWriteBuffers();
 	dataCollections[port].clear();
+}
+
+int32_t Tools_Hardware_USB_availableBytes(const char port[]){
+	if(!Tools_Hardware_USB_checkIfExist(port)){
+		return -1;
+    } 
+	return dataCollections[port].size();
 }
