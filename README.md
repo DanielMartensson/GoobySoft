@@ -21,6 +21,7 @@ This is a measuring and controlling software. The purpose of this software is to
  - Uponor X-148 Home Automation System
  - [STM32-PLC](https://github.com/DanielMartensson/STM32-PLC)
  - [Weller to JBC converter](https://github.com/DanielMartensson/Weller-to-JBC-converter)
+ - ISO 11783 ControlValve according to SAE J1939
 
 # How to add a new `device`
 

@@ -3,7 +3,7 @@
 
 void Windows_Dialogs_MeasurementDialogs_ConfigureMeasurementDialog_showConfigureMeasurementDialog(bool* configureMeasurement) {
 	// Display
-	if (ImGui::Begin("Configure measurement", configureMeasurement)) {
+	if (ImGui::Begin("Configure measurement", configureMeasurement, ImGuiWindowFlags_AlwaysAutoResize)) {
 		// Update the ports for the devices
 		Tools_Communications_Devices_updatePorts();
 
