@@ -7,10 +7,3 @@
 [submodule "GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen"]
 	path = GoobySoft/Tools/Software/Libraries/EasyCANopen/Easy-CANopen
 	url = https://github.com/DanielMartensson/Easy-CANopen.git
-
-[submodule "GoobySoft/Tools/Software/Libraries/CANopenNode/CANopenNode"]
-	path = GoobySoft/Tools/Software/Libraries/CANopenNode/CANopenNode
-	url = https://github.com/CANopenNode/CANopenNode.git
-[submodule "GoobySoft/Tools/Software/Libraries/CANopen/CANopenNode"]
-	path = GoobySoft/Tools/Software/Libraries/CANopen/CANopenNode
-	url = https://github.com/CANopenNode/CANopenNode.git
