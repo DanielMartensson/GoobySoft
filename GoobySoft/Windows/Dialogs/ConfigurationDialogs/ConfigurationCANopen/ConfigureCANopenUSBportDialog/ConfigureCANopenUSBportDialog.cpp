@@ -18,10 +18,9 @@ void Windows_Dialogs_ConfigurationiDialogs_ConfigurationCANopen_ConfigureCANopen
         ImGui::Combo("Select USB port", &portIndex, connectedPorts.c_str());
         ImGui::SameLine();
         if(ImGui::Button("Set port")){
+            // Get selected port
+            Tools_Software_Algorithms_extractElementFromCharArray(connectedPorts.c_str(), portIndex, port);
             if(Tools_Hardware_USB_isConnected(port) == USB_STATUS_CONNECTED){
-                // Get selected port
-                Tools_Software_Algorithms_extractElementFromCharArray(connectedPorts.c_str(), portIndex, port);
-
                 // Attach
                 Tools_Software_Libraries_EasyCANopen_setPort(port);
 

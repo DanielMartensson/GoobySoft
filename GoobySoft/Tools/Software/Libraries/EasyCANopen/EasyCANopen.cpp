@@ -13,10 +13,10 @@ static char _port[20] = {0};
 void Tools_Software_Libraries_EasyCANopen_callbackFunctionSend(uint16_t COB_ID, uint8_t DLC, uint8_t data[]) {
 	uint8_t dataTX[TX_CAN_MESSAGE_SIZE] = { 0 };
 	dataTX[0] = dSTANDARD_CAN_MSG_ID_2_0B;
-	dataTX[1] = 0;
-	dataTX[2] = 0;
-	dataTX[3] = COB_ID >> 8;
-	dataTX[4] = COB_ID;
+	dataTX[1] = (COB_ID >> 24) & 0xFF;
+	dataTX[2] = (COB_ID >> 16) & 0xFF;
+	dataTX[3] = (COB_ID >> 8) & 0xFF;
+	dataTX[4] = COB_ID & 0xFF;
 	dataTX[5] = DLC;
 	for (uint8_t i = 0; i < DLC; i++) {
 		dataTX[6 + i] = data[i];
@@ -40,18 +40,18 @@ void Tools_Software_Libraries_EasyCANopen_callbackFunctionRead(uint16_t* COB_ID,
 	}
 
 	// Search
-	uint8_t startIndex;
+	int32_t startIndex;
 	for(startIndex = 0; startIndex < received - RX_CAN_MESSAGE_SIZE; startIndex++){
-		if(dataRX.at(0 + startIndex) == dSTANDARD_CAN_MSG_ID_2_0B && dataRX.at(14 + startIndex) == 'S' && dataRX.at(15 + startIndex) == 'T' && dataRX.at(16 + startIndex) == 'M' && dataRX.at(17 + startIndex) == '2' && dataRX.at(18 + startIndex) == '3' && dataRX.at(19 + startIndex) == '\0'){
+		if(dataRX.at(0 + startIndex) == dSTANDARD_CAN_MSG_ID_2_0B && dataRX.at(14 + startIndex) == 'S' && dataRX.at(15 + startIndex) == 'T' && dataRX.at(16 + startIndex) == 'M' && dataRX.at(17 + startIndex) == '3' && dataRX.at(18 + startIndex) == '2' && dataRX.at(19 + startIndex) == '\0'){
 			*is_new_data = true;
 			break;
 		}
 	}
 
 	if(*is_new_data){
-		*COB_ID = (dataRX.at(3 + startIndex) << 8) | dataRX.at(4 + startIndex);
+		*COB_ID = (dataRX.at(1 + startIndex) << 24) | (dataRX.at(2 + startIndex) << 16) | (dataRX.at(3 + startIndex) << 8) | dataRX.at(4 + startIndex);
 		uint8_t DLC = dataRX.at(5 + startIndex);
-		for (int i = 0; i < DLC; i++) {
+		for (uint8_t i = 0; i < DLC; i++) {
 			data[i] = dataRX.at(i + 6 + startIndex);
 		}
 
