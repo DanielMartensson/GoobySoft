@@ -10,7 +10,6 @@ typedef enum {
 	IO_READ_SETPOINT_REAL,
 	IO_READ_STATE_XHAT,
 	IO_READ_LED_GREEN,
-	IO_READ_LEACKAGE_ACTIVE,
 	IO_READ_SLEEP,
 	IO_READ_ITERATION_TIME_MS,
 	IO_READ_INPUT_OPTIMIZED
@@ -34,8 +33,6 @@ std::string Tools_Communications_Devices_WellerToJBC_getFunctionValues() {
 	functionNames += '\0';
 	functionNames += "Read LED green";
 	functionNames += '\0';
-	functionNames += "Read leackage active";
-	functionNames += '\0';
 	functionNames += "Read sleep active";
 	functionNames += '\0';
 	functionNames += "Read iteration time ms";
@@ -56,8 +53,8 @@ float Tools_Communications_Devices_WellerToJBC_getInput(const char port[], int f
 	/* These must follow the same linear pattern as getFunctionValues() */
 	modbus_client_set_RTU_address(address);
 	modbus_set_serial_port(port);
-	uint16_t registers[100];
-	uint8_t digitals[100];
+	uint16_t registers[100] = {0};
+	uint8_t digitals[100] = {0};
 	switch (functionValueIndex) {
 	case IO_READ_CURRENT_RAW: {
 		static float value = 0;
@@ -109,13 +106,6 @@ float Tools_Communications_Devices_WellerToJBC_getInput(const char port[], int f
 		return value;
 	}
 	case IO_READ_LED_GREEN: {
-		static float value = 0;
-		if (modbus_client_get_digital_outputs(digitals, 1, 1)) {
-			value = (float)digitals[0];
-		}
-		return value;
-	}
-	case IO_READ_LEACKAGE_ACTIVE: {
 		static float value = 0;
 		if (modbus_client_get_digital_outputs(digitals, 0, 1)) {
 			value = (float)digitals[0];
@@ -174,8 +164,6 @@ COLUMN_FUNCTION Tools_Communications_Devices_WellerToJBC_getColumnFunction(int f
 		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION;
 	case IO_READ_LED_GREEN:
 		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION;
-	case IO_READ_LEACKAGE_ACTIVE:
-		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION;
 	case IO_READ_SLEEP:
 		return COLUMN_FUNCTION_INPUT_SENSOR_ADDRESS_NO_CALIBRATION;
 	case IO_READ_ITERATION_TIME_MS:
@@ -190,7 +178,7 @@ COLUMN_FUNCTION Tools_Communications_Devices_WellerToJBC_getColumnFunction(int f
 bool Tools_Communications_Devices_WellerToJBC_setAnalogInputCalibration(const char port[], const int address, const int rawMin[], const int rawMax[], const float realMin[], const float realMax[]) {
 	modbus_client_set_RTU_address(address);
 	modbus_set_serial_port(port);
-	uint16_t registers[100];
+	uint16_t registers[100] = {0};
 	registers[0] = rawMin[0];
 	registers[1] = rawMax[0];
 	float_to_uint16(realMin[0], &registers[3], &registers[2]);
@@ -211,7 +199,7 @@ bool Tools_Communications_Devices_WellerToJBC_setAnalogInputCalibration(const ch
 bool Tools_Communications_Devices_WellerToJBC_getAnalogInputCalibration(const char port[], const int address, int rawMin[], int rawMax[], float realMin[], float realMax[]) {
 	modbus_client_set_RTU_address(address);
 	modbus_set_serial_port(port);
-	uint16_t registers[100];
+	uint16_t registers[100] = {0};
 	const bool status = modbus_client_get_parameters(registers, 0, 18);
 	Tools_Hardware_USB_flush(port);
 	rawMin[0] = registers[0];
@@ -232,7 +220,7 @@ bool Tools_Communications_Devices_WellerToJBC_getAnalogInputCalibration(const ch
 bool Tools_Communications_Devices_WellerToJBC_setParameters(const char port[], const int address, const float A, const float B, const float qw, const float rv, const float qz, const float s, const float psi, const float alpha, const float antiwindup, const float umin, const float umax, const float steadyStateModelError, const float zmax, const float deltaumin, const float deltaumax) {
 	modbus_client_set_RTU_address(address);
 	modbus_set_serial_port(port);
-	uint16_t registers[100];
+	uint16_t registers[100] = {0};
 	float_to_uint16(A, &registers[1], &registers[0]);
 	float_to_uint16(B, &registers[3], &registers[2]);
 	float_to_uint16(qw, &registers[5], &registers[4]);
@@ -258,7 +246,7 @@ bool Tools_Communications_Devices_WellerToJBC_setParameters(const char port[], c
 bool Tools_Communications_Devices_WellerToJBC_getParameters(const char port[], const int address, float* A, float* B, float* qw, float* rv, float* qz, float* s, float* psi, float* alpha, float* antiwindup, float* umin, float* umax, float* steadyStateModelError, float* zmax, float* deltaumin, float* deltaumax) {
 	modbus_client_set_RTU_address(address);
 	modbus_set_serial_port(port);
-	uint16_t registers[100];
+	uint16_t registers[100] = {0};
 	const bool status1 = modbus_client_get_parameters(registers, 18, 16);
 	Tools_Hardware_USB_flush(port);
 	*A = uint16_to_float(registers[1], registers[0]);
@@ -281,7 +269,7 @@ bool Tools_Communications_Devices_WellerToJBC_getParameters(const char port[], c
 	return status1 && status2;
 }
 
-bool Tools_Communications_Devices_WellerToJBC_setOperation(const char port[], const int address, const int operationIndex) {
+bool Tools_Communications_Devices_WellerToJBC_setOperation(const char port[], const int address, const uint16_t operationIndex) {
 	modbus_client_set_RTU_address(address);
 	modbus_set_serial_port(port);
 	uint16_t registers[10] = { operationIndex };
@@ -293,7 +281,7 @@ bool Tools_Communications_Devices_WellerToJBC_setOperation(const char port[], co
 bool Tools_Communications_Devices_WellerToJBC_getOperation(const char port[], const int address, int* operationIndex) {
 	modbus_client_set_RTU_address(address);
 	modbus_set_serial_port(port);
-	uint16_t registers[100];
+	uint16_t registers[100] = {0};
 	const bool status = modbus_client_get_parameters(registers, 48, 1);
 	Tools_Hardware_USB_flush(port);
 	*operationIndex = registers[0];

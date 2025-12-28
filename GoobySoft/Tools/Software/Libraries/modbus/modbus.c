@@ -19,14 +19,17 @@ static nmbs_t nmbs_client = {0};
 #endif
 
 /* Function pointers */
-int32_t (*serial_read_function)(const char port[], uint8_t*, uint16_t, int32_t) = NULL;
-int32_t (*serial_write_function)(const char port[], const uint8_t*, uint16_t, int32_t) = NULL;
+int32_t (*serial_read_function)(const char port[], uint8_t*, const uint16_t, const int32_t, const bool, const bool) = NULL;
+int32_t (*serial_write_function)(const char port[], const uint8_t*, const uint16_t, const int32_t) = NULL;
 char port_[20];
 
 /* Read via serial */
 int32_t read_serial(uint8_t* buf, uint16_t count, int32_t byte_timeout_ms, void* arg) {
 	if (serial_read_function) {
-		return serial_read_function(port_, buf, count, byte_timeout_ms);
+		/* User defined arguments for reading with CSerialPort over USB */
+		const bool eraseDataAfterRead = true;
+		const bool readDataLatestAvailable = false;
+		return serial_read_function(port_, buf, count, byte_timeout_ms, eraseDataAfterRead, readDataLatestAvailable);
 	}
     return 0;
 }
@@ -39,11 +42,11 @@ int32_t write_serial(const uint8_t* buf, uint16_t count, int32_t byte_timeout_ms
     return 0;
 }
 
-void modbus_set_serial_write(int32_t (*serial_write)(const char port[], const uint8_t*, uint16_t, int32_t)){
+void modbus_set_serial_write(int32_t (*serial_write)(const char port[], const uint8_t*, const uint16_t, const int32_t)){
 	serial_write_function = serial_write;
 }
 
-void modbus_set_serial_read(int32_t (*serial_read)(const char port[], uint8_t*, uint16_t, int32_t)){
+void modbus_set_serial_read(int32_t (*serial_read)(const char port[], uint8_t*, const uint16_t, const int32_t, const bool, const bool)){
 	serial_read_function = serial_read;
 }
 

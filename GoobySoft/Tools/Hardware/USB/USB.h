@@ -46,7 +46,7 @@ std::string Tools_Hardware_USB_getProtocolFromPort(const char port[]);
 int32_t Tools_Hardware_USB_write(const char port[], const uint8_t data[], const uint16_t elements, const int32_t timeout_ms);
 void Tools_Hardware_USB_setTimeout(const char port[], const uint32_t timeout_ms);
 uint32_t Tools_Hardware_USB_getTimeout(const char port[]);
-int32_t Tools_Hardware_USB_read(const char port[], uint8_t data[], const uint16_t elements, const int32_t timeout_ms);
+int32_t Tools_Hardware_USB_read(const char port[], uint8_t data[], const uint16_t elements, const int32_t timeout_ms, const bool eraseDataAfterRead, const bool readDataLatestAvailable);
 bool Tools_Hardware_USB_eraseData(const char port[], const uint16_t startIndex, const uint16_t elements);
 void Tools_Hardware_USB_flush(const char port[]);
 int32_t Tools_Hardware_USB_availableBytes(const char port[]);

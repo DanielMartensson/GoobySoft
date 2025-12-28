@@ -22,8 +22,8 @@ extern "C" {
 #define IS_MODBUS_SERVER */
 
 /* For all */
-void modbus_set_serial_write(int32_t (*serial_write)(const char port[], const uint8_t*, uint16_t, int32_t));
-void modbus_set_serial_read(int32_t (*serial_read)(const char port[], uint8_t*, uint16_t, int32_t));
+void modbus_set_serial_write(int32_t (*serial_write)(const char port[], const uint8_t*, const uint16_t, const int32_t));
+void modbus_set_serial_read(int32_t (*serial_read)(const char port[], uint8_t*, const uint16_t, const int32_t, const bool, const bool));
 void modbus_set_serial_port(const char port[]);
 
 #ifdef IS_MODBUS_SERVER
@@ -53,10 +53,6 @@ bool modbus_client_set_parameters(const uint16_t parameters[], const uint16_t ad
 bool modbus_client_get_parameters(uint16_t parameters[], const uint16_t address, const uint16_t quantity);
 
 #endif
-
-/* Place these .h files here because of the defines IS_MODBUS_CLIENT and IS_MODBUS_SERVER */
-#include "modbusclient.h"
-#include "modbusserver.h"
 
 #ifdef __cplusplus
 }

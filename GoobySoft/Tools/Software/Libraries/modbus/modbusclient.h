@@ -10,6 +10,7 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include "modbus.h"
 #include "nanomodbus/nanomodbus.h"
 
 #ifdef __cplusplus

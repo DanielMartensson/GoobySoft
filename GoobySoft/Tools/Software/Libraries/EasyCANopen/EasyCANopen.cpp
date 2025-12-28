@@ -13,8 +13,8 @@ static char _port[20] = {0};
 void Tools_Software_Libraries_EasyCANopen_callbackFunctionSend(uint16_t COB_ID, uint8_t DLC, uint8_t data[]) {
 	uint8_t dataTX[TX_CAN_MESSAGE_SIZE] = { 0 };
 	dataTX[0] = dSTANDARD_CAN_MSG_ID_2_0B;
-	dataTX[1] = (COB_ID >> 24) & 0xFF;
-	dataTX[2] = (COB_ID >> 16) & 0xFF;
+	dataTX[1] = 0;
+	dataTX[2] = 0;
 	dataTX[3] = (COB_ID >> 8) & 0xFF;
 	dataTX[4] = COB_ID & 0xFF;
 	dataTX[5] = DLC;
@@ -33,7 +33,7 @@ void Tools_Software_Libraries_EasyCANopen_callbackFunctionRead(uint16_t* COB_ID,
 
 	// Read 
 	std::vector<uint8_t> dataRX = std::vector<uint8_t>(availableBytes);
-	int32_t received = Tools_Hardware_USB_read(_port, dataRX.data(), availableBytes, 100);
+	int32_t received = Tools_Hardware_USB_read(_port, dataRX.data(), availableBytes, 100, false, true);
 	if (received <= 0) {
 		*is_new_data = false;
 		return;

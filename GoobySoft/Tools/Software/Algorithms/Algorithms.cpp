@@ -67,6 +67,10 @@ float Tools_Software_Algorithms_calibration(float x1, float x2, float y1, float 
     return k * x + m;
 }
 
-void Tools_Software_Algorithms_goobySleep(const uint32_t milliseconds) {
+void Tools_Software_Algorithms_goobySleep_ms(const uint32_t milliseconds) {
     std::this_thread::sleep_for(std::chrono::milliseconds(milliseconds));
+}
+
+void Tools_Software_Algorithms_goobySleep_us(const uint32_t microseconds) {
+    std::this_thread::sleep_for(std::chrono::microseconds(microseconds));
 }

@@ -33,7 +33,7 @@ void Tools_Software_Libraries_OpenSAEJ1939_callbackFunctionRead(uint32_t* ID, ui
 
 	// Read 
 	std::vector<uint8_t> dataRX = std::vector<uint8_t>(availableBytes);
-	int32_t received = Tools_Hardware_USB_read(_port, dataRX.data(), availableBytes, 100);
+	int32_t received = Tools_Hardware_USB_read(_port, dataRX.data(), availableBytes, 100, false, true);
 	if (received <= 0) {
 		*is_new_data = false;
 		return;

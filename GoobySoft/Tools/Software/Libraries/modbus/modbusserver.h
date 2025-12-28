@@ -9,6 +9,7 @@
 #define SRC_TOOLS_MODBUS_MODBUSSERVER_H_
 
 #include <stdint.h>
+#include "modbus.h"
 #include "nanomodbus/nanomodbus.h"
 
 #ifdef __cplusplus

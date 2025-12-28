@@ -10,38 +10,48 @@ static std::map<std::string, std::shared_ptr<itas109::CSerialPort>> portConnecti
 #define MAX_DATA_COLLECTION 1024
 static std::map<std::string, std::vector<uint8_t>> dataCollections;
 
+// Inline function for directly read. This is both used by the listener and the Tools_Hardware_USB_read function 
+static inline int readDataDirectly(const char port[], unsigned int bytesAvailable){
+    // Don't read 0 bytes
+	if (bytesAvailable == 0){
+		return 0;
+	}
+
+	// Get port 
+	itas109::CSerialPort* p_sp = portConnections[port].get();
+
+	// Read the data
+	uint8_t bytesBuffer[MAX_DATA_COLLECTION];
+	const int bytesRead = MAX_DATA_COLLECTION < bytesAvailable ? MAX_DATA_COLLECTION : bytesAvailable;
+	const int receivedBytes = p_sp->readData(bytesBuffer, bytesRead);
+	if(receivedBytes <= 0){
+		return 0; 
+	}
+
+	// Store the data from buffer in a vector
+	std::vector<uint8_t>& dataCollection = dataCollections[port];
+	dataCollection.insert(dataCollection.end(),bytesBuffer, bytesBuffer + receivedBytes);
+
+	// If the collection is to large, remove the first part
+	int32_t dataDollectionSize = Tools_Hardware_USB_availableBytes(port);
+	if(dataDollectionSize > MAX_DATA_COLLECTION){
+    	const size_t difference = dataDollectionSize - MAX_DATA_COLLECTION;
+		dataCollection.erase(dataCollection.begin(), dataCollection.begin() + difference);
+	}
+
+	// Return recieved bytes
+	return receivedBytes;
+}
+
 class USB_Listener : public itas109::CSerialPortListener {
 	private:
     itas109::CSerialPort *p_sp;
 
 	public:
-    USB_Listener(itas109::CSerialPort *sp) : p_sp(sp){
+    USB_Listener(itas109::CSerialPort *sp) : p_sp(sp){};
 
-	};
-
-    void onReadEvent(const char* port, unsigned int bytesAvailable) {
-        if (bytesAvailable == 0){
-			return;
-		}
-		
-		// Read the data
-		uint8_t bytesBuffer[MAX_DATA_COLLECTION];
-		const int bytesRead = MAX_DATA_COLLECTION < bytesAvailable ? MAX_DATA_COLLECTION : bytesAvailable;
-		const int receivedBytes = p_sp->readData(bytesBuffer, bytesRead);
-		if(receivedBytes <= 0){
-			return; 
-		}
-
-		// Store the data from buffer in a vector
-		std::vector<uint8_t>& dataCollection = dataCollections[port];
-		dataCollection.insert(dataCollection.end(),bytesBuffer, bytesBuffer + receivedBytes);
-
-		// If the collection is to large, remove the first part
-		int32_t dataDollectionSize = Tools_Hardware_USB_availableBytes(port);
-		if(dataDollectionSize > MAX_DATA_COLLECTION){
-    		const size_t difference = dataDollectionSize - MAX_DATA_COLLECTION;
-			dataCollection.erase(dataCollection.begin(), dataCollection.begin() + difference);
-		}
+    void onReadEvent(const char port[], unsigned int bytesAvailable) {
+		readDataDirectly(port, bytesAvailable);
     };
 };
 
@@ -143,7 +153,7 @@ USB_STATUS Tools_Hardware_USB_openConnection(const char port[], const unsigned i
 	// Create port connection
 	std::shared_ptr<itas109::CSerialPort> portConnection = std::make_shared<itas109::CSerialPort>();
 	portConnection->init(port, baudrate, CSerialPortParity, CSerialPortDataBits, CSerialPortStopBits, CSerialPortFlowControl);
-
+	
 	// Open
 	if (portConnection->open()) {
 		// Save
@@ -154,6 +164,7 @@ USB_STATUS Tools_Hardware_USB_openConnection(const char port[], const unsigned i
 		std::shared_ptr<USB_Listener> portListener = std::make_shared<USB_Listener>(portConnection.get());
 		portConnection->connectReadEvent(portListener.get());
 		portListeners[port] = portListener;
+		portConnections[port]->setReadIntervalTimeout(10);
 
 		// OK
 		return USB_STATUS_CONNECTED;
@@ -215,22 +226,57 @@ uint32_t Tools_Hardware_USB_getTimeout(const char port[]){
 	return portConnections[port]->getReadIntervalTimeout();
 }
 
-int32_t Tools_Hardware_USB_read(const char port[], uint8_t data[], const uint16_t elements, const int32_t timeout_ms) {
+int32_t Tools_Hardware_USB_read(const char port[], uint8_t data[], const uint16_t elements, const int32_t timeout_ms, const bool eraseDataAfterRead, const bool readDataLatestAvailable) {
     if(!Tools_Hardware_USB_checkIfExist(port)){
       return -1;
     }
-	if(Tools_Hardware_USB_getTimeout(port) != timeout_ms){
-		Tools_Hardware_USB_setTimeout(port, timeout_ms);
+
+	// Check available bytes
+	int32_t availableBytes = Tools_Hardware_USB_availableBytes(port);
+
+	// When timeout is equal to 0 and elements is larger than available bytes
+	if(timeout_ms == 0 && (availableBytes < elements)){
+		Tools_Hardware_USB_flush(port);
+		return 0;
 	}
 
-	// Check data
-	if(Tools_Hardware_USB_availableBytes(port) < elements){
-		return 0; // No data available
+	// Read manually to see if we need to run that while-statement or not
+	readDataDirectly(port, elements); 
+	availableBytes = Tools_Hardware_USB_availableBytes(port);
+
+	// Timeout is larger than 0, that means we need to read data
+	uint16_t time_ms = 0;
+	while(availableBytes < elements){
+		// Sleep
+		Tools_Software_Algorithms_goobySleep_ms(1);
+
+		/* 
+		 * Read the data before the listerner does.
+		 * The listener works fine for heartbeat messages such as CAN-bus.
+		 * But not for MODBUS, the reading must be manually.
+		 */
+		readDataDirectly(port, elements); 
+		availableBytes = Tools_Hardware_USB_availableBytes(port);
+
+		// Cound the time out
+		time_ms++;
+		if(time_ms > timeout_ms){
+			return 0;
+		}
 	}
 
 	// Copy data from the last element
 	std::vector<uint8_t>& dataCollection = dataCollections[port];
-	std::copy(dataCollection.end() - elements, dataCollection.end(), data);
+	if(readDataLatestAvailable){
+		std::copy(dataCollection.end() - elements, dataCollection.end(), data);
+	}else{
+		std::copy(dataCollection.begin(), dataCollection.begin() + elements, data);
+	}
+
+	// If erase data is true
+	if(eraseDataAfterRead){
+		Tools_Hardware_USB_eraseData(port, 0, elements);
+	}
 
 	// Return the size. It's up to the Devices to determine(use protocol) if this uint8_t data[] is complete or not
 	return elements;
@@ -242,7 +288,7 @@ bool Tools_Hardware_USB_eraseData(const char port[], const uint16_t startIndex, 
     }
 
 	// Check data
-	if(startIndex + elements >= Tools_Hardware_USB_availableBytes(port)) {
+	if(startIndex + elements > Tools_Hardware_USB_availableBytes(port)) {
 		return false;
     }
 
@@ -268,5 +314,5 @@ int32_t Tools_Hardware_USB_availableBytes(const char port[]){
 	if(!Tools_Hardware_USB_checkIfExist(port)){
 		return -1;
     } 
-	return dataCollections[port].size();
+	return (int32_t)dataCollections[port].size();
 }
